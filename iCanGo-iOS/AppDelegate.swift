@@ -9,18 +9,19 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Haneke
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // Override point for customization after application launch.
         
-        testAlamofire();
+        //testAlamofireSwiftyJSON()
+        testHaneke()
         
         let naVC = UINavigationController(nibName: "MainViewController", bundle: nil)
         self.window?.rootViewController = naVC;
@@ -29,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func testAlamofire() {
+    func testAlamofireSwiftyJSON() {
         
         Alamofire.request(.GET, "http://www.mocky.io/v2/5753da62120000ab1a4775f2").responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
@@ -38,6 +39,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(swiftyJsonVar);            }
         }
         
+    }
+    
+    func testHaneke() {
+        
+        
+        let cache = Shared.imageCache
+        
+        let URL = NSURL(string: "http://urbinavolant.com/alberto/wp-content/uploads/2008/11/avi.jpg")!
+        let fetcher = NetworkFetcher<UIImage>(URL: URL)
+        cache.fetch(fetcher: fetcher).onSuccess { image in
+            // Do something with image
+            print("image loaded")
+        }
+        print("end");
     }
 
 

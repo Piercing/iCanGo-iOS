@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'iCanGo-iOS' do
     pod 'Alamofire-SwiftyJSON'
+    pod 'HanekeSwift'
 end
