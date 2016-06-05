@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		703954876E7A7AC6F4707C43 /* Pods_iCanGo_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434373141F127AECB66EE15E /* Pods_iCanGo_iOS.framework */; };
 		79F418211D043B36002131C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418201D043B36002131C7 /* AppDelegate.swift */; };
 		79F418231D043B36002131C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F418221D043B36002131C7 /* Assets.xcassets */; };
 		79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F418241D043B36002131C7 /* LaunchScreen.storyboard */; };
@@ -14,6 +15,7 @@
 		79F4183E1D043B56002131C7 /* .git in Resources */ = {isa = PBXBuildFile; fileRef = 79F4183B1D043B56002131C7 /* .git */; };
 		79F4183F1D043B56002131C7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 79F4183C1D043B56002131C7 /* .gitignore */; };
 		79F418401D043B56002131C7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 79F4183D1D043B56002131C7 /* README.md */; };
+		79F4184A1D043E3D002131C7 /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = 79F418491D043E3D002131C7 /* PodFile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00036E15BD30301E24920DAE /* Pods-iCanGo-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		434373141F127AECB66EE15E /* Pods_iCanGo_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCanGo_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F4181D1D043B36002131C7 /* iCanGo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCanGo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F418201D043B36002131C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79F418221D043B36002131C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +42,8 @@
 		79F4183B1D043B56002131C7 /* .git */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .git; sourceTree = "<group>"; };
 		79F4183C1D043B56002131C7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		79F4183D1D043B56002131C7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		79F418491D043E3D002131C7 /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PodFile; sourceTree = "<group>"; };
+		9740EBE18A8BC9DE2640420E /* Pods-iCanGo-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				703954876E7A7AC6F4707C43 /* Pods_iCanGo_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,15 +65,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F250FD3BBFD341F9921D137 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				434373141F127AECB66EE15E /* Pods_iCanGo_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74F7013013F19A42F9103540 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00036E15BD30301E24920DAE /* Pods-iCanGo-iOS.debug.xcconfig */,
+				9740EBE18A8BC9DE2640420E /* Pods-iCanGo-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		79F418141D043B36002131C7 = {
 			isa = PBXGroup;
 			children = (
+				79F418491D043E3D002131C7 /* PodFile */,
 				79F4181F1D043B36002131C7 /* iCanGo-iOS */,
 				79F4182F1D043B36002131C7 /* iCanGo-iOSTests */,
 				79F4181E1D043B36002131C7 /* Products */,
 				79F4183B1D043B56002131C7 /* .git */,
 				79F4183C1D043B56002131C7 /* .gitignore */,
 				79F4183D1D043B56002131C7 /* README.md */,
+				4F250FD3BBFD341F9921D137 /* Frameworks */,
+				74F7013013F19A42F9103540 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,9 +189,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79F418351D043B36002131C7 /* Build configuration list for PBXNativeTarget "iCanGo-iOS" */;
 			buildPhases = (
+				4F5D1E1EDCF6A024C8CDFE78 /* [CP] Check Pods Manifest.lock */,
 				79F418191D043B36002131C7 /* Sources */,
 				79F4181A1D043B36002131C7 /* Frameworks */,
 				79F4181B1D043B36002131C7 /* Resources */,
+				2775D9FF85AABEA458110650 /* [CP] Embed Pods Frameworks */,
+				69F9627FA661F8BB90DF0A38 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79F4183F1D043B56002131C7 /* .gitignore in Resources */,
+				79F4184A1D043E3D002131C7 /* PodFile in Resources */,
 				79F418231D043B36002131C7 /* Assets.xcassets in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
@@ -252,6 +283,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2775D9FF85AABEA458110650 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F5D1E1EDCF6A024C8CDFE78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		69F9627FA661F8BB90DF0A38 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		79F418191D043B36002131C7 /* Sources */ = {
@@ -378,6 +457,7 @@
 		};
 		79F418361D043B36002131C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00036E15BD30301E24920DAE /* Pods-iCanGo-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -390,6 +470,7 @@
 		};
 		79F418371D043B36002131C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9740EBE18A8BC9DE2640420E /* Pods-iCanGo-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -443,6 +524,7 @@
 				79F418371D043B36002131C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		79F418381D043B36002131C7 /* Build configuration list for PBXNativeTarget "iCanGo-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +533,7 @@
 				79F4183A1D043B36002131C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
