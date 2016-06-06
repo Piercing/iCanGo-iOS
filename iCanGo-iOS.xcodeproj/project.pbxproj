@@ -14,8 +14,12 @@
 		79F418311D043B36002131C7 /* iCanGo_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418301D043B36002131C7 /* iCanGo_iOSTests.swift */; };
 		79F4183E1D043B56002131C7 /* .git in Resources */ = {isa = PBXBuildFile; fileRef = 79F4183B1D043B56002131C7 /* .git */; };
 		79F4183F1D043B56002131C7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 79F4183C1D043B56002131C7 /* .gitignore */; };
-		79F418401D043B56002131C7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 79F4183D1D043B56002131C7 /* README.md */; };
+		79F418401D043B56002131C7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 79F4183D1D043B56002131C7 /* README.md */; };
 		79F4184A1D043E3D002131C7 /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = 79F418491D043E3D002131C7 /* PodFile */; };
+		D37630EC1D058F660001E29F /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630EB1D058F660001E29F /* Resource.swift */; };
+		D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630ED1D05B5F40001E29F /* APIRequest.swift */; };
+		D37630F01D05C0FB0001E29F /* iCanGO-iOS.md in Resources */ = {isa = PBXBuildFile; fileRef = D37630EF1D05C0FB0001E29F /* iCanGO-iOS.md */; };
+		D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630F21D05C1960001E29F /* JSONDecodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		79F4183D1D043B56002131C7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		79F418491D043E3D002131C7 /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PodFile; sourceTree = "<group>"; };
 		9740EBE18A8BC9DE2640420E /* Pods-iCanGo-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		D37630EB1D058F660001E29F /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		D37630ED1D05B5F40001E29F /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		D37630EF1D05C0FB0001E29F /* iCanGO-iOS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "iCanGO-iOS.md"; sourceTree = "<group>"; };
+		D37630F21D05C1960001E29F /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,13 +93,14 @@
 		79F418141D043B36002131C7 = {
 			isa = PBXGroup;
 			children = (
-				79F418491D043E3D002131C7 /* PodFile */,
 				79F4181F1D043B36002131C7 /* iCanGo-iOS */,
 				79F4182F1D043B36002131C7 /* iCanGo-iOSTests */,
 				79F4181E1D043B36002131C7 /* Products */,
 				79F4183B1D043B56002131C7 /* .git */,
 				79F4183C1D043B56002131C7 /* .gitignore */,
+				79F418491D043E3D002131C7 /* PodFile */,
 				79F4183D1D043B56002131C7 /* README.md */,
+				D37630EF1D05C0FB0001E29F /* iCanGO-iOS.md */,
 				4F250FD3BBFD341F9921D137 /* Frameworks */,
 				74F7013013F19A42F9103540 /* Pods */,
 			);
@@ -149,6 +158,9 @@
 		79F418441D043BB0002131C7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D37630F41D05C3310001E29F /* Model */,
+				D37630F11D05C1550001E29F /* JSON */,
+				D37630EA1D058F4A0001E29F /* Network */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -182,6 +194,30 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		D37630EA1D058F4A0001E29F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D37630EB1D058F660001E29F /* Resource.swift */,
+				D37630ED1D05B5F40001E29F /* APIRequest.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		D37630F11D05C1550001E29F /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				D37630F21D05C1960001E29F /* JSONDecodable.swift */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		D37630F41D05C3310001E29F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,12 +225,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79F418351D043B36002131C7 /* Build configuration list for PBXNativeTarget "iCanGo-iOS" */;
 			buildPhases = (
+				E77BD3F4F19B29E80586C29F /* 📦 Check Pods Manifest.lock */,
 				4F5D1E1EDCF6A024C8CDFE78 /* [CP] Check Pods Manifest.lock */,
 				79F418191D043B36002131C7 /* Sources */,
 				79F4181A1D043B36002131C7 /* Frameworks */,
 				79F4181B1D043B36002131C7 /* Resources */,
 				2775D9FF85AABEA458110650 /* [CP] Embed Pods Frameworks */,
 				69F9627FA661F8BB90DF0A38 /* [CP] Copy Pods Resources */,
+				11D16205292104667AE414C6 /* 📦 Embed Pods Frameworks */,
+				F309810425F55297DDC1A1B7 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,6 +311,8 @@
 				79F418231D043B36002131C7 /* Assets.xcassets in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
+				79F418401D043B56002131C7 /* README.md in Resources */,
+				D37630F01D05C0FB0001E29F /* iCanGO-iOS.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +326,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		11D16205292104667AE414C6 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2775D9FF85AABEA458110650 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,6 +386,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E77BD3F4F19B29E80586C29F /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F309810425F55297DDC1A1B7 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -337,8 +423,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79F418401D043B56002131C7 /* README.md in Sources */,
+				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
+				D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
+				D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

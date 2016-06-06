@@ -4,3 +4,4 @@
 -   [Alamofire](https://github.com/Alamofire/Alamofire)
 -   [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 -   [Haneke](https://github.com/Haneke/HanekeSwift)
+-   [RxSwift](https://github.com/ReactiveX/RxSwift)
