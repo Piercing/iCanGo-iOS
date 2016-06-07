@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (3.4.0)
-  - Alamofire-SwiftyJSON (0.1.1):
+  - AlamofireSwiftyJSON (0.1.1):
     - Alamofire (~> 3.4)
     - SwiftyJSON (~> 2.3)
   - HanekeSwift (0.10.1)
@@ -9,28 +9,24 @@ PODS:
   - RxCocoa (2.5.0):
     - RxSwift (~> 2.5)
   - RxSwift (2.5.0)
-  - RxTests (2.5.0):
-    - RxSwift (~> 2.5)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
-  - Alamofire-SwiftyJSON
+  - AlamofireSwiftyJSON
   - HanekeSwift
   - RxBlocking (~> 2.0)
   - RxCocoa (~> 2.0)
   - RxSwift (~> 2.0)
-  - RxTests (~> 2.0)
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
-  Alamofire-SwiftyJSON: 5812bb37accc36897cc2f2dabb070d8ebcd7ac98
+  AlamofireSwiftyJSON: 4787ff07c7e6687b787f1723229e729653e3359f
   HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   RxBlocking: 595d9ab56dde6b00beaa5aba40e95b150d2135f1
   RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
-  RxTests: 1b13bea0a138552b52aeead549ef08d578bcda9e
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 7e0d6646618ac5433623f0a86d8f286dd59b7f87
+PODFILE CHECKSUM: 92f7ece7733230fd9f95e21d2b9d8877f5c61c63
 
 COCOAPODS: 1.0.0

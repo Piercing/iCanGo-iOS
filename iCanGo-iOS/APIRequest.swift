@@ -23,8 +23,8 @@ extension APIRequest: Resource {
     
     var path: String {
         switch self {
-            case APIRequest.GetServices:
-                return "v2/"
+            case let APIRequest.GetServices(_, query):
+                return "v2/\(query)"
         }
     }
     

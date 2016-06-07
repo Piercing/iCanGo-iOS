@@ -19,6 +19,7 @@ protocol Resource {
     var parameters: [String: String] { get }
 }
 
+// MARK: - Extension
 extension Resource {
     
     var parameters: [String: String] {
@@ -29,15 +30,18 @@ extension Resource {
         
         let URL = baseURL.URLByAppendingPathComponent(path)
         
+        /*
         guard let components = NSURLComponents(URL: URL, resolvingAgainstBaseURL: false) else {
             fatalError("Unable to create URLComponents form \(URL)")
         }
         
         components.queryItems = parameters.map { NSURLQueryItem(name: $0, value: $1) }
-        
+
         guard let finalURL = components.URL else {
             fatalError("Unable to retrieve final URL")
         }
+        */
+        let finalURL = URL
         
         let request = NSMutableURLRequest(URL: finalURL)
         request.HTTPMethod = method.rawValue

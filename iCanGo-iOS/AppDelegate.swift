@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         //testAlamofireSwiftyJSON()
-        testHaneke()
+        //testHaneke()
+        testGetServices()
         
         let naVC = UINavigationController(nibName: "MainViewController", bundle: nil)
         self.window?.rootViewController = naVC;
@@ -29,6 +30,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func testGetServices() {
+        
+        let session = Session.iCanGoSession()
+        session.getServices("5753da62120000ab1a4775f2").subscribeNext { services in
+            print(services)
+        }
+    }
+    
+    /*
     func testAlamofireSwiftyJSON() {
         
         Alamofire.request(.GET, "http://www.mocky.io/v2/5753da62120000ab1a4775f2").responseJSON { (responseData) -> Void in
@@ -38,7 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    */
     
+    /*
     func testHaneke() {
         
         let cache = Shared.imageCache
@@ -50,5 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         print("end");
     }
+    */
 }
 
