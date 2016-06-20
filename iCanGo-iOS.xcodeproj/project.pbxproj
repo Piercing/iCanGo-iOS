@@ -1,675 +1,1453 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DD0E0D1D18655200A2E55E /* Main.storyboard */; };
-		703954876E7A7AC6F4707C43 /* Pods_iCanGo_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434373141F127AECB66EE15E /* Pods_iCanGo_iOS.framework */; };
-		79F418211D043B36002131C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418201D043B36002131C7 /* AppDelegate.swift */; };
-		79F418231D043B36002131C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F418221D043B36002131C7 /* Assets.xcassets */; };
-		79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F418241D043B36002131C7 /* LaunchScreen.storyboard */; };
-		79F418311D043B36002131C7 /* iCanGo_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418301D043B36002131C7 /* iCanGo_iOSTests.swift */; };
-		79F4183E1D043B56002131C7 /* .git in Resources */ = {isa = PBXBuildFile; fileRef = 79F4183B1D043B56002131C7 /* .git */; };
-		79F4183F1D043B56002131C7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 79F4183C1D043B56002131C7 /* .gitignore */; };
-		79F418401D043B56002131C7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 79F4183D1D043B56002131C7 /* README.md */; };
-		79F4184A1D043E3D002131C7 /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = 79F418491D043E3D002131C7 /* PodFile */; };
-		D37630EC1D058F660001E29F /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630EB1D058F660001E29F /* Resource.swift */; };
-		D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630ED1D05B5F40001E29F /* APIRequest.swift */; };
-		D37630F01D05C0FB0001E29F /* iCanGO-iOS.md in Resources */ = {isa = PBXBuildFile; fileRef = D37630EF1D05C0FB0001E29F /* iCanGO-iOS.md */; };
-		D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630F21D05C1960001E29F /* JSONDecodable.swift */; };
-		D37630F61D05CA770001E29F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630F51D05CA770001E29F /* Service.swift */; };
-		D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630FB1D06C0CA0001E29F /* Framework.swift */; };
-		D37630FE1D06CA280001E29F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630FD1D06CA280001E29F /* Session.swift */; };
-		D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630FF1D06D2A10001E29F /* ICanGoSession.swift */; };
-		D37631021D06D3090001E29F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37631011D06D3090001E29F /* Constants.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		79F4182D1D043B36002131C7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 79F418151D043B36002131C7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 79F4181C1D043B36002131C7;
-			remoteInfo = "iCanGo-iOS";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		00036E15BD30301E24920DAE /* Pods-iCanGo-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		434373141F127AECB66EE15E /* Pods_iCanGo_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCanGo_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		52DD0E0D1D18655200A2E55E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		79F4181D1D043B36002131C7 /* iCanGo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCanGo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		79F418201D043B36002131C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		79F418221D043B36002131C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		79F418251D043B36002131C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		79F418271D043B36002131C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79F4182C1D043B36002131C7 /* iCanGo-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iCanGo-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		79F418301D043B36002131C7 /* iCanGo_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCanGo_iOSTests.swift; sourceTree = "<group>"; };
-		79F418321D043B36002131C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79F4183B1D043B56002131C7 /* .git */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .git; sourceTree = "<group>"; };
-		79F4183C1D043B56002131C7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		79F4183D1D043B56002131C7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		79F418491D043E3D002131C7 /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PodFile; path = ../PodFile; sourceTree = "<group>"; };
-		9740EBE18A8BC9DE2640420E /* Pods-iCanGo-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		D37630EB1D058F660001E29F /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
-		D37630ED1D05B5F40001E29F /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
-		D37630EF1D05C0FB0001E29F /* iCanGO-iOS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "iCanGO-iOS.md"; path = "../iCanGO-iOS.md"; sourceTree = "<group>"; };
-		D37630F21D05C1960001E29F /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
-		D37630F51D05CA770001E29F /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		D37630FB1D06C0CA0001E29F /* Framework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
-		D37630FD1D06CA280001E29F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		D37630FF1D06D2A10001E29F /* ICanGoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICanGoSession.swift; sourceTree = "<group>"; };
-		D37631011D06D3090001E29F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		79F4181A1D043B36002131C7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				703954876E7A7AC6F4707C43 /* Pods_iCanGo_iOS.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		79F418291D043B36002131C7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		4F250FD3BBFD341F9921D137 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				434373141F127AECB66EE15E /* Pods_iCanGo_iOS.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		74F7013013F19A42F9103540 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				00036E15BD30301E24920DAE /* Pods-iCanGo-iOS.debug.xcconfig */,
-				9740EBE18A8BC9DE2640420E /* Pods-iCanGo-iOS.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		79F418141D043B36002131C7 = {
-			isa = PBXGroup;
-			children = (
-				79F4181F1D043B36002131C7 /* iCanGo-iOS */,
-				79F4182F1D043B36002131C7 /* iCanGo-iOSTests */,
-				79F4183B1D043B56002131C7 /* .git */,
-				79F4183C1D043B56002131C7 /* .gitignore */,
-				4F250FD3BBFD341F9921D137 /* Frameworks */,
-				74F7013013F19A42F9103540 /* Pods */,
-				79F4181E1D043B36002131C7 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		79F4181E1D043B36002131C7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				79F4181D1D043B36002131C7 /* iCanGo-iOS.app */,
-				79F4182C1D043B36002131C7 /* iCanGo-iOSTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		79F4181F1D043B36002131C7 /* iCanGo-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				D37630F81D06BF5F0001E29F /* Helpers */,
-				79F418421D043B8D002131C7 /* Common */,
-				79F418441D043BB0002131C7 /* Models */,
-				79F418481D043C13002131C7 /* Views */,
-				79F418471D043C0E002131C7 /* Cells */,
-				79F418431D043BA6002131C7 /* Controllers */,
-				79F418461D043C01002131C7 /* Themes */,
-				79F418451D043BEE002131C7 /* API */,
-				D37631031D0704A30001E29F /* Docs */,
-			);
-			path = "iCanGo-iOS";
-			sourceTree = "<group>";
-		};
-		79F4182F1D043B36002131C7 /* iCanGo-iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				79F418301D043B36002131C7 /* iCanGo_iOSTests.swift */,
-				79F418321D043B36002131C7 /* Info.plist */,
-			);
-			path = "iCanGo-iOSTests";
-			sourceTree = "<group>";
-		};
-		79F418421D043B8D002131C7 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				79F418221D043B36002131C7 /* Assets.xcassets */,
-				79F418201D043B36002131C7 /* AppDelegate.swift */,
-				D37631011D06D3090001E29F /* Constants.swift */,
-				79F418271D043B36002131C7 /* Info.plist */,
-			);
-			name = Common;
-			sourceTree = "<group>";
-		};
-		79F418431D043BA6002131C7 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		79F418441D043BB0002131C7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				D37630F41D05C3310001E29F /* Model */,
-				D37630F11D05C1550001E29F /* JSON */,
-				D37630EA1D058F4A0001E29F /* Network */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		79F418451D043BEE002131C7 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				79F418491D043E3D002131C7 /* PodFile */,
-			);
-			name = API;
-			sourceTree = "<group>";
-		};
-		79F418461D043C01002131C7 /* Themes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Themes;
-			sourceTree = "<group>";
-		};
-		79F418471D043C0E002131C7 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Cells;
-			sourceTree = "<group>";
-		};
-		79F418481D043C13002131C7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				79F418241D043B36002131C7 /* LaunchScreen.storyboard */,
-				52DD0E0D1D18655200A2E55E /* Main.storyboard */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		D37630EA1D058F4A0001E29F /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				D37630EB1D058F660001E29F /* Resource.swift */,
-				D37630ED1D05B5F40001E29F /* APIRequest.swift */,
-				D37630FD1D06CA280001E29F /* Session.swift */,
-				D37630FF1D06D2A10001E29F /* ICanGoSession.swift */,
-			);
-			name = Network;
-			sourceTree = "<group>";
-		};
-		D37630F11D05C1550001E29F /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				D37630F21D05C1960001E29F /* JSONDecodable.swift */,
-			);
-			name = JSON;
-			sourceTree = "<group>";
-		};
-		D37630F41D05C3310001E29F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D37630F51D05CA770001E29F /* Service.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		D37630F81D06BF5F0001E29F /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				D37630FB1D06C0CA0001E29F /* Framework.swift */,
-			);
-			name = Helpers;
-			sourceTree = "<group>";
-		};
-		D37631031D0704A30001E29F /* Docs */ = {
-			isa = PBXGroup;
-			children = (
-				D37630EF1D05C0FB0001E29F /* iCanGO-iOS.md */,
-				79F4183D1D043B56002131C7 /* README.md */,
-			);
-			name = Docs;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		79F4181C1D043B36002131C7 /* iCanGo-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 79F418351D043B36002131C7 /* Build configuration list for PBXNativeTarget "iCanGo-iOS" */;
-			buildPhases = (
-				E77BD3F4F19B29E80586C29F /* 📦 Check Pods Manifest.lock */,
-				4F5D1E1EDCF6A024C8CDFE78 /* [CP] Check Pods Manifest.lock */,
-				79F418191D043B36002131C7 /* Sources */,
-				79F4181A1D043B36002131C7 /* Frameworks */,
-				79F4181B1D043B36002131C7 /* Resources */,
-				2775D9FF85AABEA458110650 /* [CP] Embed Pods Frameworks */,
-				69F9627FA661F8BB90DF0A38 /* [CP] Copy Pods Resources */,
-				11D16205292104667AE414C6 /* 📦 Embed Pods Frameworks */,
-				F309810425F55297DDC1A1B7 /* 📦 Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "iCanGo-iOS";
-			productName = "iCanGo-iOS";
-			productReference = 79F4181D1D043B36002131C7 /* iCanGo-iOS.app */;
-			productType = "com.apple.product-type.application";
-		};
-		79F4182B1D043B36002131C7 /* iCanGo-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 79F418381D043B36002131C7 /* Build configuration list for PBXNativeTarget "iCanGo-iOSTests" */;
-			buildPhases = (
-				79F418281D043B36002131C7 /* Sources */,
-				79F418291D043B36002131C7 /* Frameworks */,
-				79F4182A1D043B36002131C7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				79F4182E1D043B36002131C7 /* PBXTargetDependency */,
-			);
-			name = "iCanGo-iOSTests";
-			productName = "iCanGo-iOSTests";
-			productReference = 79F4182C1D043B36002131C7 /* iCanGo-iOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		79F418151D043B36002131C7 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = CodeCrafters;
-				TargetAttributes = {
-					79F4181C1D043B36002131C7 = {
-						CreatedOnToolsVersion = 7.3;
-					};
-					79F4182B1D043B36002131C7 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = UWCRT7HLJN;
-						TestTargetID = 79F4181C1D043B36002131C7;
-					};
-				};
-			};
-			buildConfigurationList = 79F418181D043B36002131C7 /* Build configuration list for PBXProject "iCanGo-iOS" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 79F418141D043B36002131C7;
-			productRefGroup = 79F4181E1D043B36002131C7 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				79F4181C1D043B36002131C7 /* iCanGo-iOS */,
-				79F4182B1D043B36002131C7 /* iCanGo-iOSTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		79F4181B1D043B36002131C7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				79F4183F1D043B56002131C7 /* .gitignore in Resources */,
-				79F4184A1D043E3D002131C7 /* PodFile in Resources */,
-				79F418231D043B36002131C7 /* Assets.xcassets in Resources */,
-				52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */,
-				79F4183E1D043B56002131C7 /* .git in Resources */,
-				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
-				79F418401D043B56002131C7 /* README.md in Resources */,
-				D37630F01D05C0FB0001E29F /* iCanGO-iOS.md in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		79F4182A1D043B36002131C7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		11D16205292104667AE414C6 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2775D9FF85AABEA458110650 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F5D1E1EDCF6A024C8CDFE78 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		69F9627FA661F8BB90DF0A38 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E77BD3F4F19B29E80586C29F /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F309810425F55297DDC1A1B7 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		79F418191D043B36002131C7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D37630FE1D06CA280001E29F /* Session.swift in Sources */,
-				D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */,
-				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
-				D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */,
-				D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */,
-				D37630F61D05CA770001E29F /* Service.swift in Sources */,
-				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
-				D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */,
-				D37631021D06D3090001E29F /* Constants.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		79F418281D043B36002131C7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				79F418311D043B36002131C7 /* iCanGo_iOSTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		79F4182E1D043B36002131C7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 79F4181C1D043B36002131C7 /* iCanGo-iOS */;
-			targetProxy = 79F4182D1D043B36002131C7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		79F418241D043B36002131C7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				79F418251D043B36002131C7 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		79F418331D043B36002131C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		79F418341D043B36002131C7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		79F418361D043B36002131C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00036E15BD30301E24920DAE /* Pods-iCanGo-iOS.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "iCanGo-iOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codecrafters.iCanGo-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-			};
-			name = Debug;
-		};
-		79F418371D043B36002131C7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9740EBE18A8BC9DE2640420E /* Pods-iCanGo-iOS.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "iCanGo-iOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codecrafters.iCanGo-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-			};
-			name = Release;
-		};
-		79F418391D043B36002131C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "iCanGo-iOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codecrafters.iCanGo-iOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iCanGo-iOS.app/iCanGo-iOS";
-			};
-			name = Debug;
-		};
-		79F4183A1D043B36002131C7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "iCanGo-iOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codecrafters.iCanGo-iOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iCanGo-iOS.app/iCanGo-iOS";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		79F418181D043B36002131C7 /* Build configuration list for PBXProject "iCanGo-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				79F418331D043B36002131C7 /* Debug */,
-				79F418341D043B36002131C7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		79F418351D043B36002131C7 /* Build configuration list for PBXNativeTarget "iCanGo-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				79F418361D043B36002131C7 /* Debug */,
-				79F418371D043B36002131C7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		79F418381D043B36002131C7 /* Build configuration list for PBXNativeTarget "iCanGo-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				79F418391D043B36002131C7 /* Debug */,
-				79F4183A1D043B36002131C7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 79F418151D043B36002131C7 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>00036E15BD30301E24920DAE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-iCanGo-iOS.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>11D16205292104667AE414C6</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>2775D9FF85AABEA458110650</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>434373141F127AECB66EE15E</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_iCanGo_iOS.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>4F250FD3BBFD341F9921D137</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>434373141F127AECB66EE15E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4F5D1E1EDCF6A024C8CDFE78</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>52DD0E0D1D18655200A2E55E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>path</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>52DD0E0E1D18655200A2E55E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>52DD0E0D1D18655200A2E55E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>69F9627FA661F8BB90DF0A38</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>703954876E7A7AC6F4707C43</key>
+		<dict>
+			<key>fileRef</key>
+			<string>434373141F127AECB66EE15E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>74F7013013F19A42F9103540</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>00036E15BD30301E24920DAE</string>
+				<string>9740EBE18A8BC9DE2640420E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418141D043B36002131C7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>79F4181F1D043B36002131C7</string>
+				<string>79F4182F1D043B36002131C7</string>
+				<string>79F4183B1D043B56002131C7</string>
+				<string>79F4183C1D043B56002131C7</string>
+				<string>4F250FD3BBFD341F9921D137</string>
+				<string>74F7013013F19A42F9103540</string>
+				<string>79F4181E1D043B36002131C7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418151D043B36002131C7</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0730</string>
+				<key>LastUpgradeCheck</key>
+				<string>0730</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>CodeCrafters</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>79F4181C1D043B36002131C7</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+					</dict>
+					<key>79F4182B1D043B36002131C7</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>DevelopmentTeam</key>
+						<string>UWCRT7HLJN</string>
+						<key>TestTargetID</key>
+						<string>79F4181C1D043B36002131C7</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>79F418181D043B36002131C7</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>79F418141D043B36002131C7</string>
+			<key>productRefGroup</key>
+			<string>79F4181E1D043B36002131C7</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>79F4181C1D043B36002131C7</string>
+				<string>79F4182B1D043B36002131C7</string>
+			</array>
+		</dict>
+		<key>79F418181D043B36002131C7</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>79F418331D043B36002131C7</string>
+				<string>79F418341D043B36002131C7</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>79F418191D043B36002131C7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>D37630FE1D06CA280001E29F</string>
+				<string>D37630FC1D06C0CA0001E29F</string>
+				<string>D37630EC1D058F660001E29F</string>
+				<string>D37631001D06D2A10001E29F</string>
+				<string>D37630EE1D05B5F40001E29F</string>
+				<string>D37630F61D05CA770001E29F</string>
+				<string>79F418211D043B36002131C7</string>
+				<string>D37630F31D05C1960001E29F</string>
+				<string>D37631021D06D3090001E29F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>79F4181A1D043B36002131C7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>703954876E7A7AC6F4707C43</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>79F4181B1D043B36002131C7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>79F4183F1D043B56002131C7</string>
+				<string>79F4184A1D043E3D002131C7</string>
+				<string>79F418231D043B36002131C7</string>
+				<string>52DD0E0E1D18655200A2E55E</string>
+				<string>79F4183E1D043B56002131C7</string>
+				<string>79F418261D043B36002131C7</string>
+				<string>79F418401D043B56002131C7</string>
+				<string>D37630F01D05C0FB0001E29F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>79F4181C1D043B36002131C7</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>79F418351D043B36002131C7</string>
+			<key>buildPhases</key>
+			<array>
+				<string>E77BD3F4F19B29E80586C29F</string>
+				<string>4F5D1E1EDCF6A024C8CDFE78</string>
+				<string>79F418191D043B36002131C7</string>
+				<string>79F4181A1D043B36002131C7</string>
+				<string>79F4181B1D043B36002131C7</string>
+				<string>2775D9FF85AABEA458110650</string>
+				<string>69F9627FA661F8BB90DF0A38</string>
+				<string>11D16205292104667AE414C6</string>
+				<string>F309810425F55297DDC1A1B7</string>
+				<string>A1D8D6783970FFCFA8608A76</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>iCanGo-iOS</string>
+			<key>productName</key>
+			<string>iCanGo-iOS</string>
+			<key>productReference</key>
+			<string>79F4181D1D043B36002131C7</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>79F4181D1D043B36002131C7</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>iCanGo-iOS.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>79F4181E1D043B36002131C7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>79F4181D1D043B36002131C7</string>
+				<string>79F4182C1D043B36002131C7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F4181F1D043B36002131C7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D37630F81D06BF5F0001E29F</string>
+				<string>79F418421D043B8D002131C7</string>
+				<string>79F418441D043BB0002131C7</string>
+				<string>79F418481D043C13002131C7</string>
+				<string>79F418471D043C0E002131C7</string>
+				<string>79F418431D043BA6002131C7</string>
+				<string>79F418461D043C01002131C7</string>
+				<string>79F418451D043BEE002131C7</string>
+				<string>D37631031D0704A30001E29F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>iCanGo-iOS</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418201D043B36002131C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418211D043B36002131C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>79F418201D043B36002131C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>79F418221D043B36002131C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418231D043B36002131C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>79F418221D043B36002131C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>79F418241D043B36002131C7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>79F418251D043B36002131C7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418251D043B36002131C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418261D043B36002131C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>79F418241D043B36002131C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>79F418271D043B36002131C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418281D043B36002131C7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>79F418311D043B36002131C7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>79F418291D043B36002131C7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>79F4182A1D043B36002131C7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>79F4182B1D043B36002131C7</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>79F418381D043B36002131C7</string>
+			<key>buildPhases</key>
+			<array>
+				<string>79F418281D043B36002131C7</string>
+				<string>79F418291D043B36002131C7</string>
+				<string>79F4182A1D043B36002131C7</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>79F4182E1D043B36002131C7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>iCanGo-iOSTests</string>
+			<key>productName</key>
+			<string>iCanGo-iOSTests</string>
+			<key>productReference</key>
+			<string>79F4182C1D043B36002131C7</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>79F4182C1D043B36002131C7</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>iCanGo-iOSTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>79F4182D1D043B36002131C7</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>79F418151D043B36002131C7</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>79F4181C1D043B36002131C7</string>
+			<key>remoteInfo</key>
+			<string>iCanGo-iOS</string>
+		</dict>
+		<key>79F4182E1D043B36002131C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>79F4181C1D043B36002131C7</string>
+			<key>targetProxy</key>
+			<string>79F4182D1D043B36002131C7</string>
+		</dict>
+		<key>79F4182F1D043B36002131C7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>79F418301D043B36002131C7</string>
+				<string>79F418321D043B36002131C7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>iCanGo-iOSTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418301D043B36002131C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>iCanGo_iOSTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418311D043B36002131C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>79F418301D043B36002131C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>79F418321D043B36002131C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418331D043B36002131C7</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>79F418341D043B36002131C7</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>79F418351D043B36002131C7</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>79F418361D043B36002131C7</string>
+				<string>79F418371D043B36002131C7</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>79F418361D043B36002131C7</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>00036E15BD30301E24920DAE</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>iCanGo-iOS/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.codecrafters.iCanGo-iOS</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>79F418371D043B36002131C7</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>9740EBE18A8BC9DE2640420E</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>iCanGo-iOS/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.codecrafters.iCanGo-iOS</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>79F418381D043B36002131C7</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>79F418391D043B36002131C7</string>
+				<string>79F4183A1D043B36002131C7</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>79F418391D043B36002131C7</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>iCanGo-iOSTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.codecrafters.iCanGo-iOSTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/iCanGo-iOS.app/iCanGo-iOS</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>79F4183A1D043B36002131C7</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>iCanGo-iOSTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.codecrafters.iCanGo-iOSTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/iCanGo-iOS.app/iCanGo-iOS</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>79F4183B1D043B56002131C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder</string>
+			<key>path</key>
+			<string>.git</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F4183C1D043B56002131C7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>.gitignore</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F4183D1D043B56002131C7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>net.daringfireball.markdown</string>
+			<key>name</key>
+			<string>README.md</string>
+			<key>path</key>
+			<string>../README.md</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F4183E1D043B56002131C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>79F4183B1D043B56002131C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>79F4183F1D043B56002131C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>79F4183C1D043B56002131C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>79F418401D043B56002131C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>79F4183D1D043B56002131C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>79F418421D043B8D002131C7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>79F418221D043B36002131C7</string>
+				<string>79F418201D043B36002131C7</string>
+				<string>D37631011D06D3090001E29F</string>
+				<string>79F418271D043B36002131C7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Common</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418431D043BA6002131C7</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Controllers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418441D043BB0002131C7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D37630F41D05C3310001E29F</string>
+				<string>D37630F11D05C1550001E29F</string>
+				<string>D37630EA1D058F4A0001E29F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Models</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418451D043BEE002131C7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>79F418491D043E3D002131C7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>API</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418461D043C01002131C7</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Themes</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418471D043C0E002131C7</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Cells</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418481D043C13002131C7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>79F418241D043B36002131C7</string>
+				<string>52DD0E0D1D18655200A2E55E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Views</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F418491D043E3D002131C7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>name</key>
+			<string>PodFile</string>
+			<key>path</key>
+			<string>../PodFile</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79F4184A1D043E3D002131C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>79F418491D043E3D002131C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9740EBE18A8BC9DE2640420E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-iCanGo-iOS.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A1D8D6783970FFCFA8608A76</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D37630EA1D058F4A0001E29F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D37630EB1D058F660001E29F</string>
+				<string>D37630ED1D05B5F40001E29F</string>
+				<string>D37630FD1D06CA280001E29F</string>
+				<string>D37630FF1D06D2A10001E29F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Network</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37630EB1D058F660001E29F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Resource.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37630EC1D058F660001E29F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D37630EB1D058F660001E29F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D37630ED1D05B5F40001E29F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>APIRequest.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37630EE1D05B5F40001E29F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D37630ED1D05B5F40001E29F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D37630EF1D05C0FB0001E29F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>net.daringfireball.markdown</string>
+			<key>name</key>
+			<string>iCanGO-iOS.md</string>
+			<key>path</key>
+			<string>../iCanGO-iOS.md</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37630F01D05C0FB0001E29F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D37630EF1D05C0FB0001E29F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D37630F11D05C1550001E29F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D37630F21D05C1960001E29F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>JSON</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37630F21D05C1960001E29F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>JSONDecodable.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37630F31D05C1960001E29F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D37630F21D05C1960001E29F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D37630F41D05C3310001E29F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D37630F51D05CA770001E29F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Model</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37630F51D05CA770001E29F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Service.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37630F61D05CA770001E29F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D37630F51D05CA770001E29F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D37630F81D06BF5F0001E29F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D37630FB1D06C0CA0001E29F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Helpers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37630FB1D06C0CA0001E29F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Framework.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37630FC1D06C0CA0001E29F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D37630FB1D06C0CA0001E29F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D37630FD1D06CA280001E29F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Session.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37630FE1D06CA280001E29F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D37630FD1D06CA280001E29F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D37630FF1D06D2A10001E29F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ICanGoSession.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37631001D06D2A10001E29F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D37630FF1D06D2A10001E29F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D37631011D06D3090001E29F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Constants.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D37631021D06D3090001E29F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D37631011D06D3090001E29F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D37631031D0704A30001E29F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D37630EF1D05C0FB0001E29F</string>
+				<string>79F4183D1D043B56002131C7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Docs</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E77BD3F4F19B29E80586C29F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>F309810425F55297DDC1A1B7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>79F418151D043B36002131C7</string>
+</dict>
+</plist>
