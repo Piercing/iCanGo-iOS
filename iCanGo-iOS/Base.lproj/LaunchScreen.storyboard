@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,13 +17,37 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="turquesa01" translatesAutoresizingMaskIntoConstraints="NO" id="aLN-su-u0s">
+                                <rect key="frame" x="0.0" y="-8" width="600" height="608"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LogiCanGoGreenWhite" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-Ae-jyS">
+                                <rect key="frame" x="135" y="104" width="330" height="192"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyrigh ©. Codecrafters. All Right Reserved 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="uzz-nX-pM8">
+                                <rect key="frame" x="20" y="556" width="560" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.14384632040867637" green="0.45190484811348786" blue="0.36255399123368681" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="uzz-nX-pM8" secondAttribute="leading" id="FHH-0B-1xt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uzz-nX-pM8" secondAttribute="trailing" id="I2h-WH-W5X"/>
+                            <constraint firstItem="PLi-Ae-jyS" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-100" id="P0T-nO-8c2"/>
+                            <constraint firstItem="PLi-Ae-jyS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dGe-dR-la0"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="uzz-nX-pM8" secondAttribute="bottom" constant="20" id="wmF-sO-GmS"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="537" y="395"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LogiCanGoGreenWhite" width="330" height="192"/>
+        <image name="turquesa01" width="150" height="150"/>
+    </resources>
 </document>
