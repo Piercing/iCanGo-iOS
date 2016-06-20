@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DD0E0D1D18655200A2E55E /* Main.storyboard */; };
 		703954876E7A7AC6F4707C43 /* Pods_iCanGo_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434373141F127AECB66EE15E /* Pods_iCanGo_iOS.framework */; };
 		79F418211D043B36002131C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418201D043B36002131C7 /* AppDelegate.swift */; };
 		79F418231D043B36002131C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F418221D043B36002131C7 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		00036E15BD30301E24920DAE /* Pods-iCanGo-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		434373141F127AECB66EE15E /* Pods_iCanGo_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCanGo_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52DD0E0D1D18655200A2E55E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		79F4181D1D043B36002131C7 /* iCanGo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCanGo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F418201D043B36002131C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79F418221D043B36002131C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				79F418241D043B36002131C7 /* LaunchScreen.storyboard */,
+				52DD0E0D1D18655200A2E55E /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				79F4183F1D043B56002131C7 /* .gitignore in Resources */,
 				79F4184A1D043E3D002131C7 /* PodFile in Resources */,
 				79F418231D043B36002131C7 /* Assets.xcassets in Resources */,
+				52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
 				79F418401D043B56002131C7 /* README.md in Resources */,
