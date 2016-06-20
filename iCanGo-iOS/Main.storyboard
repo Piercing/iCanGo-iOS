@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="45N-rf-31M">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--login-->
+        <scene sceneID="e0U-WJ-jEs">
+            <objects>
+                <viewController title="login" id="45N-rf-31M" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D6q-qO-t1x"/>
+                        <viewControllerLayoutGuide type="bottom" id="8eX-hE-hQ7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6hf-iS-Ty2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="login" translatesAutoresizingMaskIntoConstraints="NO" id="3qr-9Y-ZYv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lhJ-Ki-oko" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-472.5" y="81.5"/>
+        </scene>
+        <!--services-->
+        <scene sceneID="Aa0-Mt-PuT">
+            <objects>
+                <viewController title="services" id="Q8N-b2-2md" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aOr-3z-SxT"/>
+                        <viewControllerLayoutGuide type="bottom" id="Idt-l7-L1M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B63-u1-RB0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="services" translatesAutoresizingMaskIntoConstraints="NO" id="MCM-Dt-ww8">
+                                <rect key="frame" x="0.0" y="-1" width="375" height="670"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1tE-2v-I9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-472.5" y="825.5"/>
+        </scene>
+        <!--serviceDetail-->
+        <scene sceneID="PvO-qS-q83">
+            <objects>
+                <viewController title="serviceDetail" id="Bxg-S4-B1b" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T0W-C8-3om"/>
+                        <viewControllerLayoutGuide type="bottom" id="HhG-v6-0bx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5HS-3D-Qiu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="detailService" translatesAutoresizingMaskIntoConstraints="NO" id="ALx-2g-GRp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZe-6U-gyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-472.5" y="1562.5"/>
+        </scene>
+        <!--shared-->
+        <scene sceneID="M4n-mr-xf7">
+            <objects>
+                <viewController title="shared" id="GMR-4v-CsT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="flh-xL-5Br"/>
+                        <viewControllerLayoutGuide type="bottom" id="kxs-37-t3V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cI3-oB-3Pg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="shared" translatesAutoresizingMaskIntoConstraints="NO" id="eBJ-WK-QvG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6pv-kv-5bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-78.5" y="1562.5"/>
+        </scene>
+        <!--servicesFilter-->
+        <scene sceneID="Ru2-EN-fym">
+            <objects>
+                <viewController title="servicesFilter" id="3f0-t7-NvZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LWR-lC-lOJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="7hA-aG-QOW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QBh-eV-XIH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="filterServices" translatesAutoresizingMaskIntoConstraints="NO" id="NdC-lu-1WX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TTW-bV-h0k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-78.5" y="825.5"/>
+        </scene>
+        <!--location-->
+        <scene sceneID="xJ5-Jj-KvZ">
+            <objects>
+                <viewController title="location" id="1H4-iE-d4J" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pAR-lk-muQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="R76-Ag-ORy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ifj-vg-c4n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="HNs-Y4-JgC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uil-3n-2X1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="341.5" y="820.5"/>
+        </scene>
+        <!--serviceCreate-->
+        <scene sceneID="UHZ-oY-3ni">
+            <objects>
+                <viewController title="serviceCreate" id="oDZ-c9-A5U" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FCv-TH-6vW"/>
+                        <viewControllerLayoutGuide type="bottom" id="G6B-3e-6RM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2wD-8N-8se">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="createService" translatesAutoresizingMaskIntoConstraints="NO" id="ImK-d3-QLn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lBT-sq-JwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="737.5" y="820.5"/>
+        </scene>
+        <!--notifications-->
+        <scene sceneID="smt-RD-3vO">
+            <objects>
+                <viewController title="notifications" id="nO5-1e-Aku" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PTa-IY-iJD"/>
+                        <viewControllerLayoutGuide type="bottom" id="2FX-Jd-Avr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XG6-6N-8OM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="notifications" translatesAutoresizingMaskIntoConstraints="NO" id="JK1-DQ-mzZ">
+                                <rect key="frame" x="-1" y="0.0" width="376" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QFW-Li-y3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1139.5" y="820.5"/>
+        </scene>
+        <!--appliantProfile-->
+        <scene sceneID="nO8-cb-H6f">
+            <objects>
+                <viewController title="appliantProfile" id="U9b-nn-qW4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BBv-hL-euw"/>
+                        <viewControllerLayoutGuide type="bottom" id="ndP-Kh-Rbr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xMm-5w-9ni">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="applicantProfile" translatesAutoresizingMaskIntoConstraints="NO" id="s62-P4-UNT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nWi-Uf-Q53" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1539.5" y="820.5"/>
+        </scene>
+        <!--publicProfile-->
+        <scene sceneID="jnD-ty-7ix">
+            <objects>
+                <viewController title="publicProfile" id="Dig-io-oq7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RP3-mv-rIq"/>
+                        <viewControllerLayoutGuide type="bottom" id="6h3-BM-k6B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eF2-CG-i0r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="publicProfile" translatesAutoresizingMaskIntoConstraints="NO" id="T44-Mc-TWQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0AM-Zn-r38" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1539.5" y="1563.5"/>
+        </scene>
+        <!--commetsUsers-->
+        <scene sceneID="FFP-JU-PbR">
+            <objects>
+                <viewController title="commetsUsers" id="eaZ-bH-zqn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JGS-01-G0X"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yoe-N3-mok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wad-h7-1hv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="usersComments" translatesAutoresizingMaskIntoConstraints="NO" id="oUz-v6-UDZ">
+                                <rect key="frame" x="0.0" y="0.0" width="376" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9y9-lc-sYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1945.5" y="1563.5"/>
+        </scene>
+        <!--profileEdit-->
+        <scene sceneID="PVC-1t-Rh3">
+            <objects>
+                <viewController title="profileEdit" id="chz-Eh-yYX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Kv-Ta-tkl"/>
+                        <viewControllerLayoutGuide type="bottom" id="7IR-EA-sEn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uUg-8F-hlI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="editProfile" translatesAutoresizingMaskIntoConstraints="NO" id="uxo-cq-rNs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6J7-MJ-iEE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1539.5" y="87.5"/>
+        </scene>
+        <!--goferProfile-->
+        <scene sceneID="weP-j5-FX9">
+            <objects>
+                <viewController title="goferProfile" id="ncs-op-JDh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dYM-Ez-ge5"/>
+                        <viewControllerLayoutGuide type="bottom" id="GQa-Lq-hdV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hIU-ID-f0R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="goferProfile" translatesAutoresizingMaskIntoConstraints="NO" id="zWn-Mb-sPS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ln-CL-PVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1939.5" y="820.5"/>
+        </scene>
+        <!--shearchProfile-->
+        <scene sceneID="m2I-2g-x4M">
+            <objects>
+                <viewController title="shearchProfile" id="DjN-SB-v8P" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s5d-6R-DkF"/>
+                        <viewControllerLayoutGuide type="bottom" id="2uU-UQ-B3B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4a3-Ze-m6i">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="sharedProfile" translatesAutoresizingMaskIntoConstraints="NO" id="349-KH-ir3">
+                                <rect key="frame" x="-1" y="0.0" width="376" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rEU-MH-ZyD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2349.5" y="820.5"/>
+        </scene>
+        <!--register-->
+        <scene sceneID="C4e-g5-OnB">
+            <objects>
+                <viewController title="register" id="gHI-Q2-jgW" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qHT-7J-AIW"/>
+                        <viewControllerLayoutGuide type="bottom" id="f0u-NM-yLV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Om7-be-MTa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="register" translatesAutoresizingMaskIntoConstraints="NO" id="Dxc-gp-YAa">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cne-4i-PEW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-78.5" y="81.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="applicantProfile" width="375" height="667"/>
+        <image name="createService" width="375" height="667"/>
+        <image name="detailService" width="375" height="667"/>
+        <image name="editProfile" width="375" height="667"/>
+        <image name="filterServices" width="375" height="667"/>
+        <image name="goferProfile" width="375" height="667"/>
+        <image name="location" width="375" height="667"/>
+        <image name="login" width="375" height="667"/>
+        <image name="notifications" width="376" height="667"/>
+        <image name="publicProfile" width="375" height="667"/>
+        <image name="register" width="375" height="667"/>
+        <image name="services" width="375" height="670"/>
+        <image name="shared" width="375" height="667"/>
+        <image name="sharedProfile" width="376" height="667"/>
+        <image name="usersComments" width="376" height="667"/>
+    </resources>
+</document>
