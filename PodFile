@@ -3,9 +3,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'iCanGo-iOS' do
-    pod 'RxSwift',    '~> 2.0'
-    pod 'RxCocoa',    '~> 2.0'
-    pod 'RxBlocking', '~> 2.0'
+    pod 'RxAlamofire'
     pod 'HanekeSwift'
     pod 'AlamofireSwiftyJSON'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
