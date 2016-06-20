@@ -1,7 +1,6 @@
 # iCanGo-iOS
 
 ## Third-party libraries
--   [Alamofire](https://github.com/Alamofire/Alamofire)
--   [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
--   [Haneke](https://github.com/Haneke/HanekeSwift)
--   [RxSwift](https://github.com/ReactiveX/RxSwift)
+-   [RxAlamofire](https://github.com/RxSwiftCommunity/RxAlamofire)
+-   [AlamofireSwiftyJSON](https://github.com/SwiftyJSON/Alamofire-SwiftyJSON)
+-   [HanekeSwift](https://github.com/Haneke/HanekeSwift)
