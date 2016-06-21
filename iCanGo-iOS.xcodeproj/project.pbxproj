@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DD0E0D1D18655200A2E55E /* Main.storyboard */; };
-		703954876E7A7AC6F4707C43 /* Pods_iCanGo_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434373141F127AECB66EE15E /* Pods_iCanGo_iOS.framework */; };
 		79F418211D043B36002131C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418201D043B36002131C7 /* AppDelegate.swift */; };
 		79F418231D043B36002131C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F418221D043B36002131C7 /* Assets.xcassets */; };
 		79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F418241D043B36002131C7 /* LaunchScreen.storyboard */; };
@@ -17,6 +16,7 @@
 		79F4183F1D043B56002131C7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 79F4183C1D043B56002131C7 /* .gitignore */; };
 		79F418401D043B56002131C7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 79F4183D1D043B56002131C7 /* README.md */; };
 		79F4184A1D043E3D002131C7 /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = 79F418491D043E3D002131C7 /* PodFile */; };
+		A9D495034C1BC3A48FFE7AF8 /* Pods_iCanGo_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BCFB28C96273CCDD0CF172 /* Pods_iCanGo_iOS.framework */; };
 		D37630EC1D058F660001E29F /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630EB1D058F660001E29F /* Resource.swift */; };
 		D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630ED1D05B5F40001E29F /* APIRequest.swift */; };
 		D37630F01D05C0FB0001E29F /* iCanGO-iOS.md in Resources */ = {isa = PBXBuildFile; fileRef = D37630EF1D05C0FB0001E29F /* iCanGO-iOS.md */; };
@@ -39,8 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00036E15BD30301E24920DAE /* Pods-iCanGo-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		434373141F127AECB66EE15E /* Pods_iCanGo_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCanGo_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DD0E0D1D18655200A2E55E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		79F4181D1D043B36002131C7 /* iCanGo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCanGo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F418201D043B36002131C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +52,7 @@
 		79F4183C1D043B56002131C7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		79F4183D1D043B56002131C7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		79F418491D043E3D002131C7 /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PodFile; path = ../PodFile; sourceTree = "<group>"; };
-		9740EBE18A8BC9DE2640420E /* Pods-iCanGo-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		ACA2D280BC84CE3643A31256 /* Pods-iCanGo-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D37630EB1D058F660001E29F /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		D37630ED1D05B5F40001E29F /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		D37630EF1D05C0FB0001E29F /* iCanGO-iOS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "iCanGO-iOS.md"; path = "../iCanGO-iOS.md"; sourceTree = "<group>"; };
@@ -64,6 +62,8 @@
 		D37630FD1D06CA280001E29F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D37630FF1D06D2A10001E29F /* ICanGoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICanGoSession.swift; sourceTree = "<group>"; };
 		D37631011D06D3090001E29F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D9BCFB28C96273CCDD0CF172 /* Pods_iCanGo_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCanGo_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD015E1B48C5387CAA502C8B /* Pods-iCanGo-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				703954876E7A7AC6F4707C43 /* Pods_iCanGo_iOS.framework in Frameworks */,
+				A9D495034C1BC3A48FFE7AF8 /* Pods_iCanGo_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,21 +85,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4F250FD3BBFD341F9921D137 /* Frameworks */ = {
+		75C1F3C32F5EAFD6E2B1FFDB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				434373141F127AECB66EE15E /* Pods_iCanGo_iOS.framework */,
+				D9BCFB28C96273CCDD0CF172 /* Pods_iCanGo_iOS.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		74F7013013F19A42F9103540 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				00036E15BD30301E24920DAE /* Pods-iCanGo-iOS.debug.xcconfig */,
-				9740EBE18A8BC9DE2640420E /* Pods-iCanGo-iOS.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		79F418141D043B36002131C7 = {
@@ -109,9 +100,9 @@
 				79F4182F1D043B36002131C7 /* iCanGo-iOSTests */,
 				79F4183B1D043B56002131C7 /* .git */,
 				79F4183C1D043B56002131C7 /* .gitignore */,
-				4F250FD3BBFD341F9921D137 /* Frameworks */,
-				74F7013013F19A42F9103540 /* Pods */,
 				79F4181E1D043B36002131C7 /* Products */,
+				C0E0D60C82725310329E6B6E /* Pods */,
+				75C1F3C32F5EAFD6E2B1FFDB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,6 +199,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		C0E0D60C82725310329E6B6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ACA2D280BC84CE3643A31256 /* Pods-iCanGo-iOS.debug.xcconfig */,
+				FD015E1B48C5387CAA502C8B /* Pods-iCanGo-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D37630EA1D058F4A0001E29F /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,15 +259,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79F418351D043B36002131C7 /* Build configuration list for PBXNativeTarget "iCanGo-iOS" */;
 			buildPhases = (
-				E77BD3F4F19B29E80586C29F /* 📦 Check Pods Manifest.lock */,
 				4F5D1E1EDCF6A024C8CDFE78 /* [CP] Check Pods Manifest.lock */,
 				79F418191D043B36002131C7 /* Sources */,
 				79F4181A1D043B36002131C7 /* Frameworks */,
 				79F4181B1D043B36002131C7 /* Resources */,
 				2775D9FF85AABEA458110650 /* [CP] Embed Pods Frameworks */,
 				69F9627FA661F8BB90DF0A38 /* [CP] Copy Pods Resources */,
-				11D16205292104667AE414C6 /* 📦 Embed Pods Frameworks */,
-				F309810425F55297DDC1A1B7 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -361,21 +358,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		11D16205292104667AE414C6 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2775D9FF85AABEA458110650 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -414,36 +396,6 @@
 			inputPaths = (
 			);
 			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E77BD3F4F19B29E80586C29F /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F309810425F55297DDC1A1B7 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,7 +537,7 @@
 		};
 		79F418361D043B36002131C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00036E15BD30301E24920DAE /* Pods-iCanGo-iOS.debug.xcconfig */;
+			baseConfigurationReference = ACA2D280BC84CE3643A31256 /* Pods-iCanGo-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -600,7 +552,7 @@
 		};
 		79F418371D043B36002131C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9740EBE18A8BC9DE2640420E /* Pods-iCanGo-iOS.release.xcconfig */;
+			baseConfigurationReference = FD015E1B48C5387CAA502C8B /* Pods-iCanGo-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
