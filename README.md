@@ -5,3 +5,4 @@
 -   [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 -   [Haneke](https://github.com/Haneke/HanekeSwift)
 -   [RxSwift](https://github.com/ReactiveX/RxSwift)
+-   [Spring](https://github.com/MengTo/Spring.git) branch => 'swift2'
