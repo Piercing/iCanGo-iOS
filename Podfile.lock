@@ -9,6 +9,7 @@ PODS:
   - RxCocoa (2.5.0):
     - RxSwift (~> 2.5)
   - RxSwift (2.5.0)
+  - Spring (1.0.3)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
@@ -17,6 +18,17 @@ DEPENDENCIES:
   - RxBlocking (~> 2.0)
   - RxCocoa (~> 2.0)
   - RxSwift (~> 2.0)
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
+
+EXTERNAL SOURCES:
+  Spring:
+    :branch: swift2
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
+    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
@@ -25,8 +37,7 @@ SPEC CHECKSUMS:
   RxBlocking: 595d9ab56dde6b00beaa5aba40e95b150d2135f1
   RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 92f7ece7733230fd9f95e21d2b9d8877f5c61c63
-
-COCOAPODS: 1.0.0
+COCOAPODS: 0.39.0
