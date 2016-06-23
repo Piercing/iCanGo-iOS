@@ -10,13 +10,15 @@ import Foundation
 
 enum APIRequest {
     case GetServices(key: String, query: String)
+    case GetUsers(key: String, query: String)
 }
 
 extension APIRequest: Resource {
     
     var method: Method {
         switch self {
-            case APIRequest.GetServices:
+            case APIRequest.GetServices,
+                 APIRequest.GetUsers:
                 return Method.GET
         }
     }
@@ -25,6 +27,8 @@ extension APIRequest: Resource {
         switch self {
             case let APIRequest.GetServices(_, query):
                 return "v2/\(query)"
+            case let APIRequest.GetUsers(_, query):
+                return "users/\(query)"
         }
     }
     
@@ -34,6 +38,10 @@ extension APIRequest: Resource {
                 return [
                     "query": query
                 ]
+            case let APIRequest.GetUsers(_, query):
+                return [
+                    "query": query
+            ]
         }
     }
 }
