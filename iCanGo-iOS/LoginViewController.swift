@@ -14,12 +14,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         // Status Bar Color
-        
         let statusBarColor = UIColor(red: 26/255, green: 147/255, blue: 165/255, alpha: 1)
         let colorStatusBar: UIView = UIView(frame: CGRectMake(0, 0,self.view.frame.size.width, 20))
         colorStatusBar.backgroundColor = statusBarColor
         self.view.addSubview(colorStatusBar)
-
+        
         
     }
     
@@ -39,4 +38,11 @@ class LoginViewController: UIViewController {
      }
      */
     
+}
+
+extension UIViewController: UITextFieldDelegate{
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)        
+        return true
+    }
 }

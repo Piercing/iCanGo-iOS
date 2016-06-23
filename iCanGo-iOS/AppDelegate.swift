@@ -20,17 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         // Navigation Bar Color
-        //UINavigationBar.appearance().tintColor = UIColor(red: 30/255, green: 170/255, blue: 191/255, alpha: 1)
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
         //testAlamofireSwiftyJSON()
         //testHaneke()
         testGetServices()
         
-        let naVC = UINavigationController(nibName: "MainViewController", bundle: nil)
-        self.window?.rootViewController = naVC;
-        self.window!.backgroundColor = UIColor.whiteColor()
-        self.window!.makeKeyAndVisible()
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewControllerWithIdentifier("Login") as UIViewController
+        self.window?.rootViewController = viewController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
     
