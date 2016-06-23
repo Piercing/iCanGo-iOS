@@ -10,6 +10,15 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    // MARK: - Properties
+    @IBOutlet weak var txtFieldUser: UITextField!
+    @IBOutlet weak var txtFieldPassw: UITextField!
+    @IBOutlet weak var btnInitSession: UIButton!
+    @IBOutlet weak var btnForgetPassw: UIButton!
+    @IBOutlet weak var btnNotRegister: UIButton!
+    
+    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +36,15 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Actions
+    @IBAction func btnInitSS(sender: AnyObject) {
+    }
+    
+    @IBAction func btnForgetPASS(sender: AnyObject) {
+    }
+    
+    @IBAction func btnNoRG(sender: AnyObject) {
+    }
     
     /*
      // MARK: - Navigation
@@ -37,9 +55,9 @@ class LoginViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
 }
 
+// MARK: - Extensions - Delegates
 extension UIViewController: UITextFieldDelegate{
     public func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)        
