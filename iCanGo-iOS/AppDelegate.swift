@@ -19,14 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
+        // Navigation Bar Color
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        
         //testAlamofireSwiftyJSON()
         //testHaneke()
         testGetServices()
         
-        let naVC = UINavigationController(nibName: "MainViewController", bundle: nil)
-        self.window?.rootViewController = naVC;
-        self.window!.backgroundColor = UIColor.whiteColor()
-        self.window!.makeKeyAndVisible()
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewControllerWithIdentifier("Login") as UIViewController
+        self.window?.rootViewController = viewController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
     
