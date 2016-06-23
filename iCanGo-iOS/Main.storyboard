@@ -32,7 +32,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="dAF-Vv-qgB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tuk-EP-C3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="pdx-30-7Uw" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="uTx-8t-AH5">
@@ -48,6 +47,7 @@
                         <segue destination="U9b-nn-qW4" kind="relationship" relationship="viewControllers" id="yKl-Z6-tRM"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tuk-EP-C3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="167.5" y="838.5"/>
         </scene>
