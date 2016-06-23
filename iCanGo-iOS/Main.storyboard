@@ -27,7 +27,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhJ-Ki-oko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-472.5" y="81.5"/>
+            <point key="canvasLocation" x="-248.5" y="-1268.5"/>
         </scene>
         <!--services-->
         <scene sceneID="Aa0-Mt-PuT">
@@ -41,17 +41,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="services" translatesAutoresizingMaskIntoConstraints="NO" id="MCM-Dt-ww8">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="services" translatesAutoresizingMaskIntoConstraints="NO" id="MCM-Dt-ww8">
                                 <rect key="frame" x="0.0" y="-1" width="375" height="670"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MCM-Dt-ww8" firstAttribute="centerX" secondItem="B63-u1-RB0" secondAttribute="centerX" id="kQa-mc-W5t"/>
+                            <constraint firstItem="MCM-Dt-ww8" firstAttribute="centerY" secondItem="B63-u1-RB0" secondAttribute="centerY" id="kUL-Wf-WgX"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="NHs-ts-Ghh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1tE-2v-I9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-472.5" y="825.5"/>
+            <point key="canvasLocation" x="1082.5" y="-1550.5"/>
         </scene>
         <!--serviceDetail-->
         <scene sceneID="PvO-qS-q83">
@@ -75,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZe-6U-gyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-472.5" y="1562.5"/>
+            <point key="canvasLocation" x="1090.5" y="-2319.5"/>
         </scene>
         <!--shared-->
         <scene sceneID="M4n-mr-xf7">
@@ -99,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6pv-kv-5bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-78.5" y="1562.5"/>
+            <point key="canvasLocation" x="1609.5" y="-2319.5"/>
         </scene>
         <!--servicesFilter-->
         <scene sceneID="Ru2-EN-fym">
@@ -123,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTW-bV-h0k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-78.5" y="825.5"/>
+            <point key="canvasLocation" x="1619.5" y="-1550.5"/>
         </scene>
         <!--location-->
         <scene sceneID="xJ5-Jj-KvZ">
@@ -143,11 +148,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="b6x-Zm-bDm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uil-3n-2X1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341.5" y="820.5"/>
+            <point key="canvasLocation" x="1090.5" y="-764.5"/>
         </scene>
         <!--serviceCreate-->
         <scene sceneID="UHZ-oY-3ni">
@@ -167,11 +173,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="2dS-0t-5xr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lBT-sq-JwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="737.5" y="820.5"/>
+            <point key="canvasLocation" x="281.5" y="341.5"/>
         </scene>
         <!--notifications-->
         <scene sceneID="smt-RD-3vO">
@@ -191,11 +198,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="yMq-W0-3MY"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QFW-Li-y3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1139.5" y="820.5"/>
+            <point key="canvasLocation" x="-219.5" y="341.5"/>
         </scene>
         <!--appliantProfile-->
         <scene sceneID="nO8-cb-H6f">
@@ -215,11 +223,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="gge-Bq-XhB"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nWi-Uf-Q53" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1539.5" y="820.5"/>
+            <point key="canvasLocation" x="784.5" y="341.5"/>
         </scene>
         <!--publicProfile-->
         <scene sceneID="jnD-ty-7ix">
@@ -243,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0AM-Zn-r38" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1539.5" y="1563.5"/>
+            <point key="canvasLocation" x="2315.5" y="341.5"/>
         </scene>
         <!--commetsUsers-->
         <scene sceneID="FFP-JU-PbR">
@@ -267,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9y9-lc-sYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945.5" y="1563.5"/>
+            <point key="canvasLocation" x="2815.5" y="341.5"/>
         </scene>
         <!--profileEdit-->
         <scene sceneID="PVC-1t-Rh3">
@@ -291,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6J7-MJ-iEE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1539.5" y="87.5"/>
+            <point key="canvasLocation" x="273.5" y="-2074.5"/>
         </scene>
         <!--goferProfile-->
         <scene sceneID="weP-j5-FX9">
@@ -315,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ln-CL-PVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1939.5" y="820.5"/>
+            <point key="canvasLocation" x="1303.5" y="341.5"/>
         </scene>
         <!--shearchProfile-->
         <scene sceneID="m2I-2g-x4M">
@@ -339,7 +348,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEU-MH-ZyD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2349.5" y="820.5"/>
+            <point key="canvasLocation" x="1811.5" y="341.5"/>
         </scene>
         <!--register-->
         <scene sceneID="C4e-g5-OnB">
@@ -363,7 +372,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cne-4i-PEW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-78.5" y="81.5"/>
+            <point key="canvasLocation" x="-248.5" y="-2074.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8Pm-ww-wMh">
+            <objects>
+                <tabBarController id="8Ug-hi-160" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="DRx-Rg-6oI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.78363715280000001" blue="0.91060397169999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Q8N-b2-2md" kind="relationship" relationship="viewControllers" id="GtL-Ce-rzo"/>
+                        <segue destination="1H4-iE-d4J" kind="relationship" relationship="viewControllers" id="6uz-RK-9VW"/>
+                        <segue destination="oDZ-c9-A5U" kind="relationship" relationship="viewControllers" id="6XO-S5-mo3"/>
+                        <segue destination="nO5-1e-Aku" kind="relationship" relationship="viewControllers" id="ee4-mu-rvW"/>
+                        <segue destination="U9b-nn-qW4" kind="relationship" relationship="viewControllers" id="zDw-LB-B0j"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqj-L2-RTB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="274.5" y="-1258.5"/>
         </scene>
     </scenes>
     <resources>
