@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CDB5F1D1B786F001C6251 /* LoginViewController.swift */; };
 		52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DD0E0D1D18655200A2E55E /* Main.storyboard */; };
 		79F418211D043B36002131C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418201D043B36002131C7 /* AppDelegate.swift */; };
 		79F418231D043B36002131C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F418221D043B36002131C7 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		527CDB5F1D1B786F001C6251 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		52DD0E0D1D18655200A2E55E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		79F4181D1D043B36002131C7 /* iCanGo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCanGo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F418201D043B36002131C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		79F418431D043BA6002131C7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				D37630F61D05CA770001E29F /* Service.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
 				D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */,
+				527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */,
 				D37631021D06D3090001E29F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

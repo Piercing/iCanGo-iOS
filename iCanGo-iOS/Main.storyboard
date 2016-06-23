@@ -3,17 +3,19 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--login-->
-        <scene sceneID="e0U-WJ-jEs">
+        <!--Apoyo-->
+        <scene sceneID="8rx-Kr-K8l">
             <objects>
-                <viewController title="login" id="45N-rf-31M" sceneMemberID="viewController">
+                <viewController title="Apoyo" id="Por-0h-PDH" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="D6q-qO-t1x"/>
-                        <viewControllerLayoutGuide type="bottom" id="8eX-hE-hQ7"/>
+                        <viewControllerLayoutGuide type="top" id="AHN-Fb-32R"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zif-Rr-QB6"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6hf-iS-Ty2">
+                    <view key="view" contentMode="scaleToFill" id="WzX-Wx-Vr6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -25,9 +27,105 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yIz-Ry-xf3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-848.5" y="871.5"/>
+        </scene>
+        <!--login-->
+        <scene sceneID="e0U-WJ-jEs">
+            <objects>
+                <viewController title="login" id="45N-rf-31M" customClass="LoginViewController" customModule="iCanGo_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D6q-qO-t1x"/>
+                        <viewControllerLayoutGuide type="bottom" id="8eX-hE-hQ7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6hf-iS-Ty2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Or4-d6-zHS">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.0" green="0.60392156862745094" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Log in" id="qiJ-Vl-34C"/>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iCanGoTitleLogin-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZRL-Xm-OC4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZRL-Xm-OC4" secondAttribute="height" multiplier="3:1" id="bpq-DF-ARF"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="39" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="USUARIO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qyc-z2-uDs">
+                                <rect key="frame" x="25" y="220" width="324" height="26"/>
+                                <color key="textColor" red="0.44705882352941179" green="0.62352941176470589" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="39" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="CONTRASEÑA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zvb-cv-2y4">
+                                <rect key="frame" x="25" y="266" width="324" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8N-U2-92K">
+                                <rect key="frame" x="25" y="358" width="334" height="36"/>
+                                <color key="backgroundColor" red="0.10588235294117647" green="0.50980392156862742" blue="0.58039215686274515" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Iniciar Sesión">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu8-Go-rzi">
+                                <rect key="frame" x="113" y="442" width="149" height="29"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                                <state key="normal" title="¿Aún no te has registrado?">
+                                    <color key="titleColor" red="0.0" green="0.14117647058823529" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEP-95-oPC">
+                                <rect key="frame" x="109" y="405" width="157" height="29"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                                <state key="normal" title="¿Olvidaste tú contraseña?">
+                                    <color key="titleColor" red="0.0" green="0.14117647058823529" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="w8N-U2-92K" secondAttribute="trailing" id="2qW-Sq-dPm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zvb-cv-2y4" secondAttribute="trailing" constant="10" id="7yZ-fO-4c3"/>
+                            <constraint firstItem="ZRL-Xm-OC4" firstAttribute="leading" secondItem="6hf-iS-Ty2" secondAttribute="leading" id="8Sb-ub-PKF"/>
+                            <constraint firstItem="w8N-U2-92K" firstAttribute="leading" secondItem="6hf-iS-Ty2" secondAttribute="leadingMargin" constant="9" id="8tt-07-0Ox"/>
+                            <constraint firstAttribute="trailing" secondItem="Hu8-Go-rzi" secondAttribute="trailing" constant="113" id="9Nm-sY-SyD"/>
+                            <constraint firstItem="w8N-U2-92K" firstAttribute="top" secondItem="Zvb-cv-2y4" secondAttribute="bottom" constant="70" id="HbI-yx-M6H"/>
+                            <constraint firstItem="QEP-95-oPC" firstAttribute="top" secondItem="w8N-U2-92K" secondAttribute="bottom" constant="11" id="Hwf-Kg-8CP"/>
+                            <constraint firstAttribute="trailing" secondItem="ZRL-Xm-OC4" secondAttribute="trailing" id="J1h-g5-1fY"/>
+                            <constraint firstItem="QEP-95-oPC" firstAttribute="leading" secondItem="6hf-iS-Ty2" secondAttribute="leadingMargin" constant="93" id="JCM-0n-Ggj"/>
+                            <constraint firstItem="Qyc-z2-uDs" firstAttribute="top" secondItem="ZRL-Xm-OC4" secondAttribute="bottom" constant="31" id="NR1-sY-G2c"/>
+                            <constraint firstAttribute="trailing" secondItem="Or4-d6-zHS" secondAttribute="trailing" id="RAS-vE-7lu"/>
+                            <constraint firstItem="Hu8-Go-rzi" firstAttribute="leading" secondItem="6hf-iS-Ty2" secondAttribute="leading" constant="113" id="YZ4-zI-00c"/>
+                            <constraint firstItem="Or4-d6-zHS" firstAttribute="top" secondItem="D6q-qO-t1x" secondAttribute="bottom" id="Zxi-Tq-SFF"/>
+                            <constraint firstItem="Zvb-cv-2y4" firstAttribute="leading" secondItem="6hf-iS-Ty2" secondAttribute="leadingMargin" constant="9" id="cN1-EL-zKX"/>
+                            <constraint firstItem="ZRL-Xm-OC4" firstAttribute="top" secondItem="Or4-d6-zHS" secondAttribute="bottom" id="cWa-wT-zGs"/>
+                            <constraint firstItem="Hu8-Go-rzi" firstAttribute="top" secondItem="QEP-95-oPC" secondAttribute="bottom" constant="8" id="d5r-ES-olz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QEP-95-oPC" secondAttribute="trailing" constant="93" id="nR9-3g-gF8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qyc-z2-uDs" secondAttribute="trailing" constant="10" id="rEr-g8-IT7"/>
+                            <constraint firstItem="Or4-d6-zHS" firstAttribute="leading" secondItem="6hf-iS-Ty2" secondAttribute="leading" id="tiU-sJ-cwn"/>
+                            <constraint firstItem="Zvb-cv-2y4" firstAttribute="top" secondItem="Qyc-z2-uDs" secondAttribute="bottom" constant="20" id="y2I-oM-IKa"/>
+                            <constraint firstItem="Qyc-z2-uDs" firstAttribute="leading" secondItem="6hf-iS-Ty2" secondAttribute="leadingMargin" constant="9" id="yQV-NG-sWJ"/>
+                            <constraint firstItem="QEP-95-oPC" firstAttribute="top" secondItem="w8N-U2-92K" secondAttribute="bottom" constant="11" id="zAO-T9-mXS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Login" id="RD5-da-ihT"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhJ-Ki-oko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-400.5" y="838.5"/>
+            <point key="canvasLocation" x="-400.5" y="871.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dAF-Vv-qgB">
@@ -49,7 +147,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tuk-EP-C3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="167.5" y="838.5"/>
+            <point key="canvasLocation" x="167.5" y="871.5"/>
         </scene>
         <!--services-->
         <scene sceneID="Aa0-Mt-PuT">
@@ -74,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1tE-2v-I9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="931.5" y="549.5"/>
+            <point key="canvasLocation" x="931.5" y="582.5"/>
         </scene>
         <!--serviceDetail-->
         <scene sceneID="PvO-qS-q83">
@@ -146,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTW-bV-h0k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1529.5" y="549.5"/>
+            <point key="canvasLocation" x="1529.5" y="582.5"/>
         </scene>
         <!--location-->
         <scene sceneID="xJ5-Jj-KvZ">
@@ -171,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uil-3n-2X1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="931.5" y="1348.5"/>
+            <point key="canvasLocation" x="931.5" y="1381.5"/>
         </scene>
         <!--serviceCreate-->
         <scene sceneID="UHZ-oY-3ni">
@@ -400,6 +498,7 @@
         <image name="editProfile" width="375" height="667"/>
         <image name="filterServices" width="375" height="667"/>
         <image name="goferProfile" width="375" height="667"/>
+        <image name="iCanGoTitleLogin-1" width="280" height="104"/>
         <image name="location" width="375" height="667"/>
         <image name="login" width="375" height="667"/>
         <image name="notifications" width="376" height="667"/>

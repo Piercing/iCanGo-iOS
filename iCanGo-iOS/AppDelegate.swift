@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
+        // Navigation Bar Color
+        //UINavigationBar.appearance().tintColor = UIColor(red: 30/255, green: 170/255, blue: 191/255, alpha: 1)
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        
         //testAlamofireSwiftyJSON()
         //testHaneke()
         testGetServices()
