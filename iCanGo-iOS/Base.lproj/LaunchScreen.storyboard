@@ -21,18 +21,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="turquesa01" translatesAutoresizingMaskIntoConstraints="NO" id="aLN-su-u0s">
                                 <rect key="frame" x="0.0" y="-8" width="600" height="608"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LogiCanGoGreenWhite" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-Ae-jyS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyrigh ©. Codecrafters. All Right Reserved 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="uzz-nX-pM8">
+                                <rect key="frame" x="20" y="556" width="560" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.014488485345424624" green="0.045516748366013049" blue="0.036517153681726311" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iCanGoTitleLogin" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-Ae-jyS">
                                 <rect key="frame" x="20" y="104" width="560" height="291"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="291" id="NBo-KI-OdX"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyrigh ©. Codecrafters. All Right Reserved 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="uzz-nX-pM8">
-                                <rect key="frame" x="20" y="556" width="560" height="24"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" red="0.14384632040867637" green="0.45190484811348786" blue="0.36255399123368681" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -55,7 +55,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LogiCanGoGreenWhite" width="330" height="192"/>
+        <image name="iCanGoTitleLogin" width="270" height="101"/>
         <image name="turquesa01" width="150" height="150"/>
     </resources>
 </document>
