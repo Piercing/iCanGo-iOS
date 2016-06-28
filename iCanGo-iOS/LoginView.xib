@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="iCanGo_iOS" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fa0-tv-JE1">
+                    <rect key="frame" x="0.0" y="18" width="375" height="44"/>
+                    <color key="barTintColor" red="0.0" green="0.60392156860000001" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <textAttributes key="titleTextAttributes">
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="Log in" id="O2Q-oK-xyt"/>
+                    </items>
+                </navigationBar>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="39" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USUARIO" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="HtA-6r-JK3">
+                    <rect key="frame" x="25" y="212" width="324" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="39" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CONTRASEÑA" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="SBl-ae-gSx">
+                    <rect key="frame" x="25" y="250" width="324" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1B-oq-vyv">
+                    <rect key="frame" x="25" y="333" width="324" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="O2f-KM-sg4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                    <state key="normal" title="Forgot your password?">
+                        <color key="titleColor" red="0.0" green="0.14117647059999999" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIA-e0-7z4">
+                    <rect key="frame" x="25" y="361" width="324" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="pfx-Rn-RfF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                    <state key="normal" title="Sign up">
+                        <color key="titleColor" red="0.0" green="0.14117647059999999" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCanGo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSa-7k-Hei">
+                    <rect key="frame" x="0.0" y="101" width="367" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Bo1-pL-pxx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="39"/>
+                    <color key="textColor" red="0.10196078431372549" green="0.4392156862745098" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ez-cG-gmt">
+                    <rect key="frame" x="25" y="288" width="324" height="36"/>
+                    <color key="backgroundColor" red="0.1058823529" green="0.50980392159999999" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                    <state key="normal" title="Iniciar Sesión">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="fa0-tv-JE1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5wq-Oq-dSw"/>
+                <constraint firstItem="HtA-6r-JK3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="7Pg-aH-VNL"/>
+                <constraint firstItem="R1B-oq-vyv" firstAttribute="leading" secondItem="2ez-cG-gmt" secondAttribute="leading" id="7VH-KL-ve1"/>
+                <constraint firstItem="2ez-cG-gmt" firstAttribute="top" secondItem="SBl-ae-gSx" secondAttribute="bottom" constant="8" symbolic="YES" id="9qt-Cf-10F"/>
+                <constraint firstItem="CIA-e0-7z4" firstAttribute="leading" secondItem="R1B-oq-vyv" secondAttribute="leading" id="CzV-F2-Co4"/>
+                <constraint firstItem="HSa-7k-Hei" firstAttribute="top" secondItem="fa0-tv-JE1" secondAttribute="bottom" constant="39" id="GgT-nR-Bel"/>
+                <constraint firstItem="2ez-cG-gmt" firstAttribute="trailing" secondItem="SBl-ae-gSx" secondAttribute="trailing" id="H5R-jx-ADG"/>
+                <constraint firstItem="fa0-tv-JE1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="KT4-SE-kS2"/>
+                <constraint firstItem="HtA-6r-JK3" firstAttribute="top" secondItem="HSa-7k-Hei" secondAttribute="bottom" constant="67" id="Myz-mh-EAE"/>
+                <constraint firstItem="HSa-7k-Hei" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="Qty-8W-VwW"/>
+                <constraint firstItem="HtA-6r-JK3" firstAttribute="trailing" secondItem="SBl-ae-gSx" secondAttribute="trailing" id="SkT-tU-2m4"/>
+                <constraint firstItem="2ez-cG-gmt" firstAttribute="leading" secondItem="SBl-ae-gSx" secondAttribute="leading" id="T6u-KE-IFf"/>
+                <constraint firstItem="CIA-e0-7z4" firstAttribute="trailing" secondItem="R1B-oq-vyv" secondAttribute="trailing" id="U8Z-eA-ge6"/>
+                <constraint firstAttribute="trailing" secondItem="fa0-tv-JE1" secondAttribute="trailing" id="Utc-yy-9vn"/>
+                <constraint firstItem="HSa-7k-Hei" firstAttribute="leading" secondItem="fa0-tv-JE1" secondAttribute="leading" id="Uxx-mY-Jtt"/>
+                <constraint firstItem="CIA-e0-7z4" firstAttribute="top" secondItem="R1B-oq-vyv" secondAttribute="bottom" constant="8" symbolic="YES" id="evE-ia-D3F"/>
+                <constraint firstItem="SBl-ae-gSx" firstAttribute="top" secondItem="HtA-6r-JK3" secondAttribute="bottom" constant="8" symbolic="YES" id="h5g-Sn-mc8"/>
+                <constraint firstItem="R1B-oq-vyv" firstAttribute="top" secondItem="2ez-cG-gmt" secondAttribute="bottom" constant="9" id="iuY-tN-E0i"/>
+                <constraint firstItem="HtA-6r-JK3" firstAttribute="leading" secondItem="SBl-ae-gSx" secondAttribute="leading" id="oNz-HR-P7I"/>
+                <constraint firstItem="HtA-6r-JK3" firstAttribute="centerX" secondItem="fa0-tv-JE1" secondAttribute="centerX" id="pgs-E8-cRf"/>
+                <constraint firstItem="R1B-oq-vyv" firstAttribute="trailing" secondItem="2ez-cG-gmt" secondAttribute="trailing" id="ukS-1P-b1l"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="460.5" y="226.5"/>
+        </view>
+    </objects>
+</document>

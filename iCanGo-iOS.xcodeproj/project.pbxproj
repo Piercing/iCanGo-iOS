@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CDB5F1D1B786F001C6251 /* LoginViewController.swift */; };
+		527CDB601D1B786F001C6251 /* LoginViewControllerJC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CDB5F1D1B786F001C6251 /* LoginViewControllerJC.swift */; };
 		52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DD0E0D1D18655200A2E55E /* Main.storyboard */; };
+		7948FC861D22DC3C00F6365A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948FC841D22DC3C00F6365A /* LoginViewController.swift */; };
+		7948FC871D22DC3C00F6365A /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7948FC851D22DC3C00F6365A /* LoginView.xib */; };
 		79F418211D043B36002131C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418201D043B36002131C7 /* AppDelegate.swift */; };
 		79F418231D043B36002131C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F418221D043B36002131C7 /* Assets.xcassets */; };
 		79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F418241D043B36002131C7 /* LaunchScreen.storyboard */; };
@@ -41,8 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		527CDB5F1D1B786F001C6251 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		527CDB5F1D1B786F001C6251 /* LoginViewControllerJC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerJC.swift; sourceTree = "<group>"; };
 		52DD0E0D1D18655200A2E55E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7948FC841D22DC3C00F6365A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7948FC851D22DC3C00F6365A /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		79F4181D1D043B36002131C7 /* iCanGo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCanGo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F418201D043B36002131C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79F418221D043B36002131C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,7 +162,8 @@
 		79F418431D043BA6002131C7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
+				527CDB5F1D1B786F001C6251 /* LoginViewControllerJC.swift */,
+				7948FC841D22DC3C00F6365A /* LoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 		79F418481D043C13002131C7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7948FC851D22DC3C00F6365A /* LoginView.xib */,
 				79F418241D043B36002131C7 /* LaunchScreen.storyboard */,
 				52DD0E0D1D18655200A2E55E /* Main.storyboard */,
 			);
@@ -351,6 +357,7 @@
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
 				79F418401D043B56002131C7 /* README.md in Resources */,
 				D37630F01D05C0FB0001E29F /* iCanGO-iOS.md in Resources */,
+				7948FC871D22DC3C00F6365A /* LoginView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7948FC861D22DC3C00F6365A /* LoginViewController.swift in Sources */,
 				D37630FE1D06CA280001E29F /* Session.swift in Sources */,
 				D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */,
 				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
@@ -424,7 +432,7 @@
 				D37630F61D05CA770001E29F /* Service.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
 				D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */,
-				527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */,
+				527CDB601D1B786F001C6251 /* LoginViewControllerJC.swift in Sources */,
 				D37631021D06D3090001E29F /* Constants.swift in Sources */,
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,
 			);
