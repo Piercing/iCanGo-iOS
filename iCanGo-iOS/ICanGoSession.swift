@@ -34,8 +34,14 @@ extension Session {
 // MARK: - Extension iCanGOS Requests
 extension Session {
 
+    // Get Services.
     func getServices(query: String) -> Observable<[Service]> {
         return getObjects(APIRequest.GetServices(key: "", query: query))
+    }
+
+    // Get Users.
+    func getUsers(query: String) -> Observable<[User]> {
+        return getObjects(APIRequest.GetUsers(key: "", query: query))
     }
 }
 

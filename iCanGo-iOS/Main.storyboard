@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="width" secondItem="ZRL-Xm-OC4" secondAttribute="height" multiplier="3:1" id="bpq-DF-ARF"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="39" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USUARIO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qyc-z2-uDs">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="39" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USUARIO" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Qyc-z2-uDs">
                                 <rect key="frame" x="25" y="220" width="324" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -47,10 +47,10 @@
                                     <outlet property="delegate" destination="45N-rf-31M" id="ErH-rD-aB3"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="39" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CONTRASEÑA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zvb-cv-2y4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="39" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CONTRASEÑA" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Zvb-cv-2y4">
                                 <rect key="frame" x="25" y="266" width="324" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="45N-rf-31M" id="pL7-Pz-JNt"/>
                                 </connections>
@@ -62,6 +62,9 @@
                                 <state key="normal" title="Iniciar Sesión">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnInitSS:" destination="45N-rf-31M" eventType="touchUpInside" id="5LA-2j-kzh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEP-95-oPC">
                                 <rect key="frame" x="25" y="405" width="324" height="20"/>
@@ -72,6 +75,9 @@
                                 <state key="normal" title="¿Olvidaste tú contraseña?">
                                     <color key="titleColor" red="0.0" green="0.14117647058823529" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnForgetPASS:" destination="45N-rf-31M" eventType="touchUpInside" id="vrT-mc-YWo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu8-Go-rzi">
                                 <rect key="frame" x="25" y="428" width="324" height="20"/>
@@ -82,6 +88,9 @@
                                 <state key="normal" title="¿Aún no te has registrado?">
                                     <color key="titleColor" red="0.0" green="0.14117647058823529" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnNoRG:" destination="45N-rf-31M" eventType="touchUpInside" id="ALK-x2-Ucd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -115,6 +124,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="RD5-da-ihT"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="btnForgetPassw" destination="QEP-95-oPC" id="pRs-6H-xYh"/>
+                        <outlet property="btnInitSession" destination="w8N-U2-92K" id="U8y-iF-OKj"/>
+                        <outlet property="btnNotRegister" destination="Hu8-Go-rzi" id="nlR-aM-BXg"/>
+                        <outlet property="txtFieldPassw" destination="Zvb-cv-2y4" id="mcY-f3-Lrz"/>
+                        <outlet property="txtFieldUser" destination="Qyc-z2-uDs" id="7yx-mX-w7j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhJ-Ki-oko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
