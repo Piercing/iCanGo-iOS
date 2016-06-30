@@ -92,6 +92,9 @@
                                     <action selector="btnNoRG:" destination="45N-rf-31M" eventType="touchUpInside" id="ALK-x2-Ucd"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0jd-WS-JCW">
+                                <rect key="frame" x="177" y="316" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -101,9 +104,11 @@
                             <constraint firstItem="eQw-Qj-w40" firstAttribute="leading" secondItem="ZRL-Xm-OC4" secondAttribute="leading" id="Dhb-Ih-NhJ"/>
                             <constraint firstItem="QEP-95-oPC" firstAttribute="top" secondItem="w8N-U2-92K" secondAttribute="bottom" constant="15" id="Dws-D9-d5z"/>
                             <constraint firstAttribute="trailing" secondItem="ZRL-Xm-OC4" secondAttribute="trailing" id="J1h-g5-1fY"/>
+                            <constraint firstItem="0jd-WS-JCW" firstAttribute="top" secondItem="Zvb-cv-2y4" secondAttribute="bottom" constant="20" id="KPr-Sa-evs"/>
                             <constraint firstItem="w8N-U2-92K" firstAttribute="trailing" secondItem="QEP-95-oPC" secondAttribute="trailing" id="LXZ-fy-D7G"/>
                             <constraint firstItem="Qyc-z2-uDs" firstAttribute="top" secondItem="ZRL-Xm-OC4" secondAttribute="bottom" constant="31" id="NR1-sY-G2c"/>
                             <constraint firstItem="w8N-U2-92K" firstAttribute="leading" secondItem="Zvb-cv-2y4" secondAttribute="leading" id="OJm-z1-5Mb"/>
+                            <constraint firstItem="0jd-WS-JCW" firstAttribute="centerX" secondItem="eQw-Qj-w40" secondAttribute="centerX" id="R3Y-Yc-D2j"/>
                             <constraint firstAttribute="trailing" secondItem="Or4-d6-zHS" secondAttribute="trailing" id="RAS-vE-7lu"/>
                             <constraint firstItem="Zvb-cv-2y4" firstAttribute="top" secondItem="Qyc-z2-uDs" secondAttribute="bottom" constant="16" id="VuH-GY-DFQ"/>
                             <constraint firstItem="w8N-U2-92K" firstAttribute="leading" secondItem="QEP-95-oPC" secondAttribute="leading" id="Zmm-w4-hUD"/>
@@ -125,6 +130,7 @@
                     <navigationItem key="navigationItem" title="Login" id="RD5-da-ihT"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="0jd-WS-JCW" id="iaF-4D-hP9"/>
                         <outlet property="btnForgetPassw" destination="QEP-95-oPC" id="pRs-6H-xYh"/>
                         <outlet property="btnInitSession" destination="w8N-U2-92K" id="U8y-iF-OKj"/>
                         <outlet property="btnNotRegister" destination="Hu8-Go-rzi" id="nlR-aM-BXg"/>

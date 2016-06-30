@@ -12,6 +12,7 @@ import RxSwift
 enum SessionError: ErrorType {
     case CouldNotDecodeJSON
     case BadHTTPStatus(status: Int)
+    case NoData(error: String)
     case Other(NSError)
 }
 
@@ -23,6 +24,8 @@ extension SessionError: CustomDebugStringConvertible {
             return "Could not decode JSON"
         case let .BadHTTPStatus(status):
             return "Bad Status: \(status)"
+        case let .NoData(error):
+            return error
         case let .Other(error):
             return "Other error: \(error)"
         }

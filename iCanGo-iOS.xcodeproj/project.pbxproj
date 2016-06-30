@@ -18,6 +18,8 @@
 		79F418401D043B56002131C7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 79F4183D1D043B56002131C7 /* README.md */; };
 		79F4184A1D043E3D002131C7 /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = 79F418491D043E3D002131C7 /* PodFile */; };
 		A9D495034C1BC3A48FFE7AF8 /* Pods_iCanGo_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BCFB28C96273CCDD0CF172 /* Pods_iCanGo_iOS.framework */; };
+		D305B23D1D24FDCF0072B634 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D305B23C1D24FDCF0072B634 /* Localization.swift */; };
+		D308447A1D23AE1400A25CF4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30844791D23AE1400A25CF4 /* Response.swift */; };
 		D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3567BBF1D1BC38B00E5A5EE /* User.swift */; };
 		D37630EC1D058F660001E29F /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630EB1D058F660001E29F /* Resource.swift */; };
 		D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630ED1D05B5F40001E29F /* APIRequest.swift */; };
@@ -56,6 +58,8 @@
 		79F4183D1D043B56002131C7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		79F418491D043E3D002131C7 /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PodFile; path = ../PodFile; sourceTree = "<group>"; };
 		ACA2D280BC84CE3643A31256 /* Pods-iCanGo-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D305B23C1D24FDCF0072B634 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		D30844791D23AE1400A25CF4 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D3567BBF1D1BC38B00E5A5EE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D37630EB1D058F660001E29F /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		D37630ED1D05B5F40001E29F /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 			children = (
 				D37630F51D05CA770001E29F /* Service.swift */,
 				D3567BBF1D1BC38B00E5A5EE /* User.swift */,
+				D30844791D23AE1400A25CF4 /* Response.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				D37630FB1D06C0CA0001E29F /* Framework.swift */,
+				D305B23C1D24FDCF0072B634 /* Localization.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -420,6 +426,8 @@
 				D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */,
 				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
 				D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */,
+				D308447A1D23AE1400A25CF4 /* Response.swift in Sources */,
+				D305B23D1D24FDCF0072B634 /* Localization.swift in Sources */,
 				D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */,
 				D37630F61D05CA770001E29F /* Service.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,

@@ -11,6 +11,7 @@ import Foundation
 enum Method: String
 {
     case GET = "GET"
+    case POST = "POST"
 }
 
 protocol Resource {
@@ -29,7 +30,7 @@ extension Resource {
     func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest {
         
         let URL = baseURL.URLByAppendingPathComponent(path)
-        
+
         /*
         guard let components = NSURLComponents(URL: URL, resolvingAgainstBaseURL: false) else {
             fatalError("Unable to create URLComponents form \(URL)")
@@ -41,10 +42,25 @@ extension Resource {
             fatalError("Unable to retrieve final URL")
         }
         */
-        let finalURL = URL
         
-        let request = NSMutableURLRequest(URL: finalURL)
+        let request = NSMutableURLRequest(URL: URL)
         request.HTTPMethod = method.rawValue
+        if method == Method.POST {
+    
+            do {
+                request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+                try request.HTTPBody = NSJSONSerialization.dataWithJSONObject(parameters, options: .PrettyPrinted)
+            } catch {
+                fatalError("Unable to create HTTP body data")
+            }
+        }
+        
         return request
     }
 }
+
+
+
+
+
+
