@@ -9,16 +9,16 @@
 import Foundation
 
 struct Service {
-    let id: Int
+    let id: String
     let name: String
-    let description: String
-    let idUserRequest: Int
-    let idUserResponse: Int?
-    let dateCreated: NSDate
-    let dateFinished: NSDate
+    let description: String?    // Ver si sera definitivamente opcional?
+    let idUserRequest: String?    // Ver si sera definitivamente opcional?
+    let idUserResponse: String?
+    let dateCreated: NSDate?   // Ver si sera definitivamente opcional?
+    let dateFinished: NSDate?  // Ver si sera definitivamente opcional?
     let dateDone: NSDate?
     let price: Double?
-    let status: String
+    let status: String?        // Ver si sera definitivamente opcional?
     let address: String?
     let latitude: Double?
     let longitude: Double?
@@ -30,6 +30,42 @@ extension Service: JSONDecodable {
     // MARK: - Init
     init?(dictionary: JSONDictionary) {
         
+        guard let id = dictionary["id"] as? String,
+                name = dictionary["name"] as? String else {
+                return nil
+        }
+        
+        self.id = id
+        self.name = name
+        self.description = dictionary["description"] as? String
+        self.idUserRequest = dictionary["idUserRequest"] as? String
+        self.idUserResponse = dictionary["idUserResponse"] as? String
+        self.dateCreated = dictionary["dateCreated"] as? NSDate
+        self.dateFinished = dictionary["dateFinished"] as? NSDate
+        self.dateDone = dictionary["dateDone"] as? NSDate
+        self.price = dictionary["price"] as? Double
+        self.status = dictionary["status"] as? String
+        self.address = dictionary["address"] as? String
+        
+        if let latitude = dictionary["latitude"] as? String {
+            self.latitude = Double(latitude)
+        } else {
+            self.latitude = nil
+        }
+        
+        if let longitude = dictionary["longitude"] as? String {
+            self.longitude = Double(longitude)
+        } else {
+            self.longitude = nil
+        }
+        
+        if let tags = dictionary["tags"] as? String {
+            self.tags = String.stringToStrings(tags, separator: " ")
+        } else {
+            self.tags = nil
+        }
+        
+        /*
         guard let id = dictionary["id"] as? Int,
                   name = dictionary["name"] as? String,
                   description = dictionary["description"] as? String,
@@ -110,6 +146,7 @@ extension Service: JSONDecodable {
         } else {
             self.tags = nil
         }
+        */
     }
 }
 

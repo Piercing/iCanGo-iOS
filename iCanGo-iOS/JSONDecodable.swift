@@ -16,30 +16,22 @@ protocol JSONDecodable
 }
 
 // MARK: Methods
-func decode<T: JSONDecodable>(dictionary: JSONDictionary) -> [T]? {
+func decode<T: JSONDecodable>(data: NSData) -> T? {
     
-    guard let JSONDictionaries = dictionary["users"] as? [JSONDictionary] else {
+    guard let JSONObject = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
+          JSONDictionary = JSONObject as? JSONDictionary else {
         return nil
     }
     
-    return JSONDictionaries.flatMap { T(dictionary: $0) }
+    return T(dictionary: JSONDictionary)
 }
 
-
-func decode<T: JSONDecodable>(data: NSData) -> [T]? {
-
-    /*
-    guard let JSONObject = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
-              JSONDictionaries = JSONObject as? [JSONDictionary] else {
-        return nil
-    }
-    */
-    guard let JSONObject = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
-          JSONDictionary = JSONObject as? JSONDictionary,
-            objects: [T] = decode(JSONDictionary) else {
-        return nil
-    }
+func decode<T: JSONDecodable>(dictionary: [JSONDictionary]) -> [T]? {
     
-    return objects
+    return dictionary.flatMap { T(dictionary: $0) }
 }
 
+func decode<T: JSONDecodable>(dictionary: JSONDictionary) -> T? {
+    
+    return T(dictionary: dictionary)
+}
