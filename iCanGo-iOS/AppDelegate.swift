@@ -25,18 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //testAlamofireSwiftyJSON()
         //testHaneke()
         
-        /*
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyBoard.instantiateViewControllerWithIdentifier("Login") as UIViewController
         self.window?.rootViewController = viewController
-        self.window?.makeKeyAndVisible()
-        */
-
-        let loginViewController = LoginViewController(nibName: "LoginView", bundle: nil)
-
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = loginViewController
         self.window?.makeKeyAndVisible()
         
         return true
