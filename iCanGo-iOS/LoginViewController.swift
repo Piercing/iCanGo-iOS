@@ -59,11 +59,11 @@ class LoginViewController: UIViewController {
                     if (user.email == self!.txtFieldUser.text!) {
                         self!.loginSuccess()
                     } else {
-                        self!.loginNoSuccess()
+                        self!.loginNoSuccess(nil)
                     }
                     
-                case .Error:
-                    self!.loginNoSuccess()
+                case .Error (let error):
+                    self!.loginNoSuccess(error as? SessionError)
                     
                 default:
                     break
@@ -107,12 +107,27 @@ class LoginViewController: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    private func loginNoSuccess() {
+    private func loginNoSuccess(error: SessionError?) {
 
+        var titleError = loginKoTitle
+        var messageError = loginKoMessage
+        
+        if let error = error {
+            switch error {
+            case SessionError.Other(let errorDescription):
+                if (errorDescription.code == -1009) {
+                    titleError = noConnectionTitle
+                    messageError = noConnectionMessage
+                }
+            default:
+                break
+            }
+        }
+        
         loginInProgress = false
         activityIndicatorView.stopAnimating()
         activityIndicatorView.hidden = true
-        let alertController = UIAlertController(title: loginKoTitle, message: loginKoMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: titleError, message: messageError, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
     }

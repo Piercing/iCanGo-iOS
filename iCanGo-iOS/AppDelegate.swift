@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //testAlamofireSwiftyJSON()
         //testHaneke()
-        //testLogin()
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -33,21 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         return true
-    }
-    
-    func testLogin() {
-        
-        let session = Session.iCanGoSession()
-        session.postLogin("alberto@prueba.com", password: "prueba").subscribe { event in
-            switch event {
-            case let .Next(user):
-                print(user)
-            case .Error(let error):
-                print(error)
-            default:
-                break
-            }
-        }
     }
     
     /*

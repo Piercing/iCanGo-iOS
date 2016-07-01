@@ -9,14 +9,16 @@
 import Foundation
 import RxSwift
 
+// MARK: Enums
 enum SessionError: ErrorType {
     case CouldNotDecodeJSON
     case BadHTTPStatus(status: Int)
-    case NoData(error: String)
-    case Other(NSError)
+    case APIErrorNoData
+    case Other(error: NSError)
 }
 
 
+// Extensions
 extension SessionError: CustomDebugStringConvertible {
     var debugDescription: String {
         switch self {
@@ -24,14 +26,16 @@ extension SessionError: CustomDebugStringConvertible {
             return "Could not decode JSON"
         case let .BadHTTPStatus(status):
             return "Bad Status: \(status)"
-        case let .NoData(error):
-            return error
+        case .APIErrorNoData:
+            return "No data found"
         case let .Other(error):
             return "Other error: \(error)"
         }
     }
 }
 
+
+// Class
 final class Session
 {
     // MARK: - Private properties
@@ -56,7 +60,7 @@ final class Session
                 
                 if let error = error {
                     
-                    observer.onError(SessionError.Other(error))
+                    observer.onError(SessionError.Other(error: error))
                 
                 } else {
                     
@@ -83,5 +87,24 @@ final class Session
     }
 }
 
+
+// Extension
+extension SessionError {
+
+    static func errorAPIByDescription(error: String) -> SessionError {
+        
+        let result : SessionError
+        
+        switch error {
+        case "No data found":
+            result = .APIErrorNoData
+        default:
+            let errorDetails = NSError(domain: "APIError", code: 0, userInfo: [NSLocalizedDescriptionKey: error])
+            result = .Other(error: errorDetails)
+        }
+        
+        return result
+    }
+}
 
 

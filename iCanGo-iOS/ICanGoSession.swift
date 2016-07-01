@@ -36,10 +36,10 @@ extension Session {
     // GET Services.
     func getServices(query: String, page: UInt) -> Observable<[Service]> {
         
-        return response(APIRequest.GetServices(key: "", query: query, page: page)).map { response in
+        return response(APIRequest.getServices(key: "", query: query, page: page)).map { response in
             
             guard response.error == "" else {
-                throw SessionError.NoData(error: response.error)
+                throw SessionError.errorAPIByDescription(response.error)
             }
 
             guard let results = response.results,
@@ -54,10 +54,10 @@ extension Session {
     // GET Service.
     func getService(query: String) -> Observable<Service> {
         
-        return response(APIRequest.GetService(key: "", query: query)).map { response in
+        return response(APIRequest.getService(key: "", query: query)).map { response in
             
             guard response.error == "" else {
-                throw SessionError.NoData(error: response.error)
+                throw SessionError.errorAPIByDescription(response.error)
             }
     
             guard let result = response.result,
@@ -72,10 +72,10 @@ extension Session {
     // GET Users.
     func getUsers(query: String, page: UInt) -> Observable<[User]> {
 
-        return response(APIRequest.GetUsers(key: "", query: query, page: page)).map { response in
+        return response(APIRequest.getUsers(key: "", query: query, page: page)).map { response in
             
             guard response.error == "" else {
-                throw SessionError.NoData(error: response.error)
+                throw SessionError.errorAPIByDescription(response.error)
             }
 
             guard let results = response.results,
@@ -90,10 +90,10 @@ extension Session {
     // GET User.
     func getUser(query: String) -> Observable<User> {
      
-        return response(APIRequest.GetUser(key: "", query: query)).map { response in
+        return response(APIRequest.getUser(key: "", query: query)).map { response in
 
             guard response.error == "" else {
-                throw SessionError.NoData(error: response.error)
+                throw SessionError.errorAPIByDescription(response.error)
             }
 
             guard let result = response.result,
@@ -108,10 +108,10 @@ extension Session {
     // POST Login.
     func postLogin(user: String, password: String) -> Observable<User> {
         
-        return response(APIRequest.PostLogin(user: user, password: password)).map { response in
+        return response(APIRequest.postLogin(user: user, password: password)).map { response in
             
             guard response.error == "" else {
-                throw SessionError.NoData(error: response.error)
+                throw SessionError.errorAPIByDescription(response.error)
             }
             
             guard let result = response.result,
@@ -131,7 +131,7 @@ extension Session {
                   searchPreferences: String,
                   status: String) -> Observable<User> {
         
-        return response(APIRequest.PostUser(user: user,
+        return response(APIRequest.postUser(user: user,
                                         password: password,
                                        firstName: firstName,
                                         lastName: lastName,
@@ -140,7 +140,7 @@ extension Session {
                                           status: status)).map { response in
                 
             guard response.error == "" else {
-                throw SessionError.NoData(error: response.error)
+                throw SessionError.errorAPIByDescription(response.error)
             }
             
             guard let result = response.result,
@@ -160,7 +160,7 @@ extension Session {
                   longitude: Double,
                   status: String) -> Observable<Service> {
         
-        return response(APIRequest.PostService(name: name,
+        return response(APIRequest.postService(name: name,
                                               price: price,
                                                tags: tags,
                                       idUserRequest: idUserRequest,
@@ -169,7 +169,7 @@ extension Session {
                                              status: status)).map { response in
                 
             guard response.error == "" else {
-                throw SessionError.NoData(error: response.error)
+                throw SessionError.errorAPIByDescription(response.error)
             }
                 
             guard let result = response.result,
