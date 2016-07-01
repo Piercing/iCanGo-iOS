@@ -12,6 +12,7 @@ import RxSwift
 class LoginViewController: UIViewController {
     
     // MARK: - Properties
+    
     @IBOutlet weak var txtFieldUser: UITextField!
     @IBOutlet weak var txtFieldPassw: UITextField!
     @IBOutlet weak var btnInitSession: UIButton!
@@ -23,6 +24,7 @@ class LoginViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
         
         // Status Bar Color
         let statusBarColor = UIColor(red: 26/255, green: 147/255, blue: 165/255, alpha: 1)
@@ -32,6 +34,16 @@ class LoginViewController: UIViewController {
         
         activityIndicatorView.hidden = true
         loginInProgress = false
+=======
+        customizeAppearance()
+    }
+    
+    override func viewDidLayoutSubviews(){
+        super.viewDidLayoutSubviews()
+        txtFieldUser.layer.cornerRadius = 5
+        txtFieldPassw.layer.cornerRadius = 5
+        btnInitSession.layer.cornerRadius = 5
+>>>>>>> master
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,6 +51,7 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+<<<<<<< HEAD
     
     // MARK: - Actions
     @IBAction func btnInitSS(sender: AnyObject) {
@@ -70,13 +83,31 @@ class LoginViewController: UIViewController {
                 }
             }
         }
+=======
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        txtFieldUser.resignFirstResponder()
+        txtFieldPassw.resignFirstResponder()
+>>>>>>> master
     }
     
-    @IBAction func btnForgetPASS(sender: AnyObject) {
+    // MARK: - Appearance
+    func customizeAppearance() {
+        // Status Bar Color
+        let statusBarColor = UIColor(red: 26/255, green: 147/255, blue: 165/255, alpha: 1)
+        let colorStatusBar: UIView = UIView(frame: CGRectMake(0, 0,self.view.frame.size.width, 20))
+        colorStatusBar.backgroundColor = statusBarColor
+        self.view.addSubview(colorStatusBar)
     }
     
-    @IBAction func btnNoRG(sender: AnyObject) {
-    }
+    // MARK: - Actions
+    /*@IBAction func btnInitSS(sender: AnyObject) {
+     }
+     
+     @IBAction func btnForgetPASS(sender: AnyObject) {
+     }
+     
+     @IBAction func btnNoRG(sender: AnyObject) {
+     }*/
     
     /*
      // MARK: - Navigation
@@ -134,11 +165,18 @@ class LoginViewController: UIViewController {
 }
 
 // MARK: - Extensions - Delegates
+<<<<<<< HEAD
 extension LoginViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         self.view.endEditing(true)
         return true
+=======
+extension UIViewController: UITextFieldDelegate{
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)        
+        return false
+>>>>>>> master
     }
 }
