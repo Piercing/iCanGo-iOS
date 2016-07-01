@@ -14,6 +14,8 @@ struct User {
     let firstName: String
     let lastName: String
     let photoURL: NSURL
+    let searchPreferences: String?
+    let status: String?
 }
 
 extension User: JSONDecodable {
@@ -36,7 +38,9 @@ extension User: JSONDecodable {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
-        self.photoURL = imageURL        
+        self.photoURL = imageURL
+        self.searchPreferences = dictionary["searchPreferences"] as? String
+        self.status = dictionary["status"] as? String
     }
 }
 

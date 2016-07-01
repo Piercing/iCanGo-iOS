@@ -33,3 +33,19 @@ extension NSDate {
     }
 }
 
+// NSString
+extension String {
+    
+    static func stringsToString(strings: [String]) -> String {
+        
+        return strings.reduce("", combine: { $0 == "" ? $1 : $0 + " " + $1 })
+    }
+    
+    static func stringToStrings(string: String, separator: Character) -> [String] {
+        
+        return string.characters.split{$0 == separator}.map(String.init)
+    }
+}
+
+
+

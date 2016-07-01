@@ -24,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //testAlamofireSwiftyJSON()
         //testHaneke()
-        //testGetServices()
-        testGetUsers()
         
         /*
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -42,22 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         return true
-    }
-    
-    func testGetServices() {
-        
-        let session = Session.iCanGoSession()
-        session.getServices("5753da62120000ab1a4775f2").subscribeNext { services in
-            print(services)
-        }
-    }
-
-    func testGetUsers() {
-        
-        let session = Session.iCanGoSession()
-        session.getUsers("D49DB890-8F7F-4B4F-9A1D-8C551B993E96").subscribeNext { users in
-            print(users)
-        }
     }
     
     /*
