@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnForgetPassw: UIButton!
     @IBOutlet weak var btnNotRegister: UIButton!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     var loginInProgress: Bool!
     
     // MARK: - LifeCycle
