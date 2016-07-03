@@ -12,6 +12,7 @@ import RxSwift
 class LoginViewController: UIViewController {
     
     // MARK: - Properties
+    
     @IBOutlet weak var txtFieldUser: UITextField!
     @IBOutlet weak var txtFieldPassw: UITextField!
     @IBOutlet weak var btnInitSession: UIButton!
@@ -21,17 +22,22 @@ class LoginViewController: UIViewController {
     var loginInProgress: Bool!
     
     // MARK: - LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Status Bar Color
-        let statusBarColor = UIColor(red: 26/255, green: 147/255, blue: 165/255, alpha: 1)
-        let colorStatusBar: UIView = UIView(frame: CGRectMake(0, 0,self.view.frame.size.width, 20))
-        colorStatusBar.backgroundColor = statusBarColor
-        self.view.addSubview(colorStatusBar)
+        customizeAppearance()
         
         activityIndicatorView.hidden = true
         loginInProgress = false
+    }
+    
+    override func viewDidLayoutSubviews(){
+        super.viewDidLayoutSubviews()
+        txtFieldUser.layer.cornerRadius = 5
+        txtFieldPassw.layer.cornerRadius = 5
+        btnInitSession.layer.cornerRadius = 5
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,35 +45,52 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        txtFieldUser.resignFirstResponder()
+        txtFieldPassw.resignFirstResponder()
+        
+    }
+    
+    // MARK: - Appearance
+    
+    func customizeAppearance() {
+        // Status Bar Color
+        let statusBarColor = UIColor(red: 26/255, green: 147/255, blue: 165/255, alpha: 1)
+        let colorStatusBar: UIView = UIView(frame: CGRectMake(0, 0,self.view.frame.size.width, 20))
+        colorStatusBar.backgroundColor = statusBarColor
+        self.view.addSubview(colorStatusBar)
+    }
+    
     
     // MARK: - Actions
+    
     @IBAction func btnInitSS(sender: AnyObject) {
         
         // Check info of login fields.
         if (txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress) {
-
+            
             loginInProgressRequest()
-                        
+            
             let session = Session.iCanGoSession()
             let _ = session.postLogin(txtFieldUser.text!, password: txtFieldPassw.text!)
                 
-            .observeOn(MainScheduler.instance)
-            .subscribe { [weak self] event in
-                
-                switch event {
-                case let .Next(user):
-                    if (user.email == self!.txtFieldUser.text!) {
-                        self!.loginSuccess()
-                    } else {
-                        self!.loginNoSuccess(nil)
+                .observeOn(MainScheduler.instance)
+                .subscribe { [weak self] event in
+                    
+                    switch event {
+                    case let .Next(user):
+                        if (user.email == self!.txtFieldUser.text!) {
+                            self!.loginSuccess()
+                        } else {
+                            self!.loginNoSuccess(nil)
+                        }
+                        
+                    case .Error (let error):
+                        self!.loginNoSuccess(error as? SessionError)
+                        
+                    default:
+                        break
                     }
-                    
-                case .Error (let error):
-                    self!.loginNoSuccess(error as? SessionError)
-                    
-                default:
-                    break
-                }
             }
         }
     }
@@ -88,7 +111,8 @@ class LoginViewController: UIViewController {
      }
      */
     
-    // Private Methods
+    // MARK: - Private Methods
+    
     private func loginInProgressRequest() {
         
         loginInProgress = true
@@ -108,7 +132,7 @@ class LoginViewController: UIViewController {
     }
     
     private func loginNoSuccess(error: SessionError?) {
-
+        
         var titleError = loginKoTitle
         var messageError = loginKoMessage
         
@@ -135,11 +159,15 @@ class LoginViewController: UIViewController {
 
 
 // MARK: - Extensions - Delegates
+
 extension LoginViewController: UITextFieldDelegate{
-    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
-        self.view.endEditing(true)
+        self.view.endEditing(false)
         return true
     }
 }
+
+
+
+
+

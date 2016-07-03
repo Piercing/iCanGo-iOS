@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CDB5F1D1B786F001C6251 /* LoginViewController.swift */; };
 		52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DD0E0D1D18655200A2E55E /* Main.storyboard */; };
+		52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */; };
+		52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F367AA1D28FBFF0064583C /* LoginView.xib */; };
+		52F367AD1D2918FD0064583C /* LoginViewStack.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F367AC1D2918FC0064583C /* LoginViewStack.xib */; };
 		79F418211D043B36002131C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418201D043B36002131C7 /* AppDelegate.swift */; };
 		79F418231D043B36002131C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F418221D043B36002131C7 /* Assets.xcassets */; };
 		79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F418241D043B36002131C7 /* LaunchScreen.storyboard */; };
@@ -45,6 +48,9 @@
 /* Begin PBXFileReference section */
 		527CDB5F1D1B786F001C6251 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		52DD0E0D1D18655200A2E55E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
+		52F367AA1D28FBFF0064583C /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		52F367AC1D2918FC0064583C /* LoginViewStack.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewStack.xib; sourceTree = "<group>"; };
 		79F4181D1D043B36002131C7 /* iCanGo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCanGo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F418201D043B36002131C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79F418221D043B36002131C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +194,7 @@
 		79F418461D043C01002131C7 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */,
 			);
 			name = Themes;
 			sourceTree = "<group>";
@@ -204,6 +211,8 @@
 			children = (
 				79F418241D043B36002131C7 /* LaunchScreen.storyboard */,
 				52DD0E0D1D18655200A2E55E /* Main.storyboard */,
+				52F367AA1D28FBFF0064583C /* LoginView.xib */,
+				52F367AC1D2918FC0064583C /* LoginViewStack.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -351,8 +360,10 @@
 			files = (
 				79F4183F1D043B56002131C7 /* .gitignore in Resources */,
 				79F4184A1D043E3D002131C7 /* PodFile in Resources */,
+				52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */,
 				79F418231D043B36002131C7 /* Assets.xcassets in Resources */,
 				52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */,
+				52F367AD1D2918FD0064583C /* LoginViewStack.xib in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
 				79F418401D043B56002131C7 /* README.md in Resources */,
@@ -434,6 +445,7 @@
 				D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */,
 				527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */,
 				D37631021D06D3090001E29F /* Constants.swift in Sources */,
+				52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */,
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
