@@ -4,7 +4,7 @@
 //
 //  Created by Juan Carlos Merlos Albarracín on 23/6/16.
 //  Copyright © 2016 CodeCrafters. All rights reserved.
-//
+// alberto@prueba.com
 
 import UIKit
 import RxSwift
@@ -82,6 +82,10 @@ class LoginViewController: UIViewController {
                     case let .Next(user):
                         if (user.email == self!.txtFieldUser.text!) {
                             self!.loginSuccess()
+                            
+                            // push: show services screen
+                            self?.pushViewController()
+                            
                         } else {
                             self!.loginNoSuccess(nil)
                         }
@@ -114,6 +118,12 @@ class LoginViewController: UIViewController {
     
     // MARK: - Private Methods
     
+    private func pushViewController() {
+        
+        let servicesViewController = ServicesViewController()
+        self.presentViewController(servicesViewController, animated: true, completion: nil)
+    }
+    
     private func loginInProgressRequest() {
         
         loginInProgress = true
@@ -127,9 +137,6 @@ class LoginViewController: UIViewController {
         loginInProgress = false
         activityIndicatorView.stopAnimating()
         activityIndicatorView.hidden = true
-        let alertController = UIAlertController(title: "Login OK", message: "Login Correcto", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     private func loginNoSuccess(error: SessionError?) {

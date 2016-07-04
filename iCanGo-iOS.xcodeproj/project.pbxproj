@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CDB5F1D1B786F001C6251 /* LoginViewController.swift */; };
+		527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87091D2B09F000D0E1EC /* ServicesViewController.swift */; };
+		527F870C1D2B09F000D0E1EC /* ServicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870A1D2B09F000D0E1EC /* ServicesViewController.xib */; };
 		52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DD0E0D1D18655200A2E55E /* Main.storyboard */; };
 		52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */; };
 		52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F367AA1D28FBFF0064583C /* LoginView.xib */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		527CDB5F1D1B786F001C6251 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		527F87091D2B09F000D0E1EC /* ServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
+		527F870A1D2B09F000D0E1EC /* ServicesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicesViewController.xib; sourceTree = "<group>"; };
 		52DD0E0D1D18655200A2E55E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		52F367AA1D28FBFF0064583C /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
+				527F87091D2B09F000D0E1EC /* ServicesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 				52DD0E0D1D18655200A2E55E /* Main.storyboard */,
 				52F367AA1D28FBFF0064583C /* LoginView.xib */,
 				52F367AC1D2918FC0064583C /* LoginViewStack.xib */,
+				527F870A1D2B09F000D0E1EC /* ServicesViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 				79F418231D043B36002131C7 /* Assets.xcassets in Resources */,
 				52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */,
 				52F367AD1D2918FD0064583C /* LoginViewStack.xib in Resources */,
+				527F870C1D2B09F000D0E1EC /* ServicesViewController.xib in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
 				79F418401D043B56002131C7 /* README.md in Resources */,
@@ -436,6 +443,7 @@
 				D37630FE1D06CA280001E29F /* Session.swift in Sources */,
 				D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */,
 				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
+				527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */,
 				D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */,
 				D308447A1D23AE1400A25CF4 /* Response.swift in Sources */,
 				D305B23D1D24FDCF0072B634 /* Localization.swift in Sources */,
