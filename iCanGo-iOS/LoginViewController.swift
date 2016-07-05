@@ -4,7 +4,7 @@
 //
 //  Created by Juan Carlos Merlos Albarracín on 23/6/16.
 //  Copyright © 2016 CodeCrafters. All rights reserved.
-// alberto@prueba.com
+//
 
 import UIKit
 import RxSwift
@@ -84,7 +84,7 @@ class LoginViewController: UIViewController {
                             self!.loginSuccess()
                             
                             // push: show services screen
-                            self?.pushViewController()
+                            self!.pushViewController()
                             
                         } else {
                             self!.loginNoSuccess(nil)
@@ -120,7 +120,7 @@ class LoginViewController: UIViewController {
     
     private func pushViewController() {
         
-        let servicesViewController = ServicesViewController()
+        let servicesViewController = ServicesTabViewController()
         self.presentViewController(servicesViewController, animated: true, completion: nil)
     }
     

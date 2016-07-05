@@ -27,7 +27,7 @@
                                 <color key="textColor" red="0.014488485345424624" green="0.045516748366013049" blue="0.036517153681726311" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iCanGoTitleLogin" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-Ae-jyS">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="logoiCangoVectors" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-Ae-jyS">
                                 <rect key="frame" x="20" y="104" width="560" height="291"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="291" id="NBo-KI-OdX"/>
@@ -55,7 +55,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iCanGoTitleLogin" width="270" height="101"/>
+        <image name="logoiCangoVectors" width="621" height="375"/>
         <image name="turquesa01" width="150" height="150"/>
     </resources>
 </document>
