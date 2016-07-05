@@ -38,6 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = loginViewController
         self.window?.makeKeyAndVisible()
         
+        
+        //        let tabBarController = TabBars()
+        //        self.window?.rootViewController = tabBarController
+        //        window?.makeKeyAndVisible()
+        
         return true
     }
     

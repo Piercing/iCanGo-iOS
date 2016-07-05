@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnForgetPassw: UIButton!
     @IBOutlet weak var btnNotRegister: UIButton!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     var loginInProgress: Bool!
     
     // MARK: - LifeCycle
@@ -81,6 +82,10 @@ class LoginViewController: UIViewController {
                     case let .Next(user):
                         if (user.email == self!.txtFieldUser.text!) {
                             self!.loginSuccess()
+                            
+                            // push: show services screen
+                            self!.pushViewController()
+                            
                         } else {
                             self!.loginNoSuccess(nil)
                         }
@@ -113,6 +118,12 @@ class LoginViewController: UIViewController {
     
     // MARK: - Private Methods
     
+    private func pushViewController() {
+        
+        let servicesViewController = ServicesTabViewController()
+        self.presentViewController(servicesViewController, animated: true, completion: nil)
+    }
+    
     private func loginInProgressRequest() {
         
         loginInProgress = true
@@ -126,9 +137,6 @@ class LoginViewController: UIViewController {
         loginInProgress = false
         activityIndicatorView.stopAnimating()
         activityIndicatorView.hidden = true
-        let alertController = UIAlertController(title: "Login OK", message: "Login Correcto", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     private func loginNoSuccess(error: SessionError?) {
