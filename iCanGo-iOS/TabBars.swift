@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabBars: UITabBarController, UITabBarControllerDelegate {
+class TabBars: UITabBarController {
     
     // MARK: - LifeCycle
     
@@ -23,11 +23,11 @@ class TabBars: UITabBarController, UITabBarControllerDelegate {
         let itemLocationTabBar =  LocationTabViewController()
         let itemCreateServiceTabBar =  CreateServiceTabViewController()
         let itemNotificationsTabBar = NotificationsTabViewController()
-        let itemMyProfileTabBar = NotificationsTabViewController()
+        let itemMyProfileTabBar = MyProfileTabViewController()
         
         let iconServicesTabBar = UITabBarItem(
             title: "Services",
-            image: UIImage(named: "iCanGoTitleLogin.png"),
+            image: UIImage(named: "Pin.png"),
             selectedImage: UIImage(named: "logiCangoVectors.pdf"))
         
         let iconLocationTabBar = UITabBarItem(
@@ -37,17 +37,17 @@ class TabBars: UITabBarController, UITabBarControllerDelegate {
         
         let iconCreateServicesTabBar = UITabBarItem(
             title: "High Services",
-            image: UIImage(named: "badge-sketch.pdf"),
+            image: UIImage(named: "Pin.png"),
             selectedImage: UIImage(named: "logiCangoVectors.pdf"))
         
         let iconNotificationsTabBar = UITabBarItem(
             title: "Notifications",
-            image: UIImage(named: "icon_InboxNotification.pdf"),
+            image: UIImage(named: "Pin.png"),
             selectedImage: UIImage(named: "logiCangoVectors.pdf"))
         
         let iconMyProfileTabBar = UITabBarItem(
             title: "My Profile",
-            image: UIImage(named: "icon_PerfilUsers.pdf"),
+            image: UIImage(named: "Pin.png"),
             selectedImage: UIImage(named: "logiCangoVectors.pdf"))
         
         itemServicesTabBar.tabBarItem = iconServicesTabBar
@@ -68,8 +68,11 @@ class TabBars: UITabBarController, UITabBarControllerDelegate {
         self.viewControllers = tabsControllers
         
     }
-    
-    // MARK: - Delegate Methods
+}
+
+// MARK: - Extensions - Delegate Methods
+
+extension TabBars: UITabBarControllerDelegate {
     
     func tabBarController(
         tabBarController: UITabBarController,
@@ -78,7 +81,6 @@ class TabBars: UITabBarController, UITabBarControllerDelegate {
         print("Should select viewController: \(viewController.title) ?")
         return true
     }
-    
 }
 
 
