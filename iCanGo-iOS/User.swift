@@ -44,6 +44,9 @@ extension User: JSONDecodable {
     }
 }
 
-
+func < (lhs: User, rhs: User) -> Bool {
+    return lhs.lastName.localizedStandardCompare(rhs.lastName) == .OrderedAscending
+    
+}
 
 
