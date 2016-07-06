@@ -12,6 +12,8 @@ enum APIRequest {
     case getServices(key: String, query: String, page: UInt)
     case getService(key: String, query: String)
     case getUsers(key: String, query: String, page: UInt)
+    case getUsersServices(key: String, query: String, page: UInt)
+    case getUsersServicesType(key: String, query: String, type: String, page: UInt)
     case getUser(key: String, query: String)
     case postLogin(user: String, password: String)
     case postUser(user: String, password: String, firstName: String, lastName: String, photoUrl: String, searchPreferences: String, status: String)
@@ -25,6 +27,8 @@ extension APIRequest: Resource {
             case APIRequest.getServices,
                  APIRequest.getService,
                  APIRequest.getUsers,
+                 APIRequest.getUsersServices,
+                 APIRequest.getUsersServicesType,
                  APIRequest.getUser:
                  return Method.GET
             case APIRequest.postLogin,
@@ -42,6 +46,10 @@ extension APIRequest: Resource {
                 return "services/\(query)"
             case APIRequest.getUsers:
                 return "users/"
+            case let APIRequest.getUsersServices(_, query, _):
+                return "users/\(query)/services/"
+            case let APIRequest.getUsersServicesType(_, query, _, _):
+                return "users/\(query)/services"
             case let APIRequest.getUser(_, query):
                 return "users/\(query)"
             case APIRequest.postLogin:
@@ -63,6 +71,12 @@ extension APIRequest: Resource {
             
             case APIRequest.getUsers:
                 return [:]
+            
+            case APIRequest.getUsersServices:
+                return [:]
+            
+            case let APIRequest.getUsersServicesType(_, _, type, _):
+                return ["type":type]
             
             case APIRequest.getUser:
                 return [:]

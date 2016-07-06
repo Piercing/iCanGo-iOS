@@ -30,20 +30,27 @@ extension Resource {
     func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest {
         
         let URL = baseURL.URLByAppendingPathComponent(path)
+        let request: NSMutableURLRequest
+        
+        if method == Method.GET {
+            
+            guard let components = NSURLComponents(URL: URL, resolvingAgainstBaseURL: false) else {
+                fatalError("Unable to create URLComponents form \(URL)")
+            }
+        
+            components.queryItems = parameters.map { NSURLQueryItem(name: $0, value: $1) }
 
-        /*
-        guard let components = NSURLComponents(URL: URL, resolvingAgainstBaseURL: false) else {
-            fatalError("Unable to create URLComponents form \(URL)")
+            guard let finalURL = components.URL else {
+                fatalError("Unable to retrieve final URL")
+            }
+        
+            request = NSMutableURLRequest(URL: finalURL)
+        
+        } else {
+            
+            request = NSMutableURLRequest(URL: URL)
         }
         
-        components.queryItems = parameters.map { NSURLQueryItem(name: $0, value: $1) }
-
-        guard let finalURL = components.URL else {
-            fatalError("Unable to retrieve final URL")
-        }
-        */
-        
-        let request = NSMutableURLRequest(URL: URL)
         request.HTTPMethod = method.rawValue
         if method == Method.POST {
     
