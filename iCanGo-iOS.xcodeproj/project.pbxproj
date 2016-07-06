@@ -7,8 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5272E1801D2C17E3007211E4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272E17E1D2C17E3007211E4 /* TabBarViewController.swift */; };
 		527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CDB5F1D1B786F001C6251 /* LoginViewController.swift */; };
+		527F870B1D2B09F000D0E1EC /* ServicesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87091D2B09F000D0E1EC /* ServicesTabViewController.swift */; };
+		527F870C1D2B09F000D0E1EC /* ServicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870A1D2B09F000D0E1EC /* ServicesViewController.xib */; };
+		527F870F1D2B28BC00D0E1EC /* LocationTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */; };
+		527F87101D2B28BC00D0E1EC /* LocationTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870E1D2B28BC00D0E1EC /* LocationTabViewController.xib */; };
+		527F87131D2B297B00D0E1EC /* CreateServiceTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */; };
+		527F87141D2B297B00D0E1EC /* CreateServiceTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87121D2B297B00D0E1EC /* CreateServiceTabViewController.xib */; };
+		527F87171D2B29A200D0E1EC /* NotificationsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */; };
+		527F87181D2B29A200D0E1EC /* NotificationsTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */; };
+		527F871B1D2B29C500D0E1EC /* MyProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87191D2B29C500D0E1EC /* MyProfileTabViewController.swift */; };
+		527F871C1D2B29C500D0E1EC /* MyProfileTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F871A1D2B29C500D0E1EC /* MyProfileTabViewController.xib */; };
 		52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DD0E0D1D18655200A2E55E /* Main.storyboard */; };
+		52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */; };
+		52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F367AA1D28FBFF0064583C /* LoginView.xib */; };
+		52F367AD1D2918FD0064583C /* LoginViewStack.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F367AC1D2918FC0064583C /* LoginViewStack.xib */; };
 		79F418211D043B36002131C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418201D043B36002131C7 /* AppDelegate.swift */; };
 		79F418231D043B36002131C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F418221D043B36002131C7 /* Assets.xcassets */; };
 		79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F418241D043B36002131C7 /* LaunchScreen.storyboard */; };
@@ -43,8 +57,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5272E17E1D2C17E3007211E4 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		527CDB5F1D1B786F001C6251 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		527F87091D2B09F000D0E1EC /* ServicesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesTabViewController.swift; sourceTree = "<group>"; };
+		527F870A1D2B09F000D0E1EC /* ServicesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicesViewController.xib; sourceTree = "<group>"; };
+		527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTabViewController.swift; sourceTree = "<group>"; };
+		527F870E1D2B28BC00D0E1EC /* LocationTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationTabViewController.xib; sourceTree = "<group>"; };
+		527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateServiceTabViewController.swift; sourceTree = "<group>"; };
+		527F87121D2B297B00D0E1EC /* CreateServiceTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateServiceTabViewController.xib; sourceTree = "<group>"; };
+		527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTabViewController.swift; sourceTree = "<group>"; };
+		527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationsTabViewController.xib; sourceTree = "<group>"; };
+		527F87191D2B29C500D0E1EC /* MyProfileTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileTabViewController.swift; sourceTree = "<group>"; };
+		527F871A1D2B29C500D0E1EC /* MyProfileTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileTabViewController.xib; sourceTree = "<group>"; };
 		52DD0E0D1D18655200A2E55E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
+		52F367AA1D28FBFF0064583C /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		52F367AC1D2918FC0064583C /* LoginViewStack.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewStack.xib; sourceTree = "<group>"; };
 		79F4181D1D043B36002131C7 /* iCanGo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCanGo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F418201D043B36002131C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79F418221D043B36002131C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,6 +191,12 @@
 			isa = PBXGroup;
 			children = (
 				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
+				527F87091D2B09F000D0E1EC /* ServicesTabViewController.swift */,
+				527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */,
+				527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */,
+				527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */,
+				527F87191D2B29C500D0E1EC /* MyProfileTabViewController.swift */,
+				5272E17E1D2C17E3007211E4 /* TabBarViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -188,6 +222,7 @@
 		79F418461D043C01002131C7 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */,
 			);
 			name = Themes;
 			sourceTree = "<group>";
@@ -204,6 +239,13 @@
 			children = (
 				79F418241D043B36002131C7 /* LaunchScreen.storyboard */,
 				52DD0E0D1D18655200A2E55E /* Main.storyboard */,
+				52F367AA1D28FBFF0064583C /* LoginView.xib */,
+				52F367AC1D2918FC0064583C /* LoginViewStack.xib */,
+				527F870A1D2B09F000D0E1EC /* ServicesViewController.xib */,
+				527F870E1D2B28BC00D0E1EC /* LocationTabViewController.xib */,
+				527F87121D2B297B00D0E1EC /* CreateServiceTabViewController.xib */,
+				527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */,
+				527F871A1D2B29C500D0E1EC /* MyProfileTabViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -351,8 +393,15 @@
 			files = (
 				79F4183F1D043B56002131C7 /* .gitignore in Resources */,
 				79F4184A1D043E3D002131C7 /* PodFile in Resources */,
+				527F87141D2B297B00D0E1EC /* CreateServiceTabViewController.xib in Resources */,
+				52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */,
 				79F418231D043B36002131C7 /* Assets.xcassets in Resources */,
 				52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */,
+				527F87101D2B28BC00D0E1EC /* LocationTabViewController.xib in Resources */,
+				527F87181D2B29A200D0E1EC /* NotificationsTabViewController.xib in Resources */,
+				52F367AD1D2918FD0064583C /* LoginViewStack.xib in Resources */,
+				527F871C1D2B29C500D0E1EC /* MyProfileTabViewController.xib in Resources */,
+				527F870C1D2B09F000D0E1EC /* ServicesViewController.xib in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
 				79F418401D043B56002131C7 /* README.md in Resources */,
@@ -425,15 +474,22 @@
 				D37630FE1D06CA280001E29F /* Session.swift in Sources */,
 				D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */,
 				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
+				527F870B1D2B09F000D0E1EC /* ServicesTabViewController.swift in Sources */,
+				5272E1801D2C17E3007211E4 /* TabBarViewController.swift in Sources */,
 				D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */,
 				D308447A1D23AE1400A25CF4 /* Response.swift in Sources */,
 				D305B23D1D24FDCF0072B634 /* Localization.swift in Sources */,
 				D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */,
 				D37630F61D05CA770001E29F /* Service.swift in Sources */,
+				527F870F1D2B28BC00D0E1EC /* LocationTabViewController.swift in Sources */,
+				527F87131D2B297B00D0E1EC /* CreateServiceTabViewController.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
 				D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */,
 				527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */,
 				D37631021D06D3090001E29F /* Constants.swift in Sources */,
+				527F87171D2B29A200D0E1EC /* NotificationsTabViewController.swift in Sources */,
+				52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */,
+				527F871B1D2B29C500D0E1EC /* MyProfileTabViewController.swift in Sources */,
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
