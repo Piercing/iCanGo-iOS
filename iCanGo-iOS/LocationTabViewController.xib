@@ -24,17 +24,21 @@
                     <rect key="frame" x="21" y="31" width="20" height="22"/>
                     <state key="normal" image="icon_Star"/>
                 </button>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QxB-3X-50T">
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QxB-3X-50T">
                     <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                 </mapView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="QxB-3X-50T" firstAttribute="top" secondItem="VFX-Ue-y4Q" secondAttribute="bottom" id="EWL-zb-nmh"/>
                 <constraint firstAttribute="trailing" secondItem="VFX-Ue-y4Q" secondAttribute="trailing" id="PLw-i0-gTA"/>
+                <constraint firstAttribute="bottom" secondItem="QxB-3X-50T" secondAttribute="bottom" id="RKH-SY-CQa"/>
                 <constraint firstItem="VFX-Ue-y4Q" firstAttribute="leading" secondItem="sTC-MR-6sX" secondAttribute="trailing" constant="-41" id="XGq-th-Ips"/>
                 <constraint firstItem="sTC-MR-6sX" firstAttribute="top" secondItem="VFX-Ue-y4Q" secondAttribute="bottom" constant="-33" id="bgP-kI-cxm"/>
                 <constraint firstItem="VFX-Ue-y4Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="cuS-lQ-GeW"/>
+                <constraint firstAttribute="trailing" secondItem="QxB-3X-50T" secondAttribute="trailing" id="eif-2f-dQq"/>
                 <constraint firstItem="VFX-Ue-y4Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hkH-1s-Blq"/>
+                <constraint firstItem="QxB-3X-50T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qDG-iG-qWS"/>
             </constraints>
         </view>
     </objects>

@@ -81,10 +81,11 @@ class LoginViewController: UIViewController {
                     switch event {
                     case let .Next(user):
                         if (user.email == self!.txtFieldUser.text!) {
-                            self!.loginSuccess()
                             
-                            // push: show services screen
-                            self!.pushViewController()
+                            self!.loginSuccess()
+                            // push: show services screen - change rootViewController -
+                            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                            appDelegate.window?.rootViewController = appDelegate.tabBarController
                             
                         } else {
                             self!.loginNoSuccess(nil)
@@ -105,16 +106,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func btnNoRG(sender: AnyObject) {
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
     // MARK: - Private Methods
     

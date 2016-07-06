@@ -1,5 +1,5 @@
 //
-//  TabBars.swift
+//  TabBarViewController.swift
 //  iCanGo-iOS
 //
 //  Created by Juan Carlos Merlos Albarracín on 5/7/16.
@@ -8,7 +8,10 @@
 
 import UIKit
 
-class TabBars: UITabBarController, UITabBarControllerDelegate {
+class TabBarViewController: UITabBarController {
+    
+    var iCanGoTabBarController =  UITabBarController()
+    
     
     // MARK: - LifeCycle
     
@@ -17,17 +20,16 @@ class TabBars: UITabBarController, UITabBarControllerDelegate {
         delegate = self
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    func iCangoTabBar() -> UITabBarController {
         let itemServicesTabBar = ServicesTabViewController()
         let itemLocationTabBar =  LocationTabViewController()
         let itemCreateServiceTabBar =  CreateServiceTabViewController()
         let itemNotificationsTabBar = NotificationsTabViewController()
-        let itemMyProfileTabBar = NotificationsTabViewController()
+        let itemMyProfileTabBar = MyProfileTabViewController()
         
         let iconServicesTabBar = UITabBarItem(
             title: "Services",
-            image: UIImage(named: "iCanGoTitleLogin.png"),
+            image: UIImage(named: "Pin.png"),
             selectedImage: UIImage(named: "logiCangoVectors.pdf"))
         
         let iconLocationTabBar = UITabBarItem(
@@ -37,17 +39,17 @@ class TabBars: UITabBarController, UITabBarControllerDelegate {
         
         let iconCreateServicesTabBar = UITabBarItem(
             title: "High Services",
-            image: UIImage(named: "badge-sketch.pdf"),
+            image: UIImage(named: "Pin.png"),
             selectedImage: UIImage(named: "logiCangoVectors.pdf"))
         
         let iconNotificationsTabBar = UITabBarItem(
             title: "Notifications",
-            image: UIImage(named: "icon_InboxNotification.pdf"),
+            image: UIImage(named: "Pin.png"),
             selectedImage: UIImage(named: "logiCangoVectors.pdf"))
         
         let iconMyProfileTabBar = UITabBarItem(
             title: "My Profile",
-            image: UIImage(named: "icon_PerfilUsers.pdf"),
+            image: UIImage(named: "Pin.png"),
             selectedImage: UIImage(named: "logiCangoVectors.pdf"))
         
         itemServicesTabBar.tabBarItem = iconServicesTabBar
@@ -56,20 +58,23 @@ class TabBars: UITabBarController, UITabBarControllerDelegate {
         itemNotificationsTabBar.tabBarItem = iconNotificationsTabBar
         itemMyProfileTabBar.tabBarItem = iconMyProfileTabBar
         
-        let tabsControllers =
+        self.iCanGoTabBarController.setViewControllers(
             [
                 itemServicesTabBar,
                 itemLocationTabBar,
                 itemCreateServiceTabBar,
                 itemNotificationsTabBar,
                 itemMyProfileTabBar
-            ]
+            ],  animated: true)
         
-        self.viewControllers = tabsControllers
-        
+        return iCanGoTabBarController
     }
-    
-    // MARK: - Delegate Methods
+}
+
+
+// MARK: - Extensions - Delegate Methods
+
+extension TabBarViewController: UITabBarControllerDelegate {
     
     func tabBarController(
         tabBarController: UITabBarController,
@@ -78,10 +83,4 @@ class TabBars: UITabBarController, UITabBarControllerDelegate {
         print("Should select viewController: \(viewController.title) ?")
         return true
     }
-    
 }
-
-
-
-
-
