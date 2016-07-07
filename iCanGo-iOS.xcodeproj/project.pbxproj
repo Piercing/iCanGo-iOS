@@ -19,6 +19,10 @@
 		527F87181D2B29A200D0E1EC /* NotificationsTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */; };
 		527F871B1D2B29C500D0E1EC /* MyProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87191D2B29C500D0E1EC /* MyProfileTabViewController.swift */; };
 		527F871C1D2B29C500D0E1EC /* MyProfileTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F871A1D2B29C500D0E1EC /* MyProfileTabViewController.xib */; };
+		52D37E021D2EB806009F2FC3 /* iCanGoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E011D2EB806009F2FC3 /* iCanGoLayout.swift */; };
+		52D37E041D2EC2DC009F2FC3 /* iCanGoPhotosServicesViewControllerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E031D2EC2DC009F2FC3 /* iCanGoPhotosServicesViewControllerCollectionViewController.swift */; };
+		52D37E081D2EC811009F2FC3 /* iCangoServicesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D37E071D2EC811009F2FC3 /* iCangoServicesCell.xib */; };
+		52D37E0A1D2ECC88009F2FC3 /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E091D2ECC88009F2FC3 /* RoundedCornersView.swift */; };
 		52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DD0E0D1D18655200A2E55E /* Main.storyboard */; };
 		52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */; };
 		52EF05CD1D2E4D82001B0FE4 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */; };
@@ -70,6 +74,10 @@
 		527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationsTabViewController.xib; sourceTree = "<group>"; };
 		527F87191D2B29C500D0E1EC /* MyProfileTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileTabViewController.swift; sourceTree = "<group>"; };
 		527F871A1D2B29C500D0E1EC /* MyProfileTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileTabViewController.xib; sourceTree = "<group>"; };
+		52D37E011D2EB806009F2FC3 /* iCanGoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCanGoLayout.swift; sourceTree = "<group>"; };
+		52D37E031D2EC2DC009F2FC3 /* iCanGoPhotosServicesViewControllerCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCanGoPhotosServicesViewControllerCollectionViewController.swift; sourceTree = "<group>"; };
+		52D37E071D2EC811009F2FC3 /* iCangoServicesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iCangoServicesCell.xib; sourceTree = "<group>"; };
+		52D37E091D2ECC88009F2FC3 /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		52DD0E0D1D18655200A2E55E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
@@ -123,6 +131,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52D37E001D2EB644009F2FC3 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				52D37E011D2EB806009F2FC3 /* iCanGoLayout.swift */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
+		52D37E061D2EC30F009F2FC3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				527F87091D2B09F000D0E1EC /* ServicesTabViewController.swift */,
+				52D37E031D2EC2DC009F2FC3 /* iCanGoPhotosServicesViewControllerCollectionViewController.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		75C1F3C32F5EAFD6E2B1FFDB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +186,7 @@
 				79F418441D043BB0002131C7 /* Models */,
 				79F418481D043C13002131C7 /* Views */,
 				79F418471D043C0E002131C7 /* Cells */,
+				52D37E001D2EB644009F2FC3 /* Layouts */,
 				79F418431D043BA6002131C7 /* Controllers */,
 				79F418461D043C01002131C7 /* Themes */,
 				79F418451D043BEE002131C7 /* API */,
@@ -192,8 +218,8 @@
 		79F418431D043BA6002131C7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				52D37E061D2EC30F009F2FC3 /* Services */,
 				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
-				527F87091D2B09F000D0E1EC /* ServicesTabViewController.swift */,
 				527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */,
 				527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */,
 				527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */,
@@ -226,6 +252,7 @@
 			children = (
 				52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */,
 				52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */,
+				52D37E091D2ECC88009F2FC3 /* RoundedCornersView.swift */,
 			);
 			name = Themes;
 			sourceTree = "<group>";
@@ -233,6 +260,7 @@
 		79F418471D043C0E002131C7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				52D37E071D2EC811009F2FC3 /* iCangoServicesCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -406,6 +434,7 @@
 				527F871C1D2B29C500D0E1EC /* MyProfileTabViewController.xib in Resources */,
 				527F870C1D2B09F000D0E1EC /* ServicesViewController.xib in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
+				52D37E081D2EC811009F2FC3 /* iCangoServicesCell.xib in Resources */,
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
 				79F418401D043B56002131C7 /* README.md in Resources */,
 				D37630F01D05C0FB0001E29F /* iCanGO-iOS.md in Resources */,
@@ -478,12 +507,14 @@
 				D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */,
 				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
 				527F870B1D2B09F000D0E1EC /* ServicesTabViewController.swift in Sources */,
+				52D37E021D2EB806009F2FC3 /* iCanGoLayout.swift in Sources */,
 				5272E1801D2C17E3007211E4 /* TabBarViewController.swift in Sources */,
 				D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */,
 				D308447A1D23AE1400A25CF4 /* Response.swift in Sources */,
 				D305B23D1D24FDCF0072B634 /* Localization.swift in Sources */,
 				D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */,
 				D37630F61D05CA770001E29F /* Service.swift in Sources */,
+				52D37E0A1D2ECC88009F2FC3 /* RoundedCornersView.swift in Sources */,
 				527F870F1D2B28BC00D0E1EC /* LocationTabViewController.swift in Sources */,
 				527F87131D2B297B00D0E1EC /* CreateServiceTabViewController.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
@@ -494,6 +525,7 @@
 				527F87171D2B29A200D0E1EC /* NotificationsTabViewController.swift in Sources */,
 				52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */,
 				527F871B1D2B29C500D0E1EC /* MyProfileTabViewController.swift in Sources */,
+				52D37E041D2EC2DC009F2FC3 /* iCanGoPhotosServicesViewControllerCollectionViewController.swift in Sources */,
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,7 +26,7 @@ class Appearance: UIView {
     }
     
     internal static func tabBarColor(tabBarController: UITabBarController) {
-        let color = UIColor(red: 32/255, green: 155/255, blue: 177/255, alpha: 1.0)
+        let color = UIColor(red: 26/255, green: 147/255, blue: 165/255, alpha: 1.0)
         tabBarController.tabBar.barTintColor = color
         tabBarController.tabBar.tintColor = UIColor.whiteColor()
     }
