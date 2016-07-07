@@ -37,35 +37,26 @@ extension Session {
     func getServices(query: String, page: UInt) -> Observable<[Service]> {
         
         return response(APIRequest.getServices(key: "", query: query, page: page)).map { response in
-            
-            guard response.error == "" else {
-                throw SessionError.errorAPIByDescription(response.error)
-            }
 
-            guard let results = response.results,
-            services: [Service] = decode(results) else {
-                throw SessionError.CouldNotDecodeJSON
-            }
-        
-            return services
+            return try self.returnServices(response)
         }
     }
 
+    // GET Services by Status.
+    func getServicesByStatus(query: String, status: String, page: UInt) -> Observable<[Service]> {
+        
+        return response(APIRequest.getServicesByStatus(key: "", query: query, status: status, page: page)).map { response in
+            
+            return try self.returnServices(response)
+        }
+    }
+    
     // GET Service.
     func getService(query: String) -> Observable<Service> {
         
         return response(APIRequest.getService(key: "", query: query)).map { response in
-            
-            guard response.error == "" else {
-                throw SessionError.errorAPIByDescription(response.error)
-            }
-    
-            guard let result = response.result,
-            service: Service = decode(result) else {
-                throw SessionError.CouldNotDecodeJSON
-            }
-            
-            return service
+
+            return try self.returnService(response)
         }
     }
 
@@ -73,53 +64,26 @@ extension Session {
     func getUsers(query: String, page: UInt) -> Observable<[User]> {
 
         return response(APIRequest.getUsers(key: "", query: query, page: page)).map { response in
-            
-            guard response.error == "" else {
-                throw SessionError.errorAPIByDescription(response.error)
-            }
 
-            guard let results = response.results,
-                users: [User] = decode(results) else {
-                    throw SessionError.CouldNotDecodeJSON
-            }
-            
-            return users
+            return try self.returnUsers(response)
         }
     }
     
-    // GET Users / Services.
+    // GET Services from Users.
     func getUsersServices(query: String, page: UInt) -> Observable<[Service]> {
         
         return response(APIRequest.getUsersServices(key: "", query: query, page: page)).map { response in
             
-            guard response.error == "" else {
-                throw SessionError.errorAPIByDescription(response.error)
-            }
-            
-            guard let results = response.results,
-                services: [Service] = decode(results) else {
-                    throw SessionError.CouldNotDecodeJSON
-            }
-            
-            return services
+            return try self.returnServices(response)
         }
     }
 
-    // GET Users / Services / Types
-    func getUsersServicesType(query: String, type: String, page: UInt) -> Observable<[Service]> {
+    // GET Services from Users by Types.
+    func getUsersServicesByType(query: String, type: String, page: UInt) -> Observable<[Service]> {
         
-        return response(APIRequest.getUsersServicesType(key: "", query: query, type: type, page: page)).map { response in
+        return response(APIRequest.getUsersServicesByType(key: "", query: query, type: type, page: page)).map { response in
                 
-            guard response.error == "" else {
-                throw SessionError.errorAPIByDescription(response.error)
-            }
-            
-            guard let results = response.results,
-                services: [Service] = decode(results) else {
-                    throw SessionError.CouldNotDecodeJSON
-            }
-            
-            return services
+            return try self.returnServices(response)
         }
     }
 
@@ -128,16 +92,7 @@ extension Session {
      
         return response(APIRequest.getUser(key: "", query: query)).map { response in
 
-            guard response.error == "" else {
-                throw SessionError.errorAPIByDescription(response.error)
-            }
-
-            guard let result = response.result,
-                  user: User = decode(result) else {
-                    throw SessionError.CouldNotDecodeJSON
-            }
-            
-            return user
+            return try self.returnUser(response)
         }
     }
     
@@ -146,19 +101,11 @@ extension Session {
         
         return response(APIRequest.postLogin(user: user, password: password)).map { response in
             
-            guard response.error == "" else {
-                throw SessionError.errorAPIByDescription(response.error)
-            }
-            
-            guard let result = response.result,
-                  user: User = decode(result) else {
-                throw SessionError.CouldNotDecodeJSON
-            }
-            
-            return user
+            return try self.returnUser(response)
         }
     }
     
+    // POST New User.
     func postUser(user: String,
                   password: String,
                   firstName: String,
@@ -175,19 +122,11 @@ extension Session {
                                searchPreferences: searchPreferences,
                                           status: status)).map { response in
                 
-            guard response.error == "" else {
-                throw SessionError.errorAPIByDescription(response.error)
-            }
-            
-            guard let result = response.result,
-                  user: User = decode(result) else {
-                throw SessionError.CouldNotDecodeJSON
-            }
-            
-            return user
+            return try self.returnUser(response)
         }
     }
     
+    // POST New Service.
     func postService(name: String,
                   price: Double,
                   tags: [String],
@@ -204,17 +143,65 @@ extension Session {
                                           longitude: longitude,
                                              status: status)).map { response in
                 
-            guard response.error == "" else {
-                throw SessionError.errorAPIByDescription(response.error)
-            }
-                
-            guard let result = response.result,
+            return try self.returnService(response)
+        }
+    }
+    
+    // Private responses.
+    private func returnServices(response: Response) throws -> [Service] {
+        
+        guard response.error == "" else {
+            throw SessionError.errorAPIByDescription(response.error)
+        }
+        
+        guard let results = response.results,
+            services: [Service] = decode(results) else {
+                throw SessionError.CouldNotDecodeJSON
+        }
+        
+        return services
+    }
+    
+    private func returnService(response: Response) throws -> Service {
+        
+        guard response.error == "" else {
+            throw SessionError.errorAPIByDescription(response.error)
+        }
+        
+        guard let result = response.result,
             service: Service = decode(result) else {
                 throw SessionError.CouldNotDecodeJSON
-            }
-                
-            return service
         }
+        
+        return service
+    }
+    
+    private func returnUsers(response: Response) throws -> [User] {
+        
+        guard response.error == "" else {
+            throw SessionError.errorAPIByDescription(response.error)
+        }
+        
+        guard let results = response.results,
+            users: [User] = decode(results) else {
+                throw SessionError.CouldNotDecodeJSON
+        }
+        
+        return users
+    }
+
+    private func returnUser(response: Response) throws -> User {
+    
+        guard response.error == "" else {
+            throw SessionError.errorAPIByDescription(response.error)
+        }
+        
+        guard let result = response.result,
+            user: User = decode(result) else {
+                throw SessionError.CouldNotDecodeJSON
+        }
+        
+        return user
     }
 }
 
