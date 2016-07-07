@@ -10,10 +10,11 @@ import Foundation
 
 enum APIRequest {
     case getServices(key: String, query: String, page: UInt)
+    case getServicesByStatus(key: String, query: String, status: String, page: UInt)
     case getService(key: String, query: String)
     case getUsers(key: String, query: String, page: UInt)
     case getUsersServices(key: String, query: String, page: UInt)
-    case getUsersServicesType(key: String, query: String, type: String, page: UInt)
+    case getUsersServicesByType(key: String, query: String, type: String, page: UInt)
     case getUser(key: String, query: String)
     case postLogin(user: String, password: String)
     case postUser(user: String, password: String, firstName: String, lastName: String, photoUrl: String, searchPreferences: String, status: String)
@@ -25,10 +26,11 @@ extension APIRequest: Resource {
     var method: Method {
         switch self {
             case APIRequest.getServices,
+                 APIRequest.getServicesByStatus,
                  APIRequest.getService,
                  APIRequest.getUsers,
                  APIRequest.getUsersServices,
-                 APIRequest.getUsersServicesType,
+                 APIRequest.getUsersServicesByType,
                  APIRequest.getUser:
                  return Method.GET
             case APIRequest.postLogin,
@@ -42,13 +44,15 @@ extension APIRequest: Resource {
         switch self {
             case APIRequest.getServices:
                 return "services/"
+            case APIRequest.getServicesByStatus:
+                return "services"
             case let APIRequest.getService(_, query):
                 return "services/\(query)"
             case APIRequest.getUsers:
                 return "users/"
             case let APIRequest.getUsersServices(_, query, _):
                 return "users/\(query)/services/"
-            case let APIRequest.getUsersServicesType(_, query, _, _):
+            case let APIRequest.getUsersServicesByType(_, query, _, _):
                 return "users/\(query)/services"
             case let APIRequest.getUser(_, query):
                 return "users/\(query)"
@@ -65,25 +69,20 @@ extension APIRequest: Resource {
         switch self {
             case APIRequest.getServices:
                 return [:]
-            
+            case let APIRequest.getServicesByStatus(_, _, status, _):
+                return ["status":status]
             case APIRequest.getService:
                 return [:]
-            
             case APIRequest.getUsers:
                 return [:]
-            
             case APIRequest.getUsersServices:
                 return [:]
-            
-            case let APIRequest.getUsersServicesType(_, _, type, _):
+            case let APIRequest.getUsersServicesByType(_, _, type, _):
                 return ["type":type]
-            
             case APIRequest.getUser:
                 return [:]
-            
             case let APIRequest.postLogin(user: user, password: password):
                 return ["email": user, "password": password]
-            
             case let APIRequest.postUser(user: user,
                                      password: password,
                                     firstName: firstName,
@@ -98,7 +97,6 @@ extension APIRequest: Resource {
                         "photoUrl": photoUrl,
                         "searchPreferences": searchPreferences,
                         "status": status]
-            
             case let APIRequest.postService(name: name,
                                            price: price,
                                             tags: tags,

@@ -10,7 +10,7 @@ import UIKit
 //import Alamofire
 //import SwiftyJSON
 //import Haneke
-import RxSwift
+//import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //testHaneke()
         
         //tabBarController.iCangoTabBar()
-        testUserServicesTypes()
         
         
         let itemServicesTabBar = ServicesTabViewController()
@@ -86,42 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-
-func testUserServicesTypes() {
-    
-    let session = Session.iCanGoSession()
-    let _ = session.getUsersServicesType("535C5E0A-6C1A-4002-AB63-FB205500A084", type: "1", page: 0)
-        
-        .observeOn(MainScheduler.instance)
-        .subscribe { event in
-            
-            switch event {
-            case let .Next(services):
-                for service in services {
-                    print(service)
-                }
-                
-            case .Error(let error):
-                switch error {
-                case SessionError.APIErrorNoData:
-                    print("No existen datos: \(error)")
-                default:
-                    print(error)
-                }
-                
-            default:
-                break
-            }
-    }
-}
-
-
-
-
-
-
-
-
 
 
 /*
