@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
-import Haneke
+//import Alamofire
+//import SwiftyJSON
+//import Haneke
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //testHaneke()
         
         //tabBarController.iCangoTabBar()
+        testUserServicesTypes()
         
         
         let itemServicesTabBar = ServicesTabViewController()
@@ -85,30 +87,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-/*
- func testAlamofireSwiftyJSON() {
- 
- Alamofire.request(.GET, "http://www.mocky.io/v2/5753da62120000ab1a4775f2").responseJSON { (responseData) -> Void in
- if((responseData.result.value) != nil) {
- let swiftyJsonVar = JSON(responseData.result.value!)
- print(swiftyJsonVar);
- }
- }
- }
- */
+func testUserServicesTypes() {
+    
+    let session = Session.iCanGoSession()
+    let _ = session.getUsersServicesType("535C5E0A-6C1A-4002-AB63-FB205500A084", type: "1", page: 0)
+        
+        .observeOn(MainScheduler.instance)
+        .subscribe { event in
+            
+            switch event {
+            case let .Next(services):
+                for service in services {
+                    print(service)
+                }
+                
+            case .Error(let error):
+                switch error {
+                case SessionError.APIErrorNoData:
+                    print("No existen datos: \(error)")
+                default:
+                    print(error)
+                }
+                
+            default:
+                break
+            }
+    }
+}
+
+
+
+
+
+
+
+
+
 
 /*
- func testHaneke() {
+func testAlamofireSwiftyJSON() {
  
- let cache = Shared.imageCache
- let URL = NSURL(string: "http://urbinavolant.com/alberto/wp-content/uploads/2008/11/avi.jpg")!
- let fetcher = NetworkFetcher<UIImage>(URL: URL)
- cache.fetch(fetcher: fetcher).onSuccess { image in
- // Do something with image
- print("image loaded")
- }
- print("end");
- }
- */
+    Alamofire.request(.GET, "http://www.mocky.io/v2/5753da62120000ab1a4775f2").responseJSON { (responseData) -> Void in
+        if((responseData.result.value) != nil) {
+            let swiftyJsonVar = JSON(responseData.result.value!)
+        print(swiftyJsonVar);
+        }
+    }
+}
+*/
+
+/*
+func testHaneke() {
+ 
+    let cache = Shared.imageCache
+    let URL = NSURL(string: "http://urbinavolant.com/alberto/wp-content/uploads/2008/11/avi.jpg")!
+    let fetcher = NetworkFetcher<UIImage>(URL: URL)
+    cache.fetch(fetcher: fetcher).onSuccess { image in
+        // Do something with image
+        print("image loaded")
+    }
+    print("end");
+}
+*/
 
 
