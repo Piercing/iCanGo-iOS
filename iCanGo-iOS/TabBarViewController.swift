@@ -12,7 +12,6 @@ class TabBarViewController: UITabBarController {
     
     var iCanGoTabBarController =  UITabBarController()
     
-    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -20,7 +19,8 @@ class TabBarViewController: UITabBarController {
         delegate = self
     }
     
-    func iCangoTabBar() -> UITabBarController {
+    internal func iCangoTabBar() -> UITabBarController {
+        
         let itemServicesTabBar = ServicesTabViewController()
         let itemLocationTabBar =  LocationTabViewController()
         let itemCreateServiceTabBar =  CreateServiceTabViewController()
@@ -68,9 +68,9 @@ class TabBarViewController: UITabBarController {
             ],  animated: true)
         
         return iCanGoTabBarController
+        
     }
 }
-
 
 // MARK: - Extensions - Delegate Methods
 

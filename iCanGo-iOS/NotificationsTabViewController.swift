@@ -19,7 +19,8 @@ class NotificationsTabViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Notifications"
-        print("item Notifications loaded")
+        
+        Appearance.customizeAppearance(self.view)
     }
     
     override func didReceiveMemoryWarning() {

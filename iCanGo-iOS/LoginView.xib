@@ -100,13 +100,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iCanGoTitleLogin" translatesAutoresizingMaskIntoConstraints="NO" id="XU4-M3-lOM">
                     <rect key="frame" x="145" y="93" width="310" height="101"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfW-gR-GcQ">
-                    <rect key="frame" x="277" y="472" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="sigin:" destination="-1" eventType="touchUpInside" id="1PT-jF-Ixu"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>

@@ -13,6 +13,10 @@ class ServicesTabViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var filterBtn: UIButton!
+    @IBOutlet weak var favouritesBtn: UIButton!
+    
+    var isLoaded = false
     
     // MARK: - Init
     convenience init() {
@@ -24,9 +28,8 @@ class ServicesTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Services"
-        print("item Services loaded")
-    
+        Appearance.customizeAppearance(self.view)
+        
         //searchBar.becomeFirstResponder()
         searchBar.resignFirstResponder()
     }
@@ -38,7 +41,14 @@ class ServicesTabViewController: UIViewController {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         searchBar.resignFirstResponder()
-        
+    }
+    
+    @IBAction func btnFilter(sender: AnyObject) {
+        print("Prees button Filter")
+    }
+    
+    @IBAction func btnFavourites(sender: AnyObject) {
+        print("Prees button Favourites")
     }
 }
 

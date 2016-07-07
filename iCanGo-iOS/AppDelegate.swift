@@ -28,8 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //testHaneke()
         
         //tabBarController.iCangoTabBar()
-        
-        
+
         let itemServicesTabBar = ServicesTabViewController()
         let itemLocationTabBar =  LocationTabViewController()
         let itemCreateServiceTabBar =  CreateServiceTabViewController()
@@ -76,8 +75,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 itemNotificationsTabBar,
                 itemMyProfileTabBar
             ],  animated: true)
-
-
+        
+        Appearance.tabBarColor(self.tabBarController!)
+        
         let loginViewController = LoginViewController(nibName: "LoginView", bundle: nil)
         self.window?.rootViewController = loginViewController
         self.window?.makeKeyAndVisible()
