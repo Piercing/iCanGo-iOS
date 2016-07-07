@@ -87,6 +87,42 @@ extension Session {
         }
     }
     
+    // GET Users / Services.
+    func getUsersServices(query: String, page: UInt) -> Observable<[Service]> {
+        
+        return response(APIRequest.getUsersServices(key: "", query: query, page: page)).map { response in
+            
+            guard response.error == "" else {
+                throw SessionError.errorAPIByDescription(response.error)
+            }
+            
+            guard let results = response.results,
+                services: [Service] = decode(results) else {
+                    throw SessionError.CouldNotDecodeJSON
+            }
+            
+            return services
+        }
+    }
+
+    // GET Users / Services / Types
+    func getUsersServicesType(query: String, type: String, page: UInt) -> Observable<[Service]> {
+        
+        return response(APIRequest.getUsersServicesType(key: "", query: query, type: type, page: page)).map { response in
+                
+            guard response.error == "" else {
+                throw SessionError.errorAPIByDescription(response.error)
+            }
+            
+            guard let results = response.results,
+                services: [Service] = decode(results) else {
+                    throw SessionError.CouldNotDecodeJSON
+            }
+            
+            return services
+        }
+    }
+
     // GET User.
     func getUser(query: String) -> Observable<User> {
      
