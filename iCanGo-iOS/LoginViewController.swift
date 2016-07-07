@@ -150,7 +150,7 @@ class LoginViewController: UIViewController {
         loginInProgress = false
         activityIndicatorView.stopAnimating()
         activityIndicatorView.hidden = true
-        let alertController = UIAlertController(title: titleErr2or, message: messageError, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: titleError, message: messageError, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
     }
