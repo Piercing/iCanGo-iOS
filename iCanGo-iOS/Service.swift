@@ -150,6 +150,10 @@ extension Service: JSONDecodable {
     }
 }
 
+func < (lhs: Service, rhs: Service) -> Bool {
+    return lhs.name.localizedStandardCompare(rhs.name) == .OrderedAscending
+    
+}
 
 
 

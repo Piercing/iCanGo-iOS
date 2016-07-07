@@ -1,35 +1,26 @@
 //
-//  AppDelegate.swift
+//  TabBarViewController.swift
 //  iCanGo-iOS
 //
-//  Created by Pedro Martin Gomez on 5/6/16.
+//  Created by Juan Carlos Merlos Albarracín on 5/7/16.
 //  Copyright © 2016 CodeCrafters. All rights reserved.
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
-import Haneke
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class TabBarViewController: UITabBarController {
     
-    var window: UIWindow?
-    var tabBarController: UITabBarController?
-    //var iCanGoTabBarController =  UITabBarController()
+    var iCanGoTabBarController =  UITabBarController()
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
-        // Navigation Bar Style
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-        
-        //testAlamofireSwiftyJSON()
-        //testHaneke()
-        
-        //tabBarController.iCangoTabBar()
-        
-        
+    
+    // MARK: - LifeCycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        delegate = self
+    }
+    
+    func iCangoTabBar() -> UITabBarController {
         let itemServicesTabBar = ServicesTabViewController()
         let itemLocationTabBar =  LocationTabViewController()
         let itemCreateServiceTabBar =  CreateServiceTabViewController()
@@ -67,8 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         itemNotificationsTabBar.tabBarItem = iconNotificationsTabBar
         itemMyProfileTabBar.tabBarItem = iconMyProfileTabBar
         
-        self.tabBarController = UITabBarController()
-        self.tabBarController!.setViewControllers(
+        self.iCanGoTabBarController.setViewControllers(
             [
                 itemServicesTabBar,
                 itemLocationTabBar,
@@ -76,39 +66,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 itemNotificationsTabBar,
                 itemMyProfileTabBar
             ],  animated: true)
-
-
-        let loginViewController = LoginViewController(nibName: "LoginView", bundle: nil)
-        self.window?.rootViewController = loginViewController
-        self.window?.makeKeyAndVisible()
-        return true
+        
+        return iCanGoTabBarController
     }
 }
 
-/*
- func testAlamofireSwiftyJSON() {
- 
- Alamofire.request(.GET, "http://www.mocky.io/v2/5753da62120000ab1a4775f2").responseJSON { (responseData) -> Void in
- if((responseData.result.value) != nil) {
- let swiftyJsonVar = JSON(responseData.result.value!)
- print(swiftyJsonVar);
- }
- }
- }
- */
 
-/*
- func testHaneke() {
- 
- let cache = Shared.imageCache
- let URL = NSURL(string: "http://urbinavolant.com/alberto/wp-content/uploads/2008/11/avi.jpg")!
- let fetcher = NetworkFetcher<UIImage>(URL: URL)
- cache.fetch(fetcher: fetcher).onSuccess { image in
- // Do something with image
- print("image loaded")
- }
- print("end");
- }
- */
+// MARK: - Extensions - Delegate Methods
 
-
+extension TabBarViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(
+        tabBarController: UITabBarController,
+        shouldSelectViewController viewController: UIViewController) -> Bool {
+        
+        print("Should select viewController: \(viewController.title) ?")
+        return true
+    }
+}
