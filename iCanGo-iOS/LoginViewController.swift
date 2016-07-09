@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     var loginInProgress: Bool!
     
     
-    // MARK: - LifeCycle
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,11 +71,7 @@ class LoginViewController: UIViewController {
                     switch event {
                     case let .Next(user):
                         if (user.email == self!.txtFieldUser.text!) {
-                            
                             self!.loginSuccess()
-                            // push: show services screen - change rootViewController -
-//                            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//                            appDelegate.window?.rootViewController = appDelegate.controllerTabBar
                             
                         } else {
                             self!.loginNoSuccess(nil)
@@ -155,6 +151,8 @@ extension LoginViewController: UITextFieldDelegate{
         return true
     }
 }
+
+
 
 
 

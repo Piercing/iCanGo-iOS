@@ -10,16 +10,6 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    
-    // MARK: - Properties
-    var iCanGoTabBarController =  UITabBarController()
-    
-    var itemServicesTabBar: ServicesTabViewController?
-    var itemLocationTabBar:  LocationTabViewController?
-    var itemCreateServiceTabBar:  CreateServiceTabViewController?
-    var itemNotificationsTabBar: NotificationsTabViewController?
-    var itemMyProfileTabBar: MyProfileTabViewController?
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -27,35 +17,63 @@ class TabBarViewController: UITabBarController {
         delegate = self
     }
     
-    internal func iCangoTabBar() {
+    // MARK: - Internal Methods
+    
+    internal static func iCangoTabBar() -> UITabBarController {
         
-        self.itemServicesTabBar = ServicesTabViewController()
-        self.itemLocationTabBar = LocationTabViewController()
-        self.itemCreateServiceTabBar = CreateServiceTabViewController()
-        self.itemNotificationsTabBar = NotificationsTabViewController()
-        self.itemMyProfileTabBar = MyProfileTabViewController()
+        let iCanGoTabBarController =  UITabBarController()
         
-        let mainTabBarController = UITabBarController()
-        mainTabBarController.viewControllers =
+        let itemServicesTabBar = ServicesTabViewController()
+        let itemLocationTabBar =  LocationTabViewController()
+        let itemCreateServiceTabBar =  CreateServiceTabViewController()
+        let itemNotificationsTabBar = NotificationsTabViewController()
+        let itemMyProfileTabBar = MyProfileTabViewController()
+        
+        let iconServicesTabBar = UITabBarItem(
+            title: "Services",
+            image: UIImage(named: "pin-1.png"),
+            selectedImage: UIImage(named: "logiCangoVectors.pdf"))
+        
+        let iconLocationTabBar = UITabBarItem(
+            title: "Location",
+            image: UIImage(named: "pin-1.png"),
+            selectedImage: UIImage(named: "logiCangoVectors.pdf"))
+        
+        let iconCreateServicesTabBar = UITabBarItem(
+            title: "High Services",
+            image: UIImage(named: "pin-1.png"),
+            selectedImage: UIImage(named: "logiCangoVectors.pdf"))
+        
+        let iconNotificationsTabBar = UITabBarItem(
+            title: "Notifications",
+            image: UIImage(named: "pin-1.png"),
+            selectedImage: UIImage(named: "logiCangoVectors.pdf"))
+        
+        let iconMyProfileTabBar = UITabBarItem(
+            title: "My Profile",
+            image: UIImage(named: "pin-1.png"),
+            selectedImage: UIImage(named: "logiCangoVectors.pdf"))
+        
+        itemServicesTabBar.tabBarItem = iconServicesTabBar
+        itemLocationTabBar.tabBarItem = iconLocationTabBar
+        itemCreateServiceTabBar.tabBarItem = iconCreateServicesTabBar
+        itemNotificationsTabBar.tabBarItem = iconNotificationsTabBar
+        itemMyProfileTabBar.tabBarItem = iconMyProfileTabBar
+        
+        let controllers =
             [
-                itemServicesTabBar!,
-                itemLocationTabBar!,
-                itemCreateServiceTabBar!,
-                itemNotificationsTabBar!,
-                itemMyProfileTabBar!
-        ]
+                itemServicesTabBar,
+                itemLocationTabBar,
+                itemCreateServiceTabBar,
+                itemNotificationsTabBar,
+                itemMyProfileTabBar
+            ]
         
-        let itemAllServices = UITabBarItem(title: "All Services", image: UIImage(named: "Pin.png"), tag: 0)
-        let itemLocation = UITabBarItem(title: "Location", image: UIImage(named: "Pin.png"), tag: 1)
-        let itemHighServices = UITabBarItem(title: "High Services", image: UIImage(named: "Pin.png"), tag: 2)
-        let itemNotifications = UITabBarItem(title: "Notifications", image: UIImage(named: "Pin.png"), tag: 3)
-        let itemMyProfile = UITabBarItem(title: "My Profile", image: UIImage(named: "Pin.png"), tag: 4)
+        iCanGoTabBarController.viewControllers = controllers
         
-        mainTabBarController.tabBarItem = itemAllServices
-        mainTabBarController.tabBarItem = itemLocation
-        mainTabBarController.tabBarItem = itemHighServices
-        mainTabBarController.tabBarItem = itemNotifications
-        mainTabBarController.tabBarItem = itemMyProfile
+        Appearance.tabBarItemColor()
+        Appearance.tabBarColor(iCanGoTabBarController)
+        return iCanGoTabBarController
         
     }
 }
@@ -67,6 +85,8 @@ extension TabBarViewController: UITabBarControllerDelegate {
     func tabBarController(
         tabBarController: UITabBarController,
         shouldSelectViewController viewController: UIViewController) -> Bool {
+        
+        print("Should select viewController: \(viewController.title) ?")
         return true
     }
 }
