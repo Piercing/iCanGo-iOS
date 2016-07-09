@@ -74,8 +74,8 @@ class LoginViewController: UIViewController {
                             
                             self!.loginSuccess()
                             // push: show services screen - change rootViewController -
-                            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                            appDelegate.window?.rootViewController = appDelegate.tabBarController
+//                            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//                            appDelegate.window?.rootViewController = appDelegate.controllerTabBar
                             
                         } else {
                             self!.loginNoSuccess(nil)
@@ -151,7 +151,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate{
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(false)
+        self.view.endEditing(true)
         return true
     }
 }

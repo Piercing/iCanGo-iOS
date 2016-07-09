@@ -5,9 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServicesViewController" customModule="iCanGo_iOS" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServicesTabViewController" customModule="iCanGo_iOS" customModuleProvider="target">
             <connections>
                 <outlet property="searchBar" destination="njE-fb-KHb" id="Uke-Da-73m"/>
+                <outlet property="servicesCollectionView" destination="QBa-ZM-X5c" id="tr3-ga-FKg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -53,35 +54,39 @@
                         <action selector="btnFavourites:" destination="-2" eventType="touchUpInside" id="foB-C9-sG5"/>
                     </connections>
                 </button>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="P9W-OD-yev">
-                    <rect key="frame" x="0.0" y="61" width="600" height="539"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bqZ-pj-2vn">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QBa-ZM-X5c">
+                    <rect key="frame" x="0.0" y="64" width="600" height="560"/>
+                    <color key="backgroundColor" red="0.59215686274509804" green="0.85490196078431369" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="600" id="MZe-ic-TYW"/>
+                    </constraints>
+                    <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="fnV-9F-9ba">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="sectionInset" minX="15" minY="15" maxX="10" maxY="10"/>
                     </collectionViewFlowLayout>
                 </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="iGe-Wj-Grq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="81" id="4jM-gD-TLX"/>
-                <constraint firstItem="iGe-Wj-Grq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="31" id="63b-vL-Ds4"/>
-                <constraint firstItem="P9W-OD-yev" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ETU-nG-Sbu"/>
-                <constraint firstAttribute="bottom" secondItem="P9W-OD-yev" secondAttribute="bottom" id="FoC-Wl-Vph"/>
-                <constraint firstItem="P9W-OD-yev" firstAttribute="top" secondItem="WHr-z0-5jT" secondAttribute="bottom" constant="1" id="HES-ey-TP7"/>
+                <constraint firstItem="iGe-Wj-Grq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="81" id="1dw-lg-e9y"/>
+                <constraint firstAttribute="bottom" secondItem="QBa-ZM-X5c" secondAttribute="bottom" constant="-24" id="NEZ-VU-7RM"/>
                 <constraint firstItem="njE-fb-KHb" firstAttribute="top" secondItem="VHB-9y-by7" secondAttribute="top" id="NSn-XT-yHi"/>
                 <constraint firstItem="VHB-9y-by7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="OSe-SE-Eku"/>
-                <constraint firstAttribute="trailing" secondItem="P9W-OD-yev" secondAttribute="trailing" id="d7n-eE-QqM"/>
+                <constraint firstItem="QBa-ZM-X5c" firstAttribute="top" secondItem="njE-fb-KHb" secondAttribute="bottom" id="SVY-1u-Xtr"/>
+                <constraint firstAttribute="bottom" secondItem="VHB-9y-by7" secondAttribute="bottom" constant="536" id="aK0-W9-Fe3"/>
                 <constraint firstItem="WHr-z0-5jT" firstAttribute="leading" secondItem="njE-fb-KHb" secondAttribute="trailing" constant="15" id="hFI-Fa-oDt"/>
                 <constraint firstAttribute="trailing" secondItem="WHr-z0-5jT" secondAttribute="trailing" constant="13" id="inw-CO-2CV"/>
                 <constraint firstItem="njE-fb-KHb" firstAttribute="centerX" secondItem="VHB-9y-by7" secondAttribute="centerX" id="ioL-rR-En4"/>
+                <constraint firstItem="QBa-ZM-X5c" firstAttribute="leading" secondItem="VHB-9y-by7" secondAttribute="leading" id="j32-J0-STd"/>
                 <constraint firstItem="VHB-9y-by7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lbx-Vz-bxB"/>
+                <constraint firstItem="iGe-Wj-Grq" firstAttribute="centerY" secondItem="njE-fb-KHb" secondAttribute="centerY" id="lpR-bw-PHQ"/>
                 <constraint firstItem="WHr-z0-5jT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27" id="p26-Y7-V3z"/>
                 <constraint firstAttribute="trailing" secondItem="VHB-9y-by7" secondAttribute="trailing" id="te5-vR-08D"/>
             </constraints>
-            <point key="canvasLocation" x="72" y="-132"/>
+            <point key="canvasLocation" x="-194" y="-46"/>
         </view>
     </objects>
     <resources>

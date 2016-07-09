@@ -15,7 +15,10 @@ class ServicesTabViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var filterBtn: UIButton!
     @IBOutlet weak var favouritesBtn: UIButton!
+    @IBOutlet weak var servicesCollectionView: UICollectionView!
     
+    var iCanGoTabBarController =  UITabBarController()
+    var controllerTabBar =  TabBarViewController()
     var isLoaded = false
     
     // MARK: - Init
@@ -28,10 +31,17 @@ class ServicesTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        servicesCollectionView.registerNib(UINib(nibName: "iCangoServicesCell", bundle: nil), forCellWithReuseIdentifier: "serviceCell")
+        servicesCollectionView.delegate = self
+        servicesCollectionView.dataSource = self
+      
+        Appearance.tabBarColor(self.controllerTabBar)
         Appearance.customizeAppearance(self.view)
         
         //searchBar.becomeFirstResponder()
         searchBar.resignFirstResponder()
+        
+        //controllerTabBar.iCangoTabBar()
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,6 +53,8 @@ class ServicesTabViewController: UIViewController {
         searchBar.resignFirstResponder()
     }
     
+    // MARK: - Actions
+    
     @IBAction func btnFilter(sender: AnyObject) {
         print("Prees button Filter")
     }
@@ -52,11 +64,46 @@ class ServicesTabViewController: UIViewController {
     }
 }
 
-// MARK: - Extensions - Delegates
+// MARK: - Extensions - Collection view delegates and datasource
 
 extension ServicesTabViewController: UISearchBarDelegate {
     func textFieldShouldReturn(searchBar: UISearchBar) -> Bool {
-        self.view.endEditing(false)
+        self.view.endEditing(true)
         return true
     }
 }
+
+extension ServicesTabViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("serviceCell", forIndexPath: indexPath)
+        return cell
+    }
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: 180, height: 200)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

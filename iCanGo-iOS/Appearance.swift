@@ -29,5 +29,12 @@ class Appearance: UIView {
         let color = UIColor(red: 26/255, green: 147/255, blue: 165/255, alpha: 1.0)
         tabBarController.tabBar.barTintColor = color
         tabBarController.tabBar.tintColor = UIColor.whiteColor()
+        
+    }
+    
+    internal static func tabBarItemColor() {
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.blackColor()], forState:.Selected)
+
     }
 }
