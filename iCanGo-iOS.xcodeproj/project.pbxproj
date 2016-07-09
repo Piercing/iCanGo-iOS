@@ -19,7 +19,6 @@
 		527F87181D2B29A200D0E1EC /* NotificationsTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */; };
 		527F871B1D2B29C500D0E1EC /* MyProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87191D2B29C500D0E1EC /* MyProfileTabViewController.swift */; };
 		527F871C1D2B29C500D0E1EC /* MyProfileTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F871A1D2B29C500D0E1EC /* MyProfileTabViewController.xib */; };
-		52D37E041D2EC2DC009F2FC3 /* CustomCollectionViewControllerServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E031D2EC2DC009F2FC3 /* CustomCollectionViewControllerServices.swift */; };
 		52D37E081D2EC811009F2FC3 /* iCangoServicesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D37E071D2EC811009F2FC3 /* iCangoServicesCell.xib */; };
 		52D37E0A1D2ECC88009F2FC3 /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E091D2ECC88009F2FC3 /* RoundedCornersView.swift */; };
 		52D37E0D1D2EDB63009F2FC3 /* AnnotatediCanGoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E0C1D2EDB63009F2FC3 /* AnnotatediCanGoCell.swift */; };
@@ -73,7 +72,6 @@
 		527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationsTabViewController.xib; sourceTree = "<group>"; };
 		527F87191D2B29C500D0E1EC /* MyProfileTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileTabViewController.swift; sourceTree = "<group>"; };
 		527F871A1D2B29C500D0E1EC /* MyProfileTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileTabViewController.xib; sourceTree = "<group>"; };
-		52D37E031D2EC2DC009F2FC3 /* CustomCollectionViewControllerServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewControllerServices.swift; sourceTree = "<group>"; };
 		52D37E071D2EC811009F2FC3 /* iCangoServicesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iCangoServicesCell.xib; sourceTree = "<group>"; };
 		52D37E091D2ECC88009F2FC3 /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		52D37E0C1D2EDB63009F2FC3 /* AnnotatediCanGoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotatediCanGoCell.swift; sourceTree = "<group>"; };
@@ -129,15 +127,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		52D37E061D2EC30F009F2FC3 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				527F87091D2B09F000D0E1EC /* ServicesTabViewController.swift */,
-				52D37E031D2EC2DC009F2FC3 /* CustomCollectionViewControllerServices.swift */,
-			);
-			name = Services;
-			sourceTree = "<group>";
-		};
 		52D37E0B1D2ED537009F2FC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,7 +206,7 @@
 		79F418431D043BA6002131C7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				52D37E061D2EC30F009F2FC3 /* Services */,
+				527F87091D2B09F000D0E1EC /* ServicesTabViewController.swift */,
 				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
 				527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */,
 				527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */,
@@ -520,7 +509,6 @@
 				527F87171D2B29A200D0E1EC /* NotificationsTabViewController.swift in Sources */,
 				52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */,
 				527F871B1D2B29C500D0E1EC /* MyProfileTabViewController.swift in Sources */,
-				52D37E041D2EC2DC009F2FC3 /* CustomCollectionViewControllerServices.swift in Sources */,
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,
 				52D37E0D1D2EDB63009F2FC3 /* AnnotatediCanGoCell.swift in Sources */,
 			);
