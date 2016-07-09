@@ -22,13 +22,12 @@ class LoginViewController: UIViewController {
     
     var loginInProgress: Bool!
     
-    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Appearance.customizeAppearance(self.view)
+        customizeAppearance()
         
         activityIndicatorView.hidden = true
         loginInProgress = false
@@ -53,6 +52,17 @@ class LoginViewController: UIViewController {
         
     }
     
+    // MARK: - Appearance
+    
+    func customizeAppearance() {
+        // Status Bar Color
+        let statusBarColor = UIColor(red: 26/255, green: 147/255, blue: 165/255, alpha: 1)
+        let colorStatusBar: UIView = UIView(frame: CGRectMake(0, 0,self.view.frame.size.width, 20))
+        colorStatusBar.backgroundColor = statusBarColor
+        self.view.addSubview(colorStatusBar)
+    }
+    
+    
     // MARK: - Actions
     
     @IBAction func btnInitSS(sender: AnyObject) {
@@ -74,8 +84,8 @@ class LoginViewController: UIViewController {
                             
                             self!.loginSuccess()
                             // push: show services screen - change rootViewController -
-//                            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//                            appDelegate.window?.rootViewController = appDelegate.controllerTabBar
+                            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                            appDelegate.window?.rootViewController = appDelegate.tabBarController
                             
                         } else {
                             self!.loginNoSuccess(nil)
@@ -151,7 +161,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate{
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        self.view.endEditing(false)
         return true
     }
 }

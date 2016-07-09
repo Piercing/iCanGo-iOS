@@ -22,8 +22,7 @@ class LocationTabViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Location"
-        
-        Appearance.customizeAppearance(self.view)
+        print("item Location loaded")
     }
     
     override func didReceiveMemoryWarning() {

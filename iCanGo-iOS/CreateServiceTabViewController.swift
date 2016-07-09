@@ -19,8 +19,7 @@ class CreateServiceTabViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "High Services"
-        
-        Appearance.customizeAppearance(self.view)
+        print("item High Services loaded")
     }
     
     override func didReceiveMemoryWarning() {
