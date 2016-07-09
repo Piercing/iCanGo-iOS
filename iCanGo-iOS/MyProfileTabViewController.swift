@@ -19,7 +19,8 @@ class MyProfileTabViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "My Profile"
-        print("item My Profile loaded")
+        
+        Appearance.customizeAppearance(self.view)
     }
     
     override func didReceiveMemoryWarning() {
