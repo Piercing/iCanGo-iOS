@@ -2,7 +2,7 @@
 //  LocationTabViewController.swift
 //  iCanGo-iOS
 //
-//  Created by MacBook Pro on 5/7/16.
+//  Created by Juan Carlos Merlos Albarracín on 5/7/16.
 //  Copyright © 2016 CodeCrafters. All rights reserved.
 //
 
@@ -10,11 +10,15 @@ import UIKit
 
 class LocationTabViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    @IBOutlet weak var searchBarLocation: UISearchBar!
+    
     // MARK: - Init
+    
     convenience init() {
         self.init(nibName: "LocationTabViewController", bundle: nil)
     }
-    
     
     // MARK: - LifeCycle
     
@@ -24,6 +28,7 @@ class LocationTabViewController: UIViewController {
         self.title = "Location"
         
         Appearance.customizeAppearance(self.view)
+        searchBarLocation.resignFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,14 +37,23 @@ class LocationTabViewController: UIViewController {
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+     // MARK: - Actions
     
+    @IBAction func btnFavouritesLocation(sender: AnyObject) {
+        // TODO:
+        print("Tapp buttom favourites Location")
+    }
+}
+
+// MARK: - Extensions - Collection view delegates and datasource
+
+extension LocationTabViewController: UISearchBarDelegate {
+    func textFieldShouldReturn(searchBar: UISearchBar) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        searchBarLocation.resignFirstResponder()
+    }
 }

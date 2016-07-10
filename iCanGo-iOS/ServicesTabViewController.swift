@@ -17,16 +17,16 @@ class ServicesTabViewController: UIViewController {
     @IBOutlet weak var favouritesBtn: UIButton!
     @IBOutlet weak var servicesCollectionView: UICollectionView!
     
-    var iCanGoTabBarController =  UITabBarController()
     var controllerTabBar =  TabBarViewController()
     var isLoaded = false
     
     // MARK: - Init
+    
     convenience init() {
         self.init(nibName: "ServicesViewController", bundle: nil)
     }
     
-    // MARK: - LifeCycle
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,32 +34,27 @@ class ServicesTabViewController: UIViewController {
         servicesCollectionView.registerNib(UINib(nibName: "iCangoServicesCell", bundle: nil), forCellWithReuseIdentifier: "serviceCell")
         servicesCollectionView.delegate = self
         servicesCollectionView.dataSource = self
-      
+        
         Appearance.tabBarColor(self.controllerTabBar)
         Appearance.customizeAppearance(self.view)
         
-        //searchBar.becomeFirstResponder()
         searchBar.resignFirstResponder()
-        
-        //controllerTabBar.iCangoTabBar()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        searchBar.resignFirstResponder()
-    }
-    
+
     // MARK: - Actions
     
     @IBAction func btnFilter(sender: AnyObject) {
+        // TODO: Filter services
         print("Prees button Filter")
     }
     
     @IBAction func btnFavourites(sender: AnyObject) {
+        // TODO: check favourites
         print("Prees button Favourites")
     }
 }
@@ -71,20 +66,24 @@ extension ServicesTabViewController: UISearchBarDelegate {
         self.view.endEditing(true)
         return true
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        searchBar.resignFirstResponder()
+    }
 }
 
 extension ServicesTabViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 20 // TODO: amount of services received from api
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("serviceCell", forIndexPath: indexPath)
-        return cell
+        return cell // TODO: return cell of service
     }
-
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: 180, height: 200)
+        return CGSize(width: 170, height: 190)
     }
 }
 

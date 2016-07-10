@@ -16,8 +16,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var iCanGotabBarController: TabBarViewController?
-    var iCanGoTabBarController =  UITabBarController()
+    
     
     var itemServicesTabBar: ServicesTabViewController?
     var itemLocationTabBar:  LocationTabViewController?
@@ -26,48 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var itemMyProfileTabBar: MyProfileTabViewController?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
-        
+   
         // Navigation Bar Style
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
         //testAlamofireSwiftyJSON()
         //testHaneke()
-        
-        self.itemServicesTabBar = ServicesTabViewController()
-        self.itemLocationTabBar = LocationTabViewController()
-        self.itemCreateServiceTabBar = CreateServiceTabViewController()
-        self.itemNotificationsTabBar = NotificationsTabViewController()
-        self.itemMyProfileTabBar = MyProfileTabViewController()
-        
-        let mainTabBarController = UITabBarController()
-        mainTabBarController.viewControllers =
-            [
-                itemServicesTabBar!,
-                itemLocationTabBar!,
-                itemCreateServiceTabBar!,
-                itemNotificationsTabBar!,
-                itemMyProfileTabBar!
-        ]
-        
-        let itemAllServices = UITabBarItem(title: "All Services", image: UIImage(named: "badge-apple.pdf"), tag: 0)
-        let itemLocation = UITabBarItem(title: "Location", image: UIImage(named: "badge-apple.pdf"), tag: 1)
-        let itemHighServices = UITabBarItem(title: "High Services", image: UIImage(named: "badge-apple.pdf")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), tag: 2)
-        let itemNotifications = UITabBarItem(title: "Notifications", image: UIImage(named: "badge-apple.pdf")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), tag: 3)
-        let itemMyProfile = UITabBarItem(title: "My Profile", image: UIImage(named: "badge-apple.pdf")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), tag: 4)
-        
-        mainTabBarController.tabBarItem = itemAllServices
-        mainTabBarController.tabBarItem = itemLocation
-        mainTabBarController.tabBarItem = itemHighServices
-        mainTabBarController.tabBarItem = itemNotifications
-        mainTabBarController.tabBarItem = itemMyProfile
-        
-        Appearance.tabBarItemColor()
-        Appearance.tabBarColor(mainTabBarController)
              
-        self.window?.rootViewController = mainTabBarController
+        self.window?.rootViewController = TabBarViewController.iCangoTabBar()
         self.window?.makeKeyAndVisible()
         return true
     }
