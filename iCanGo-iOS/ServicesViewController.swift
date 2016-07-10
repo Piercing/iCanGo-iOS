@@ -17,13 +17,13 @@ class ServicesViewController: UIViewController {
     @IBOutlet weak var favouritesBtn: UIButton!
     @IBOutlet weak var servicesCollectionView: UICollectionView!
     
-    var controllerTabBar =  MainTabBarController()
     var isLoaded = false
+    let cellId = "serviceCell"
     
     // MARK: - Init
     
     convenience init() {
-        self.init(nibName: "ServicesViewController", bundle: nil)
+        self.init(nibName: "ServicesView", bundle: nil)
     }
     
     // MARK: - Life Cycle
@@ -31,13 +31,10 @@ class ServicesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        servicesCollectionView.registerNib(UINib(nibName: "iCangoServicesCell", bundle: nil), forCellWithReuseIdentifier: "serviceCell")
+        registerCustomCell()
         servicesCollectionView.delegate = self
         servicesCollectionView.dataSource = self
-        
-        Appearance.tabBarColor(self.controllerTabBar)
-        Appearance.customizeAppearance(self.view)
-        
+        setupUI()
         searchBar.resignFirstResponder()
     }
     
@@ -56,6 +53,22 @@ class ServicesViewController: UIViewController {
     @IBAction func btnFavourites(sender: AnyObject) {
         // TODO: check favourites
         print("Prees button Favourites")
+    }
+    
+    // MARK: Methods
+    
+    // MARK: Methods
+    
+    func setupUI() -> Void {
+        self.title = "My Profile"
+        Appearance.tabBarColor(self.tabBarController!)
+        Appearance.customizeAppearance(self.view)
+    }
+    
+    // MARK: Cell registration
+    
+    func registerCustomCell() {
+        servicesCollectionView.registerNib(UINib(nibName: "ServiceCellView", bundle: nil), forCellWithReuseIdentifier: cellId)
     }
 }
 
@@ -78,7 +91,7 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("serviceCell", forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath)
         return cell // TODO: return cell of service
     }
     

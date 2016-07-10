@@ -1,21 +1,14 @@
-//
-//  AnnotatediCanGoCellCollectionViewCell.swift
-//  iCanGo-iOS
-//
-//  Created by Juan Carlos Merlos Albarracín MacBook Pro on 7/7/16.
-//  Copyright © 2016 CodeCrafters. All rights reserved.
-//
 
 import UIKit
 
 // Delegate for cell
-protocol  AnnotatediCanGoCellDelegate {
-    func didSelectCellButtomTapped(cell: AnnotatediCanGoCell )
+protocol ServiceCellDelegate {
+    func didSelectCellButtomTapped(cell: ServiceCell )
 }
 
-class AnnotatediCanGoCell: UICollectionViewCell {
+class ServiceCell: UICollectionViewCell {
     
-    var delegate: AnnotatediCanGoCellDelegate!
+    var delegate: ServiceCellDelegate!
     
     @IBOutlet weak var imageService: UIImageView!
     @IBOutlet weak var imageUser: UIImageView!

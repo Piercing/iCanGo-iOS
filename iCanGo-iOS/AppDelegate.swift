@@ -21,40 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
         // Navigation Bar Style
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-        
-        //testAlamofireSwiftyJSON()
-        //testHaneke()
              
-        self.window?.rootViewController = MainTabBarController.iCangoTabBar()
+        self.window?.rootViewController = StartUpController(nibName: nil, bundle: nil)
         self.window?.makeKeyAndVisible()
         return true
     }
 }
-
-/*
- func testAlamofireSwiftyJSON() {
- 
- Alamofire.request(.GET, "http://www.mocky.io/v2/5753da62120000ab1a4775f2").responseJSON { (responseData) -> Void in
- if((responseData.result.value) != nil) {
- let swiftyJsonVar = JSON(responseData.result.value!)
- print(swiftyJsonVar);
- }
- }
- }
- */
-
-/*
- func testHaneke() {
- 
- let cache = Shared.imageCache
- let URL = NSURL(string: "http://urbinavolant.com/alberto/wp-content/uploads/2008/11/avi.jpg")!
- let fetcher = NetworkFetcher<UIImage>(URL: URL)
- cache.fetch(fetcher: fetcher).onSuccess { image in
- // Do something with image
- print("image loaded")
- }
- print("end");
- }
- */
 
 

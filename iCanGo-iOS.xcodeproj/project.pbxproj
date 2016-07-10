@@ -7,25 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5272E1801D2C17E3007211E4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272E17E1D2C17E3007211E4 /* MainTabBarController.swift */; };
+		5272E1801D2C17E3007211E4 /* StartUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272E17E1D2C17E3007211E4 /* StartUpController.swift */; };
 		527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CDB5F1D1B786F001C6251 /* LoginViewController.swift */; };
 		527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87091D2B09F000D0E1EC /* ServicesViewController.swift */; };
-		527F870C1D2B09F000D0E1EC /* ServicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870A1D2B09F000D0E1EC /* ServicesViewController.xib */; };
+		527F870C1D2B09F000D0E1EC /* ServicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870A1D2B09F000D0E1EC /* ServicesView.xib */; };
 		527F870F1D2B28BC00D0E1EC /* LocationTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */; };
 		527F87101D2B28BC00D0E1EC /* LocationTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870E1D2B28BC00D0E1EC /* LocationTabViewController.xib */; };
 		527F87131D2B297B00D0E1EC /* CreateServiceTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */; };
 		527F87141D2B297B00D0E1EC /* CreateServiceTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87121D2B297B00D0E1EC /* CreateServiceTabViewController.xib */; };
 		527F87171D2B29A200D0E1EC /* NotificationsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */; };
 		527F87181D2B29A200D0E1EC /* NotificationsTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */; };
-		527F871B1D2B29C500D0E1EC /* MyProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87191D2B29C500D0E1EC /* MyProfileTabViewController.swift */; };
-		527F871C1D2B29C500D0E1EC /* MyProfileTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F871A1D2B29C500D0E1EC /* MyProfileTabViewController.xib */; };
-		52D37E081D2EC811009F2FC3 /* iCangoServicesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D37E071D2EC811009F2FC3 /* iCangoServicesCell.xib */; };
-		52D37E0A1D2ECC88009F2FC3 /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E091D2ECC88009F2FC3 /* RoundedCornersView.swift */; };
-		52D37E0D1D2EDB63009F2FC3 /* AnnotatediCanGoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E0C1D2EDB63009F2FC3 /* AnnotatediCanGoCell.swift */; };
+		527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */; };
+		527F871C1D2B29C500D0E1EC /* MyProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F871A1D2B29C500D0E1EC /* MyProfileView.xib */; };
+		52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */; };
+		52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */; };
+		52D37E0D1D2EDB63009F2FC3 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */; };
 		52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DD0E0D1D18655200A2E55E /* Main.storyboard */; };
 		52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */; };
 		52EF05CD1D2E4D82001B0FE4 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */; };
 		52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F367AA1D28FBFF0064583C /* LoginView.xib */; };
+		793E1D2E1D32890B00A6324A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793E1D2D1D32890B00A6324A /* Utils.swift */; };
 		79F418211D043B36002131C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418201D043B36002131C7 /* AppDelegate.swift */; };
 		79F418231D043B36002131C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F418221D043B36002131C7 /* Assets.xcassets */; };
 		79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F418241D043B36002131C7 /* LaunchScreen.storyboard */; };
@@ -60,25 +61,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5272E17E1D2C17E3007211E4 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		5272E17E1D2C17E3007211E4 /* StartUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpController.swift; sourceTree = "<group>"; };
 		527CDB5F1D1B786F001C6251 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		527F87091D2B09F000D0E1EC /* ServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
-		527F870A1D2B09F000D0E1EC /* ServicesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicesViewController.xib; sourceTree = "<group>"; };
+		527F870A1D2B09F000D0E1EC /* ServicesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicesView.xib; sourceTree = "<group>"; };
 		527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTabViewController.swift; sourceTree = "<group>"; };
 		527F870E1D2B28BC00D0E1EC /* LocationTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationTabViewController.xib; sourceTree = "<group>"; };
 		527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateServiceTabViewController.swift; sourceTree = "<group>"; };
 		527F87121D2B297B00D0E1EC /* CreateServiceTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateServiceTabViewController.xib; sourceTree = "<group>"; };
 		527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTabViewController.swift; sourceTree = "<group>"; };
 		527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationsTabViewController.xib; sourceTree = "<group>"; };
-		527F87191D2B29C500D0E1EC /* MyProfileTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileTabViewController.swift; sourceTree = "<group>"; };
-		527F871A1D2B29C500D0E1EC /* MyProfileTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileTabViewController.xib; sourceTree = "<group>"; };
-		52D37E071D2EC811009F2FC3 /* iCangoServicesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iCangoServicesCell.xib; sourceTree = "<group>"; };
-		52D37E091D2ECC88009F2FC3 /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
-		52D37E0C1D2EDB63009F2FC3 /* AnnotatediCanGoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotatediCanGoCell.swift; sourceTree = "<group>"; };
+		527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		527F871A1D2B29C500D0E1EC /* MyProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileView.xib; sourceTree = "<group>"; };
+		52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCellView.xib; sourceTree = "<group>"; };
+		52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
+		52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
 		52DD0E0D1D18655200A2E55E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		52F367AA1D28FBFF0064583C /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		793E1D2D1D32890B00A6324A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		79F4181D1D043B36002131C7 /* iCanGo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCanGo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F418201D043B36002131C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79F418221D043B36002131C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,8 +132,12 @@
 		52D37E0B1D2ED537009F2FC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				52D37E091D2ECC88009F2FC3 /* RoundedCornersView.swift */,
-				52D37E0C1D2EDB63009F2FC3 /* AnnotatediCanGoCell.swift */,
+				52F367AA1D28FBFF0064583C /* LoginView.xib */,
+				527F870A1D2B09F000D0E1EC /* ServicesView.xib */,
+				527F870E1D2B28BC00D0E1EC /* LocationTabViewController.xib */,
+				527F87121D2B297B00D0E1EC /* CreateServiceTabViewController.xib */,
+				527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */,
+				527F871A1D2B29C500D0E1EC /* MyProfileView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -142,6 +148,16 @@
 				D9BCFB28C96273CCDD0CF172 /* Pods_iCanGo_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		793E1D2C1D32840100A6324A /* JuanCarlos */ = {
+			isa = PBXGroup;
+			children = (
+				527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */,
+				527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */,
+				527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */,
+			);
+			name = JuanCarlos;
 			sourceTree = "<group>";
 		};
 		79F418141D043B36002131C7 = {
@@ -172,7 +188,7 @@
 				D37630F81D06BF5F0001E29F /* Helpers */,
 				79F418421D043B8D002131C7 /* Common */,
 				79F418441D043BB0002131C7 /* Models */,
-				79F418481D043C13002131C7 /* Storyboards & Xibs */,
+				79F418481D043C13002131C7 /* Storyboards */,
 				79F418471D043C0E002131C7 /* Cells */,
 				79F418431D043BA6002131C7 /* Controllers */,
 				52D37E0B1D2ED537009F2FC3 /* Views */,
@@ -208,11 +224,11 @@
 			children = (
 				527F87091D2B09F000D0E1EC /* ServicesViewController.swift */,
 				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
-				527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */,
-				527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */,
-				527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */,
-				527F87191D2B29C500D0E1EC /* MyProfileTabViewController.swift */,
-				5272E17E1D2C17E3007211E4 /* MainTabBarController.swift */,
+				793E1D2C1D32840100A6324A /* JuanCarlos */,
+				527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */,
+				5272E17E1D2C17E3007211E4 /* StartUpController.swift */,
+				52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */,
+				52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -247,24 +263,18 @@
 		79F418471D043C0E002131C7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				52D37E071D2EC811009F2FC3 /* iCangoServicesCell.xib */,
+				52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		79F418481D043C13002131C7 /* Storyboards & Xibs */ = {
+		79F418481D043C13002131C7 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				79F418241D043B36002131C7 /* LaunchScreen.storyboard */,
 				52DD0E0D1D18655200A2E55E /* Main.storyboard */,
-				52F367AA1D28FBFF0064583C /* LoginView.xib */,
-				527F870A1D2B09F000D0E1EC /* ServicesViewController.xib */,
-				527F870E1D2B28BC00D0E1EC /* LocationTabViewController.xib */,
-				527F87121D2B297B00D0E1EC /* CreateServiceTabViewController.xib */,
-				527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */,
-				527F871A1D2B29C500D0E1EC /* MyProfileTabViewController.xib */,
 			);
-			name = "Storyboards & Xibs";
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		C0E0D60C82725310329E6B6E /* Pods */ = {
@@ -310,6 +320,7 @@
 			children = (
 				D37630FB1D06C0CA0001E29F /* Framework.swift */,
 				D305B23C1D24FDCF0072B634 /* Localization.swift */,
+				793E1D2D1D32890B00A6324A /* Utils.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -416,10 +427,10 @@
 				52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */,
 				527F87101D2B28BC00D0E1EC /* LocationTabViewController.xib in Resources */,
 				527F87181D2B29A200D0E1EC /* NotificationsTabViewController.xib in Resources */,
-				527F871C1D2B29C500D0E1EC /* MyProfileTabViewController.xib in Resources */,
-				527F870C1D2B09F000D0E1EC /* ServicesViewController.xib in Resources */,
+				527F871C1D2B29C500D0E1EC /* MyProfileView.xib in Resources */,
+				527F870C1D2B09F000D0E1EC /* ServicesView.xib in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
-				52D37E081D2EC811009F2FC3 /* iCangoServicesCell.xib in Resources */,
+				52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */,
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
 				79F418401D043B56002131C7 /* README.md in Resources */,
 				D37630F01D05C0FB0001E29F /* iCanGO-iOS.md in Resources */,
@@ -492,13 +503,13 @@
 				D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */,
 				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
 				527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */,
-				5272E1801D2C17E3007211E4 /* MainTabBarController.swift in Sources */,
+				5272E1801D2C17E3007211E4 /* StartUpController.swift in Sources */,
 				D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */,
 				D308447A1D23AE1400A25CF4 /* Response.swift in Sources */,
 				D305B23D1D24FDCF0072B634 /* Localization.swift in Sources */,
 				D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */,
 				D37630F61D05CA770001E29F /* Service.swift in Sources */,
-				52D37E0A1D2ECC88009F2FC3 /* RoundedCornersView.swift in Sources */,
+				52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */,
 				527F870F1D2B28BC00D0E1EC /* LocationTabViewController.swift in Sources */,
 				527F87131D2B297B00D0E1EC /* CreateServiceTabViewController.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
@@ -508,9 +519,10 @@
 				D37631021D06D3090001E29F /* Constants.swift in Sources */,
 				527F87171D2B29A200D0E1EC /* NotificationsTabViewController.swift in Sources */,
 				52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */,
-				527F871B1D2B29C500D0E1EC /* MyProfileTabViewController.swift in Sources */,
+				527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */,
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,
-				52D37E0D1D2EDB63009F2FC3 /* AnnotatediCanGoCell.swift in Sources */,
+				52D37E0D1D2EDB63009F2FC3 /* ServiceCell.swift in Sources */,
+				793E1D2E1D32890B00A6324A /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

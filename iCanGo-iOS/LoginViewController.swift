@@ -9,7 +9,14 @@
 import UIKit
 import RxSwift
 
+protocol ComunicationLoginControllerDelegate {
+    func back(index: Int)
+}
+
 class LoginViewController: UIViewController {
+    
+    var selectedTabItemIndex: Int?
+    var delegate: ComunicationLoginControllerDelegate? = nil
     
     // MARK: - Properties
     
@@ -22,24 +29,23 @@ class LoginViewController: UIViewController {
     
     var loginInProgress: Bool!
     
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Appearance.customizeAppearance(self.view)
-        
         activityIndicatorView.hidden = true
         loginInProgress = false
+        
+        setupUI()
     }
     
     override func viewDidLayoutSubviews(){
         super.viewDidLayoutSubviews()
+        // TODO: This should be in a theme class
         txtFieldUser.layer.cornerRadius = 5
         txtFieldPassw.layer.cornerRadius = 5
         btnInitSession.layer.cornerRadius = 5
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,7 +56,6 @@ class LoginViewController: UIViewController {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         txtFieldUser.resignFirstResponder()
         txtFieldPassw.resignFirstResponder()
-        
     }
     
     // MARK: - Actions
@@ -70,13 +75,8 @@ class LoginViewController: UIViewController {
                     
                     switch event {
                     case let .Next(user):
-                        if (user.email == self!.txtFieldUser.text!) {
-                            self!.loginSuccess()
-                            
-                        } else {
-                            self!.loginNoSuccess(nil)
-                        }
-                        
+                        saveAuthInfo(user)
+                        break
                     case .Error (let error):
                         self!.loginNoSuccess(error as? SessionError)
                         
@@ -93,13 +93,24 @@ class LoginViewController: UIViewController {
     @IBAction func btnNoRG(sender: AnyObject) {
     }
     
+    @IBAction func cancelTapped(sender: AnyObject) {
+        self.delegate?.back(selectedTabItemIndex!);
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: Methods
+    
+    func setupUI() {
+        Appearance.customizeAppearance(self.view)
+    }
+    
     // MARK: - Private Methods
     
-    private func pushViewController() {
-        
-        let servicesViewController = ServicesViewController()
-        self.presentViewController(servicesViewController, animated: true, completion: nil)
-    }
+//    private func pushViewController() {
+//        
+//        let servicesViewController = ServicesViewController()
+//        self.presentViewController(servicesViewController, animated: true, completion: nil)
+//    }
     
     private func loginInProgressRequest() {
         
