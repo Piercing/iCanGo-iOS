@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //testAlamofireSwiftyJSON()
         //testHaneke()
              
-        self.window?.rootViewController = TabBarViewController.iCangoTabBar()
+        self.window?.rootViewController = MainTabBarController.iCangoTabBar()
         self.window?.makeKeyAndVisible()
         return true
     }
