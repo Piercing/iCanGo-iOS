@@ -76,7 +76,7 @@ class LoginViewController: UIViewController {
                     switch event {
                     case let .Next(user):
                         saveAuthInfo(user)
-                        close()
+                        self!.close()
                         break
                     case .Error (let error):
                         self!.loginNoSuccess(error as? SessionError)
