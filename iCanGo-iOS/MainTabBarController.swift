@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
+class MainTabBarController: UITabBarController {
     
     // MARK: - Life Cycle
     
@@ -21,9 +21,9 @@ class TabBarViewController: UITabBarController {
     
     internal static func iCangoTabBar() -> UITabBarController {
         
-        let iCanGoTabBarController =  UITabBarController()
+        let iCanGoMainTabBarController =  UITabBarController()
         
-        let itemServicesTabBar = ServicesTabViewController()
+        let itemServicesTabBar = ServicesViewController()
         let itemLocationTabBar =  LocationTabViewController()
         let itemCreateServiceTabBar =  CreateServiceTabViewController()
         let itemNotificationsTabBar = NotificationsTabViewController()
@@ -32,27 +32,31 @@ class TabBarViewController: UITabBarController {
         let iconServicesTabBar = UITabBarItem(
             title: "Services",
             image: UIImage(named: "pin-1.png"),
-            selectedImage: UIImage(named: "logiCangoVectors.pdf"))
+            selectedImage: UIImage(named: "pin-1.png"))
         
         let iconLocationTabBar = UITabBarItem(
             title: "Location",
-            image: UIImage(named: "pin-1.png"),
-            selectedImage: UIImage(named: "logiCangoVectors.pdf"))
+            image: UIImage(named: "pin-1.png"), // Unselected image
+            selectedImage: UIImage(named: "pin-1.png")?
+                .imageWithRenderingMode(.AlwaysTemplate)) // Selected image original color
         
         let iconCreateServicesTabBar = UITabBarItem(
             title: "High Services",
             image: UIImage(named: "pin-1.png"),
-            selectedImage: UIImage(named: "logiCangoVectors.pdf"))
+            selectedImage: UIImage(named: "pin-1.png")?
+                .imageWithRenderingMode(.AlwaysTemplate))
         
         let iconNotificationsTabBar = UITabBarItem(
             title: "Notifications",
             image: UIImage(named: "pin-1.png"),
-            selectedImage: UIImage(named: "logiCangoVectors.pdf"))
+            selectedImage: UIImage(named: "pin-1.png")?
+                .imageWithRenderingMode(.AlwaysTemplate))
         
         let iconMyProfileTabBar = UITabBarItem(
             title: "My Profile",
             image: UIImage(named: "pin-1.png"),
-            selectedImage: UIImage(named: "logiCangoVectors.pdf"))
+            selectedImage: UIImage(named: "pin-1.png")?
+                .imageWithRenderingMode(.AlwaysTemplate))
         
         itemServicesTabBar.tabBarItem = iconServicesTabBar
         itemLocationTabBar.tabBarItem = iconLocationTabBar
@@ -69,18 +73,18 @@ class TabBarViewController: UITabBarController {
                 itemMyProfileTabBar
             ]
         
-        iCanGoTabBarController.viewControllers = controllers
+        iCanGoMainTabBarController.viewControllers = controllers
         
         Appearance.tabBarItemColor()
-        Appearance.tabBarColor(iCanGoTabBarController)
-        return iCanGoTabBarController
+        Appearance.tabBarColor(iCanGoMainTabBarController)
+        return iCanGoMainTabBarController
         
     }
 }
 
 // MARK: - Extensions - Delegate Methods
 
-extension TabBarViewController: UITabBarControllerDelegate {
+extension MainTabBarController: UITabBarControllerDelegate {
     
     func tabBarController(
         tabBarController: UITabBarController,

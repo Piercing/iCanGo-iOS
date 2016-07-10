@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5272E1801D2C17E3007211E4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272E17E1D2C17E3007211E4 /* TabBarViewController.swift */; };
+		5272E1801D2C17E3007211E4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272E17E1D2C17E3007211E4 /* MainTabBarController.swift */; };
 		527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CDB5F1D1B786F001C6251 /* LoginViewController.swift */; };
-		527F870B1D2B09F000D0E1EC /* ServicesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87091D2B09F000D0E1EC /* ServicesTabViewController.swift */; };
+		527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87091D2B09F000D0E1EC /* ServicesViewController.swift */; };
 		527F870C1D2B09F000D0E1EC /* ServicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870A1D2B09F000D0E1EC /* ServicesViewController.xib */; };
 		527F870F1D2B28BC00D0E1EC /* LocationTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */; };
 		527F87101D2B28BC00D0E1EC /* LocationTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870E1D2B28BC00D0E1EC /* LocationTabViewController.xib */; };
@@ -60,9 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5272E17E1D2C17E3007211E4 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		5272E17E1D2C17E3007211E4 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		527CDB5F1D1B786F001C6251 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		527F87091D2B09F000D0E1EC /* ServicesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesTabViewController.swift; sourceTree = "<group>"; };
+		527F87091D2B09F000D0E1EC /* ServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
 		527F870A1D2B09F000D0E1EC /* ServicesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicesViewController.xib; sourceTree = "<group>"; };
 		527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTabViewController.swift; sourceTree = "<group>"; };
 		527F870E1D2B28BC00D0E1EC /* LocationTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationTabViewController.xib; sourceTree = "<group>"; };
@@ -206,13 +206,13 @@
 		79F418431D043BA6002131C7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				527F87091D2B09F000D0E1EC /* ServicesTabViewController.swift */,
+				527F87091D2B09F000D0E1EC /* ServicesViewController.swift */,
 				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
 				527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */,
 				527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */,
 				527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */,
 				527F87191D2B29C500D0E1EC /* MyProfileTabViewController.swift */,
-				5272E17E1D2C17E3007211E4 /* TabBarViewController.swift */,
+				5272E17E1D2C17E3007211E4 /* MainTabBarController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -491,8 +491,8 @@
 				D37630FE1D06CA280001E29F /* Session.swift in Sources */,
 				D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */,
 				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
-				527F870B1D2B09F000D0E1EC /* ServicesTabViewController.swift in Sources */,
-				5272E1801D2C17E3007211E4 /* TabBarViewController.swift in Sources */,
+				527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */,
+				5272E1801D2C17E3007211E4 /* MainTabBarController.swift in Sources */,
 				D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */,
 				D308447A1D23AE1400A25CF4 /* Response.swift in Sources */,
 				D305B23D1D24FDCF0072B634 /* Localization.swift in Sources */,

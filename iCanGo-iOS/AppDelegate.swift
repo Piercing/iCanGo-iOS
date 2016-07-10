@@ -16,13 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
-    var itemServicesTabBar: ServicesTabViewController?
-    var itemLocationTabBar:  LocationTabViewController?
-    var itemCreateServiceTabBar:  CreateServiceTabViewController?
-    var itemNotificationsTabBar: NotificationsTabViewController?
-    var itemMyProfileTabBar: MyProfileTabViewController?
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
    
@@ -32,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //testAlamofireSwiftyJSON()
         //testHaneke()
              
-        self.window?.rootViewController = TabBarViewController.iCangoTabBar()
+        self.window?.rootViewController = MainTabBarController.iCangoTabBar()
         self.window?.makeKeyAndVisible()
         return true
     }

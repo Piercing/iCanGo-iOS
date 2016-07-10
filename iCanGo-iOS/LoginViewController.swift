@@ -97,7 +97,7 @@ class LoginViewController: UIViewController {
     
     private func pushViewController() {
         
-        let servicesViewController = ServicesTabViewController()
+        let servicesViewController = ServicesViewController()
         self.presentViewController(servicesViewController, animated: true, completion: nil)
     }
     
