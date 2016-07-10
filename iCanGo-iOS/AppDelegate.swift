@@ -17,13 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
-    var itemServicesTabBar: ServicesTabViewController?
-    var itemLocationTabBar:  LocationTabViewController?
-    var itemCreateServiceTabBar:  CreateServiceTabViewController?
-    var itemNotificationsTabBar: NotificationsTabViewController?
-    var itemMyProfileTabBar: MyProfileTabViewController?
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
    
