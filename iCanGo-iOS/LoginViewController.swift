@@ -76,6 +76,7 @@ class LoginViewController: UIViewController {
                     switch event {
                     case let .Next(user):
                         saveAuthInfo(user)
+                        close()
                         break
                     case .Error (let error):
                         self!.loginNoSuccess(error as? SessionError)
@@ -94,6 +95,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func cancelTapped(sender: AnyObject) {
+        close()
+    }
+    
+    func close() -> Void {
         self.delegate?.back(selectedTabItemIndex!);
         self.dismissViewControllerAnimated(true, completion: nil)
     }
