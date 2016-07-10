@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ServicesTabViewController: UIViewController {
+class ServicesViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -17,7 +17,7 @@ class ServicesTabViewController: UIViewController {
     @IBOutlet weak var favouritesBtn: UIButton!
     @IBOutlet weak var servicesCollectionView: UICollectionView!
     
-    var controllerTabBar =  TabBarViewController()
+    var controllerTabBar =  MainTabBarController()
     var isLoaded = false
     
     // MARK: - Init
@@ -61,7 +61,7 @@ class ServicesTabViewController: UIViewController {
 
 // MARK: - Extensions - Collection view delegates and datasource
 
-extension ServicesTabViewController: UISearchBarDelegate {
+extension ServicesViewController: UISearchBarDelegate {
     func textFieldShouldReturn(searchBar: UISearchBar) -> Bool {
         self.view.endEditing(true)
         return true
@@ -72,7 +72,7 @@ extension ServicesTabViewController: UISearchBarDelegate {
     }
 }
 
-extension ServicesTabViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20 // TODO: amount of services received from api
     }
