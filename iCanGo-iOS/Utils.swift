@@ -26,35 +26,34 @@ func loadUserAuthInfo() -> User {
 }
 
 
-//func loadImage(photo: Service, imageView: UIImageView) {
-//    
-//    guard let url = NSURL(string: photo.urlLargePhotoString!) else {
-//        return
-//    }
-//    
-//    let request = NSMutableURLRequest(URL: url)
-//    let session = NSURLSession.sharedSession()
-//    let task = session.dataTaskWithRequest(request) { data, response, error in
-//        
-//        guard data != nil else {
-//            return
-//        }
-//        
-//        photo.largeImage = data!
-//        let image = UIImage(data: data!)
-//        
-//        dispatch_async(dispatch_get_main_queue(), {
-//            
-//            imageView.image = image
-//            imageView.fadeOut(duration: 0.0)
-//            imageView.fadeIn()
-//            
-//        })
-//    }
-//    
-//    task.resume()
-//    
-//}
+func loadImage(imageUrl: String, imageView: UIImageView) {
+    
+    guard let url = NSURL(string: imageUrl) else {
+        return
+    }
+    
+    let request = NSMutableURLRequest(URL: url)
+    let session = NSURLSession.sharedSession()
+    let task = session.dataTaskWithRequest(request) { data, response, error in
+        
+        guard data != nil else {
+            return
+        }
+        
+        let image = UIImage(data: data!)
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            imageView.image = image
+            imageView.fadeOut(duration: 0.0)
+            imageView.fadeIn()
+            
+        })
+    }
+    
+    task.resume()
+    
+}
 
 func isConnectedToNetwork() -> Bool {
     var zeroAddress = sockaddr_in()
