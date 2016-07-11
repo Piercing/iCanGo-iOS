@@ -26,7 +26,7 @@ struct User {
     let email: String
     let firstName: String
     let lastName: String
-    let photoURL: NSURL
+    let photoURL: NSURL?
     let searchPreferences: String?
     let status: Int
     let deleted: Bool
@@ -51,9 +51,16 @@ extension User: JSONDecodable {
             return nil
         }
 
-        guard let imageURLString = dictionary[JSONKeysUser.photoURL.rawValue] as? String,
-                        imageURL = NSURL(string: imageURLString) else {
-            return nil
+//        guard let imageURLString = dictionary[JSONKeysUser.photoURL.rawValue] as? String,
+//                        imageURL = NSURL(string: imageURLString) else {
+//            return nil
+//        }
+        
+        if let imageURLString = dictionary[JSONKeysUser.photoURL.rawValue] as? String, imageURL = NSURL(string: imageURLString) {
+            self.photoURL = imageURL
+        }
+        else {
+            self.photoURL = nil
         }
 
         self.id = id
@@ -61,7 +68,7 @@ extension User: JSONDecodable {
         self.firstName = firstName
         self.lastName = lastName
         self.status = status
-        self.photoURL = imageURL
+        //self.photoURL = imageURL
         self.deleted = deleted
         self.numPublishedServices = numPublishedServices
         self.numAttendedServices = numAttendedServices
@@ -194,7 +201,7 @@ func copyUser(user: UserPersisted) -> User {
                 email: user.email!,
                 firstName: user.firstName!,
                 lastName: user.lastName!,
-                photoURL: user.photoURL!,
+                photoURL: user.photoURL,
                 searchPreferences: user.searchPreferences,
                 status: user.status!,
                 deleted: user.deleted!,
