@@ -10,7 +10,7 @@ import Foundation
 
 enum APIRequest {
     case getServices(key: String, query: String, page: UInt, rows: UInt)
-    case getServicesByStatus(key: String, query: String, status: String, page: UInt)
+    case getServicesByStatus(key: String, query: String, status: String, page: UInt, rows: UInt)
     case getService(key: String, query: String)
     case getUsers(key: String, query: String, page: UInt)
     case getUsersServices(key: String, query: String, page: UInt)
@@ -69,20 +69,28 @@ extension APIRequest: Resource {
         switch self {
         case let APIRequest.getServices(_, _, page, rows):
             return ["rows": String(rows), "page": String(page)]
-        case let APIRequest.getServicesByStatus(_, _, status, _):
-            return ["status":status]
+            
+        case let APIRequest.getServicesByStatus(_, _, status, page, rows):
+            return ["status":status, "page": String(page), "rows": String(rows)]
+        
         case APIRequest.getService:
             return [:]
+        
         case APIRequest.getUsers:
             return [:]
+        
         case APIRequest.getUsersServices:
             return [:]
+        
         case let APIRequest.getUsersServicesByType(_, _, type, _):
             return ["type":type]
+        
         case APIRequest.getUser:
             return [:]
+        
         case let APIRequest.postLogin(user: user, password: password):
             return ["email": user, "password": password]
+        
         case let APIRequest.postUser(user: user,
             password: password,
             firstName: firstName,
@@ -97,6 +105,7 @@ extension APIRequest: Resource {
                     "photoUrl": photoUrl,
                     "searchPreferences": searchPreferences,
                     "status": status]
+        
         case let APIRequest.postService(name: name,
             price: price,
             tags: tags,

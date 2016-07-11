@@ -43,9 +43,9 @@ extension Session {
     }
     
     // GET Services by Status.
-    func getServicesByStatus(query: String, status: String, page: UInt) -> Observable<[Service]> {
+    func getServicesByStatus(query: String, status: String, page: UInt, rows: UInt) -> Observable<[Service]> {
         
-        return response(APIRequest.getServicesByStatus(key: "", query: query, status: status, page: page)).map { response in
+        return response(APIRequest.getServicesByStatus(key: "", query: query, status: status, page: page, rows: rows)).map { response in
             
             return try self.returnServices(response)
         }

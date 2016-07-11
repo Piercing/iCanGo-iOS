@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func testGetServices() {
         
         let session = Session.iCanGoSession()
-        let _ = session.getServices("", page: 1, rows: 20)
+        let _ = session.getServicesByStatus("", status: "0", page: 1, rows: 20)
             
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
