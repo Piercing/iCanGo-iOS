@@ -13,20 +13,20 @@ extension NSDate {
     
     static func dateFromStringsWithFormat(dateString date: String, timeString time: String?, withFormat format: String) -> NSDate? {
         
-        let dateTimeFinishedString: String
+        let dateTimeString: String
         
         if let time = time {
-            dateTimeFinishedString =  date + " " + time
+            dateTimeString =  date + " " + time
         } else {
-            dateTimeFinishedString =  date
+            dateTimeString =  date
         }
         
-        let dateTimeFinishedFormated = NSDateFormatter()
-        dateTimeFinishedFormated.dateFormat = format
-        dateTimeFinishedFormated.timeZone = NSTimeZone(abbreviation: timeZoneApp)
+        let dateTimeFormated = NSDateFormatter()
+        dateTimeFormated.dateFormat = format
+        dateTimeFormated.timeZone = NSTimeZone(abbreviation: timeZoneApp)
         
-        if let dateFinished = dateTimeFinishedFormated.dateFromString(dateTimeFinishedString) {
-            return dateFinished
+        if let date = dateTimeFormated.dateFromString(dateTimeString) {
+            return date
         } else {
             return nil
         }

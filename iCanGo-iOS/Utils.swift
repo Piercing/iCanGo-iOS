@@ -22,7 +22,15 @@ func loadUserAuthInfo() -> User {
         let user = copyUser(userPersisted!)
         return user
     }
-    return User(id: "", email: "", firstName: "", lastName: "", photoURL: NSURL(), searchPreferences: "", status: "")
+    return User(id: "",
+                email: "",
+                firstName: "",
+                lastName: "",
+                photoURL: NSURL(),
+                searchPreferences: "",
+                status: 0, deleted: false,
+                numPublishedServices: 0,
+                numAttendedServices: 0)
 }
 
 
