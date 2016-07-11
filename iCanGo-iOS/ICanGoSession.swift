@@ -60,6 +60,15 @@ extension Session {
         }
     }
     
+    // GET Service Images.
+    func getServiceImages(query: String) -> Observable<[ServiceImage]> {
+        
+        return response(APIRequest.getServiceImages(key: "", query: query)).map { response in
+            
+            return try self.returnServiceImages(response)
+        }
+    }
+
     // GET Users.
     func getUsers(query: String, page: UInt) -> Observable<[User]> {
         
@@ -174,6 +183,20 @@ extension Session {
         }
         
         return service
+    }
+    
+    private func returnServiceImages(response: Response) throws -> [ServiceImage] {
+        
+        guard response.error == "" else {
+            throw SessionError.errorAPIByDescription(response.error)
+        }
+        
+        guard let results = response.results,
+            serviceImages: [ServiceImage] = decode(results) else {
+                throw SessionError.CouldNotDecodeJSON
+        }
+        
+        return serviceImages
     }
     
     private func returnUsers(response: Response) throws -> [User] {
