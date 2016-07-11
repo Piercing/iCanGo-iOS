@@ -35,3 +35,5 @@ func decode<T: JSONDecodable>(dictionary: JSONDictionary) -> T? {
     
     return T(dictionary: dictionary)
 }
+
+
