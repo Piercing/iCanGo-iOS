@@ -34,13 +34,9 @@ func loadUserAuthInfo() -> User {
 }
 
 
-func loadImage(imageUrl: String, imageView: UIImageView) {
+func loadImage(imageUrl: NSURL, imageView: UIImageView) {
     
-    guard let url = NSURL(string: imageUrl) else {
-        return
-    }
-    
-    let request = NSMutableURLRequest(URL: url)
+    let request = NSMutableURLRequest(URL: imageUrl)
     let session = NSURLSession.sharedSession()
     let task = session.dataTaskWithRequest(request) { data, response, error in
         
