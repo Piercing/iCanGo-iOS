@@ -40,7 +40,8 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         let allServicesTabBarItem = UITabBarItem(
             title: "All Services",
             image: UIImage(named: "pin-1.png"),
-            selectedImage: UIImage(named: "pin-1.png"))
+            selectedImage: UIImage(named: "pin-1.png")?
+                .imageWithRenderingMode(.AlwaysTemplate))
         
 //        let iconLocationTabBar = UITabBarItem(
 //            title: "Location",
