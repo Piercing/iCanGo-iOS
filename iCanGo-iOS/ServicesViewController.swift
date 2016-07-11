@@ -60,7 +60,7 @@ class ServicesViewController: UIViewController {
     // MARK: Methods
     
     func setupUI() -> Void {
-        self.title = "My Profile"
+        self.title = "All Services"
         Appearance.tabBarColor(self.tabBarController!)
         Appearance.customizeAppearance(self.view)
     }

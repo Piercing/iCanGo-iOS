@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5256B1251D330D620049ED9A /* MyProfileCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5256B1241D330D620049ED9A /* MyProfileCellView.xib */; };
+		5256B1271D3310600049ED9A /* MyProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256B1261D3310600049ED9A /* MyProfileCell.swift */; };
 		5272E1801D2C17E3007211E4 /* StartUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272E17E1D2C17E3007211E4 /* StartUpController.swift */; };
 		527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CDB5F1D1B786F001C6251 /* LoginViewController.swift */; };
 		527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87091D2B09F000D0E1EC /* ServicesViewController.swift */; };
 		527F870C1D2B09F000D0E1EC /* ServicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870A1D2B09F000D0E1EC /* ServicesView.xib */; };
 		527F870F1D2B28BC00D0E1EC /* LocationTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */; };
-		527F87101D2B28BC00D0E1EC /* LocationTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870E1D2B28BC00D0E1EC /* LocationTabViewController.xib */; };
+		527F87101D2B28BC00D0E1EC /* LocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870E1D2B28BC00D0E1EC /* LocationView.xib */; };
 		527F87131D2B297B00D0E1EC /* CreateServiceTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */; };
-		527F87141D2B297B00D0E1EC /* CreateServiceTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87121D2B297B00D0E1EC /* CreateServiceTabViewController.xib */; };
+		527F87141D2B297B00D0E1EC /* HighServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87121D2B297B00D0E1EC /* HighServiceView.xib */; };
 		527F87171D2B29A200D0E1EC /* NotificationsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */; };
-		527F87181D2B29A200D0E1EC /* NotificationsTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */; };
+		527F87181D2B29A200D0E1EC /* NotificationsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87161D2B29A200D0E1EC /* NotificationsView.xib */; };
 		527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */; };
 		527F871C1D2B29C500D0E1EC /* MyProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F871A1D2B29C500D0E1EC /* MyProfileView.xib */; };
 		52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */; };
@@ -61,16 +63,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5256B1241D330D620049ED9A /* MyProfileCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileCellView.xib; sourceTree = "<group>"; };
+		5256B1261D3310600049ED9A /* MyProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileCell.swift; sourceTree = "<group>"; };
 		5272E17E1D2C17E3007211E4 /* StartUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpController.swift; sourceTree = "<group>"; };
 		527CDB5F1D1B786F001C6251 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		527F87091D2B09F000D0E1EC /* ServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
 		527F870A1D2B09F000D0E1EC /* ServicesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicesView.xib; sourceTree = "<group>"; };
 		527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTabViewController.swift; sourceTree = "<group>"; };
-		527F870E1D2B28BC00D0E1EC /* LocationTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationTabViewController.xib; sourceTree = "<group>"; };
+		527F870E1D2B28BC00D0E1EC /* LocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationView.xib; sourceTree = "<group>"; };
 		527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateServiceTabViewController.swift; sourceTree = "<group>"; };
-		527F87121D2B297B00D0E1EC /* CreateServiceTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateServiceTabViewController.xib; sourceTree = "<group>"; };
+		527F87121D2B297B00D0E1EC /* HighServiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighServiceView.xib; sourceTree = "<group>"; };
 		527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTabViewController.swift; sourceTree = "<group>"; };
-		527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationsTabViewController.xib; sourceTree = "<group>"; };
+		527F87161D2B29A200D0E1EC /* NotificationsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationsView.xib; sourceTree = "<group>"; };
 		527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		527F871A1D2B29C500D0E1EC /* MyProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileView.xib; sourceTree = "<group>"; };
 		52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCellView.xib; sourceTree = "<group>"; };
@@ -129,14 +133,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5256B1281D3312310049ED9A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */,
+				5256B1261D3310600049ED9A /* MyProfileCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		52D37E0B1D2ED537009F2FC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				52F367AA1D28FBFF0064583C /* LoginView.xib */,
 				527F870A1D2B09F000D0E1EC /* ServicesView.xib */,
-				527F870E1D2B28BC00D0E1EC /* LocationTabViewController.xib */,
-				527F87121D2B297B00D0E1EC /* CreateServiceTabViewController.xib */,
-				527F87161D2B29A200D0E1EC /* NotificationsTabViewController.xib */,
+				527F870E1D2B28BC00D0E1EC /* LocationView.xib */,
+				527F87121D2B297B00D0E1EC /* HighServiceView.xib */,
+				527F87161D2B29A200D0E1EC /* NotificationsView.xib */,
 				527F871A1D2B29C500D0E1EC /* MyProfileView.xib */,
 			);
 			name = Views;
@@ -228,7 +241,7 @@
 				527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */,
 				5272E17E1D2C17E3007211E4 /* StartUpController.swift */,
 				52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */,
-				52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */,
+				5256B1281D3312310049ED9A /* Cells */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */,
+				5256B1241D330D620049ED9A /* MyProfileCellView.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -421,12 +435,13 @@
 			files = (
 				79F4183F1D043B56002131C7 /* .gitignore in Resources */,
 				79F4184A1D043E3D002131C7 /* PodFile in Resources */,
-				527F87141D2B297B00D0E1EC /* CreateServiceTabViewController.xib in Resources */,
+				527F87141D2B297B00D0E1EC /* HighServiceView.xib in Resources */,
 				52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */,
 				79F418231D043B36002131C7 /* Assets.xcassets in Resources */,
 				52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */,
-				527F87101D2B28BC00D0E1EC /* LocationTabViewController.xib in Resources */,
-				527F87181D2B29A200D0E1EC /* NotificationsTabViewController.xib in Resources */,
+				527F87101D2B28BC00D0E1EC /* LocationView.xib in Resources */,
+				527F87181D2B29A200D0E1EC /* NotificationsView.xib in Resources */,
+				5256B1251D330D620049ED9A /* MyProfileCellView.xib in Resources */,
 				527F871C1D2B29C500D0E1EC /* MyProfileView.xib in Resources */,
 				527F870C1D2B09F000D0E1EC /* ServicesView.xib in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
@@ -521,6 +536,7 @@
 				52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */,
 				527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */,
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,
+				5256B1271D3310600049ED9A /* MyProfileCell.swift in Sources */,
 				52D37E0D1D2EDB63009F2FC3 /* ServiceCell.swift in Sources */,
 				793E1D2E1D32890B00A6324A /* Utils.swift in Sources */,
 			);
