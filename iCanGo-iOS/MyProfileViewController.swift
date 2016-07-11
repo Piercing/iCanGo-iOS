@@ -61,11 +61,19 @@ class MyProfileViewController: UIViewController {
     
     @IBAction func btnEditMyProfile(sender: AnyObject) {
         // TODO:
+        print("Tapped buttom Edit My Profile")
     }
     
     
     @IBAction func segmentControlLogProfile(sender: AnyObject) {
         // TODO:
+        if segmentControlMyProfile.selectedSegmentIndex == 0 {
+            print("Segment Published")
+        } else if segmentControlMyProfile.selectedSegmentIndex == 1 {
+            print("Segment tapped Performed")
+        } else {
+            print("Segmente tapped Searched")
+        }
     }
 }
 
