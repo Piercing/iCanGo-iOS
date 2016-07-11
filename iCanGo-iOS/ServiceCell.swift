@@ -34,7 +34,6 @@ class ServiceCell: UICollectionViewCell {
         }
     }
     @IBAction func btnServiceCell(sender: AnyObject) {
-        
         delegate.didSelectCellButtomTapped(self)
         print("Tap service cell")
         

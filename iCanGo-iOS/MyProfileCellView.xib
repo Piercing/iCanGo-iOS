@@ -7,38 +7,33 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyProfileCell" customModule="iCanGo_iOS" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myProfileCell" id="BaU-0f-eLh" userLabel="myProfileCell" customClass="ServiceCell" customModule="iCanGo_iOS" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myProfileCell" id="adE-a9-4bX" customClass="MyProfileCell" customModule="iCanGo_iOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKZ-RQ-pxU" userLabel="ButtonCell">
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXh-KL-fgW" userLabel="ButtonMyProfileCell">
                         <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
                         <connections>
-                            <action selector="btnServiceCell:" destination="BaU-0f-eLh" eventType="touchUpInside" id="0zJ-A7-8k0"/>
+                            <action selector="myProfileCell:" destination="-1" eventType="touchUpInside" id="JdY-BR-S5Y"/>
                         </connections>
                     </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDC-xD-9av" customClass="RoundedCorners" customModule="iCanGo_iOS" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O3S-Jd-dxn" userLabel="Rounded Corners" customClass="RoundedCorners" customModule="iCanGo_iOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGF-dt-rzJ" customClass="RoundedCornersView" customModule="iCanGo_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="116" width="180" height="88"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80q-66-qFN" userLabel="View Labels">
+                                <rect key="frame" x="0.0" y="120" width="180" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhd-Pq-boq" userLabel="Favourites">
-                                        <rect key="frame" x="130" y="5" width="25" height="25"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" image="heart"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 €" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNT-sS-KDK">
-                                        <rect key="frame" x="4" y="20" width="172" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="120€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5H-jc-UsV">
+                                        <rect key="frame" x="4" y="15" width="172" height="21"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cena romántica en casa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RZ-cc-Pyp">
-                                        <rect key="frame" x="4" y="49" width="172" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Chef para cena a domicilio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Mjj-TG-BO3">
+                                        <rect key="frame" x="4" y="44" width="172" height="18"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -46,82 +41,63 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="1RZ-cc-Pyp" firstAttribute="top" secondItem="nNT-sS-KDK" secondAttribute="bottom" constant="8" symbolic="YES" id="QUI-zK-ykK"/>
-                                    <constraint firstItem="nNT-sS-KDK" firstAttribute="centerX" secondItem="qGF-dt-rzJ" secondAttribute="centerX" id="Rgh-TL-8bb"/>
-                                    <constraint firstItem="nNT-sS-KDK" firstAttribute="top" secondItem="qGF-dt-rzJ" secondAttribute="top" constant="20" id="YbH-Zh-WaV"/>
-                                    <constraint firstItem="nNT-sS-KDK" firstAttribute="leading" secondItem="qGF-dt-rzJ" secondAttribute="leading" constant="4" id="dAd-lU-bNa"/>
-                                    <constraint firstItem="nNT-sS-KDK" firstAttribute="leading" secondItem="1RZ-cc-Pyp" secondAttribute="leading" id="emA-qj-DJ9"/>
-                                    <constraint firstItem="nNT-sS-KDK" firstAttribute="trailing" secondItem="1RZ-cc-Pyp" secondAttribute="trailing" id="l0M-9P-2Zg"/>
-                                    <constraint firstAttribute="bottom" secondItem="1RZ-cc-Pyp" secondAttribute="bottom" constant="21" id="ra0-jo-7pQ"/>
+                                    <constraint firstItem="R5H-jc-UsV" firstAttribute="top" secondItem="80q-66-qFN" secondAttribute="top" constant="15" id="4LR-WL-qLf"/>
+                                    <constraint firstItem="R5H-jc-UsV" firstAttribute="leading" secondItem="Mjj-TG-BO3" secondAttribute="leading" id="F13-Xh-qBV"/>
+                                    <constraint firstItem="R5H-jc-UsV" firstAttribute="leading" secondItem="80q-66-qFN" secondAttribute="leading" constant="4" id="FV9-K5-7wJ"/>
+                                    <constraint firstItem="Mjj-TG-BO3" firstAttribute="top" secondItem="R5H-jc-UsV" secondAttribute="bottom" constant="8" symbolic="YES" id="J4G-Dv-X9j"/>
+                                    <constraint firstItem="R5H-jc-UsV" firstAttribute="trailing" secondItem="Mjj-TG-BO3" secondAttribute="trailing" id="SoF-pF-rM8"/>
+                                    <constraint firstItem="R5H-jc-UsV" firstAttribute="centerX" secondItem="80q-66-qFN" secondAttribute="centerX" id="pWa-Dn-lCb"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ols-i0-6pc" customClass="RoundedCornersView" customModule="iCanGo_iOS" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Upz-wY-ykc" userLabel="View Image Service">
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="120"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena" translatesAutoresizingMaskIntoConstraints="NO" id="Ad9-5j-Mhd">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cena" translatesAutoresizingMaskIntoConstraints="NO" id="pBD-xQ-yYm">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="120"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="Mjb-9i-psX"/>
-                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Ad9-5j-Mhd" secondAttribute="bottom" id="1lp-fg-krb"/>
-                                    <constraint firstItem="Ad9-5j-Mhd" firstAttribute="top" secondItem="ols-i0-6pc" secondAttribute="top" id="PRQ-UP-cFf"/>
-                                    <constraint firstItem="Ad9-5j-Mhd" firstAttribute="leading" secondItem="ols-i0-6pc" secondAttribute="leading" id="lGV-j7-S4Y"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ad9-5j-Mhd" secondAttribute="trailing" id="sNq-ud-dNE"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qGF-dt-rzJ" firstAttribute="centerY" secondItem="SDC-xD-9av" secondAttribute="centerY" constant="60" id="03R-aQ-zW7"/>
-                            <constraint firstItem="qGF-dt-rzJ" firstAttribute="leading" secondItem="ols-i0-6pc" secondAttribute="leading" id="82C-UK-M4y"/>
-                            <constraint firstItem="qGF-dt-rzJ" firstAttribute="trailing" secondItem="ols-i0-6pc" secondAttribute="trailing" id="Fhf-Bk-gaA"/>
-                            <constraint firstItem="qGF-dt-rzJ" firstAttribute="centerY" secondItem="ols-i0-6pc" secondAttribute="centerY" constant="100" id="eTq-uT-WrU"/>
-                            <constraint firstItem="qGF-dt-rzJ" firstAttribute="leading" secondItem="SDC-xD-9av" secondAttribute="leading" id="gTk-PB-khr"/>
-                            <constraint firstAttribute="trailing" secondItem="qGF-dt-rzJ" secondAttribute="trailing" id="m63-aG-edE"/>
+                            <constraint firstItem="80q-66-qFN" firstAttribute="top" secondItem="O3S-Jd-dxn" secondAttribute="top" constant="120" id="3Wd-R2-Yug"/>
+                            <constraint firstAttribute="bottom" secondItem="80q-66-qFN" secondAttribute="bottom" id="EdD-qp-pcx"/>
+                            <constraint firstAttribute="trailing" secondItem="80q-66-qFN" secondAttribute="trailing" id="gHU-K3-7Sk"/>
+                            <constraint firstItem="80q-66-qFN" firstAttribute="leading" secondItem="O3S-Jd-dxn" secondAttribute="leading" id="q2M-d7-OfS"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <integer key="value" value="5"/>
+                                <real key="value" value="5"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chica03" translatesAutoresizingMaskIntoConstraints="NO" id="e8t-Qa-XsF">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chica03" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-D2-eWQ">
                         <rect key="frame" x="14" y="100" width="40" height="40"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oE2-jM-JBE" userLabel="Favourites">
+                        <rect key="frame" x="140" y="130" width="17" height="17"/>
+                        <state key="normal" image="heart"/>
+                        <connections>
+                            <action selector="btnFavouritesMyProfileCell:" destination="-1" eventType="touchUpInside" id="rsz-Rk-IFg"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="SDC-xD-9av" firstAttribute="top" secondItem="VKZ-RQ-pxU" secondAttribute="top" id="3Yg-Qg-tak"/>
-                <constraint firstItem="SDC-xD-9av" firstAttribute="leading" secondItem="BaU-0f-eLh" secondAttribute="leading" id="7V5-Ik-9bH"/>
-                <constraint firstAttribute="bottom" secondItem="SDC-xD-9av" secondAttribute="bottom" id="OER-zn-z0t"/>
-                <constraint firstAttribute="trailing" secondItem="SDC-xD-9av" secondAttribute="trailing" id="cMX-Rg-cOW"/>
-                <constraint firstItem="SDC-xD-9av" firstAttribute="top" secondItem="BaU-0f-eLh" secondAttribute="top" id="lPm-3M-CgG"/>
-                <constraint firstItem="SDC-xD-9av" firstAttribute="trailing" secondItem="VKZ-RQ-pxU" secondAttribute="trailing" id="tv8-Wh-Ktb"/>
-                <constraint firstItem="SDC-xD-9av" firstAttribute="bottom" secondItem="VKZ-RQ-pxU" secondAttribute="bottom" id="yQ8-84-p5P"/>
-                <constraint firstItem="SDC-xD-9av" firstAttribute="leading" secondItem="VKZ-RQ-pxU" secondAttribute="leading" id="yiW-dM-PAD"/>
+                <constraint firstItem="O3S-Jd-dxn" firstAttribute="leading" secondItem="adE-a9-4bX" secondAttribute="leading" id="2IQ-bD-Vos"/>
+                <constraint firstItem="O3S-Jd-dxn" firstAttribute="top" secondItem="adE-a9-4bX" secondAttribute="top" id="har-cW-VWY"/>
+                <constraint firstAttribute="trailing" secondItem="O3S-Jd-dxn" secondAttribute="trailing" id="joK-MC-e6x"/>
+                <constraint firstAttribute="bottom" secondItem="O3S-Jd-dxn" secondAttribute="bottom" id="oU3-Xe-8yk"/>
             </constraints>
             <connections>
-                <outlet property="commentLabel" destination="1RZ-cc-Pyp" id="gfS-Mx-kJ9"/>
-                <outlet property="imageService" destination="Ad9-5j-Mhd" id="kkV-H2-IjC"/>
-                <outlet property="imageUser" destination="e8t-Qa-XsF" id="kZC-Hd-AUP"/>
-                <outlet property="priceLabel" destination="nNT-sS-KDK" id="DXD-pO-CJ4"/>
+                <outlet property="imageServiceMyProfileCell" destination="pBD-xQ-yYm" id="y9e-x5-Yfk"/>
+                <outlet property="imageUserMyProfileCell" destination="3Kd-D2-eWQ" id="yvw-FM-v1K"/>
+                <outlet property="labelDescriptionMyProfileCell" destination="Mjj-TG-BO3" id="zhe-TZ-Abf"/>
+                <outlet property="labelPriceMyProfileCell" destination="R5H-jc-UsV" id="jRa-3s-xVJ"/>
             </connections>
-            <point key="canvasLocation" x="501" y="301"/>
+            <point key="canvasLocation" x="116" y="382"/>
         </collectionViewCell>
     </objects>
     <resources>

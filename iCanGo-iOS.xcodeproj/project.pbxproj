@@ -21,6 +21,8 @@
 		527F87181D2B29A200D0E1EC /* NotificationsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87161D2B29A200D0E1EC /* NotificationsView.xib */; };
 		527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */; };
 		527F871C1D2B29C500D0E1EC /* MyProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F871A1D2B29C500D0E1EC /* MyProfileView.xib */; };
+		52D023281D344AA900CB7B90 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D023261D344AA900CB7B90 /* RegisterViewController.swift */; };
+		52D023291D344AA900CB7B90 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D023271D344AA900CB7B90 /* RegisterViewController.xib */; };
 		52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */; };
 		52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */; };
 		52D37E0D1D2EDB63009F2FC3 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */; };
@@ -77,6 +79,8 @@
 		527F87161D2B29A200D0E1EC /* NotificationsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationsView.xib; sourceTree = "<group>"; };
 		527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		527F871A1D2B29C500D0E1EC /* MyProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileView.xib; sourceTree = "<group>"; };
+		52D023261D344AA900CB7B90 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		52D023271D344AA900CB7B90 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCellView.xib; sourceTree = "<group>"; };
 		52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 				527F87121D2B297B00D0E1EC /* HighServiceView.xib */,
 				527F87161D2B29A200D0E1EC /* NotificationsView.xib */,
 				527F871A1D2B29C500D0E1EC /* MyProfileView.xib */,
+				52D023271D344AA900CB7B90 /* RegisterViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -240,7 +245,7 @@
 				793E1D2C1D32840100A6324A /* JuanCarlos */,
 				527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */,
 				5272E17E1D2C17E3007211E4 /* StartUpController.swift */,
-				52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */,
+				52D023261D344AA900CB7B90 /* RegisterViewController.swift */,
 				5256B1281D3312310049ED9A /* Cells */,
 			);
 			name = Controllers;
@@ -268,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */,
+				52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */,
 				52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */,
 			);
 			name = Themes;
@@ -448,6 +454,7 @@
 				52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */,
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
 				79F418401D043B56002131C7 /* README.md in Resources */,
+				52D023291D344AA900CB7B90 /* RegisterViewController.xib in Resources */,
 				D37630F01D05C0FB0001E29F /* iCanGO-iOS.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,6 +544,7 @@
 				527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */,
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,
 				5256B1271D3310600049ED9A /* MyProfileCell.swift in Sources */,
+				52D023281D344AA900CB7B90 /* RegisterViewController.swift in Sources */,
 				52D37E0D1D2EDB63009F2FC3 /* ServiceCell.swift in Sources */,
 				793E1D2E1D32890B00A6324A /* Utils.swift in Sources */,
 			);

@@ -19,6 +19,7 @@ class ServicesViewController: UIViewController {
     
     var isLoaded = false
     let cellId = "serviceCell"
+    let nibId = "ServiceCellView"
     
     // MARK: - Init
     
@@ -57,8 +58,6 @@ class ServicesViewController: UIViewController {
     
     // MARK: Methods
     
-    // MARK: Methods
-    
     func setupUI() -> Void {
         self.title = "All Services"
         Appearance.tabBarColor(self.tabBarController!)
@@ -68,7 +67,7 @@ class ServicesViewController: UIViewController {
     // MARK: Cell registration
     
     func registerCustomCell() {
-        servicesCollectionView.registerNib(UINib(nibName: "ServiceCellView", bundle: nil), forCellWithReuseIdentifier: cellId)
+        servicesCollectionView.registerNib(UINib(nibName: nibId, bundle: nil), forCellWithReuseIdentifier: cellId)
     }
 }
 
