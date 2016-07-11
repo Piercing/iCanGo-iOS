@@ -20,7 +20,7 @@ class ServiceCell: UICollectionViewCell {
             if let service = service {
                 //imageService.image = service.image
                 //imageUser.image = service.image
-                priceLabel.text = String.priceToString(service.price!)
+                priceLabel.text = String.priceToString(service.price)
                 commentLabel.text = service.description
             }
         }

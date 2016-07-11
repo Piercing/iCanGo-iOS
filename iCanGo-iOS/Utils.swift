@@ -22,39 +22,42 @@ func loadUserAuthInfo() -> User {
         let user = copyUser(userPersisted!)
         return user
     }
-    return User(id: "", email: "", firstName: "", lastName: "", photoURL: NSURL(), searchPreferences: "", status: "")
+    return User(id: "",
+                email: "",
+                firstName: "",
+                lastName: "",
+                photoURL: NSURL(),
+                searchPreferences: "",
+                status: 0, deleted: false,
+                numPublishedServices: 0,
+                numAttendedServices: 0)
 }
 
 
-//func loadImage(photo: Service, imageView: UIImageView) {
-//    
-//    guard let url = NSURL(string: photo.urlLargePhotoString!) else {
-//        return
-//    }
-//    
-//    let request = NSMutableURLRequest(URL: url)
-//    let session = NSURLSession.sharedSession()
-//    let task = session.dataTaskWithRequest(request) { data, response, error in
-//        
-//        guard data != nil else {
-//            return
-//        }
-//        
-//        photo.largeImage = data!
-//        let image = UIImage(data: data!)
-//        
-//        dispatch_async(dispatch_get_main_queue(), {
-//            
-//            imageView.image = image
-//            imageView.fadeOut(duration: 0.0)
-//            imageView.fadeIn()
-//            
-//        })
-//    }
-//    
-//    task.resume()
-//    
-//}
+func loadImage(imageUrl: NSURL, imageView: UIImageView) {
+    
+    let request = NSMutableURLRequest(URL: imageUrl)
+    let session = NSURLSession.sharedSession()
+    let task = session.dataTaskWithRequest(request) { data, response, error in
+        
+        guard data != nil else {
+            return
+        }
+        
+        let image = UIImage(data: data!)
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            imageView.image = image
+            imageView.fadeOut(duration: 0.0)
+            imageView.fadeIn()
+            
+        })
+    }
+    
+    task.resume()
+    
+}
 
 func isConnectedToNetwork() -> Bool {
     var zeroAddress = sockaddr_in()

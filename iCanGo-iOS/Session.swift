@@ -36,8 +36,8 @@ extension SessionError: CustomDebugStringConvertible {
 
 
 // Class
-final class Session
-{
+final class Session {
+    
     // MARK: - Private properties
     private let session: NSURLSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
     private let baseURL: NSURL

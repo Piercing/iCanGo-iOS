@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
-import Haneke
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
    
+        testGetServices()
+        
         // Navigation Bar Style
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
              
@@ -26,6 +26,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         return true
     }
+    
+    
+    func testGetServices() {
+        
+        let session = Session.iCanGoSession()
+        let _ = session.getServices("", page: 1, rows: 20)
+            
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                switch event {
+                case let .Next(services):
+                    for service in services {
+                        print(service)
+                    }
+                    
+                case .Error(let error):
+                    
+                    switch error {
+                    case SessionError.APIErrorNoData:
+                        print("No existen datos: \(error)")
+                    default:
+                        print(error)
+                    }
+                    
+                default:
+                    break
+                }
+        }
+    }
+    
 }
 
 
