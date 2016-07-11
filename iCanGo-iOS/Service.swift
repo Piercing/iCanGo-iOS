@@ -8,21 +8,44 @@
 
 import Foundation
 
+enum JSONKeysService: String {
+    case id = "id"
+    case name = "name"
+    case description = "description"
+    case dateCreated = "dateCreated"
+    case dateFinished = "dateFinished"
+    case dateDone = "dateDone"
+    case price = "price"
+    case tags = "tags"
+    case idUserRequest = "idUserRequest"
+    case idUserResponse = "idUserResponse"
+    case latitude = "latitude"
+    case longitude = "longitude"
+    case status = "status"
+    case deleted = "deleted"
+    case mainImage = "mainImage"
+    case address = "address"
+    case ownerImage = "ownerImage"
+}
+
 struct Service {
     let id: String
     let name: String
-    let description: String?    // Ver si sera definitivamente opcional?
-    let idUserRequest: String?    // Ver si sera definitivamente opcional?
-    let idUserResponse: String?
-    let dateCreated: NSDate?   // Ver si sera definitivamente opcional?
-    let dateFinished: NSDate?  // Ver si sera definitivamente opcional?
+    let description: String
+    let dateCreated: NSDate
+    let dateFinished: NSDate?
     let dateDone: NSDate?
-    let price: Double?
-    let status: String?        // Ver si sera definitivamente opcional?
-    let address: String?
+    let price: Double
+    let tags: [String]?
+    let idUserRequest: String
+    let idUserResponse: String?
     let latitude: Double?
     let longitude: Double?
-    let tags: [String]?
+    let status: Int
+    let deleted: Bool
+    let mainImage: NSURL?
+    let address: String?
+    let ownerImage: NSURL?
 }
 
 extension Service: JSONDecodable {
@@ -30,129 +53,97 @@ extension Service: JSONDecodable {
     // MARK: - Init
     init?(dictionary: JSONDictionary) {
         
-        guard let id = dictionary["id"] as? String,
-                name = dictionary["name"] as? String else {
-                return nil
-        }
-        
-        self.id = id
-        self.name = name
-        self.description = dictionary["description"] as? String
-        self.idUserRequest = dictionary["idUserRequest"] as? String
-        self.idUserResponse = dictionary["idUserResponse"] as? String
-        self.dateCreated = dictionary["dateCreated"] as? NSDate
-        self.dateFinished = dictionary["dateFinished"] as? NSDate
-        self.dateDone = dictionary["dateDone"] as? NSDate
-        self.price = dictionary["price"] as? Double
-        self.status = dictionary["status"] as? String
-        self.address = dictionary["address"] as? String
-        
-        if let latitude = dictionary["latitude"] as? String {
-            self.latitude = Double(latitude)
-        } else {
-            self.latitude = nil
-        }
-        
-        if let longitude = dictionary["longitude"] as? String {
-            self.longitude = Double(longitude)
-        } else {
-            self.longitude = nil
-        }
-        
-        if let tags = dictionary["tags"] as? String {
-            self.tags = String.stringToStrings(tags, separator: " ")
-        } else {
-            self.tags = nil
-        }
-        
-        /*
-        guard let id = dictionary["id"] as? Int,
-                  name = dictionary["name"] as? String,
-                  description = dictionary["description"] as? String,
-                  idUserRequest = dictionary["idUserRequest"] as? Int,
-                  dateCreatedString = dictionary["dateCreated"] as? String,
-                  dateFinishedString = dictionary["dateFinished"] as? String,
-                  timeFinishedString = dictionary["timeFinished"] as? String,
-                  status = dictionary["status"] as? String else {
+        guard let id = dictionary[JSONKeysService.id.rawValue] as? String,
+                name = dictionary[JSONKeysService.name.rawValue] as? String,
+         description = dictionary[JSONKeysService.description.rawValue] as? String,
+   dateCreatedString = dictionary[JSONKeysService.dateCreated.rawValue] as? String,
+               price = dictionary[JSONKeysService.price.rawValue] as? Double,
+       idUserRequest = dictionary[JSONKeysService.idUserRequest.rawValue] as? String,
+              status = dictionary[JSONKeysService.status.rawValue] as? Int,
+             deleted = dictionary[JSONKeysService.deleted.rawValue] as? Bool else {
+            
             return nil
         }
         
         self.id = id
         self.name = name
         self.description = description
+        self.price = price
         self.idUserRequest = idUserRequest
         self.status = status
-        
-        // Date Created
+        self.deleted = deleted
+
         if let dateCreated = NSDate.dateFromStringsWithFormat(dateString: dateCreatedString,
-                                                             timeString: nil,
-                                                             withFormat: "yyyy/MM/dd") {
+                                                              timeString: nil, withFormat: "dd-MM-yyyy") {
             self.dateCreated = dateCreated
         } else {
             return nil
         }
-
-        // Date & Time Finished -> NSDate
-        if let dateFinished = NSDate.dateFromStringsWithFormat(dateString: dateFinishedString,
-                                                               timeString: timeFinishedString,
-                                                               withFormat: "yyyy/MM/dd HH:mm") {
+        
+        if let dateFinishedString = dictionary[JSONKeysService.dateFinished.rawValue] as? String,
+                     dateFinished = NSDate.dateFromStringsWithFormat(dateString: dateFinishedString,
+                                                                     timeString: nil, withFormat: "dd-MM-yyyy") {
             self.dateFinished = dateFinished
         } else {
-            return nil
+            self.dateFinished = nil
         }
         
-        // idUserResponse
-        if let idUserResponse = dictionary["idUserResponse"] as? Int {
-            self.idUserResponse = idUserResponse
-        } else {
-            self.idUserResponse = nil
-        }
-    
-        // dateDone
-        if let dateDone = dictionary["dateDone"] as? String,
-               timeDone = dictionary["timeDone"] as? String {
-            self.dateDone = NSDate.dateFromStringsWithFormat(dateString: dateDone, timeString: timeDone, withFormat: "yyyy/MM/dd HH:mm")
+        if let dateDoneString = dictionary[JSONKeysService.dateDone.rawValue] as? String,
+                     dateDone = NSDate.dateFromStringsWithFormat(dateString: dateDoneString,
+                                                                 timeString: nil, withFormat: "dd-MM-yyyy") {
+            self.dateDone = dateDone
         } else {
             self.dateDone = nil
         }
         
-        // price
-        if let price = dictionary["price"] as? Double {
-            self.price = price
+        if let tags = dictionary[JSONKeysService.tags.rawValue] as? String {
+            self.tags = String.stringToStrings(tags, separator: " ")
         } else {
-            self.price = nil
+            self.tags = nil
+        }
+        
+        if let idUserResponse = dictionary[JSONKeysService.idUserResponse.rawValue] as? String {
+            self.idUserResponse = idUserResponse
+        } else {
+            self.idUserResponse = nil
         }
 
-        // latitude & longitude
-        if let latitude = dictionary["latitude"] as? Double,
-               longitude = dictionary["longitude"] as? Double {
-            self.latitude = round(10000000 * latitude) / 10000000
-            self.longitude = round(10000000 * longitude) / 10000000
+        if let latitude = dictionary[JSONKeysService.latitude.rawValue] as? Double {
+            self.latitude = Double(latitude)
         } else {
             self.latitude = nil
+        }
+
+        if let longitude = dictionary[JSONKeysService.longitude.rawValue] as? Double {
+            self.longitude = Double(longitude)
+        } else {
             self.longitude = nil
         }
         
-        // address
-        if let address = dictionary["address"] as? String {
+        if let mainImageString = dictionary[JSONKeysService.mainImage.rawValue] as? String,
+                     mainImage = NSURL(string: mainImageString) {
+            self.mainImage = mainImage
+        } else {
+            self.mainImage = nil
+        }
+        
+        if let address = dictionary[JSONKeysService.address.rawValue] as? String {
             self.address = address
         } else {
             self.address = nil
         }
-        
-        // tags
-        if let tags = dictionary["tags"] as? [String] {
-            self.tags = tags
+
+        if let ownerImageString = dictionary[JSONKeysService.ownerImage.rawValue] as? String,
+                     ownerImage = NSURL(string: ownerImageString) {
+            self.ownerImage = ownerImage
         } else {
-            self.tags = nil
+            self.ownerImage = nil
         }
-        */
     }
 }
 
 func < (lhs: Service, rhs: Service) -> Bool {
     return lhs.name.localizedStandardCompare(rhs.name) == .OrderedAscending
-    
 }
 
 
