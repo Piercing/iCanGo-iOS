@@ -96,7 +96,7 @@ class ServicesViewController: UIViewController {
         
         let session = Session.iCanGoSession()
         // TODO: Parameter Rows pendin
-        let _ = session.getServices("", page: 1, rows: rowsPerPage)
+        let _ = session.getServices(1, rows: rowsPerPage)
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 switch event {

@@ -28,7 +28,7 @@ struct User {
     let lastName: String
     let photoURL: NSURL?
     let searchPreferences: String?
-    let status: Int
+    let status: Int?
     let deleted: Bool
     let numPublishedServices: UInt
     let numAttendedServices: UInt

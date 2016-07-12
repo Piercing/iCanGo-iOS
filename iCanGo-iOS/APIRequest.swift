@@ -9,17 +9,20 @@
 import Foundation
 
 enum APIRequest {
-    case getServices(key: String, query: String, page: UInt, rows: UInt)
-    case getServicesByStatus(key: String, query: String, status: String, page: UInt, rows: UInt)
-    case getService(key: String, query: String)
-    case getServiceImages(key: String, query: String)
-    case getUsers(key: String, query: String, page: UInt)
-    case getUsersServices(key: String, query: String, page: UInt)
-    case getUsersServicesByType(key: String, query: String, type: String, page: UInt)
-    case getUser(key: String, query: String)
+    case getServices(key: String, page: UInt, rows: UInt)
+    case getServicesByStatus(key: String, status: String, page: UInt, rows: UInt)
+    case getServiceById(key: String, id: String)
+    case getServiceImages(key: String, id: String)
+    case getUsers(key: String, page: UInt)
+    case getUserServices(key: String, id: String, page: UInt)
+    case getUserServicesByType(key: String, id: String, type: String, page: UInt)
+    case getUserById(key: String, id: String)
+    case getImages(key: String)
+    case getImagesById(key: String, id: String)
     case postLogin(user: String, password: String)
     case postUser(user: String, password: String, firstName: String, lastName: String, photoUrl: String, searchPreferences: String, status: String)
-    case postService(name: String, price: Double, tags: [String], idUserRequest: String, latitude: Double, longitude: Double, status: String)
+    case postService(name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: Int?)
+    case postServiceImage(id: String, imageUrl: NSURL)
 }
 
 extension APIRequest: Resource {
@@ -28,16 +31,19 @@ extension APIRequest: Resource {
         switch self {
         case APIRequest.getServices,
              APIRequest.getServicesByStatus,
-             APIRequest.getService,
+             APIRequest.getServiceById,
              APIRequest.getServiceImages,
              APIRequest.getUsers,
-             APIRequest.getUsersServices,
-             APIRequest.getUsersServicesByType,
-             APIRequest.getUser:
+             APIRequest.getUserServices,
+             APIRequest.getUserServicesByType,
+             APIRequest.getUserById,
+             APIRequest.getImages,
+             APIRequest.getImagesById:
             return Method.GET
         case APIRequest.postLogin,
              APIRequest.postUser,
-             APIRequest.postService:
+             APIRequest.postService,
+             APIRequest.postServiceImage:
             return Method.POST
         }
     }
@@ -48,36 +54,42 @@ extension APIRequest: Resource {
             return "services"
         case APIRequest.getServicesByStatus:
             return "services"
-        case let APIRequest.getService(_, query):
-            return "services/\(query)"
-        case let APIRequest.getServiceImages(_, query):
-            return "services/\(query)/images"
+        case let APIRequest.getServiceById(_, id):
+            return "services/\(id)"
+        case let APIRequest.getServiceImages(_, id):
+            return "services/\(id)/images"
         case APIRequest.getUsers:
             return "users/"
-        case let APIRequest.getUsersServices(_, query, _):
-            return "users/\(query)/services/"
-        case let APIRequest.getUsersServicesByType(_, query, _, _):
-            return "users/\(query)/services"
-        case let APIRequest.getUser(_, query):
-            return "users/\(query)"
+        case let APIRequest.getUserServices(_, id, _):
+            return "users/\(id)/services/"
+        case let APIRequest.getUserServicesByType(_, id, _, _):
+            return "users/\(id)/services"
+        case let APIRequest.getUserById(_, id):
+            return "users/\(id)"
+        case APIRequest.getImages:
+            return "images"
+        case let APIRequest.getImagesById(_, id):
+            return "images/\(id)"
         case APIRequest.postLogin:
             return "login"
         case APIRequest.postUser:
             return "users/"
         case APIRequest.postService:
             return "services/"
+        case APIRequest.postServiceImage:
+            return "images/"
         }
     }
-    
+
     var parameters: [String: String] {
         switch self {
-        case let APIRequest.getServices(_, _, page, rows):
+        case let APIRequest.getServices(_, page, rows):
             return ["rows": String(rows), "page": String(page)]
             
-        case let APIRequest.getServicesByStatus(_, _, status, page, rows):
+        case let APIRequest.getServicesByStatus(_, status, page, rows):
             return ["status":status, "page": String(page), "rows": String(rows)]
         
-        case APIRequest.getService:
+        case APIRequest.getServiceById:
             return [:]
 
         case APIRequest.getServiceImages:
@@ -86,47 +98,63 @@ extension APIRequest: Resource {
         case APIRequest.getUsers:
             return [:]
         
-        case APIRequest.getUsersServices:
+        case APIRequest.getUserServices:
             return [:]
         
-        case let APIRequest.getUsersServicesByType(_, _, type, _):
+        case let APIRequest.getUserServicesByType(_, _, type, _):
             return ["type":type]
         
-        case APIRequest.getUser:
+        case APIRequest.getUserById:
             return [:]
         
+        case APIRequest.getImages:
+            return [:]
+
+        case APIRequest.getImagesById:
+            return [:]
+            
         case let APIRequest.postLogin(user: user, password: password):
             return ["email": user, "password": password]
         
-        case let APIRequest.postUser(user: user,
-            password: password,
-            firstName: firstName,
-            lastName: lastName,
-            photoUrl: photoUrl,
-            searchPreferences: searchPreferences,
-            status: status):
+        case let APIRequest.postUser(
+                    user: user,
+                password: password,
+               firstName: firstName,
+                lastName: lastName,
+                photoUrl: photoUrl,
+       searchPreferences: searchPreferences,
+                  status: status):
             return ["email": user,
-                    "password": password,
-                    "firstName": firstName,
-                    "lastName": lastName,
-                    "photoUrl": photoUrl,
-                    "searchPreferences": searchPreferences,
-                    "status": status]
-        
-        case let APIRequest.postService(name: name,
-            price: price,
-            tags: tags,
-            idUserRequest: idUserRequest,
-            latitude: latitude,
-            longitude: longitude,
-            status: status):
+                 "password": password,
+                "firstName": firstName,
+                 "lastName": lastName,
+                 "photoUrl": photoUrl,
+        "searchPreferences": searchPreferences,
+                   "status": status]
+            
+        case let APIRequest.postService(
+                   name: name,
+            description: description,
+                  price: price,
+                   tags: tags,
+          idUserRequest: idUserRequest,
+               latitude: latitude,
+              longitude: longitude,
+                address: address,
+                 status: status):
             return ["name": name,
-                    "price": String.priceToString(price),
-                    "tags": String.stringsToString(tags),
-                    "idUserRequest": idUserRequest,
-                    "latitude": String(format:"%f", latitude),
-                    "longitude": String(format:"%f", longitude),
-                    "status": status]
+             "description": description,
+                   "price": String.priceToString(price),
+                    "tags": tags != nil ? String.stringsToString(tags!) : "",
+           "idUserRequest": idUserRequest,
+                "latitude": latitude != nil ? String(format:"%f", latitude!) : "",
+               "longitude": longitude != nil ? String(format:"%f", longitude!) : "",
+                 "address": address != nil ? address! : "",
+                  "status": status != nil ? String(status!) : ""]
+        
+        case let APIRequest.postServiceImage(id: id, imageUrl: imageUrl):
+            return ["idService": id,
+                    "imageUrl": imageUrl.absoluteString]
         }
     }
 }
