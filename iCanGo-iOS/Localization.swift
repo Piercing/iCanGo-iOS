@@ -9,10 +9,10 @@
 import Foundation
 
 // MARK: Constants.
-let loginKoTitle = "Inicio de sesion incorrecto"
-let loginKoMessage = "Por favor, introduce un usuario y contraseña correctos para iniciar sesión"
-let noConnectionTitle = "No hay conexion a internet"
-let noConnectionMessage = "Es necesario tener conexion a internet para poder iniciar sesión"
+let loginKoTitle = "Wrong login"
+let loginKoMessage = "Please, enter a valid email and password"
+let noConnectionTitle = "No internet connection"
+let noConnectionMessage = "An Internet connection is needed to log in"
 
 
 // MARK: Time zone.

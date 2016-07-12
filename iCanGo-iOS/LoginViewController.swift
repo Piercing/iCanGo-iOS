@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnNotRegister: UIButton!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
-    var loginInProgress: Bool!
+    private var loginInProgress: Bool!
     
     // MARK: - Life Cycle
     
@@ -65,7 +65,8 @@ class LoginViewController: UIViewController {
         // Check info of login fields.
         if (txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress) {
             
-            loginInProgressRequest()
+            self.view.endEditing(true)
+            loginInProgress = actionStarted(activityIndicatorView)
             
             let session = Session.iCanGoSession()
             let _ = session.postLogin(txtFieldUser.text!, password: txtFieldPassw.text!)
@@ -76,6 +77,7 @@ class LoginViewController: UIViewController {
                     switch event {
                     case let .Next(user):
                         saveAuthInfo(user)
+                        self!.loginInProgress = actionFinished(self!.activityIndicatorView)
                         self!.close()
                         break
                     case .Error (let error):
@@ -117,21 +119,21 @@ class LoginViewController: UIViewController {
 //        self.presentViewController(servicesViewController, animated: true, completion: nil)
 //    }
     
-    private func loginInProgressRequest() {
-        
-        loginInProgress = true
-        activityIndicatorView.hidden = false
-        activityIndicatorView.startAnimating()
-        self.view.endEditing(true)
-    }
-    
-    private func loginSuccess() {
-        
-        loginInProgress = false
-        activityIndicatorView.stopAnimating()
-        activityIndicatorView.hidden = true
-    }
-    
+//    private func loginInProgressRequest() {
+//        
+//        loginInProgress = true
+//        activityIndicatorView.hidden = false
+//        activityIndicatorView.startAnimating()
+//        self.view.endEditing(true)
+//    }
+//    
+//    private func loginSuccess() {
+//        
+//        loginInProgress = false
+//        activityIndicatorView.stopAnimating()
+//        activityIndicatorView.hidden = true
+//    }
+//    
     private func loginNoSuccess(error: SessionError?) {
         
         var titleError = loginKoTitle
@@ -149,12 +151,8 @@ class LoginViewController: UIViewController {
             }
         }
         
-        loginInProgress = false
-        activityIndicatorView.stopAnimating()
-        activityIndicatorView.hidden = true
-        let alertController = UIAlertController(title: titleError, message: messageError, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        loginInProgress = actionFinished(activityIndicatorView)
+        showAlert(titleError, message: messageError, controller: self)
     }
 }
 
