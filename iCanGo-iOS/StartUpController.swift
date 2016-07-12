@@ -100,9 +100,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
                 
                 showModal(self, calledContainer: loginVC!)
                 return false;
-                
             }
-        
         }
         
         return true
@@ -129,7 +127,6 @@ extension StartUpController: ComunicationLoginControllerDelegate {
         self.selectedIndex = index
         self.selectedViewController = self.viewControllers![index] as UIViewController
         
-    }
-    
+    } 
 }
 

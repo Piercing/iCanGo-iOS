@@ -10,7 +10,12 @@ import UIKit
 
 class NotificationsViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    let titleView = "Notifications"
+    
     // MARK: - Init
+    
     convenience init() {
         self.init(nibName: "NotificationsViewController", bundle: nil)
     }
@@ -18,25 +23,12 @@ class NotificationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "NotificationsView"
-        
-        Appearance.customizeAppearance(self.view)
+        let title = Appearance.setupUI(self.view, title: self.titleView)
+        self.title = title
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
