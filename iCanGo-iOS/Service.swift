@@ -26,6 +26,7 @@ enum JSONKeysService: String {
     case mainImage = "mainImage"
     case address = "address"
     case ownerImage = "ownerImage"
+    case images = "images"
 }
 
 struct Service {
@@ -46,6 +47,7 @@ struct Service {
     let mainImage: NSURL?
     let address: String?
     let ownerImage: NSURL?
+    let images: [ServiceImage]?
 }
 
 extension Service: JSONDecodable {
@@ -138,6 +140,23 @@ extension Service: JSONDecodable {
             self.ownerImage = ownerImage
         } else {
             self.ownerImage = nil
+        }
+        
+        if let imagesStrings = dictionary[JSONKeysService.images.rawValue] as? [String] {
+            
+            self.images = [ServiceImage]()
+            
+            for imageString in imagesStrings {
+            
+                if let imageServiceURL = NSURL(string: imageString) {
+                    
+                    let serviceImage = ServiceImage(id: self.id, imageUrl: imageServiceURL)
+                    self.images?.append(serviceImage)
+                }
+            }
+            
+        } else {
+            self.images = nil
         }
     }
 }

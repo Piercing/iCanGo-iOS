@@ -50,13 +50,9 @@ extension User: JSONDecodable {
       
             return nil
         }
-
-//        guard let imageURLString = dictionary[JSONKeysUser.photoURL.rawValue] as? String,
-//                        imageURL = NSURL(string: imageURLString) else {
-//            return nil
-//        }
         
-        if let imageURLString = dictionary[JSONKeysUser.photoURL.rawValue] as? String, imageURL = NSURL(string: imageURLString) {
+        if let imageURLString = dictionary[JSONKeysUser.photoURL.rawValue] as? String,
+                     imageURL = NSURL(string: imageURLString) {
             self.photoURL = imageURL
         }
         else {
@@ -68,7 +64,6 @@ extension User: JSONDecodable {
         self.firstName = firstName
         self.lastName = lastName
         self.status = status
-        //self.photoURL = imageURL
         self.deleted = deleted
         self.numPublishedServices = numPublishedServices
         self.numAttendedServices = numAttendedServices
