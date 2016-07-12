@@ -18,10 +18,12 @@ class ServicesViewController: UIViewController {
     @IBOutlet weak var favouritesBtn: UIButton!
     @IBOutlet weak var servicesCollectionView: UICollectionView!
     
-    private var isLoaded = false
-    private let cellId = "serviceCell"
+    var isLoaded = false
+    let cellId = "serviceCell"
+    let nibId = "ServiceCellView"
     
     private var services: [Service]?
+
     
     // MARK: - Init
     
@@ -80,7 +82,7 @@ class ServicesViewController: UIViewController {
     // MARK: Cell registration
     
     func registerCustomCell() {
-        servicesCollectionView.registerNib(UINib(nibName: "ServiceCellView", bundle: nil), forCellWithReuseIdentifier: cellId)
+        servicesCollectionView.registerNib(UINib(nibName: nibId, bundle: nil), forCellWithReuseIdentifier: cellId)
     }
     
     // MARK: Data validation
