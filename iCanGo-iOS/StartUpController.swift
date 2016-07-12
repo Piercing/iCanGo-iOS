@@ -31,7 +31,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         
         self.delegate = self
         
-        let servicesViewController = ServicesViewController()
+        let servicesViewController = RegisterViewController()
         //let itemLocationTabBar =  LocationTabViewController()
         //let itemCreateServiceTabBar =  CreateServiceTabViewController()
         //let itemNotificationsTabBar = NotificationsTabViewController()
