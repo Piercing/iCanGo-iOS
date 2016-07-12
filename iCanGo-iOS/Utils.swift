@@ -3,6 +3,22 @@
 import SystemConfiguration
 import UIKit
 
+func actionStarted(activityIndicatorView: UIActivityIndicatorView) -> Bool {
+    
+    activityIndicatorView.hidden = false
+    activityIndicatorView.startAnimating()
+    return true
+    
+}
+
+func actionFinished(activityIndicatorView: UIActivityIndicatorView) -> Bool {
+    
+    activityIndicatorView.stopAnimating()
+    activityIndicatorView.hidden = true
+    
+    return false;
+}
+
 func isUserloged() -> Bool {
     
     let user = loadUserAuthInfo()
@@ -32,7 +48,6 @@ func loadUserAuthInfo() -> User {
                 numPublishedServices: 0,
                 numAttendedServices: 0)
 }
-
 
 func loadImage(imageUrl: NSURL, imageView: UIImageView) {
     
@@ -75,12 +90,10 @@ func isConnectedToNetwork() -> Bool {
     return (isReachable && !needsConnection)
 }
 
-func showAlert(message: String, controller: UIViewController) {
-    let alertController = UIAlertController(title: "iCanGo", message: message, preferredStyle: .Alert)
+func showAlert(title: String, message: String, controller: UIViewController) {
     
-    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-    alertController.addAction(defaultAction)
-    
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+    alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
     controller.presentViewController(alertController, animated: true, completion: nil)
 }
 
@@ -93,7 +106,7 @@ func showModal(callerController: UIViewController, calledContainer: UIViewContro
 
 func checkConection(controller: UIViewController) {
     if (!isConnectedToNetwork()) {
-        showAlert("No internet conection", controller: controller)
+        showAlert(noConnectionTitle, message: noConnectionMessage, controller: controller)
         return
     }
 }
