@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
-import Haneke
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,14 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-   
+        
         // Navigation Bar Style
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-             
+        
+        
         self.window?.rootViewController = StartUpController(nibName: nil, bundle: nil)
         self.window?.makeKeyAndVisible()
         return true
     }
 }
+
+
 
 

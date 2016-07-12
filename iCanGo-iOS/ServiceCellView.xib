@@ -90,7 +90,7 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <integer key="value" value="5"/>
+                                <real key="value" value="5"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -121,7 +121,7 @@
                 <outlet property="imageUser" destination="8aL-ad-q9n" id="suB-GR-I7J"/>
                 <outlet property="priceLabel" destination="Gwd-1m-dxZ" id="qSI-s7-pdx"/>
             </connections>
-            <point key="canvasLocation" x="586" y="492"/>
+            <point key="canvasLocation" x="359" y="374"/>
         </collectionViewCell>
     </objects>
     <resources>

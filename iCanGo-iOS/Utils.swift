@@ -3,6 +3,22 @@
 import SystemConfiguration
 import UIKit
 
+func actionStarted(activityIndicatorView: UIActivityIndicatorView) -> Bool {
+    
+    activityIndicatorView.hidden = false
+    activityIndicatorView.startAnimating()
+    return true
+    
+}
+
+func actionFinished(activityIndicatorView: UIActivityIndicatorView) -> Bool {
+    
+    activityIndicatorView.stopAnimating()
+    activityIndicatorView.hidden = true
+    
+    return false;
+}
+
 func isUserloged() -> Bool {
     
     let user = loadUserAuthInfo()
@@ -22,39 +38,41 @@ func loadUserAuthInfo() -> User {
         let user = copyUser(userPersisted!)
         return user
     }
-    return User(id: "", email: "", firstName: "", lastName: "", photoURL: NSURL(), searchPreferences: "", status: "")
+    return User(id: "",
+                email: "",
+                firstName: "",
+                lastName: "",
+                photoURL: NSURL(),
+                searchPreferences: "",
+                status: 0, deleted: false,
+                numPublishedServices: 0,
+                numAttendedServices: 0)
 }
 
-
-//func loadImage(photo: Service, imageView: UIImageView) {
-//    
-//    guard let url = NSURL(string: photo.urlLargePhotoString!) else {
-//        return
-//    }
-//    
-//    let request = NSMutableURLRequest(URL: url)
-//    let session = NSURLSession.sharedSession()
-//    let task = session.dataTaskWithRequest(request) { data, response, error in
-//        
-//        guard data != nil else {
-//            return
-//        }
-//        
-//        photo.largeImage = data!
-//        let image = UIImage(data: data!)
-//        
-//        dispatch_async(dispatch_get_main_queue(), {
-//            
-//            imageView.image = image
-//            imageView.fadeOut(duration: 0.0)
-//            imageView.fadeIn()
-//            
-//        })
-//    }
-//    
-//    task.resume()
-//    
-//}
+func loadImage(imageUrl: NSURL, imageView: UIImageView) {
+    
+    let request = NSMutableURLRequest(URL: imageUrl)
+    let session = NSURLSession.sharedSession()
+    let task = session.dataTaskWithRequest(request) { data, response, error in
+        
+        guard data != nil else {
+            return
+        }
+        
+        let image = UIImage(data: data!)
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            imageView.image = image
+            imageView.fadeOut(duration: 0.0)
+            imageView.fadeIn()
+            
+        })
+    }
+    
+    task.resume()
+    
+}
 
 func isConnectedToNetwork() -> Bool {
     var zeroAddress = sockaddr_in()
@@ -72,12 +90,10 @@ func isConnectedToNetwork() -> Bool {
     return (isReachable && !needsConnection)
 }
 
-func showAlert(message: String, controller: UIViewController) {
-    let alertController = UIAlertController(title: "iCanGo", message: message, preferredStyle: .Alert)
+func showAlert(title: String, message: String, controller: UIViewController) {
     
-    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-    alertController.addAction(defaultAction)
-    
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+    alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
     controller.presentViewController(alertController, animated: true, completion: nil)
 }
 
@@ -90,7 +106,7 @@ func showModal(callerController: UIViewController, calledContainer: UIViewContro
 
 func checkConection(controller: UIViewController) {
     if (!isConnectedToNetwork()) {
-        showAlert("No internet conection", controller: controller)
+        showAlert(noConnectionTitle, message: noConnectionMessage, controller: controller)
         return
     }
 }

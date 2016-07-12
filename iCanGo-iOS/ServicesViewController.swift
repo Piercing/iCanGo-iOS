@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class ServicesViewController: UIViewController {
     
@@ -21,6 +22,9 @@ class ServicesViewController: UIViewController {
     let cellId = "serviceCell"
     let nibId = "ServiceCellView"
     
+    private var services: [Service]?
+
+    
     // MARK: - Init
     
     convenience init() {
@@ -33,10 +37,16 @@ class ServicesViewController: UIViewController {
         super.viewDidLoad()
         
         registerCustomCell()
-        servicesCollectionView.delegate = self
-        servicesCollectionView.dataSource = self
+        
+        self.services = [Service]()
+        
+        // do api call
+        loadServices()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         setupUI()
-        searchBar.resignFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,6 +69,11 @@ class ServicesViewController: UIViewController {
     // MARK: Methods
     
     func setupUI() -> Void {
+        
+        servicesCollectionView.delegate = self
+        servicesCollectionView.dataSource = self
+        searchBar.resignFirstResponder()
+        
         self.title = "All Services"
         Appearance.tabBarColor(self.tabBarController!)
         Appearance.customizeAppearance(self.view)
@@ -69,6 +84,38 @@ class ServicesViewController: UIViewController {
     func registerCustomCell() {
         servicesCollectionView.registerNib(UINib(nibName: nibId, bundle: nil), forCellWithReuseIdentifier: cellId)
     }
+    
+    // MARK: Data validation
+    
+    func validateData() -> Void {
+        
+    }
+    
+    // MARK: Api call
+    
+    func loadServices() -> Void {
+        //loginInProgressRequest()
+        
+        let session = Session.iCanGoSession()
+        // TODO: Parameter Rows pendin
+        let _ = session.getServices(1, rows: rowsPerPage)
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                switch event {
+                case let .Next(services):
+                    self!.services = services
+                    self?.servicesCollectionView.reloadData()
+                    break
+                case .Error (let error):
+                    //self!.loginNoSuccess(error as? SessionError)
+                    print(error)
+                default:
+                    break
+                }
+                
+        }
+    }
+
 }
 
 // MARK: - Extensions - Collection view delegates and datasource
@@ -85,13 +132,30 @@ extension ServicesViewController: UISearchBarDelegate {
 }
 
 extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20 // TODO: amount of services received from api
+        return (self.services?.count)!
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath)
-        return cell // TODO: return cell of service
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! ServiceCell
+        
+        
+        let index = indexPath.row % services!.count
+        let service = services![index]
+        //cell.serviceImage?.image = UIImage(named: service.mainImage!)
+        cell.commentLabel?.text = service.name
+        
+        // load the image asynchronous
+        if service.mainImage != nil {
+            loadImage(service.mainImage!, imageView: cell.imageService)
+        }
+        
+        if service.ownerImage != nil {
+            loadImage(service.ownerImage!, imageView: cell.imageUser)
+        }
+        
+        return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

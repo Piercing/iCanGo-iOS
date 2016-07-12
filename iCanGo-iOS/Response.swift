@@ -8,9 +8,19 @@
 
 import Foundation
 
+enum JSONKeysResponse: String {
+    case totalRows = "totalRows"
+    case page = "page"
+    case rows = "rows"
+    case error = "error"
+    case data = "data"
+}
+
 struct Response {
     
     let totalRows: UInt
+    let page: UInt?
+    let rows: UInt?
     let error: String
     private let data: AnyObject?
     
@@ -37,14 +47,28 @@ extension Response: JSONDecodable {
     
     init?(dictionary: JSONDictionary) {
         
-        guard let totalRows = dictionary["totalRows"] as? UInt,
-                      error = dictionary["error"] as? String else {
+        guard let totalRows = dictionary[JSONKeysResponse.totalRows.rawValue] as? UInt,
+                      error = dictionary[JSONKeysResponse.error.rawValue] as? String else {
             return nil
+        }
+        
+        if let pageString = dictionary[JSONKeysResponse.page.rawValue] as? String,
+                     page = UInt(pageString) {
+            self.page = page
+        } else {
+            self.page = nil
+        }
+        
+        if let rowsString = dictionary[JSONKeysResponse.rows.rawValue] as? String,
+                     rows = UInt(rowsString) {
+            self.rows = rows
+        } else {
+            self.rows = nil
         }
         
         self.totalRows = totalRows
         self.error = error
-        self.data = dictionary["data"]
+        self.data = dictionary[JSONKeysResponse.data.rawValue]
     }
 }
 
