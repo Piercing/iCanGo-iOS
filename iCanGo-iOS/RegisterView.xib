@@ -7,16 +7,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="iCanGo_iOS" customModuleProvider="target">
             <connections>
+                <outlet property="cityRegister" destination="Z77-RJ-Rph" id="iWQ-z8-dH2"/>
+                <outlet property="countryRegister" destination="NcT-Em-NYK" id="nlI-fj-U8A"/>
+                <outlet property="emailRegister" destination="tX6-QX-MMl" id="OdS-5J-1Xv"/>
+                <outlet property="firstNameRegister" destination="4Sc-h2-6dz" id="Pxz-UL-YKU"/>
+                <outlet property="passRegister" destination="IaN-Fp-SUm" id="7pv-Ux-Tsg"/>
+                <outlet property="repeatPassRegister" destination="v2Z-Yh-oqF" id="D7h-te-fBy"/>
+                <outlet property="secondNameResgister" destination="uiU-BS-Eul" id="uNX-rV-9Of"/>
+                <outlet property="userRegister" destination="CfJ-af-w5y" id="cRK-uU-rbP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPZ-Dh-Uqo">
-                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                     <color key="backgroundColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="barTintColor" red="0.12549019607843137" green="0.60784313725490191" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                     <textAttributes key="titleTextAttributes">
@@ -30,6 +38,9 @@
                             </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" systemItem="save" id="DId-Kt-UXS">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="saveRegister:" destination="-1" id="wmJ-Os-Kyw"/>
+                                </connections>
                             </barButtonItem>
                         </navigationItem>
                     </items>
@@ -54,7 +65,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhj-xL-gNd">
-                    <rect key="frame" x="195" y="418" width="132" height="21"/>
+                    <rect key="frame" x="420" y="418" width="132" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="132" id="5Op-Dt-Ec1"/>
                         <constraint firstAttribute="height" constant="21" id="MFT-ns-b0N"/>
@@ -100,13 +111,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-h2-6dz">
-                    <rect key="frame" x="20" y="180" width="335" height="30"/>
+                    <rect key="frame" x="20" y="180" width="560" height="30"/>
                     <color key="tintColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uiU-BS-Eul">
-                    <rect key="frame" x="20" y="246" width="335" height="30"/>
+                    <rect key="frame" x="20" y="246" width="560" height="30"/>
                     <color key="tintColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -121,19 +132,19 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tX6-QX-MMl">
-                    <rect key="frame" x="20" y="312" width="335" height="30"/>
+                    <rect key="frame" x="20" y="312" width="560" height="30"/>
                     <color key="tintColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CfJ-af-w5y">
-                    <rect key="frame" x="20" y="378" width="335" height="30"/>
+                    <rect key="frame" x="20" y="378" width="560" height="30"/>
                     <color key="tintColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v2Z-Yh-oqF">
-                    <rect key="frame" x="195" y="444" width="160" height="30"/>
+                    <rect key="frame" x="420" y="444" width="160" height="30"/>
                     <color key="tintColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" priority="750" constant="160" id="A0d-70-Ztm"/>
@@ -142,13 +153,13 @@
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z77-RJ-Rph">
-                    <rect key="frame" x="20" y="510" width="335" height="30"/>
+                    <rect key="frame" x="20" y="510" width="560" height="30"/>
                     <color key="tintColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IaN-Fp-SUm">
-                    <rect key="frame" x="20" y="444" width="160" height="30"/>
+                    <rect key="frame" x="20" y="444" width="385" height="30"/>
                     <color key="tintColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="lessThanOrEqual" priority="250" constant="272" id="RYS-hb-9Ok"/>
@@ -157,13 +168,13 @@
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chica4" translatesAutoresizingMaskIntoConstraints="NO" id="loi-vS-0D1">
-                    <rect key="frame" x="149" y="74" width="80" height="80"/>
+                    <rect key="frame" x="262" y="74" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="gVw-22-RV8"/>
                     </constraints>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NcT-Em-NYK">
-                    <rect key="frame" x="20" y="576" width="335" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NcT-Em-NYK">
+                    <rect key="frame" x="20" y="576" width="560" height="30"/>
                     <color key="tintColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
