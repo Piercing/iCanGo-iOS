@@ -97,7 +97,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chica03" translatesAutoresizingMaskIntoConstraints="NO" id="8aL-ad-q9n">
                         <rect key="frame" x="14" y="100" width="40" height="40"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b20-o7-4Y3" userLabel="Favourites">
+                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b20-o7-4Y3" userLabel="Favourites">
                         <rect key="frame" x="140" y="130" width="17" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <state key="normal" image="heart"/>

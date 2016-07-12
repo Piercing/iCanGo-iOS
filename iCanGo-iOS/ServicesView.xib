@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServicesTabViewController" customModule="iCanGo_iOS" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServicesViewController" customModule="iCanGo_iOS" customModuleProvider="target">
             <connections>
                 <outlet property="searchBar" destination="CJj-sb-ari" id="Zn6-bD-hEu"/>
                 <outlet property="servicesCollectionView" destination="QBa-ZM-X5c" id="tr3-ga-FKg"/>

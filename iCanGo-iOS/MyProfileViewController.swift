@@ -61,11 +61,24 @@ class MyProfileViewController: UIViewController {
     
     @IBAction func btnEditMyProfile(sender: AnyObject) {
         // TODO:
+        print("Butoom Edit My Profile")
     }
     
     
     @IBAction func segmentControlLogProfile(sender: AnyObject) {
         // TODO:
+        if segmentControlMyProfile.selectedSegmentIndex == 0 { 
+            print("Segment Published")
+        } else if segmentControlMyProfile.selectedSegmentIndex == 1 {
+            print("Segment Performed")
+        } else {
+            print("Segment Searches")
+        }
+    }
+    
+    @IBAction func cancelMyProfile(sender: AnyObject) {
+        // TODO:
+        print("Butoom Cancel My Profile")
     }
 }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationTabViewController: UIViewController {
+class LocationViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -17,7 +17,7 @@ class LocationTabViewController: UIViewController {
     // MARK: - Init
     
     convenience init() {
-        self.init(nibName: "LocationTabViewController", bundle: nil)
+        self.init(nibName: "LocationView", bundle: nil)
     }
     
     // MARK: - LifeCycle
@@ -47,7 +47,7 @@ class LocationTabViewController: UIViewController {
 
 // MARK: - Extensions - Collection view delegates and datasource
 
-extension LocationTabViewController: UISearchBarDelegate {
+extension LocationViewController: UISearchBarDelegate {
     func textFieldShouldReturn(searchBar: UISearchBar) -> Bool {
         self.view.endEditing(true)
         return true

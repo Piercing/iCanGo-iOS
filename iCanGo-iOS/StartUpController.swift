@@ -31,9 +31,9 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         
         self.delegate = self
         
-        let servicesViewController = RegisterViewController()
-        //let itemLocationTabBar =  LocationTabViewController()
-        //let itemCreateServiceTabBar =  CreateServiceTabViewController()
+        let servicesViewController = ServicesViewController()
+        let itemLocationTabBar =  LocationViewController()
+        let itemCreateServiceTabBar =  HighServiceViewController()
         //let itemNotificationsTabBar = NotificationsTabViewController()
         let myProfileViewController = MyProfileViewController()
         
@@ -43,17 +43,17 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
             selectedImage: UIImage(named: "pin-1.png")?
                 .imageWithRenderingMode(.AlwaysTemplate))
         
-//        let iconLocationTabBar = UITabBarItem(
-//            title: "Location",
-//            image: UIImage(named: "pin-1.png"), // Unselected image
-//            selectedImage: UIImage(named: "pin-1.png")?
-//                .imageWithRenderingMode(.AlwaysTemplate)) // Selected image original color
+        let iconLocationTabBar = UITabBarItem(
+            title: "Location",
+            image: UIImage(named: "pin-1.png"), // Unselected image
+            selectedImage: UIImage(named: "pin-1.png")?
+                .imageWithRenderingMode(.AlwaysTemplate)) // Selected image original color
         
-//        let iconCreateServicesTabBar = UITabBarItem(
-//            title: "High Services",
-//            image: UIImage(named: "pin-1.png"),
-//            selectedImage: UIImage(named: "pin-1.png")?
-//                .imageWithRenderingMode(.AlwaysTemplate))
+        let iconCreateServicesTabBar = UITabBarItem(
+            title: "High Services",
+            image: UIImage(named: "pin-1.png"),
+            selectedImage: UIImage(named: "pin-1.png")?
+                .imageWithRenderingMode(.AlwaysTemplate))
         
 //        let iconNotificationsTabBar = UITabBarItem(
 //            title: "Notifications",
@@ -68,16 +68,16 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
                 .imageWithRenderingMode(.AlwaysTemplate))
         
         servicesViewController.tabBarItem = allServicesTabBarItem
-//        itemLocationTabBar.tabBarItem = iconLocationTabBar
-//        itemCreateServiceTabBar.tabBarItem = iconCreateServicesTabBar
+        itemLocationTabBar.tabBarItem = iconLocationTabBar
+        itemCreateServiceTabBar.tabBarItem = iconCreateServicesTabBar
 //        itemNotificationsTabBar.tabBarItem = iconNotificationsTabBar
         myProfileViewController.tabBarItem = myProfileTabBarItem
         
         let controllers =
             [
                 servicesViewController,
-//                itemLocationTabBar,
-//                itemCreateServiceTabBar,
+                itemLocationTabBar,
+                itemCreateServiceTabBar,
 //                itemNotificationsTabBar,
                 myProfileViewController
             ]

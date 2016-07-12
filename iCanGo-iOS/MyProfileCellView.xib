@@ -75,7 +75,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chica03" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-D2-eWQ">
                         <rect key="frame" x="14" y="100" width="40" height="40"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oE2-jM-JBE" userLabel="Favourites">
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oE2-jM-JBE" userLabel="Favourites">
                         <rect key="frame" x="140" y="130" width="17" height="17"/>
                         <state key="normal" image="heart"/>
                         <connections>
@@ -97,7 +97,7 @@
                 <outlet property="labelDescriptionMyProfileCell" destination="Mjj-TG-BO3" id="zhe-TZ-Abf"/>
                 <outlet property="labelPriceMyProfileCell" destination="R5H-jc-UsV" id="jRa-3s-xVJ"/>
             </connections>
-            <point key="canvasLocation" x="116" y="382"/>
+            <point key="canvasLocation" x="425" y="244"/>
         </collectionViewCell>
     </objects>
     <resources>

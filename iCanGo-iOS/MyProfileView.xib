@@ -79,7 +79,7 @@
                 </segmentedControl>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yC2-tU-Gan">
                     <rect key="frame" x="0.0" y="241" width="600" height="359"/>
-                    <color key="backgroundColor" red="0.59215686270000001" green="0.85490196080000003" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="RLD-xh-hKT">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -98,14 +98,17 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </textAttributes>
                     <items>
-                        <navigationItem title="Log Profile" id="Cmo-wZ-qJm">
-                            <barButtonItem key="leftBarButtonItem" title="iCanGo" id="aVD-Gv-Z98">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" systemItem="edit" id="fLK-ja-aOJ">
+                        <navigationItem title="My Profile" id="Cmo-wZ-qJm">
+                            <barButtonItem key="leftBarButtonItem" systemItem="edit" id="aVD-Gv-Z98" userLabel="Edit My Profile">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="btnEditMyProfile:" destination="-1" id="ASE-0o-W95"/>
+                                    <action selector="btnEditMyProfile:" destination="-1" id="CZU-Io-a3g"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="fLK-ja-aOJ" userLabel="Btn Cancel My Profile">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="cancelMyProfile:" destination="-1" id="2ga-35-422"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>
@@ -139,7 +142,7 @@
                 <constraint firstItem="hB7-zN-fKu" firstAttribute="leading" secondItem="cNy-am-mGQ" secondAttribute="trailing" constant="15" id="ze3-CZ-r9Q"/>
                 <constraint firstItem="bFr-VW-xee" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zj1-kq-L8G"/>
             </constraints>
-            <point key="canvasLocation" x="582" y="367"/>
+            <point key="canvasLocation" x="827" y="374"/>
         </view>
     </objects>
     <resources>

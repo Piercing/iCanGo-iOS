@@ -14,6 +14,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var repeatPassRegister: UITextField!
     @IBOutlet weak var cityRegister: UITextField!
     @IBOutlet weak var countryRegister: UITextField!
+    @IBOutlet weak var imageUserRegister: UIImageView!
     
     
     // MARK: - Init
@@ -41,5 +42,7 @@ class RegisterViewController: UIViewController {
         // TODO:
         print("Tapped buttom register")
     }
-    
+    @IBAction func cancelRegister(sender: AnyObject) {
+        print("Tapped buttom cancel register")
+    }
 }
