@@ -34,7 +34,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         let servicesViewController = ServicesViewController()
         let itemLocationTabBar =  LocationViewController()
         let itemCreateServiceTabBar =  HighServiceViewController()
-        //let itemNotificationsTabBar = NotificationsTabViewController()
+        let itemNotificationsTabBar = DetailServiceViewController()
         let myProfileViewController = MyProfileViewController()
         
         let allServicesTabBarItem = UITabBarItem(
@@ -55,11 +55,11 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
             selectedImage: UIImage(named: "pin-1.png")?
                 .imageWithRenderingMode(.AlwaysTemplate))
         
-//        let iconNotificationsTabBar = UITabBarItem(
-//            title: "Notifications",
-//            image: UIImage(named: "pin-1.png"),
-//            selectedImage: UIImage(named: "pin-1.png")?
-//                .imageWithRenderingMode(.AlwaysTemplate))
+        let iconNotificationsTabBar = UITabBarItem(
+            title: "Notifications",
+            image: UIImage(named: "pin-1.png"),
+            selectedImage: UIImage(named: "pin-1.png")?
+                .imageWithRenderingMode(.AlwaysTemplate))
         
         let myProfileTabBarItem = UITabBarItem(
             title: "My Profile",
@@ -70,7 +70,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         servicesViewController.tabBarItem = allServicesTabBarItem
         itemLocationTabBar.tabBarItem = iconLocationTabBar
         itemCreateServiceTabBar.tabBarItem = iconCreateServicesTabBar
-//        itemNotificationsTabBar.tabBarItem = iconNotificationsTabBar
+        itemNotificationsTabBar.tabBarItem = iconNotificationsTabBar
         myProfileViewController.tabBarItem = myProfileTabBarItem
         
         let controllers =
@@ -78,7 +78,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
                 servicesViewController,
                 itemLocationTabBar,
                 itemCreateServiceTabBar,
-//                itemNotificationsTabBar,
+                itemNotificationsTabBar,
                 myProfileViewController
             ]
         
@@ -100,9 +100,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
                 
                 showModal(self, calledContainer: loginVC!)
                 return false;
-                
             }
-        
         }
         
         return true
@@ -129,7 +127,6 @@ extension StartUpController: ComunicationLoginControllerDelegate {
         self.selectedIndex = index
         self.selectedViewController = self.viewControllers![index] as UIViewController
         
-    }
-    
+    } 
 }
 

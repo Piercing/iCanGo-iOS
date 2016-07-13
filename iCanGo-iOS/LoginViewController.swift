@@ -15,6 +15,7 @@ protocol ComunicationLoginControllerDelegate {
 
 class LoginViewController: UIViewController {
     
+    let titleView = "Login"
     var selectedTabItemIndex: Int?
     var delegate: ComunicationLoginControllerDelegate? = nil
     
@@ -37,11 +38,12 @@ class LoginViewController: UIViewController {
         activityIndicatorView.hidden = true
         loginInProgress = false
         
-        setupUI()
+        Appearance.setupUI(self.view, title: self.titleView)
     }
     
     override func viewDidLayoutSubviews(){
         super.viewDidLayoutSubviews()
+        
         // TODO: This should be in a theme class
         txtFieldUser.layer.cornerRadius = 5
         txtFieldPassw.layer.cornerRadius = 5
@@ -107,9 +109,6 @@ class LoginViewController: UIViewController {
     
     // MARK: Methods
     
-    func setupUI() {
-        Appearance.customizeAppearance(self.view)
-    }
     
     // MARK: - Private Methods
     

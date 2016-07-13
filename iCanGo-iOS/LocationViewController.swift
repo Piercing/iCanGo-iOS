@@ -14,6 +14,8 @@ class LocationViewController: UIViewController {
     
     @IBOutlet weak var searchBarLocation: UISearchBar!
     
+    let titleView = "Location"
+    
     // MARK: - Init
     
     convenience init() {
@@ -25,9 +27,9 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Location"
+        let title = Appearance.setupUI(self.view, title: self.titleView)
+        self.title = title
         
-        Appearance.customizeAppearance(self.view)
         searchBarLocation.resignFirstResponder()
     }
     

@@ -16,6 +16,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var countryRegister: UITextField!
     @IBOutlet weak var imageUserRegister: UIImageView!
     
+    let titleView = "Register"
+    
     
     // MARK: - Init
     
@@ -26,15 +28,12 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupUI()
+        let title = Appearance.setupUI(self.view, title: self.titleView)
+        self.title = title
     }
 
     // MARK: Methods
-    
-    func setupUI() -> Void {
-        self.title = "Register"
-        Appearance.customizeAppearance(self.view)
-    }
+
     
     // MARK: - Actions
     

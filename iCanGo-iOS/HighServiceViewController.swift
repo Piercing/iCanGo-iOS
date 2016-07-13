@@ -10,6 +10,9 @@ import UIKit
 
 class HighServiceViewController: UIViewController {
     
+    // MARK: - Properties
+    let titleView = "High Service"
+    
     // MARK: - Init
     convenience init() {
         self.init(nibName: "HighServiceView", bundle: nil)
@@ -18,7 +21,8 @@ class HighServiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "High Services"
+        let title = Appearance.setupUI(self.view, title: self.titleView)
+        self.title = title
         
         Appearance.customizeAppearance(self.view)
     }

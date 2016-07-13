@@ -21,6 +21,7 @@ class ServicesViewController: UIViewController {
     var isLoaded = false
     let cellId = "serviceCell"
     let nibId = "ServiceCellView"
+    let titleView = "All Services"
     
     private var services: [Service]?
 
@@ -35,18 +36,15 @@ class ServicesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        registerCustomCell()
-        
+
+        let title = Appearance.setupUI(self.view, title: self.titleView)
+        self.title = title
         self.services = [Service]()
         
+        setupUIAllServices()
         // do api call
         loadServices()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        setupUI()
+        registerCustomCell()
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,13 +66,12 @@ class ServicesViewController: UIViewController {
     
     // MARK: Methods
     
-    func setupUI() -> Void {
+    func setupUIAllServices() -> Void {
         
         servicesCollectionView.delegate = self
         servicesCollectionView.dataSource = self
         searchBar.resignFirstResponder()
-        
-        self.title = "All Services"
+
         Appearance.tabBarColor(self.tabBarController!)
         Appearance.customizeAppearance(self.view)
     }

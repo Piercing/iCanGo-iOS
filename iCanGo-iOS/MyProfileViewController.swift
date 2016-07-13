@@ -21,6 +21,7 @@ class MyProfileViewController: UIViewController {
     
     let cellId = "myProfileCell"
     let nibId = "MyProfileCellView"
+    let titleView = "My Profile"
     
     // MARK: - Init
     
@@ -36,7 +37,8 @@ class MyProfileViewController: UIViewController {
         myProfileCollecionView.delegate = self
         myProfileCollecionView.dataSource = self
         registerCustomCell()
-        setupUI()
+        let title = Appearance.setupUI(self.view, title: self.titleView)
+        self.title = title
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,11 +48,11 @@ class MyProfileViewController: UIViewController {
     
     // MARK: Methods
     
-    func setupUI() -> Void {
-        self.title = "My Profile"
-        Appearance.customizeAppearance(self.view)
-    }
-    
+//    func setupUI() -> Void {
+//        self.title = "My Profile"
+//        Appearance.customizeAppearance(self.view)
+//    }
+//    
     // MARK: Cell registration
     
     func registerCustomCell() {
