@@ -43,7 +43,7 @@ extension Session {
     }
     
     // GET Services by Status.
-    func getServicesByStatus(status: String, page: UInt, rows: UInt) -> Observable<[Service]> {
+    func getServicesByStatus(status: UInt, page: UInt, rows: UInt) -> Observable<[Service]> {
         
         return response(APIRequest.getServicesByStatus(key: "", status: status, page: page, rows: rows)).map { response in
             
@@ -137,9 +137,9 @@ extension Session {
               password: String,
              firstName: String,
               lastName: String,
-              photoUrl: String,
-     searchPreferences: String,
-                status: String) -> Observable<User> {
+              photoUrl: NSURL?,
+     searchPreferences: String?,
+                status: UInt?) -> Observable<User> {
         
         return response(APIRequest.postUser(user: user,
                                         password: password,
@@ -162,7 +162,7 @@ extension Session {
                  latitude: Double?,
                 longitude: Double?,
                   address: String?,
-                   status: Int?) -> Observable<Service> {
+                   status: UInt?) -> Observable<Service> {
   
         return response(APIRequest.postService(name: name,
                                         description: description,
@@ -198,7 +198,7 @@ extension Session {
               latitude: Double?,
              longitude: Double?,
                address: String?,
-                status: Int?) -> Observable<Service> {
+                status: UInt?) -> Observable<Service> {
         
         return response(APIRequest.putService(id: id,
                                             name: name,

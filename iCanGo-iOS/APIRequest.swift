@@ -10,7 +10,7 @@ import Foundation
 
 enum APIRequest {
     case getServices(key: String, page: UInt, rows: UInt)
-    case getServicesByStatus(key: String, status: String, page: UInt, rows: UInt)
+    case getServicesByStatus(key: String, status: UInt, page: UInt, rows: UInt)
     case getServiceById(key: String, id: String)
     case getServiceImages(key: String, id: String)
     case getUsers(key: String, page: UInt)
@@ -20,10 +20,10 @@ enum APIRequest {
     case getImages(key: String)
     case getImagesById(key: String, id: String)
     case postLogin(user: String, password: String)
-    case postUser(user: String, password: String, firstName: String, lastName: String, photoUrl: String, searchPreferences: String, status: String)
-    case postService(name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: Int?)
+    case postUser(user: String, password: String, firstName: String, lastName: String, photoUrl: NSURL?, searchPreferences: String?, status: UInt?)
+    case postService(name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
     case postServiceImage(id: String, imageUrl: NSURL)
-    case putService(id: String, name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: Int?)
+    case putService(id: String, name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
 }
 
 extension APIRequest: Resource {
@@ -92,7 +92,7 @@ extension APIRequest: Resource {
             return ["rows": String(rows), "page": String(page)]
             
         case let APIRequest.getServicesByStatus(_, status, page, rows):
-            return ["status":status, "page": String(page), "rows": String(rows)]
+            return ["status": String(status), "page": String(page), "rows": String(rows)]
         
         case APIRequest.getServiceById:
             return [:]
@@ -133,9 +133,9 @@ extension APIRequest: Resource {
                  "password": password,
                 "firstName": firstName,
                  "lastName": lastName,
-                 "photoUrl": photoUrl,
-        "searchPreferences": searchPreferences,
-                   "status": status]
+                 "photoUrl": photoUrl != nil ? photoUrl!.absoluteString : "",
+        "searchPreferences": searchPreferences != nil ? searchPreferences! : "",
+                   "status": status != nil ? String(status!) : ""]
             
         case let APIRequest.postService(
                        name: name,
@@ -186,15 +186,6 @@ extension APIRequest: Resource {
 }
 
 
-
-/*
-struct Service {
-    let idUserResponse: String?     <-
-    let mainImage: NSURL?           <-
-    let ownerImage: NSURL?          <-
-
-}
-*/
 
 
 

@@ -46,7 +46,7 @@ struct Service {
     let idUserResponse: String?
     let latitude: Double?
     let longitude: Double?
-    let status: Int
+    let status: UInt?
     let deleted: Bool
     let mainImage: NSURL?
     let address: String?
@@ -69,7 +69,7 @@ extension Service: JSONDecodable {
    dateCreatedString = dictionary[JSONKeysService.dateCreated.rawValue] as? String,
                price = dictionary[JSONKeysService.price.rawValue] as? Double,
        idUserRequest = dictionary[JSONKeysService.idUserRequest.rawValue] as? String,
-              status = dictionary[JSONKeysService.status.rawValue] as? Int,
+              status = dictionary[JSONKeysService.status.rawValue] as? UInt,
              deleted = dictionary[JSONKeysService.deleted.rawValue] as? Bool,
        userFirstName = dictionary[JSONKeysService.userFirstName.rawValue] as? String,
         userLastName = dictionary[JSONKeysService.userLastName.rawValue] as? String,

@@ -28,7 +28,7 @@ struct User {
     let lastName: String
     let photoURL: NSURL?
     let searchPreferences: String?
-    let status: Int?
+    let status: UInt?
     let deleted: Bool
     let numPublishedServices: UInt
     let numAttendedServices: UInt
@@ -43,7 +43,7 @@ extension User: JSONDecodable {
                email = dictionary[JSONKeysUser.email.rawValue] as? String,
            firstName = dictionary[JSONKeysUser.firstName.rawValue] as? String,
             lastName = dictionary[JSONKeysUser.lastName.rawValue] as? String,
-              status = dictionary[JSONKeysUser.status.rawValue] as? Int,
+              status = dictionary[JSONKeysUser.status.rawValue] as? UInt,
              deleted = dictionary[JSONKeysUser.deleted.rawValue] as? Bool,
         numPublishedServices = dictionary[JSONKeysUser.numPublishedServices.rawValue] as? UInt,
          numAttendedServices = dictionary[JSONKeysUser.numAttendedServices.rawValue] as? UInt else {
@@ -82,7 +82,7 @@ class UserPersisted: NSObject, NSCoding {
     var lastName: String?
     var photoURL: NSURL?
     var searchPreferences: String?
-    var status: Int?
+    var status: UInt?
     var deleted: Bool?
     var numPublishedServices: UInt?
     var numAttendedServices: UInt?
@@ -93,7 +93,7 @@ class UserPersisted: NSObject, NSCoding {
         lastName: String,
         photoURL: NSURL?,
         searchPreferences: String?,
-        status: Int?,
+        status: UInt?,
         deleted: Bool,
         numPublishedServices: UInt,
         numAttendedServices: UInt) {
@@ -130,7 +130,7 @@ class UserPersisted: NSObject, NSCoding {
         if let searchPreferences = aDecoder.decodeObjectForKey(JSONKeysUser.searchPreferences.rawValue) as? String {
             self.searchPreferences = searchPreferences
         }
-        if let status = aDecoder.decodeObjectForKey(JSONKeysUser.status.rawValue) as? Int {
+        if let status = aDecoder.decodeObjectForKey(JSONKeysUser.status.rawValue) as? UInt {
             self.status = status
         }
         if let deleted = aDecoder.decodeObjectForKey(JSONKeysUser.deleted.rawValue) as? Bool {
