@@ -74,7 +74,7 @@
                     </segments>
                     <color key="tintColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
-                        <action selector="segmentControlLogProfile:" destination="-1" eventType="valueChanged" id="uty-qn-XG4"/>
+                        <action selector="segmentControlMyProfile:" destination="-1" eventType="valueChanged" id="9bT-wZ-SwW"/>
                     </connections>
                 </segmentedControl>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yC2-tU-Gan">
