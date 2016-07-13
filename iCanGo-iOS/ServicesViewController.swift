@@ -1,10 +1,3 @@
-//
-//  ServicesViewController.swift
-//  iCanGo-iOS
-//
-//  Created by Juan Carlos Merlos Albarracín on 4/7/16.
-//  Copyright © 2016 CodeCrafters. All rights reserved.
-//
 
 import UIKit
 import RxSwift
@@ -14,9 +7,10 @@ class ServicesViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var filterBtn: UIButton!
-    @IBOutlet weak var favouritesBtn: UIButton!
     @IBOutlet weak var servicesCollectionView: UICollectionView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
+    private var loginInProgress: Bool!
     
     var isLoaded = false
     let cellId = "serviceCell"
@@ -24,7 +18,6 @@ class ServicesViewController: UIViewController {
     let titleView = "All Services"
     
     private var services: [Service]?
-
     
     // MARK: - Init
     
@@ -36,15 +29,19 @@ class ServicesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        registerCustomCell()
 
-        let title = Appearance.setupUI(self.view, title: self.titleView)
-        self.title = title
+        servicesCollectionView.delegate = self
+        servicesCollectionView.dataSource = self
+        
+        self.loginInProgress = false
         self.services = [Service]()
         
         setupUIAllServices()
         // do api call
-        loadServices()
-        registerCustomCell()
+        loadDataFromApi("")
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,26 +51,17 @@ class ServicesViewController: UIViewController {
 
     // MARK: - Actions
     
-    @IBAction func btnFilter(sender: AnyObject) {
-        // TODO: Filter services
-        print("Prees button Filter")
-    }
-    
-    @IBAction func btnFavourites(sender: AnyObject) {
-        // TODO: check favourites
-        print("Prees button Favourites")
-    }
-    
     // MARK: Methods
     
     func setupUIAllServices() -> Void {
-        
-        servicesCollectionView.delegate = self
-        servicesCollectionView.dataSource = self
+    
         searchBar.resignFirstResponder()
-
+        let title = Appearance.setupUI(self.view, title: self.titleView)
+        self.title = title
         Appearance.tabBarColor(self.tabBarController!)
         Appearance.customizeAppearance(self.view)
+        servicesCollectionView.fadeOut(duration: 0.0)
+
     }
     
     // MARK: Cell registration
@@ -90,18 +78,21 @@ class ServicesViewController: UIViewController {
     
     // MARK: Api call
     
-    func loadServices() -> Void {
-        //loginInProgressRequest()
+    func loadDataFromApi(stringToFind: String) -> Void {
         
+        loginInProgress = actionStarted(activityIndicatorView)
         let session = Session.iCanGoSession()
         // TODO: Parameter Rows pendin
         let _ = session.getServices(1, rows: rowsPerPage)
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
+                
+                self?.loginInProgress = actionFinished(self!.activityIndicatorView)
                 switch event {
                 case let .Next(services):
-                    self!.services = services
+                    self?.services = services
                     self?.servicesCollectionView.reloadData()
+                    self?.servicesCollectionView.fadeIn(duration: 0.3)
                     break
                 case .Error (let error):
                     //self!.loginNoSuccess(error as? SessionError)
@@ -126,9 +117,63 @@ extension ServicesViewController: UISearchBarDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         searchBar.resignFirstResponder()
     }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        loadDataFromApi(searchBar.text!)
+    }
+    
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        searchBar.showsCancelButton = true
+        servicesCollectionView.fadeOut(duration: 0.3)
+        return true
+    }
+    
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        servicesCollectionView.fadeIn(duration: 0.3)
+        searchBar.showsCancelButton = false
+        if (searchBar.text == "") {
+            //loadDataFromApi("")
+        }
+        return true
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        deActivateSearchBar()
+    }
+    
+    func deActivateSearchBar() {
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        
+        searchBar.setShowsCancelButton(true, animated: true)
+        for ob: UIView in ((searchBar.subviews[0] )).subviews {
+            
+            if let z = ob as? UIButton {
+                let btn: UIButton = z
+                btn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            }
+        }
+    }
 }
 
 extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let index = indexPath.row % services!.count
+        showModal(index)
+    }
+    
+    func showModal(index: Int) {
+        
+        let detailServiceViewController = DetailServiceViewController()
+        
+        self.navigationController?.pushViewController(detailServiceViewController, animated: true)
+        //self.presentViewController(detailServiceViewController, animated: true, completion: nil)
+        
+    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (self.services?.count)!

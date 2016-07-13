@@ -33,6 +33,7 @@
 		52EF05CD1D2E4D82001B0FE4 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */; };
 		52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F367AA1D28FBFF0064583C /* LoginView.xib */; };
 		793E1D2E1D32890B00A6324A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793E1D2D1D32890B00A6324A /* Utils.swift */; };
+		79CA66DB1D36F73900C67E67 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CA66DA1D36F73900C67E67 /* MapKit.framework */; };
 		79F418211D043B36002131C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418201D043B36002131C7 /* AppDelegate.swift */; };
 		79F418231D043B36002131C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F418221D043B36002131C7 /* Assets.xcassets */; };
 		79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F418241D043B36002131C7 /* LaunchScreen.storyboard */; };
@@ -94,6 +95,7 @@
 		52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		52F367AA1D28FBFF0064583C /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		793E1D2D1D32890B00A6324A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		79CA66DA1D36F73900C67E67 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		79F4181D1D043B36002131C7 /* iCanGo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCanGo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F418201D043B36002131C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79F418221D043B36002131C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79CA66DB1D36F73900C67E67 /* MapKit.framework in Frameworks */,
 				A9D495034C1BC3A48FFE7AF8 /* Pods_iCanGo_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +173,7 @@
 		75C1F3C32F5EAFD6E2B1FFDB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79CA66DA1D36F73900C67E67 /* MapKit.framework */,
 				D9BCFB28C96273CCDD0CF172 /* Pods_iCanGo_iOS.framework */,
 			);
 			name = Frameworks;
