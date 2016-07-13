@@ -1,10 +1,4 @@
-//
-//  NotificationsTabViewController.swift
-//  iCanGo-iOS
-//
-//  Created by MacBook Pro on 5/7/16.
-//  Copyright © 2016 CodeCrafters. All rights reserved.
-//
+
 
 import UIKit
 
@@ -17,7 +11,7 @@ class NotificationsViewController: UIViewController {
     // MARK: - Init
     
     convenience init() {
-        self.init(nibName: "NotificationsViewController", bundle: nil)
+        self.init(nibName: "NotificationsView", bundle: nil)
     }
     
     override func viewDidLoad() {

@@ -34,7 +34,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         let servicesViewController = ServicesViewController()
         let itemLocationTabBar =  LocationViewController()
         let itemCreateServiceTabBar =  HighServiceViewController()
-        let itemNotificationsTabBar = DetailServiceViewController()
+        let itemNotificationsTabBar = NotificationsViewController()
         let myProfileViewController = MyProfileViewController()
         
         let allServicesTabBarItem = UITabBarItem(
