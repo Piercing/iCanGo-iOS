@@ -13,14 +13,16 @@
 		527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CDB5F1D1B786F001C6251 /* LoginViewController.swift */; };
 		527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87091D2B09F000D0E1EC /* ServicesViewController.swift */; };
 		527F870C1D2B09F000D0E1EC /* ServicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870A1D2B09F000D0E1EC /* ServicesView.xib */; };
-		527F870F1D2B28BC00D0E1EC /* LocationTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */; };
+		527F870F1D2B28BC00D0E1EC /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F870D1D2B28BC00D0E1EC /* LocationViewController.swift */; };
 		527F87101D2B28BC00D0E1EC /* LocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870E1D2B28BC00D0E1EC /* LocationView.xib */; };
-		527F87131D2B297B00D0E1EC /* CreateServiceTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */; };
+		527F87131D2B297B00D0E1EC /* HighServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87111D2B297B00D0E1EC /* HighServiceViewController.swift */; };
 		527F87141D2B297B00D0E1EC /* HighServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87121D2B297B00D0E1EC /* HighServiceView.xib */; };
-		527F87171D2B29A200D0E1EC /* NotificationsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */; };
+		527F87171D2B29A200D0E1EC /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87151D2B29A200D0E1EC /* NotificationsViewController.swift */; };
 		527F87181D2B29A200D0E1EC /* NotificationsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87161D2B29A200D0E1EC /* NotificationsView.xib */; };
 		527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */; };
 		527F871C1D2B29C500D0E1EC /* MyProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F871A1D2B29C500D0E1EC /* MyProfileView.xib */; };
+		5295D2521D3462A9009F93E7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295D2501D3462A9009F93E7 /* RegisterViewController.swift */; };
+		5295D2531D3462A9009F93E7 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295D2511D3462A9009F93E7 /* RegisterView.xib */; };
 		52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */; };
 		52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */; };
 		52D37E0D1D2EDB63009F2FC3 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */; };
@@ -70,14 +72,16 @@
 		527CDB5F1D1B786F001C6251 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		527F87091D2B09F000D0E1EC /* ServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
 		527F870A1D2B09F000D0E1EC /* ServicesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicesView.xib; sourceTree = "<group>"; };
-		527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTabViewController.swift; sourceTree = "<group>"; };
+		527F870D1D2B28BC00D0E1EC /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		527F870E1D2B28BC00D0E1EC /* LocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationView.xib; sourceTree = "<group>"; };
-		527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateServiceTabViewController.swift; sourceTree = "<group>"; };
+		527F87111D2B297B00D0E1EC /* HighServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighServiceViewController.swift; sourceTree = "<group>"; };
 		527F87121D2B297B00D0E1EC /* HighServiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighServiceView.xib; sourceTree = "<group>"; };
-		527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTabViewController.swift; sourceTree = "<group>"; };
+		527F87151D2B29A200D0E1EC /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		527F87161D2B29A200D0E1EC /* NotificationsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationsView.xib; sourceTree = "<group>"; };
 		527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		527F871A1D2B29C500D0E1EC /* MyProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileView.xib; sourceTree = "<group>"; };
+		5295D2501D3462A9009F93E7 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5295D2511D3462A9009F93E7 /* RegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
 		52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCellView.xib; sourceTree = "<group>"; };
 		52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
@@ -147,12 +151,13 @@
 		52D37E0B1D2ED537009F2FC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				52F367AA1D28FBFF0064583C /* LoginView.xib */,
-				527F870A1D2B09F000D0E1EC /* ServicesView.xib */,
-				527F870E1D2B28BC00D0E1EC /* LocationView.xib */,
 				527F87121D2B297B00D0E1EC /* HighServiceView.xib */,
-				527F87161D2B29A200D0E1EC /* NotificationsView.xib */,
+				527F870E1D2B28BC00D0E1EC /* LocationView.xib */,
+				52F367AA1D28FBFF0064583C /* LoginView.xib */,
 				527F871A1D2B29C500D0E1EC /* MyProfileView.xib */,
+				527F87161D2B29A200D0E1EC /* NotificationsView.xib */,
+				5295D2511D3462A9009F93E7 /* RegisterView.xib */,
+				527F870A1D2B09F000D0E1EC /* ServicesView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -163,16 +168,6 @@
 				D9BCFB28C96273CCDD0CF172 /* Pods_iCanGo_iOS.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		793E1D2C1D32840100A6324A /* JuanCarlos */ = {
-			isa = PBXGroup;
-			children = (
-				527F870D1D2B28BC00D0E1EC /* LocationTabViewController.swift */,
-				527F87111D2B297B00D0E1EC /* CreateServiceTabViewController.swift */,
-				527F87151D2B29A200D0E1EC /* NotificationsTabViewController.swift */,
-			);
-			name = JuanCarlos;
 			sourceTree = "<group>";
 		};
 		79F418141D043B36002131C7 = {
@@ -237,13 +232,15 @@
 		79F418431D043BA6002131C7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				527F87091D2B09F000D0E1EC /* ServicesViewController.swift */,
-				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
-				793E1D2C1D32840100A6324A /* JuanCarlos */,
-				527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */,
-				5272E17E1D2C17E3007211E4 /* StartUpController.swift */,
-				52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */,
 				5256B1281D3312310049ED9A /* Cells */,
+				527F87111D2B297B00D0E1EC /* HighServiceViewController.swift */,
+				527F870D1D2B28BC00D0E1EC /* LocationViewController.swift */,
+				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
+				527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */,
+				527F87151D2B29A200D0E1EC /* NotificationsViewController.swift */,
+				5295D2501D3462A9009F93E7 /* RegisterViewController.swift */,
+				527F87091D2B09F000D0E1EC /* ServicesViewController.swift */,
+				5272E17E1D2C17E3007211E4 /* StartUpController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -270,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */,
+				52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */,
 				52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */,
 			);
 			name = Themes;
@@ -446,6 +444,7 @@
 				527F87181D2B29A200D0E1EC /* NotificationsView.xib in Resources */,
 				5256B1251D330D620049ED9A /* MyProfileCellView.xib in Resources */,
 				527F871C1D2B29C500D0E1EC /* MyProfileView.xib in Resources */,
+				5295D2531D3462A9009F93E7 /* RegisterView.xib in Resources */,
 				527F870C1D2B09F000D0E1EC /* ServicesView.xib in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
 				52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */,
@@ -528,15 +527,16 @@
 				D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */,
 				D37630F61D05CA770001E29F /* Service.swift in Sources */,
 				52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */,
-				527F870F1D2B28BC00D0E1EC /* LocationTabViewController.swift in Sources */,
-				527F87131D2B297B00D0E1EC /* CreateServiceTabViewController.swift in Sources */,
+				527F870F1D2B28BC00D0E1EC /* LocationViewController.swift in Sources */,
+				5295D2521D3462A9009F93E7 /* RegisterViewController.swift in Sources */,
+				527F87131D2B297B00D0E1EC /* HighServiceViewController.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
 				D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */,
 				52EF05CD1D2E4D82001B0FE4 /* Appearance.swift in Sources */,
 				527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */,
 				D375F2AD1D34150F00EE6A57 /* ServiceImage.swift in Sources */,
 				D37631021D06D3090001E29F /* Constants.swift in Sources */,
-				527F87171D2B29A200D0E1EC /* NotificationsTabViewController.swift in Sources */,
+				527F87171D2B29A200D0E1EC /* NotificationsViewController.swift in Sources */,
 				52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */,
 				527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */,
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,

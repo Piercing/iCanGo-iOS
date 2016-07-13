@@ -8,17 +8,17 @@
 
 import UIKit
 
-class NotificationsTabViewController: UIViewController {
+class NotificationsViewController: UIViewController {
     
     // MARK: - Init
     convenience init() {
-        self.init(nibName: "NotificationsTabViewController", bundle: nil)
+        self.init(nibName: "NotificationsViewController", bundle: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Notifications"
+        self.title = "NotificationsView"
         
         Appearance.customizeAppearance(self.view)
     }

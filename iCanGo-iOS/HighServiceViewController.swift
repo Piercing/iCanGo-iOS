@@ -8,11 +8,11 @@
 
 import UIKit
 
-class CreateServiceTabViewController: UIViewController {
+class HighServiceViewController: UIViewController {
     
     // MARK: - Init
     convenience init() {
-        self.init(nibName: "CreateServiceTabViewController", bundle: nil)
+        self.init(nibName: "HighServiceView", bundle: nil)
     }
     
     override func viewDidLoad() {
@@ -27,16 +27,10 @@ class CreateServiceTabViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    @IBAction func addService(sender: AnyObject) {
+        print("Tapped buttom add service")
+    }
+    @IBAction func cancelHighService(sender: AnyObject) {
+        print("Tapped buttom cancel High service")
+    }
 }
