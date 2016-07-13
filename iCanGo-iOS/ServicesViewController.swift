@@ -182,6 +182,7 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! ServiceCell
         
+        Appearance.setupCellUI(cell)
         
         let index = indexPath.row % services!.count
         let service = services![index]

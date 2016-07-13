@@ -48,4 +48,22 @@ class Appearance: UIView {
         txtField2.layer.cornerRadius = 5
         buttom1.layer.cornerRadius = 5
     }
+    
+    internal static func setupCellUI (cell: UICollectionViewCell) {
+        cell.contentView.layer.borderWidth = 1.0
+        cell.contentView.layer.borderColor = UIColor.clearColor().CGColor
+        cell.contentView.layer.masksToBounds = true
+        
+        cell.layer.shadowColor = UIColor.grayColor().CGColor
+        cell.layer.shadowOffset = CGSizeMake(0, 2.0)
+        cell.layer.shadowRadius = 2.0
+        cell.layer.shadowOpacity = 1.0
+        cell.layer.masksToBounds = false
+        cell.layer.shadowPath = UIBezierPath(
+            roundedRect: cell.bounds,
+            cornerRadius: cell.contentView.layer.cornerRadius).CGPath
+    }
 }
+
+
+

@@ -71,7 +71,10 @@ class MyProfileViewController: UIViewController {
     @IBAction func cancelMyProfile(sender: AnyObject) {
         // TODO:
         print("Butoom Cancel My Profile")
-
+    
+    }
+    @IBAction func segmentControlMyProfile(sender: AnyObject) {
+        // TODO:
         if segmentControlMyProfile.selectedSegmentIndex == 0 {
             print("Segment Published")
         } else if segmentControlMyProfile.selectedSegmentIndex == 1 {
@@ -79,7 +82,6 @@ class MyProfileViewController: UIViewController {
         } else {
             print("Segmente tapped Searched")
         }
-
     }
 }
 
@@ -93,6 +95,7 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath)
+        Appearance.setupCellUI(cell)
         return cell // TODO: return cell of service
     }
     
