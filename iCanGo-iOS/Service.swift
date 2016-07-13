@@ -27,6 +27,10 @@ enum JSONKeysService: String {
     case address = "address"
     case ownerImage = "ownerImage"
     case images = "images"
+    case userFirstName = "userFirstName"
+    case userLastName = "userLastName"
+    case numPublishedServices = "numPublishedServices"
+    case numAttendedServices = "numAttendedServices"
 }
 
 struct Service {
@@ -48,6 +52,10 @@ struct Service {
     let address: String?
     let ownerImage: NSURL?
     let images: [ServiceImage]?
+    let userFirstName: String
+    let userLastName: String
+    let numPublishedServices: UInt
+    let numAttendedServices: UInt
 }
 
 extension Service: JSONDecodable {
@@ -62,11 +70,15 @@ extension Service: JSONDecodable {
                price = dictionary[JSONKeysService.price.rawValue] as? Double,
        idUserRequest = dictionary[JSONKeysService.idUserRequest.rawValue] as? String,
               status = dictionary[JSONKeysService.status.rawValue] as? Int,
-             deleted = dictionary[JSONKeysService.deleted.rawValue] as? Bool else {
+             deleted = dictionary[JSONKeysService.deleted.rawValue] as? Bool,
+       userFirstName = dictionary[JSONKeysService.userFirstName.rawValue] as? String,
+        userLastName = dictionary[JSONKeysService.userLastName.rawValue] as? String,
+        numPublishedServices = dictionary[JSONKeysService.numPublishedServices.rawValue] as? UInt,
+         numAttendedServices = dictionary[JSONKeysService.numAttendedServices.rawValue] as? UInt else {
             
             return nil
         }
-        
+
         self.id = id
         self.name = name
         self.description = description
@@ -74,7 +86,11 @@ extension Service: JSONDecodable {
         self.idUserRequest = idUserRequest
         self.status = status
         self.deleted = deleted
-
+        self.userFirstName = userFirstName
+        self.userLastName = userLastName
+        self.numPublishedServices = numPublishedServices
+        self.numAttendedServices = numAttendedServices
+        
         if let dateCreated = NSDate.dateFromStringsWithFormat(dateString: dateCreatedString,
                                                               timeString: nil, withFormat: "dd-MM-yyyy") {
             self.dateCreated = dateCreated
@@ -164,6 +180,7 @@ extension Service: JSONDecodable {
 func < (lhs: Service, rhs: Service) -> Bool {
     return lhs.name.localizedStandardCompare(rhs.name) == .OrderedAscending
 }
+
 
 
 

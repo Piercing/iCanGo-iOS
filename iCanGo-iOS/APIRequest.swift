@@ -23,6 +23,7 @@ enum APIRequest {
     case postUser(user: String, password: String, firstName: String, lastName: String, photoUrl: String, searchPreferences: String, status: String)
     case postService(name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: Int?)
     case postServiceImage(id: String, imageUrl: NSURL)
+    case putService(id: String, name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: Int?)
 }
 
 extension APIRequest: Resource {
@@ -45,6 +46,8 @@ extension APIRequest: Resource {
              APIRequest.postService,
              APIRequest.postServiceImage:
             return Method.POST
+        case APIRequest.putService:
+            return Method.PUT
         }
     }
     
@@ -78,6 +81,8 @@ extension APIRequest: Resource {
             return "services/"
         case APIRequest.postServiceImage:
             return "images/"
+        case let APIRequest.putService(id, _, _, _, _, _, _, _, _, _):
+            return "services/\(id)"
         }
     }
 
@@ -117,13 +122,13 @@ extension APIRequest: Resource {
             return ["email": user, "password": password]
         
         case let APIRequest.postUser(
-                    user: user,
-                password: password,
-               firstName: firstName,
-                lastName: lastName,
-                photoUrl: photoUrl,
-       searchPreferences: searchPreferences,
-                  status: status):
+                       user: user,
+                   password: password,
+                  firstName: firstName,
+                   lastName: lastName,
+                   photoUrl: photoUrl,
+          searchPreferences: searchPreferences,
+                     status: status):
             return ["email": user,
                  "password": password,
                 "firstName": firstName,
@@ -133,28 +138,65 @@ extension APIRequest: Resource {
                    "status": status]
             
         case let APIRequest.postService(
-                   name: name,
-            description: description,
-                  price: price,
-                   tags: tags,
-          idUserRequest: idUserRequest,
-               latitude: latitude,
-              longitude: longitude,
-                address: address,
-                 status: status):
-            return ["name": name,
-             "description": description,
-                   "price": String.priceToString(price),
-                    "tags": tags != nil ? String.stringsToString(tags!) : "",
-           "idUserRequest": idUserRequest,
-                "latitude": latitude != nil ? String(format:"%f", latitude!) : "",
-               "longitude": longitude != nil ? String(format:"%f", longitude!) : "",
-                 "address": address != nil ? address! : "",
-                  "status": status != nil ? String(status!) : ""]
+                       name: name,
+                description: description,
+                      price: price,
+                       tags: tags,
+              idUserRequest: idUserRequest,
+                   latitude: latitude,
+                  longitude: longitude,
+                    address: address,
+                     status: status):
+             return ["name": name,
+              "description": description,
+                    "price": String.priceToString(price),
+                     "tags": tags != nil ? String.stringsToString(tags!) : "",
+            "idUserRequest": idUserRequest,
+                 "latitude": latitude != nil ? String(format:"%f", latitude!) : "",
+                "longitude": longitude != nil ? String(format:"%f", longitude!) : "",
+                  "address": address != nil ? address! : "",
+                   "status": status != nil ? String(status!) : ""]
         
         case let APIRequest.postServiceImage(id: id, imageUrl: imageUrl):
             return ["idService": id,
-                    "imageUrl": imageUrl.absoluteString]
+                     "imageUrl": imageUrl.absoluteString]
+        
+        case let APIRequest.putService(
+                         id: _,
+                       name: name,
+                description: description,
+                      price: price,
+                       tags: tags,
+              idUserRequest: idUserRequest,
+                   latitude: latitude,
+                  longitude: longitude,
+                    address: address,
+                     status: status):
+             return ["name": name,
+              "description": description,
+                    "price": String.priceToString(price),
+                     "tags": tags != nil ? String.stringsToString(tags!) : "",
+            "idUserRequest": idUserRequest,
+                 "latitude": latitude != nil ? String(format:"%f", latitude!) : "",
+                "longitude": longitude != nil ? String(format:"%f", longitude!) : "",
+                  "address": address != nil ? address! : "",
+                   "status": status != nil ? String(status!) : ""]
         }
     }
 }
+
+
+
+/*
+struct Service {
+    let idUserResponse: String?     <-
+    let mainImage: NSURL?           <-
+    let ownerImage: NSURL?          <-
+
+}
+*/
+
+
+
+
+

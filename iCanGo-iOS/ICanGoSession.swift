@@ -52,7 +52,7 @@ extension Session {
     }
     
     // GET Service.
-    func getService(id: String) -> Observable<Service> {
+    func getServiceById(id: String) -> Observable<Service> {
         
         return response(APIRequest.getServiceById(key: "", id: id)).map { response in
             
@@ -79,7 +79,7 @@ extension Session {
     }
     
     // GET Services from Users.
-    func getUsersServices(id: String, page: UInt) -> Observable<[Service]> {
+    func getUserServices(id: String, page: UInt) -> Observable<[Service]> {
         
         return response(APIRequest.getUserServices(key: "", id: id, page: page)).map { response in
             
@@ -97,7 +97,7 @@ extension Session {
     }
     
     // GET User.
-    func getUser(id: String) -> Observable<User> {
+    func getUserById(id: String) -> Observable<User> {
         
         return response(APIRequest.getUserById(key: "", id: id)).map { response in
             
@@ -142,12 +142,12 @@ extension Session {
                 status: String) -> Observable<User> {
         
         return response(APIRequest.postUser(user: user,
-            password: password,
-            firstName: firstName,
-            lastName: lastName,
-            photoUrl: photoUrl,
-            searchPreferences: searchPreferences,
-            status: status)).map { response in
+                                        password: password,
+                                       firstName: firstName,
+                                        lastName: lastName,
+                                        photoUrl: photoUrl,
+                               searchPreferences: searchPreferences,
+                                          status: status)).map { response in
                 
             return try self.returnUser(response)
         }
@@ -165,14 +165,14 @@ extension Session {
                    status: Int?) -> Observable<Service> {
   
         return response(APIRequest.postService(name: name,
-            description: description,
-                  price: price,
-                   tags: tags,
-          idUserRequest: idUserRequest,
-               latitude: latitude,
-              longitude: longitude,
-                address: address,
-                 status: status)).map { response in
+                                        description: description,
+                                              price: price,
+                                               tags: tags,
+                                      idUserRequest: idUserRequest,
+                                           latitude: latitude,
+                                          longitude: longitude,
+                                            address: address,
+                                             status: status)).map { response in
                 
             return try self.returnService(response)
         }
@@ -188,7 +188,35 @@ extension Session {
         }
     }
     
-    // Private responses.
+    // PUT Update Service.
+    func putService(id: String,
+                  name: String,
+           description: String,
+                 price: Double,
+                  tags: [String]?,
+         idUserRequest: String,
+              latitude: Double?,
+             longitude: Double?,
+               address: String?,
+                status: Int?) -> Observable<Service> {
+        
+        return response(APIRequest.putService(id: id,
+                                            name: name,
+                                     description: description,
+                                           price: price,
+                                            tags: tags,
+                                   idUserRequest: idUserRequest,
+                                        latitude: latitude,
+                                       longitude: longitude,
+                                         address: address,
+                                          status: status)).map { response in
+                
+            return try self.returnService(response)
+        }
+    }
+    
+    
+    // MARK: - Private responses.
     private func returnServices(response: Response) throws -> [Service] {
         
         guard response.error == "" else {

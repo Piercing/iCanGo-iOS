@@ -12,6 +12,7 @@ enum Method: String
 {
     case GET = "GET"
     case POST = "POST"
+    case PUT = "PUT"
 }
 
 protocol Resource {
@@ -52,7 +53,7 @@ extension Resource {
         }
 
         request.HTTPMethod = method.rawValue
-        if method == Method.POST {
+        if (method == Method.POST || method == Method.PUT) {
     
             do {
                 request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
