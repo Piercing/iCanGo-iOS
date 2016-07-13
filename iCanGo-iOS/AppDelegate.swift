@@ -34,9 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let session = Session.iCanGoSession()
         //let _ = session.getUsers(0)
-        //let _ = session.getUserById("11366E89-5F0B-4FA3-ACCC-A273EAF0E182")
+        //let _ = session.getUserById("00FFC812-0E95-4550-8CFB-FA3E20351281")
         //let _ = session.getUserServices("11366E89-5F0B-4FA3-ACCC-A273EAF0E182", page: 1)
-        //let _ = session.getUserServicesByType(id: String, type: String, page: UInt)
+        let _ = session.getUserServicesByType("11366E89-5F0B-4FA3-ACCC-A273EAF0E182", type: 0, page: 1)
         //let _ = session.getServices(1, rows: 5)
         //let _ = session.getServicesByStatus(0, page: 1, rows: 5)
         //let _ = session.getServiceById("00FFC812-0E95-4550-8CFB-FA3E20351281")
@@ -53,39 +53,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //                         status: 0)
         //let _ = session.postService("Alberto's service",
         //                         description: "Descripcion servicio Alberto",
-        //                         price: 10.00,
-        //                         tags: ["Albertos", "prueba"],
+        //                         price: 40.00,
+        //                         tags: ["Albertos", "prueba40"],
         //                         idUserRequest: "11366E89-5F0B-4FA3-ACCC-A273EAF0E182",
         //                         latitude: 28.3772575,
         //                         longitude: -16.3623865,
-        //                         address: "Direccion de servicio",
+        //                         address: "Direccion de servicio 40",
         //                         status: 2)
         //let _ = session.postServiceImage("00FFC812-0E95-4550-8CFB-FA3E20351281",
         //                        imageUrl: url!)
-        let _ = session.putService("00FFC812-0E95-4550-8CFB-FA3E20351281",
-            name: "Service updated",
-            description: "Description service updated",
-            price: 25.40,
-            tags: ["update"],
-            idUserRequest: "DAD1B764-0F20-4A1F-8D71-524E560BCEB4",
-            latitude: 30.3772575,
-            longitude: -15.3623865,
-            address: "Address update",
-            status: 1)
+        //let _ = session.putService("00FFC812-0E95-4550-8CFB-FA3E20351281",
+        //    name: "Service updated 3",
+        //    description: "Description service updated 3",
+        //    price: 25.40,
+        //    tags: ["update", "3"],
+        //    idUserRequest: "DAD1B764-0F20-4A1F-8D71-524E560BCEB1",
+        //    latitude: 32.3772575,
+        //    longitude: -17.3623865,
+        //    address: "Address update 3",
+        //    status: 2)
 
             .observeOn(MainScheduler.instance)
             .subscribe { event in
                 
                 switch event {
-                case let .Next(service):
+                case let .Next(services):
                     
-                    print(service)
+                    //print(service)
                     
-                    /*
-                    for serviceImage in serviceImages {
-                        print(serviceImage)
+                    for service in services {
+                        print(service)
                     }
-                    */
+                    
                     
                 case .Error(let error):
                     

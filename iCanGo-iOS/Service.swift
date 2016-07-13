@@ -27,6 +27,7 @@ enum JSONKeysService: String {
     case address = "address"
     case ownerImage = "ownerImage"
     case images = "images"
+    case imageUrl = "imageUrl"
     case userFirstName = "userFirstName"
     case userLastName = "userLastName"
     case numPublishedServices = "numPublishedServices"
@@ -158,15 +159,18 @@ extension Service: JSONDecodable {
             self.ownerImage = nil
         }
         
-        if let imagesStrings = dictionary[JSONKeysService.images.rawValue] as? [String] {
+        if let imagesDictionaries = dictionary[JSONKeysService.images.rawValue] as? [JSONDictionary] {
             
             self.images = [ServiceImage]()
             
-            for imageString in imagesStrings {
+            for imageDictionary in imagesDictionaries {
             
-                if let imageServiceURL = NSURL(string: imageString) {
-                    
-                    let serviceImage = ServiceImage(id: self.id, imageUrl: imageServiceURL)
+                let idImageService = imageDictionary[JSONKeysService.id.rawValue] as? String
+    
+                if let imageUrlServiceString = imageDictionary[JSONKeysService.imageUrl.rawValue] as? String,
+                             imageUrlService = NSURL(string: imageUrlServiceString) {
+                
+                    let serviceImage = ServiceImage(id: idImageService!, imageUrl: imageUrlService)
                     self.images?.append(serviceImage)
                 }
             }
