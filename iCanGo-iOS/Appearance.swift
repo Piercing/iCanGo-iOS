@@ -42,4 +42,10 @@ class Appearance: UIView {
         self.customizeAppearance(view)
         return title
     }
+    
+    internal static func addDidLayoutSubviews(txtField1: UITextField, txtField2: UITextField, buttom1: UIButton){
+        txtField1.layer.cornerRadius = 5
+        txtField2.layer.cornerRadius = 5
+        buttom1.layer.cornerRadius = 5
+    }
 }

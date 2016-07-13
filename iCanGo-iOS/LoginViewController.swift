@@ -43,6 +43,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLayoutSubviews(){
         super.viewDidLayoutSubviews()
+        
         // TODO: This should be in a theme class
         txtFieldUser.layer.cornerRadius = 5
         txtFieldPassw.layer.cornerRadius = 5
