@@ -35,6 +35,17 @@ class Appearance: UIView {
     internal static func tabBarItemColor() {
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.blackColor()], forState:.Selected)
-
+    }
+    
+    internal static func setupUI(view: UIView, title: String) -> String {
+        let title = title
+        self.customizeAppearance(view)
+        return title
+    }
+    
+    internal static func addDidLayoutSubviews(txtField1: UITextField, txtField2: UITextField, buttom1: UIButton){
+        txtField1.layer.cornerRadius = 5
+        txtField2.layer.cornerRadius = 5
+        buttom1.layer.cornerRadius = 5
     }
 }

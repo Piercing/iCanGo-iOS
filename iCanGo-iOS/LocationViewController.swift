@@ -8,16 +8,18 @@
 
 import UIKit
 
-class LocationTabViewController: UIViewController {
+class LocationViewController: UIViewController {
     
     // MARK: - Properties
     
     @IBOutlet weak var searchBarLocation: UISearchBar!
     
+    let titleView = "Location"
+    
     // MARK: - Init
     
     convenience init() {
-        self.init(nibName: "LocationTabViewController", bundle: nil)
+        self.init(nibName: "LocationView", bundle: nil)
     }
     
     // MARK: - LifeCycle
@@ -25,9 +27,9 @@ class LocationTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Location"
+        let title = Appearance.setupUI(self.view, title: self.titleView)
+        self.title = title
         
-        Appearance.customizeAppearance(self.view)
         searchBarLocation.resignFirstResponder()
     }
     
@@ -47,7 +49,7 @@ class LocationTabViewController: UIViewController {
 
 // MARK: - Extensions - Collection view delegates and datasource
 
-extension LocationTabViewController: UISearchBarDelegate {
+extension LocationViewController: UISearchBarDelegate {
     func textFieldShouldReturn(searchBar: UISearchBar) -> Bool {
         self.view.endEditing(true)
         return true

@@ -21,6 +21,7 @@ class MyProfileViewController: UIViewController {
     
     let cellId = "myProfileCell"
     let nibId = "MyProfileCellView"
+    let titleView = "My Profile"
     
     // MARK: - Init
     
@@ -36,7 +37,8 @@ class MyProfileViewController: UIViewController {
         myProfileCollecionView.delegate = self
         myProfileCollecionView.dataSource = self
         registerCustomCell()
-        setupUI()
+        let title = Appearance.setupUI(self.view, title: self.titleView)
+        self.title = title
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,11 +48,11 @@ class MyProfileViewController: UIViewController {
     
     // MARK: Methods
     
-    func setupUI() -> Void {
-        self.title = "My Profile"
-        Appearance.customizeAppearance(self.view)
-    }
-    
+//    func setupUI() -> Void {
+//        self.title = "My Profile"
+//        Appearance.customizeAppearance(self.view)
+//    }
+//    
     // MARK: Cell registration
     
     func registerCustomCell() {
@@ -61,12 +63,15 @@ class MyProfileViewController: UIViewController {
     
     @IBAction func btnEditMyProfile(sender: AnyObject) {
         // TODO:
+
         print("Tapped buttom Edit My Profile")
     }
+
     
-    
-    @IBAction func segmentControlLogProfile(sender: AnyObject) {
+    @IBAction func cancelMyProfile(sender: AnyObject) {
         // TODO:
+        print("Butoom Cancel My Profile")
+
         if segmentControlMyProfile.selectedSegmentIndex == 0 {
             print("Segment Published")
         } else if segmentControlMyProfile.selectedSegmentIndex == 1 {
@@ -74,6 +79,7 @@ class MyProfileViewController: UIViewController {
         } else {
             print("Segmente tapped Searched")
         }
+
     }
 }
 

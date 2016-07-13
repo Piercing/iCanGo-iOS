@@ -32,9 +32,9 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         
         let servicesViewController = ServicesViewController()
-        //let itemLocationTabBar =  LocationTabViewController()
-        //let itemCreateServiceTabBar =  CreateServiceTabViewController()
-        //let itemNotificationsTabBar = NotificationsTabViewController()
+        let itemLocationTabBar =  LocationViewController()
+        let itemCreateServiceTabBar =  HighServiceViewController()
+        let itemNotificationsTabBar = DetailServiceViewController()
         let myProfileViewController = MyProfileViewController()
         
         let allServicesTabBarItem = UITabBarItem(
@@ -43,23 +43,23 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
             selectedImage: UIImage(named: "pin-1.png")?
                 .imageWithRenderingMode(.AlwaysTemplate))
         
-//        let iconLocationTabBar = UITabBarItem(
-//            title: "Location",
-//            image: UIImage(named: "pin-1.png"), // Unselected image
-//            selectedImage: UIImage(named: "pin-1.png")?
-//                .imageWithRenderingMode(.AlwaysTemplate)) // Selected image original color
+        let iconLocationTabBar = UITabBarItem(
+            title: "Location",
+            image: UIImage(named: "pin-1.png"), // Unselected image
+            selectedImage: UIImage(named: "pin-1.png")?
+                .imageWithRenderingMode(.AlwaysTemplate)) // Selected image original color
         
-//        let iconCreateServicesTabBar = UITabBarItem(
-//            title: "High Services",
-//            image: UIImage(named: "pin-1.png"),
-//            selectedImage: UIImage(named: "pin-1.png")?
-//                .imageWithRenderingMode(.AlwaysTemplate))
+        let iconCreateServicesTabBar = UITabBarItem(
+            title: "High Services",
+            image: UIImage(named: "pin-1.png"),
+            selectedImage: UIImage(named: "pin-1.png")?
+                .imageWithRenderingMode(.AlwaysTemplate))
         
-//        let iconNotificationsTabBar = UITabBarItem(
-//            title: "Notifications",
-//            image: UIImage(named: "pin-1.png"),
-//            selectedImage: UIImage(named: "pin-1.png")?
-//                .imageWithRenderingMode(.AlwaysTemplate))
+        let iconNotificationsTabBar = UITabBarItem(
+            title: "Notifications",
+            image: UIImage(named: "pin-1.png"),
+            selectedImage: UIImage(named: "pin-1.png")?
+                .imageWithRenderingMode(.AlwaysTemplate))
         
         let myProfileTabBarItem = UITabBarItem(
             title: "My Profile",
@@ -68,17 +68,17 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
                 .imageWithRenderingMode(.AlwaysTemplate))
         
         servicesViewController.tabBarItem = allServicesTabBarItem
-//        itemLocationTabBar.tabBarItem = iconLocationTabBar
-//        itemCreateServiceTabBar.tabBarItem = iconCreateServicesTabBar
-//        itemNotificationsTabBar.tabBarItem = iconNotificationsTabBar
+        itemLocationTabBar.tabBarItem = iconLocationTabBar
+        itemCreateServiceTabBar.tabBarItem = iconCreateServicesTabBar
+        itemNotificationsTabBar.tabBarItem = iconNotificationsTabBar
         myProfileViewController.tabBarItem = myProfileTabBarItem
         
         let controllers =
             [
                 servicesViewController,
-//                itemLocationTabBar,
-//                itemCreateServiceTabBar,
-//                itemNotificationsTabBar,
+                itemLocationTabBar,
+                itemCreateServiceTabBar,
+                itemNotificationsTabBar,
                 myProfileViewController
             ]
         
@@ -100,9 +100,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
                 
                 showModal(self, calledContainer: loginVC!)
                 return false;
-                
             }
-        
         }
         
         return true
@@ -129,7 +127,6 @@ extension StartUpController: ComunicationLoginControllerDelegate {
         self.selectedIndex = index
         self.selectedViewController = self.viewControllers![index] as UIViewController
         
-    }
-    
+    } 
 }
 

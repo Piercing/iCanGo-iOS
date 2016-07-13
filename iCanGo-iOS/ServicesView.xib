@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServicesTabViewController" customModule="iCanGo_iOS" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServicesViewController" customModule="iCanGo_iOS" customModuleProvider="target">
             <connections>
                 <outlet property="searchBar" destination="CJj-sb-ari" id="Zn6-bD-hEu"/>
                 <outlet property="servicesCollectionView" destination="QBa-ZM-X5c" id="tr3-ga-FKg"/>
@@ -19,7 +19,7 @@
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QBa-ZM-X5c">
                     <rect key="frame" x="0.0" y="64" width="600" height="560"/>
-                    <color key="backgroundColor" red="0.59215686274509804" green="0.85490196078431369" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="fnV-9F-9ba">
                         <size key="itemSize" width="50" height="50"/>
