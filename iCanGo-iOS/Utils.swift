@@ -52,12 +52,8 @@ func loadUserAuthInfo() -> User {
 
 func loadImage(imageUrl: NSURL, imageView: UIImageView) {
     
-    let pathComponents = imageUrl.pathComponents
-    let directory = pathComponents![1]
-    let file = pathComponents![2]
-    
     let session = Session.iCanGoSessionImages()
-    let _ = session.getImageData(directory, file: file)
+    let _ = session.getImageData(imageUrl)
     
         .observeOn(MainScheduler.instance)
         .subscribe { event in

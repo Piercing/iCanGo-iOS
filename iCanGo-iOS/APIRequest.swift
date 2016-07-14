@@ -19,7 +19,7 @@ enum APIRequest {
     case getUserById(key: String, id: String)
     case getImages(key: String)
     case getImagesById(key: String, id: String)
-    case getImageData(key: String, directory: String, file: String)
+    case getImageData(key: String, urlImage: NSURL)
     case postLogin(user: String, password: String)
     case postUser(user: String, password: String, firstName: String, lastName: String, photoUrl: NSURL?, searchPreferences: String?, status: UInt?)
     case postService(name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
@@ -75,8 +75,9 @@ extension APIRequest: Resource {
             return "images"
         case let APIRequest.getImagesById(_, id):
             return "images/\(id)"
-        case let APIRequest.getImageData(_, directory, file):
-            return "\(directory)/\(file)"
+        case let APIRequest.getImageData(_, urlImage):
+            let pathComponents = urlImage.pathComponents
+            return "\(pathComponents![1])/\(pathComponents![2])"
         case APIRequest.postLogin:
             return "login"
         case APIRequest.postUser:
