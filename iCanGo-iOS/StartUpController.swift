@@ -33,7 +33,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         
         let servicesViewController = ServicesViewController()
         let itemLocationTabBar =  LocationViewController()
-        let itemCreateServiceTabBar =  HighServiceViewController()
+        let itemCreateServiceTabBar =  AddServiceViewController()
         let itemNotificationsTabBar = NotificationsViewController()
         let myProfileViewController = MyProfileViewController()
         
@@ -50,7 +50,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
                 .imageWithRenderingMode(.AlwaysTemplate)) // Selected image original color
         
         let iconCreateServicesTabBar = UITabBarItem(
-            title: "High Services",
+            title: "Add Services",
             image: UIImage(named: "pin-1.png"),
             selectedImage: UIImage(named: "pin-1.png")?
                 .imageWithRenderingMode(.AlwaysTemplate))
