@@ -135,9 +135,9 @@ extension Session {
     }
     
     // GET Image Data.
-    func getImageData(directory: String, file: String) -> Observable<NSData> {
+    func getImageData(urlImage: NSURL) -> Observable<NSData> {
         
-        return data(APIRequest.getImageData(key: "", directory: directory, file: file)).map { data in
+        return data(APIRequest.getImageData(key: "", urlImage: urlImage)).map { data in
         
             return data
         }
