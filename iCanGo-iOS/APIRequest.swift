@@ -92,13 +92,8 @@ extension APIRequest: Resource {
             return ["rows": String(rows), "page": String(page)]
             
         case let APIRequest.getServicesByStatus(_, status, page, rows):
-<<<<<<< HEAD
-            return ["status":status, "page": String(page), "rows": String(rows)]
-            
-=======
             return ["status": String(status), "page": String(page), "rows": String(rows)]
         
->>>>>>> feature/CambiosAPI&Model
         case APIRequest.getServiceById:
             return [:]
             
@@ -112,13 +107,8 @@ extension APIRequest: Resource {
             return [:]
             
         case let APIRequest.getUserServicesByType(_, _, type, _):
-<<<<<<< HEAD
-            return ["type":type]
-            
-=======
             return ["type": String(type)]
         
->>>>>>> feature/CambiosAPI&Model
         case APIRequest.getUserById:
             return [:]
             
@@ -132,43 +122,6 @@ extension APIRequest: Resource {
             return ["email": user, "password": password]
             
         case let APIRequest.postUser(
-<<<<<<< HEAD
-            user: user,
-            password: password,
-            firstName: firstName,
-            lastName: lastName,
-            photoUrl: photoUrl,
-            searchPreferences: searchPreferences,
-            status: status):
-            return ["email": user,
-                    "password": password,
-                    "firstName": firstName,
-                    "lastName": lastName,
-                    "photoUrl": photoUrl,
-                    "searchPreferences": searchPreferences,
-                    "status": status]
-            
-        case let APIRequest.postService(
-            name: name,
-            description: description,
-            price: price,
-            tags: tags,
-            idUserRequest: idUserRequest,
-            latitude: latitude,
-            longitude: longitude,
-            address: address,
-            status: status):
-            return ["name": name,
-                    "description": description,
-                    "price": String.priceToString(price),
-                    "tags": tags != nil ? String.stringsToString(tags!) : "",
-                    "idUserRequest": idUserRequest,
-                    "latitude": latitude != nil ? String(format:"%f", latitude!) : "",
-                    "longitude": longitude != nil ? String(format:"%f", longitude!) : "",
-                    "address": address != nil ? address! : "",
-                    "status": status != nil ? String(status!) : ""]
-            
-=======
                        user: user,
                    password: password,
                   firstName: firstName,
@@ -204,7 +157,6 @@ extension APIRequest: Resource {
                   "address": address != nil ? address! : "",
                    "status": status != nil ? String(status!) : ""]
         
->>>>>>> feature/CambiosAPI&Model
         case let APIRequest.postServiceImage(id: id, imageUrl: imageUrl):
             return ["idService": id,
                      "imageUrl": imageUrl.absoluteString]
