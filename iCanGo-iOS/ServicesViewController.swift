@@ -11,6 +11,8 @@ class ServicesViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     private var loginInProgress: Bool!
+    private var currentPage: UInt = 1
+    private let disposeBag = DisposeBag()
     
     var isLoaded = false
     let cellId = "serviceCell"
@@ -40,8 +42,7 @@ class ServicesViewController: UIViewController {
         
         setupUIAllServices()
         // do api call
-        loadDataFromApi("")
-        
+        loadDataFromApi("", page: self.currentPage)
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,22 +78,22 @@ class ServicesViewController: UIViewController {
     }
     
     // MARK: Api call
-    
-    func loadDataFromApi(stringToFind: String) -> Void {
+    func loadDataFromApi(stringToFind: String, page: UInt) -> Void {
         
-        loginInProgress = actionStarted(activityIndicatorView)
+        //AOS loginInProgress = actionStarted(activityIndicatorView)
         let session = Session.iCanGoSession()
         // TODO: Parameter Rows pendin
-        let _ = session.getServices(1, rows: rowsPerPage)
+        let _ = session.getServices(page, rows: rowsPerPage)
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
                 self?.loginInProgress = actionFinished(self!.activityIndicatorView)
                 switch event {
                 case let .Next(services):
-                    self?.services = services
+                    self?.services?.appendContentsOf(services)
                     self?.servicesCollectionView.reloadData()
                     self?.servicesCollectionView.fadeIn(duration: 0.3)
+                    self?.currentPage += 1
                     break
                 case .Error (let error):
                     //self!.loginNoSuccess(error as? SessionError)
@@ -103,7 +104,6 @@ class ServicesViewController: UIViewController {
                 
         }
     }
-
 }
 
 // MARK: - Extensions - Collection view delegates and datasource
@@ -119,7 +119,7 @@ extension ServicesViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        loadDataFromApi(searchBar.text!)
+        loadDataFromApi(searchBar.text!, page: self.currentPage)
     }
     
     func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
@@ -203,6 +203,14 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSize(width: 170, height: 190)
+    }
+    
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+
+        print(indexPath.row)
+        if indexPath.row == (self.services?.count)! - 2 {
+            loadDataFromApi("", page: self.currentPage)
+        }
     }
 }
 
