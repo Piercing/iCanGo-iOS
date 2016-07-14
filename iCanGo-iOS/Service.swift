@@ -27,6 +27,11 @@ enum JSONKeysService: String {
     case address = "address"
     case ownerImage = "ownerImage"
     case images = "images"
+    case imageUrl = "imageUrl"
+    case userFirstName = "userFirstName"
+    case userLastName = "userLastName"
+    case numPublishedServices = "numPublishedServices"
+    case numAttendedServices = "numAttendedServices"
 }
 
 struct Service {
@@ -42,12 +47,16 @@ struct Service {
     let idUserResponse: String?
     let latitude: Double?
     let longitude: Double?
-    let status: Int
+    let status: UInt?
     let deleted: Bool
     let mainImage: NSURL?
     let address: String?
     let ownerImage: NSURL?
     let images: [ServiceImage]?
+    let userFirstName: String
+    let userLastName: String
+    let numPublishedServices: UInt
+    let numAttendedServices: UInt
 }
 
 extension Service: JSONDecodable {
@@ -61,12 +70,16 @@ extension Service: JSONDecodable {
    dateCreatedString = dictionary[JSONKeysService.dateCreated.rawValue] as? String,
                price = dictionary[JSONKeysService.price.rawValue] as? Double,
        idUserRequest = dictionary[JSONKeysService.idUserRequest.rawValue] as? String,
-              status = dictionary[JSONKeysService.status.rawValue] as? Int,
-             deleted = dictionary[JSONKeysService.deleted.rawValue] as? Bool else {
+              status = dictionary[JSONKeysService.status.rawValue] as? UInt,
+             deleted = dictionary[JSONKeysService.deleted.rawValue] as? Bool,
+       userFirstName = dictionary[JSONKeysService.userFirstName.rawValue] as? String,
+        userLastName = dictionary[JSONKeysService.userLastName.rawValue] as? String,
+        numPublishedServices = dictionary[JSONKeysService.numPublishedServices.rawValue] as? UInt,
+         numAttendedServices = dictionary[JSONKeysService.numAttendedServices.rawValue] as? UInt else {
             
             return nil
         }
-        
+
         self.id = id
         self.name = name
         self.description = description
@@ -74,7 +87,11 @@ extension Service: JSONDecodable {
         self.idUserRequest = idUserRequest
         self.status = status
         self.deleted = deleted
-
+        self.userFirstName = userFirstName
+        self.userLastName = userLastName
+        self.numPublishedServices = numPublishedServices
+        self.numAttendedServices = numAttendedServices
+        
         if let dateCreated = NSDate.dateFromStringsWithFormat(dateString: dateCreatedString,
                                                               timeString: nil, withFormat: "dd-MM-yyyy") {
             self.dateCreated = dateCreated
@@ -142,15 +159,18 @@ extension Service: JSONDecodable {
             self.ownerImage = nil
         }
         
-        if let imagesStrings = dictionary[JSONKeysService.images.rawValue] as? [String] {
+        if let imagesDictionaries = dictionary[JSONKeysService.images.rawValue] as? [JSONDictionary] {
             
             self.images = [ServiceImage]()
             
-            for imageString in imagesStrings {
+            for imageDictionary in imagesDictionaries {
             
-                if let imageServiceURL = NSURL(string: imageString) {
-                    
-                    let serviceImage = ServiceImage(id: self.id, imageUrl: imageServiceURL)
+                let idImageService = imageDictionary[JSONKeysService.id.rawValue] as? String
+    
+                if let imageUrlServiceString = imageDictionary[JSONKeysService.imageUrl.rawValue] as? String,
+                             imageUrlService = NSURL(string: imageUrlServiceString) {
+                
+                    let serviceImage = ServiceImage(id: idImageService!, imageUrl: imageUrlService)
                     self.images?.append(serviceImage)
                 }
             }
@@ -164,6 +184,7 @@ extension Service: JSONDecodable {
 func < (lhs: Service, rhs: Service) -> Bool {
     return lhs.name.localizedStandardCompare(rhs.name) == .OrderedAscending
 }
+
 
 
 
