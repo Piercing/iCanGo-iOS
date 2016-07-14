@@ -18,8 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Navigation Bar Style
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-        
-        
+
         self.window?.rootViewController = StartUpController(nibName: nil, bundle: nil)
         self.window?.makeKeyAndVisible()
         return true
