@@ -2,6 +2,7 @@
 
 import SystemConfiguration
 import UIKit
+import RxSwift
 
 func actionStarted(activityIndicatorView: UIActivityIndicatorView) -> Bool {
     
@@ -51,27 +52,30 @@ func loadUserAuthInfo() -> User {
 
 func loadImage(imageUrl: NSURL, imageView: UIImageView) {
     
-    let request = NSMutableURLRequest(URL: imageUrl)
-    let session = NSURLSession.sharedSession()
-    let task = session.dataTaskWithRequest(request) { data, response, error in
-        
-        guard data != nil else {
-            return
-        }
-        
-        let image = UIImage(data: data!)
-        
-        dispatch_async(dispatch_get_main_queue(), {
+    let pathComponents = imageUrl.pathComponents
+    let directory = pathComponents![1]
+    let file = pathComponents![2]
+    
+    let session = Session.iCanGoSessionImages()
+    let _ = session.getImageData(directory, file: file)
+    
+        .observeOn(MainScheduler.instance)
+        .subscribe { event in
             
-            imageView.image = image
-            imageView.fadeOut(duration: 0.0)
-            imageView.fadeIn()
-            
-        })
+            switch event {
+            case let .Next(data):
+                let image = UIImage(data: data)
+                imageView.image = image
+                imageView.fadeOut(duration: 0.0)
+                imageView.fadeIn()
+                
+            case .Error:
+                return
+                
+            default:
+                break
+            }
     }
-    
-    task.resume()
-    
 }
 
 func isConnectedToNetwork() -> Bool {

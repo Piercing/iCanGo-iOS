@@ -17,6 +17,10 @@ extension Session {
         return Session(baseURL: iCanGoBaseURL)
     }
     
+    static func iCanGoSessionImages() -> Session {
+        return Session(baseURL: iCanGoBaseURLImages)
+    }
+    
     func response(resource: Resource) -> Observable<Response> {
         
         return data(resource).map { data in
@@ -26,6 +30,13 @@ extension Session {
             }
             
             return response
+        }
+    }
+    
+    func responseData(resource: Resource) -> Observable<NSData> {
+        
+        return data(resource).map { data in
+            return data
         }
     }
 }
@@ -120,6 +131,15 @@ extension Session {
         return response(APIRequest.getImagesById(key: "", id: id)).map { response in
             
             return try self.returnServiceImages(response)
+        }
+    }
+    
+    // GET Image Data.
+    func getImageData(directory: String, file: String) -> Observable<NSData> {
+        
+        return data(APIRequest.getImageData(key: "", directory: directory, file: file)).map { data in
+        
+            return data
         }
     }
     
