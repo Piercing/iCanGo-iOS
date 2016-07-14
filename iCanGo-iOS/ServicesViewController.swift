@@ -207,7 +207,6 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
 
-        print(indexPath.row)
         if indexPath.row == (self.services?.count)! - 2 {
             loadDataFromApi("", page: self.currentPage)
         }
