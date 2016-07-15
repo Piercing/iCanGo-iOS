@@ -44,7 +44,7 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USER" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6rp-fS-QY3">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EMAIL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6rp-fS-QY3">
                     <rect key="frame" x="50" y="285" width="500" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -57,7 +57,8 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoH-MA-tnf">
                     <rect key="frame" x="252" y="567" width="96" height="14"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="14" id="fe9-HE-dbJ"/>
+                        <constraint firstAttribute="height" constant="14" id="Aoa-ap-2mX"/>
+                        <constraint firstAttribute="width" constant="96" id="TnO-I1-gEl"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
                     <state key="normal" title="Privace policy">
@@ -74,7 +75,7 @@
                         <constraint firstAttribute="height" constant="40" id="2IE-Nm-I9U"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                    <state key="normal" title="Register with E-mail">
+                    <state key="normal" title="Register with Email">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -120,7 +121,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="btnPrivacePolicyUserRegister:" destination="-1" eventType="touchUpInside" id="psa-Bw-jFW"/>
+                        <action selector="registerWithGooglePlusUserRegister:" destination="-1" eventType="touchUpInside" id="f5H-LG-eqU"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserGroup" translatesAutoresizingMaskIntoConstraints="NO" id="lT9-60-jvn">
@@ -168,13 +169,12 @@
                 <constraint firstAttribute="trailing" secondItem="LYu-hU-ysJ" secondAttribute="trailing" constant="50" id="9am-gC-0kM"/>
                 <constraint firstItem="2TA-bX-fgz" firstAttribute="top" secondItem="LYu-hU-ysJ" secondAttribute="bottom" constant="8" id="9lo-4j-zZW"/>
                 <constraint firstItem="gtT-7P-Lxj" firstAttribute="top" secondItem="lT9-60-jvn" secondAttribute="bottom" constant="-31" id="BCC-1D-OZ8"/>
-                <constraint firstItem="zoH-MA-tnf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="252" id="BIw-Ne-Ylj"/>
-                <constraint firstAttribute="trailing" secondItem="zoH-MA-tnf" secondAttribute="trailing" constant="252" id="Bwz-Xz-ATz"/>
                 <constraint firstItem="Q1o-4G-HDP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="Daz-Gx-4cv"/>
                 <constraint firstItem="gtT-7P-Lxj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="Hct-Dd-Rv7"/>
                 <constraint firstItem="LYu-hU-ysJ" firstAttribute="top" secondItem="Jd6-1o-kZO" secondAttribute="bottom" constant="-31" id="HqJ-X7-Waf"/>
                 <constraint firstItem="TPi-gx-tpf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="LZf-bo-dhp"/>
                 <constraint firstItem="LYu-hU-ysJ" firstAttribute="leading" secondItem="Jd6-1o-kZO" secondAttribute="trailing" constant="-35" id="SWk-ST-BkD"/>
+                <constraint firstItem="zoH-MA-tnf" firstAttribute="centerX" secondItem="2TA-bX-fgz" secondAttribute="centerX" id="Txm-q7-hEC"/>
                 <constraint firstItem="6rp-fS-QY3" firstAttribute="top" secondItem="Q1o-4G-HDP" secondAttribute="bottom" constant="15" id="WOB-Fl-2mb"/>
                 <constraint firstItem="mhT-l3-hf1" firstAttribute="top" secondItem="uD6-vd-Lfa" secondAttribute="bottom" constant="-31" id="WhM-nd-XQu"/>
                 <constraint firstAttribute="trailing" secondItem="gtT-7P-Lxj" secondAttribute="trailing" constant="50" id="Xmj-lG-nEf"/>
@@ -187,11 +187,11 @@
                 <constraint firstItem="2TA-bX-fgz" firstAttribute="leading" secondItem="OIK-NG-tYo" secondAttribute="trailing" constant="-35" id="fN0-TS-f8o"/>
                 <constraint firstItem="gtT-7P-Lxj" firstAttribute="top" secondItem="TPi-gx-tpf" secondAttribute="bottom" constant="25" id="fZe-cx-IMF"/>
                 <constraint firstAttribute="trailing" secondItem="6rp-fS-QY3" secondAttribute="trailing" constant="50" id="gs2-rQ-RML"/>
-                <constraint firstItem="zoH-MA-tnf" firstAttribute="top" secondItem="2TA-bX-fgz" secondAttribute="bottom" constant="5" id="hlb-G3-IqF"/>
                 <constraint firstItem="Q1o-4G-HDP" firstAttribute="top" secondItem="4ZZ-CZ-1lS" secondAttribute="bottom" constant="22" id="iCU-ma-nBV"/>
                 <constraint firstAttribute="trailing" secondItem="4ZZ-CZ-1lS" secondAttribute="trailing" id="iY3-a3-zGC"/>
                 <constraint firstAttribute="trailing" secondItem="TPi-gx-tpf" secondAttribute="trailing" constant="50" id="nv0-Zk-Fey"/>
                 <constraint firstItem="LYu-hU-ysJ" firstAttribute="top" secondItem="mhT-l3-hf1" secondAttribute="bottom" constant="8" id="rj4-lI-R8s"/>
+                <constraint firstItem="zoH-MA-tnf" firstAttribute="top" secondItem="2TA-bX-fgz" secondAttribute="bottom" constant="5" id="u2w-ZS-ak2"/>
                 <constraint firstItem="mhT-l3-hf1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="uj1-hi-tAK"/>
                 <constraint firstAttribute="trailing" secondItem="2TA-bX-fgz" secondAttribute="trailing" constant="50" id="ukk-Ym-55j"/>
                 <constraint firstItem="mhT-l3-hf1" firstAttribute="top" secondItem="gtT-7P-Lxj" secondAttribute="bottom" constant="8" id="wlN-XV-xd9"/>
