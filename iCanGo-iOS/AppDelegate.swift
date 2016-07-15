@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        NSThread.sleepForTimeInterval(3.5);
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         // Navigation Bar Style
