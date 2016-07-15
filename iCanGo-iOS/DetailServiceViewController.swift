@@ -63,4 +63,8 @@ class DetailServiceViewController: UIViewController {
     @IBAction func btnBackDetailService(sender: AnyObject) {
         print("Tapped btn back Detail Service")
     }
+    
+    @IBAction func goBack(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
 }

@@ -2,6 +2,7 @@
 
 import SystemConfiguration
 import UIKit
+import RxSwift
 
 func actionStarted(activityIndicatorView: UIActivityIndicatorView) -> Bool {
     
@@ -51,27 +52,26 @@ func loadUserAuthInfo() -> User {
 
 func loadImage(imageUrl: NSURL, imageView: UIImageView) {
     
-    let request = NSMutableURLRequest(URL: imageUrl)
-    let session = NSURLSession.sharedSession()
-    let task = session.dataTaskWithRequest(request) { data, response, error in
-        
-        guard data != nil else {
-            return
-        }
-        
-        let image = UIImage(data: data!)
-        
-        dispatch_async(dispatch_get_main_queue(), {
+    let session = Session.iCanGoSessionImages()
+    let _ = session.getImageData(imageUrl)
+    
+        .observeOn(MainScheduler.instance)
+        .subscribe { event in
             
-            imageView.image = image
-            imageView.fadeOut(duration: 0.0)
-            imageView.fadeIn()
-            
-        })
+            switch event {
+            case let .Next(data):
+                let image = UIImage(data: data)
+                imageView.image = image
+                imageView.fadeOut(duration: 0.0)
+                imageView.fadeIn()
+                
+            case .Error:
+                return
+                
+            default:
+                break
+            }
     }
-    
-    task.resume()
-    
 }
 
 func isConnectedToNetwork() -> Bool {
@@ -109,6 +109,22 @@ func checkConection(controller: UIViewController) {
         showAlert(noConnectionTitle, message: noConnectionMessage, controller: controller)
         return
     }
+}
+
+public extension UICollectionView {
+    
+    func fadeIn(duration duration: NSTimeInterval = 1.0) {
+        UIImageView.animateWithDuration(duration, animations: {
+            self.alpha = 1.0
+        })
+    }
+    
+    func fadeOut(duration duration: NSTimeInterval = 1.0) {
+        UIImageView.animateWithDuration(duration, animations: {
+            self.alpha = 0.0
+        })
+    }
+    
 }
 
 public extension UIImageView {
