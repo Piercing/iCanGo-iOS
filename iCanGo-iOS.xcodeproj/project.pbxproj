@@ -14,8 +14,8 @@
 		527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87091D2B09F000D0E1EC /* ServicesViewController.swift */; };
 		527F870F1D2B28BC00D0E1EC /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F870D1D2B28BC00D0E1EC /* LocationViewController.swift */; };
 		527F87101D2B28BC00D0E1EC /* LocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F870E1D2B28BC00D0E1EC /* LocationView.xib */; };
-		527F87131D2B297B00D0E1EC /* HighServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87111D2B297B00D0E1EC /* HighServiceViewController.swift */; };
-		527F87141D2B297B00D0E1EC /* HighServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87121D2B297B00D0E1EC /* HighServiceView.xib */; };
+		527F87131D2B297B00D0E1EC /* AddServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87111D2B297B00D0E1EC /* AddServiceViewController.swift */; };
+		527F87141D2B297B00D0E1EC /* AddServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87121D2B297B00D0E1EC /* AddServiceView.xib */; };
 		527F87171D2B29A200D0E1EC /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87151D2B29A200D0E1EC /* NotificationsViewController.swift */; };
 		527F87181D2B29A200D0E1EC /* NotificationsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F87161D2B29A200D0E1EC /* NotificationsView.xib */; };
 		527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */; };
@@ -28,6 +28,8 @@
 		52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */; };
 		52D37E0D1D2EDB63009F2FC3 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */; };
 		52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DD0E0D1D18655200A2E55E /* Main.storyboard */; };
+		52DFD0A61D37ED6A000C4FE4 /* UserRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DFD0A41D37ED6A000C4FE4 /* UserRegisterViewController.swift */; };
+		52DFD0A71D37ED6A000C4FE4 /* UserRegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52DFD0A51D37ED6A000C4FE4 /* UserRegisterView.xib */; };
 		52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */; };
 		52EF05CD1D2E4D82001B0FE4 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */; };
 		52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F367AA1D28FBFF0064583C /* LoginView.xib */; };
@@ -76,8 +78,8 @@
 		527F87091D2B09F000D0E1EC /* ServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
 		527F870D1D2B28BC00D0E1EC /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		527F870E1D2B28BC00D0E1EC /* LocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationView.xib; sourceTree = "<group>"; };
-		527F87111D2B297B00D0E1EC /* HighServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighServiceViewController.swift; sourceTree = "<group>"; };
-		527F87121D2B297B00D0E1EC /* HighServiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighServiceView.xib; sourceTree = "<group>"; };
+		527F87111D2B297B00D0E1EC /* AddServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServiceViewController.swift; sourceTree = "<group>"; };
+		527F87121D2B297B00D0E1EC /* AddServiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddServiceView.xib; sourceTree = "<group>"; };
 		527F87151D2B29A200D0E1EC /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		527F87161D2B29A200D0E1EC /* NotificationsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationsView.xib; sourceTree = "<group>"; };
 		527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,8 @@
 		52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
 		52DD0E0D1D18655200A2E55E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		52DFD0A41D37ED6A000C4FE4 /* UserRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterViewController.swift; sourceTree = "<group>"; };
+		52DFD0A51D37ED6A000C4FE4 /* UserRegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserRegisterView.xib; sourceTree = "<group>"; };
 		52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		52F367AA1D28FBFF0064583C /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
@@ -158,14 +162,16 @@
 		52D37E0B1D2ED537009F2FC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				527F87121D2B297B00D0E1EC /* AddServiceView.xib */,
 				5282521E1D359BB30041A992 /* DetailService.xib */,
-				527F87121D2B297B00D0E1EC /* HighServiceView.xib */,
 				527F870E1D2B28BC00D0E1EC /* LocationView.xib */,
 				52F367AA1D28FBFF0064583C /* LoginView.xib */,
 				527F871A1D2B29C500D0E1EC /* MyProfileView.xib */,
 				527F87161D2B29A200D0E1EC /* NotificationsView.xib */,
 				5295D2511D3462A9009F93E7 /* RegisterView.xib */,
+				52DFD0A51D37ED6A000C4FE4 /* UserRegisterView.xib */,
 				79CA66DC1D3703FB00C67E67 /* ServicesView.xib */,
+
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -242,8 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				5256B1281D3312310049ED9A /* Cells */,
+				527F87111D2B297B00D0E1EC /* AddServiceViewController.swift */,
 				5282521D1D359BB30041A992 /* DetailServiceViewController.swift */,
-				527F87111D2B297B00D0E1EC /* HighServiceViewController.swift */,
 				527F870D1D2B28BC00D0E1EC /* LocationViewController.swift */,
 				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
 				527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */,
@@ -251,6 +257,7 @@
 				5295D2501D3462A9009F93E7 /* RegisterViewController.swift */,
 				527F87091D2B09F000D0E1EC /* ServicesViewController.swift */,
 				5272E17E1D2C17E3007211E4 /* StartUpController.swift */,
+				52DFD0A41D37ED6A000C4FE4 /* UserRegisterViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -446,7 +453,7 @@
 			files = (
 				79F4183F1D043B56002131C7 /* .gitignore in Resources */,
 				79F4184A1D043E3D002131C7 /* PodFile in Resources */,
-				527F87141D2B297B00D0E1EC /* HighServiceView.xib in Resources */,
+				527F87141D2B297B00D0E1EC /* AddServiceView.xib in Resources */,
 				52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */,
 				528252201D359BB30041A992 /* DetailService.xib in Resources */,
 				79F418231D043B36002131C7 /* Assets.xcassets in Resources */,
@@ -458,6 +465,7 @@
 				527F871C1D2B29C500D0E1EC /* MyProfileView.xib in Resources */,
 				5295D2531D3462A9009F93E7 /* RegisterView.xib in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
+				52DFD0A71D37ED6A000C4FE4 /* UserRegisterView.xib in Resources */,
 				52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */,
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
 				79F418401D043B56002131C7 /* README.md in Resources */,
@@ -540,10 +548,11 @@
 				52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */,
 				527F870F1D2B28BC00D0E1EC /* LocationViewController.swift in Sources */,
 				5295D2521D3462A9009F93E7 /* RegisterViewController.swift in Sources */,
-				527F87131D2B297B00D0E1EC /* HighServiceViewController.swift in Sources */,
+				527F87131D2B297B00D0E1EC /* AddServiceViewController.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
 				D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */,
 				52EF05CD1D2E4D82001B0FE4 /* Appearance.swift in Sources */,
+				52DFD0A61D37ED6A000C4FE4 /* UserRegisterViewController.swift in Sources */,
 				527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */,
 				D375F2AD1D34150F00EE6A57 /* ServiceImage.swift in Sources */,
 				D37631021D06D3090001E29F /* Constants.swift in Sources */,

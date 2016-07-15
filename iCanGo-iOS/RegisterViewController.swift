@@ -18,7 +18,6 @@ class RegisterViewController: UIViewController {
     
     let titleView = "Register"
     
-    
     // MARK: - Init
     
     convenience init() {
