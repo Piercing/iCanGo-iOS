@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
+    @IBOutlet weak var iCanGoLogIn: UIImageView!
     @IBOutlet weak var txtFieldUser: UITextField!
     @IBOutlet weak var txtFieldPassw: UITextField!
     @IBOutlet weak var btnInitSession: UIButton!
@@ -48,6 +49,7 @@ class LoginViewController: UIViewController {
         txtFieldUser.layer.cornerRadius = 5
         txtFieldPassw.layer.cornerRadius = 5
         btnInitSession.layer.cornerRadius = 5
+        iCanGoLogIn.layer.cornerRadius = 5
     }
     
     override func didReceiveMemoryWarning() {
