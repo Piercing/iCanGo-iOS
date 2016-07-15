@@ -64,12 +64,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="iGe-Wj-Grq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="1dw-lg-e9y"/>
-                <constraint firstItem="iGe-Wj-Grq" firstAttribute="centerY" secondItem="CJj-sb-ari" secondAttribute="centerY" id="5YK-vs-dFb"/>
+                <constraint firstItem="iGe-Wj-Grq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="67d-ee-GTx"/>
                 <constraint firstItem="QBa-ZM-X5c" firstAttribute="trailing" secondItem="7Ci-nc-71p" secondAttribute="trailing" id="7O0-RE-J2g"/>
                 <constraint firstItem="CJj-sb-ari" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Um-us-MQe"/>
                 <constraint firstItem="7Ci-nc-71p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CwT-cY-X96"/>
                 <constraint firstAttribute="trailing" secondItem="7Ci-nc-71p" secondAttribute="trailing" id="D35-XG-SUQ"/>
+                <constraint firstItem="iGe-Wj-Grq" firstAttribute="centerY" secondItem="CJj-sb-ari" secondAttribute="centerY" id="Du2-pY-PUp"/>
                 <constraint firstAttribute="bottom" secondItem="QBa-ZM-X5c" secondAttribute="bottom" id="FKh-am-VyO"/>
                 <constraint firstItem="QBa-ZM-X5c" firstAttribute="top" secondItem="CJj-sb-ari" secondAttribute="bottom" id="JVw-eA-oUt"/>
                 <constraint firstItem="7Ci-nc-71p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="MN4-Op-Joy"/>

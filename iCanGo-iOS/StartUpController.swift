@@ -126,7 +126,6 @@ extension StartUpController: ComunicationLoginControllerDelegate {
         //print("volviendo del tabitem con index: \(index)");
         self.selectedIndex = index
         self.selectedViewController = self.viewControllers![index] as UIViewController
-        
     } 
 }
 
