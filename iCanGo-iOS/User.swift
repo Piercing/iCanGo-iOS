@@ -28,7 +28,7 @@ struct User {
     let lastName: String
     let photoURL: NSURL?
     let searchPreferences: String?
-    let status: Int?
+    let status: UInt?
     let deleted: Bool
     let numPublishedServices: UInt
     let numAttendedServices: UInt
@@ -43,7 +43,7 @@ extension User: JSONDecodable {
                email = dictionary[JSONKeysUser.email.rawValue] as? String,
            firstName = dictionary[JSONKeysUser.firstName.rawValue] as? String,
             lastName = dictionary[JSONKeysUser.lastName.rawValue] as? String,
-              status = dictionary[JSONKeysUser.status.rawValue] as? Int,
+              status = dictionary[JSONKeysUser.status.rawValue] as? UInt,
              deleted = dictionary[JSONKeysUser.deleted.rawValue] as? Bool,
         numPublishedServices = dictionary[JSONKeysUser.numPublishedServices.rawValue] as? UInt,
          numAttendedServices = dictionary[JSONKeysUser.numAttendedServices.rawValue] as? UInt else {
@@ -54,8 +54,7 @@ extension User: JSONDecodable {
         if let imageURLString = dictionary[JSONKeysUser.photoURL.rawValue] as? String,
                      imageURL = NSURL(string: imageURLString) {
             self.photoURL = imageURL
-        }
-        else {
+        } else {
             self.photoURL = nil
         }
 
@@ -73,31 +72,31 @@ extension User: JSONDecodable {
 
 func < (lhs: User, rhs: User) -> Bool {
     return lhs.lastName.localizedStandardCompare(rhs.lastName) == .OrderedAscending
-    
 }
 
 class UserPersisted: NSObject, NSCoding {
+    
     var id: String?
     var email: String?
     var firstName: String?
     var lastName: String?
     var photoURL: NSURL?
     var searchPreferences: String?
-    var status: Int?
+    var status: UInt?
     var deleted: Bool?
     var numPublishedServices: UInt?
     var numAttendedServices: UInt?
 
-    init(id: String?,
-        email: String?,
-        firstName: String?,
-        lastName: String?,
+    init(id: String,
+        email: String,
+        firstName: String,
+        lastName: String,
         photoURL: NSURL?,
         searchPreferences: String?,
-        status: Int?,
-        deleted: Bool?,
-        numPublishedServices: UInt?,
-        numAttendedServices: UInt?) {
+        status: UInt?,
+        deleted: Bool,
+        numPublishedServices: UInt,
+        numAttendedServices: UInt) {
         
         self.id = id
         self.email = email
@@ -112,6 +111,7 @@ class UserPersisted: NSObject, NSCoding {
     }
     
     required init(coder aDecoder: NSCoder) {
+
         if let id = aDecoder.decodeObjectForKey(JSONKeysUser.id.rawValue) as? String {
             self.id = id
         }
@@ -130,7 +130,7 @@ class UserPersisted: NSObject, NSCoding {
         if let searchPreferences = aDecoder.decodeObjectForKey(JSONKeysUser.searchPreferences.rawValue) as? String {
             self.searchPreferences = searchPreferences
         }
-        if let status = aDecoder.decodeObjectForKey(JSONKeysUser.status.rawValue) as? Int {
+        if let status = aDecoder.decodeObjectForKey(JSONKeysUser.status.rawValue) as? UInt {
             self.status = status
         }
         if let deleted = aDecoder.decodeObjectForKey(JSONKeysUser.deleted.rawValue) as? Bool {
@@ -145,6 +145,7 @@ class UserPersisted: NSObject, NSCoding {
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
+
         if let id = self.id {
             aCoder.encodeObject(id, forKey: JSONKeysUser.id.rawValue)
         }
@@ -180,28 +181,28 @@ class UserPersisted: NSObject, NSCoding {
 
 func copyUser(user: User) -> UserPersisted {
     return UserPersisted(id: user.id,
-                         email: user.email,
-                         firstName: user.firstName,
-                         lastName: user.lastName,
-                         photoURL: user.photoURL,
-                         searchPreferences: user.searchPreferences,
-                         status: user.status,
-                         deleted: user.deleted,
-                         numPublishedServices: user.numPublishedServices,
-                         numAttendedServices: user.numAttendedServices)
+                      email: user.email,
+                  firstName: user.firstName,
+                   lastName: user.lastName,
+                   photoURL: user.photoURL,
+          searchPreferences: user.searchPreferences,
+                     status: user.status,
+                    deleted: user.deleted,
+       numPublishedServices: user.numPublishedServices,
+        numAttendedServices: user.numAttendedServices)
 }
 
 func copyUser(user: UserPersisted) -> User {
-    return User(id: user.id!,
-                email: user.email!,
-                firstName: user.firstName!,
-                lastName: user.lastName!,
-                photoURL: user.photoURL,
-                searchPreferences: user.searchPreferences,
-                status: user.status!,
-                deleted: user.deleted!,
-                numPublishedServices: user.numPublishedServices!,
-                numAttendedServices: user.numAttendedServices!)
+             return User(id: user.id!,
+                      email: user.email!,
+                  firstName: user.firstName!,
+                   lastName: user.lastName!,
+                   photoURL: user.photoURL,
+          searchPreferences: user.searchPreferences,
+                     status: user.status,
+                    deleted: user.deleted!,
+       numPublishedServices: user.numPublishedServices!,
+        numAttendedServices: user.numAttendedServices!)
 }
 
 
