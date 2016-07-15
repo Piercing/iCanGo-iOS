@@ -169,12 +169,9 @@
 				527F871A1D2B29C500D0E1EC /* MyProfileView.xib */,
 				527F87161D2B29A200D0E1EC /* NotificationsView.xib */,
 				5295D2511D3462A9009F93E7 /* RegisterView.xib */,
-<<<<<<< HEAD
-				527F870A1D2B09F000D0E1EC /* ServicesView.xib */,
 				52DFD0A51D37ED6A000C4FE4 /* UserRegisterView.xib */,
-=======
 				79CA66DC1D3703FB00C67E67 /* ServicesView.xib */,
->>>>>>> 28a6ffeb55c4fe77dba7f2fc43eba109d0fbcae9
+
 			);
 			name = Views;
 			sourceTree = "<group>";
