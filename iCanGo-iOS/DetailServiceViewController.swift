@@ -12,6 +12,7 @@ class DetailServiceViewController: UIViewController {
     
     // MARK: - Properties
     
+    @IBOutlet weak var nameServiceDetailService: UILabel!
     @IBOutlet weak var contactPersonDetailServiceBtn: UIButton!
     @IBOutlet weak var clearServiceDetailBtn: UIButton!
     @IBOutlet weak var nameUserDetailService: UILabel!
@@ -58,6 +59,22 @@ class DetailServiceViewController: UIViewController {
         print("Tapped btn delete Detail Service")
     }
     @IBAction func btnSharedDetatilService(sender: AnyObject) {
+        
+        let nameServiceToShare = nameServiceDetailService.text
+        let textToshare = descriptionDetatilService.text
+        let priceToShare = priceDetailService.text
+        let nameUserToShare = nameUserDetailService.text
+        //let locationToSahre
+        
+        let objetsToShare = [nameServiceToShare, textToshare, priceToShare, nameUserToShare]
+        let activityVC = UIActivityViewController(activityItems: objetsToShare, applicationActivities: nil)
+        
+        activityVC.excludedActivityTypes = [UIActivityTypeAddToReadingList]
+        
+        activityVC.popoverPresentationController?.sourceView = sender as? UIView
+        self.presentViewController(activityVC, animated: true, completion: nil)
+        
+        
         print("Tapped btn shared Detail Service")
     }
     @IBAction func btnBackDetailService(sender: AnyObject) {
@@ -68,3 +85,18 @@ class DetailServiceViewController: UIViewController {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
