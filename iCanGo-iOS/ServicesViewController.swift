@@ -42,7 +42,7 @@ class ServicesViewController: UIViewController {
         
         setupUIAllServices()
         // do api call
-        loadDataFromApi("", page: self.currentPage)
+        loadDataFromApi(searchBar.text!, page: self.currentPage)
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,7 +80,8 @@ class ServicesViewController: UIViewController {
     // MARK: Api call
     func loadDataFromApi(stringToFind: String, page: UInt) -> Void {
         
-        //AOS loginInProgress = actionStarted(activityIndicatorView)
+        self.servicesCollectionView.fadeIn(duration: 0.3)
+
         let session = Session.iCanGoSession()
         // TODO: Parameter Rows pendin
         let _ = session.getServices(page, rows: rowsPerPage)
@@ -92,7 +93,7 @@ class ServicesViewController: UIViewController {
                 case let .Next(services):
                     self?.services?.appendContentsOf(services)
                     self?.servicesCollectionView.reloadData()
-                    self?.servicesCollectionView.fadeIn(duration: 0.3)
+                    //self?.servicesCollectionView.fadeIn(duration: 0.3)
                     self?.currentPage += 1
                     break
                 case .Error (let error):
@@ -132,7 +133,7 @@ extension ServicesViewController: UISearchBarDelegate {
         servicesCollectionView.fadeIn(duration: 0.3)
         searchBar.showsCancelButton = false
         if (searchBar.text == "") {
-            //loadDataFromApi("")
+            //loadDataFromApi(searchBar.text!)
         }
         return true
     }
@@ -207,8 +208,12 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
 
+        if totalRows == self.services?.count {
+            return
+        }
+        
         if indexPath.row == (self.services?.count)! - 2 {
-            loadDataFromApi("", page: self.currentPage)
+            loadDataFromApi(searchBar.text!, page: self.currentPage)
         }
     }
 }

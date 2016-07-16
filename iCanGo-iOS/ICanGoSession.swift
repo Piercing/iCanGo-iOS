@@ -248,6 +248,7 @@ extension Session {
                 throw SessionError.CouldNotDecodeJSON
         }
         
+        totalRows = response.totalRows.hashValue
         return services
     }
     
