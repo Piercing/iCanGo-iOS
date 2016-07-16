@@ -157,7 +157,7 @@ extension APIRequest: Resource {
                      status: status):
              return ["name": name,
               "description": description,
-                    "price": String.priceToString(price),
+                    "price": price.ToString(),
                      "tags": tags != nil ? String.stringsToString(tags!) : "",
             "idUserRequest": idUserRequest,
                  "latitude": latitude != nil ? String(format:"%f", latitude!) : "",
@@ -182,7 +182,7 @@ extension APIRequest: Resource {
                      status: status):
              return ["name": name,
               "description": description,
-                    "price": String.priceToString(price),
+                    "price": price.ToString(),
                      "tags": tags != nil ? String.stringsToString(tags!) : "",
             "idUserRequest": idUserRequest,
                  "latitude": latitude != nil ? String(format:"%f", latitude!) : "",

@@ -19,7 +19,7 @@ class MyProfileCell: UICollectionViewCell {
         didSet {
             if let myProfile = myProfile {
                 //imageServiceMyProfileCell.image = myProfile.image
-                labelPriceMyProfileCell.text = String.priceToString(myProfile.price)
+                labelPriceMyProfileCell.text = myProfile.price.ToString()
                 labelDescriptionMyProfileCell.text = myProfile.description
             }
         }

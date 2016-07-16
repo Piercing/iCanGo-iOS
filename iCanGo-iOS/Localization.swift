@@ -18,12 +18,3 @@ let noConnectionMessage = "An Internet connection is needed to log in"
 // MARK: Time zone.
 let timeZoneApp = String("GMT")
 
-
-// MARK: Extensions.
-extension String {
-    
-    static func priceToString(price: Double) -> String {
-
-        return String(format:"%f", price)
-    }
-}
