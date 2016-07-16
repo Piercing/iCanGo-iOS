@@ -39,6 +39,8 @@ class LoginViewController: UIViewController {
         activityIndicatorView.hidden = true
         loginInProgress = false
         
+        btnInitSession.enabled = false
+        
         Appearance.setupUI(self.view, title: self.titleView)
     }
     
@@ -63,9 +65,16 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Actions
+    @IBAction func doLogin(sender: AnyObject) {
+        validateForm()
+        login()
+    }
     
-    @IBAction func btnInitSS(sender: AnyObject) {
-        
+    func validateForm() -> Void {
+        btnInitSession.enabled = txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress
+    }
+    
+    func login() -> Void {
         // Check info of login fields.
         if (txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress) {
             
@@ -111,30 +120,6 @@ class LoginViewController: UIViewController {
     
     // MARK: Methods
     
-    
-    // MARK: - Private Methods
-    
-    //    private func pushViewController() {
-    //        
-    //        let servicesViewController = ServicesViewController()
-    //        self.presentViewController(servicesViewController, animated: true, completion: nil)
-    //    }
-    
-//    private func loginInProgressRequest() {
-//        
-//        loginInProgress = true
-//        activityIndicatorView.hidden = false
-//        activityIndicatorView.startAnimating()
-//        self.view.endEditing(true)
-//    }
-//    
-//    private func loginSuccess() {
-//        
-//        loginInProgress = false
-//        activityIndicatorView.stopAnimating()
-//        activityIndicatorView.hidden = true
-//    }
-//    
     private func loginNoSuccess(error: SessionError?) {
         
         var titleError = loginKoTitle
@@ -165,7 +150,26 @@ extension LoginViewController: UITextFieldDelegate{
         self.view.endEditing(true)
         return true
     }
+
+    func textFieldDidBeginEditing(textField: UITextField) {
+       btnInitSession.enabled = txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress
+    }
+
+    func textFieldDidEndEditing(textField: UITextField) {
+        btnInitSession.enabled = txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        btnInitSession.enabled = txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress
+        return true
+    }
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        btnInitSession.enabled = txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress
+        return true
+    }
 }
+
 
 
 
