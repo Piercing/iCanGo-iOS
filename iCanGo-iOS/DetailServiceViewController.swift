@@ -22,6 +22,12 @@ class DetailServiceViewController: UIViewController {
     @IBOutlet weak var priceDetailService: UILabel!
     @IBOutlet weak var descriptionDetatilService: UITextView!
     
+    @IBOutlet weak var imgDetailService01: CircularImageView!
+    @IBOutlet weak var imgDetailService02: UIImageView!
+    @IBOutlet weak var imgDetailService03: UIImageView!
+    @IBOutlet weak var imgDetailService04: CircularImageView!
+    
+    
     let titleView = "Detail Services"
     
     // MARK: - Init
@@ -34,6 +40,12 @@ class DetailServiceViewController: UIViewController {
         
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
+        
+        Appearance.addDidLayoutSubviewsFourImages(
+            imgDetailService01,
+            img2: imgDetailService02,
+            img3: imgDetailService03,
+            img4: imgDetailService04)
     }
     
     override func viewDidLayoutSubviews(){
@@ -44,7 +56,7 @@ class DetailServiceViewController: UIViewController {
     }
     
     // MARK: Methods
-
+    
     
     // MARK: - Actions
     
