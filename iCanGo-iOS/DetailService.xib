@@ -14,6 +14,10 @@
                 <outlet property="contactPersonDetailServiceBtn" destination="eic-No-jR6" id="pfI-6h-nZq"/>
                 <outlet property="dataDetailService" destination="SdG-et-pb7" id="N35-tn-z9n"/>
                 <outlet property="descriptionDetatilService" destination="gbc-Un-SqS" id="PaN-hN-Jaf"/>
+                <outlet property="imgDetailService01" destination="nNe-gg-iNq" id="wew-Mx-43x"/>
+                <outlet property="imgDetailService02" destination="hGb-fk-d9j" id="wJZ-fS-WfZ"/>
+                <outlet property="imgDetailService03" destination="ysE-4D-CYb" id="Whz-SR-pqZ"/>
+                <outlet property="imgDetailService04" destination="MQJ-8V-Gz7" id="gnd-O7-PVM"/>
                 <outlet property="nameServiceDetailService" destination="8UP-YW-miG" id="uTu-Zw-2NV"/>
                 <outlet property="nameUserDetailService" destination="Qg4-tt-y17" id="DWw-dU-FKD"/>
                 <outlet property="priceDetailService" destination="vqK-Jh-JPe" id="yOI-tx-iIw"/>
@@ -49,7 +53,7 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="content-avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="QcX-g6-mJR" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chica4" translatesAutoresizingMaskIntoConstraints="NO" id="QcX-g6-mJR" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
                     <rect key="frame" x="8" y="223" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="Jy2-rv-CNZ"/>
@@ -162,41 +166,62 @@
                     <color key="textColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CKg-Te-4LD">
-                    <rect key="frame" x="8" y="75" width="584" height="140"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3eC-hE-MMg">
+                    <rect key="frame" x="8" y="100" width="364" height="85"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena" translatesAutoresizingMaskIntoConstraints="NO" id="nNe-gg-iNq">
-                            <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="nNe-gg-iNq" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                            <gestureRecognizers/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="140" id="pMs-WY-eJ4"/>
+                                <constraint firstAttribute="height" constant="85" id="lF3-gz-CLz"/>
+                                <constraint firstAttribute="width" constant="85" id="pzp-e8-4We"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="XY1-F3-eNl" appends="YES" id="1Hr-hN-3sm"/>
+                            </connections>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-fk-d9j">
-                            <rect key="frame" x="148" y="0.0" width="140" height="140"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-fk-d9j">
+                            <rect key="frame" x="93" y="0.0" width="85" height="85"/>
+                            <gestureRecognizers/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="140" id="WYY-cJ-IR4"/>
+                                <constraint firstAttribute="width" constant="85" id="YQN-bW-dSQ"/>
+                                <constraint firstAttribute="height" constant="85" id="kga-D3-HB3"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="fjE-9F-meR" appends="YES" id="mL9-Lf-vYJ"/>
+                            </connections>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ysE-4D-CYb">
-                            <rect key="frame" x="296" y="0.0" width="140" height="140"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ysE-4D-CYb">
+                            <rect key="frame" x="186" y="0.0" width="85" height="85"/>
+                            <gestureRecognizers/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="140" id="r0q-9K-weg"/>
+                                <constraint firstAttribute="width" constant="85" id="VRG-Ys-cvK"/>
+                                <constraint firstAttribute="height" constant="85" id="cCI-r6-CZX"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="8gc-Jn-VSI" appends="YES" id="HOT-Pl-y1Y"/>
+                            </connections>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7">
-                            <rect key="frame" x="444" y="0.0" width="140" height="140"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
+                            <rect key="frame" x="279" y="0.0" width="85" height="85"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="85" id="4x8-ej-5nc"/>
+                                <constraint firstAttribute="width" constant="85" id="lvI-h4-4qn"/>
+                            </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="rye-iU-eYF" appends="YES" id="453-QX-Cqd"/>
+                            </connections>
                         </imageView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="140" id="GLy-QB-Dcq"/>
-                        <constraint firstAttribute="width" constant="584" id="mvd-cG-az7"/>
+                        <constraint firstAttribute="width" constant="364" id="Dg1-IT-fWz"/>
                     </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="5oX-0I-Ek3" firstAttribute="top" secondItem="K8o-mg-09H" secondAttribute="bottom" constant="16" id="0Ds-1F-d9Q"/>
-                <constraint firstItem="8UP-YW-miG" firstAttribute="top" secondItem="vqK-Jh-JPe" secondAttribute="bottom" constant="8" symbolic="YES" id="2Ao-6q-5ac"/>
                 <constraint firstItem="eic-No-jR6" firstAttribute="leading" secondItem="vqK-Jh-JPe" secondAttribute="trailing" constant="5" id="2Nt-IG-ZhN"/>
                 <constraint firstItem="8UP-YW-miG" firstAttribute="leading" secondItem="K8o-mg-09H" secondAttribute="leading" id="3G1-bq-6Z7"/>
                 <constraint firstItem="Qg4-tt-y17" firstAttribute="leading" secondItem="QcX-g6-mJR" secondAttribute="trailing" constant="8" id="4kb-rO-I4A"/>
@@ -209,6 +234,8 @@
                 <constraint firstItem="8UP-YW-miG" firstAttribute="trailing" secondItem="K8o-mg-09H" secondAttribute="trailing" constant="-1" id="KzA-EZ-Ffj"/>
                 <constraint firstItem="jig-mb-0gN" firstAttribute="firstBaseline" secondItem="Qg4-tt-y17" secondAttribute="firstBaseline" constant="-3" id="PGt-q4-r8r"/>
                 <constraint firstItem="jig-mb-0gN" firstAttribute="top" secondItem="v1I-dh-9gY" secondAttribute="top" id="Phq-dH-drt"/>
+                <constraint firstItem="3eC-hE-MMg" firstAttribute="top" secondItem="7Xa-cg-UVm" secondAttribute="bottom" constant="36" id="QZd-dv-sDH"/>
+                <constraint firstItem="8UP-YW-miG" firstAttribute="top" secondItem="vqK-Jh-JPe" secondAttribute="bottom" constant="8" symbolic="YES" id="Qn6-lZ-Ooz"/>
                 <constraint firstItem="v1I-dh-9gY" firstAttribute="baseline" secondItem="H1G-9B-l4U" secondAttribute="baseline" constant="-18" id="SAg-JX-Lgn"/>
                 <constraint firstItem="gbc-Un-SqS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Sxd-In-9YN"/>
                 <constraint firstItem="gbc-Un-SqS" firstAttribute="top" secondItem="8UP-YW-miG" secondAttribute="bottom" id="TK4-lV-fCu"/>
@@ -217,7 +244,8 @@
                 <constraint firstItem="K8o-mg-09H" firstAttribute="top" secondItem="gbc-Un-SqS" secondAttribute="bottom" constant="6" id="U3e-QY-y5G"/>
                 <constraint firstItem="H1G-9B-l4U" firstAttribute="leading" secondItem="v1I-dh-9gY" secondAttribute="trailing" constant="-101" id="Wzt-C2-bTi"/>
                 <constraint firstItem="7Xa-cg-UVm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="X66-e0-lrk"/>
-                <constraint firstItem="QcX-g6-mJR" firstAttribute="top" secondItem="CKg-Te-4LD" secondAttribute="bottom" constant="8" id="bFj-Kp-kNZ"/>
+                <constraint firstItem="3eC-hE-MMg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="aQE-W9-bpw"/>
+                <constraint firstItem="QcX-g6-mJR" firstAttribute="top" secondItem="3eC-hE-MMg" secondAttribute="bottom" constant="38" id="bjA-8v-jU9"/>
                 <constraint firstAttribute="trailing" secondItem="K8o-mg-09H" secondAttribute="trailing" constant="7" id="bpY-Y7-Khl"/>
                 <constraint firstItem="PZu-tI-LVY" firstAttribute="trailing" secondItem="eic-No-jR6" secondAttribute="trailing" constant="-1" id="d2m-xB-edK"/>
                 <constraint firstItem="7Xa-cg-UVm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="d3l-F8-Hvg"/>
@@ -226,9 +254,7 @@
                 <constraint firstItem="vqK-Jh-JPe" firstAttribute="top" secondItem="v1I-dh-9gY" secondAttribute="bottom" constant="25" id="gQX-Ca-1xI"/>
                 <constraint firstAttribute="trailing" secondItem="eic-No-jR6" secondAttribute="trailing" constant="7" id="h00-Jb-8JI"/>
                 <constraint firstItem="jig-mb-0gN" firstAttribute="firstBaseline" secondItem="Qg4-tt-y17" secondAttribute="baseline" priority="750" constant="-3" id="hHy-f1-DN7"/>
-                <constraint firstItem="CKg-Te-4LD" firstAttribute="top" secondItem="7Xa-cg-UVm" secondAttribute="bottom" constant="11" id="jZq-G3-MCD"/>
                 <constraint firstItem="v1I-dh-9gY" firstAttribute="firstBaseline" secondItem="PZu-tI-LVY" secondAttribute="firstBaseline" constant="-18" id="kWP-Ja-nr2"/>
-                <constraint firstItem="CKg-Te-4LD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="l4a-dV-s4N"/>
                 <constraint firstItem="8UP-YW-miG" firstAttribute="trailing" secondItem="gbc-Un-SqS" secondAttribute="trailing" id="lct-d0-Cqk"/>
                 <constraint firstItem="H1G-9B-l4U" firstAttribute="firstBaseline" secondItem="Qg4-tt-y17" secondAttribute="baseline" constant="15" id="ljm-k0-ILq"/>
                 <constraint firstItem="PZu-tI-LVY" firstAttribute="centerX" secondItem="eic-No-jR6" secondAttribute="centerX" constant="-0.5" id="mq9-MS-YK4"/>
@@ -239,16 +265,21 @@
                 <constraint firstItem="5oX-0I-Ek3" firstAttribute="trailing" secondItem="K8o-mg-09H" secondAttribute="trailing" constant="-1" id="rQn-1E-nPK"/>
                 <constraint firstItem="v1I-dh-9gY" firstAttribute="leading" secondItem="jig-mb-0gN" secondAttribute="trailing" id="tc3-D2-q2x"/>
                 <constraint firstItem="8UP-YW-miG" firstAttribute="leading" secondItem="QcX-g6-mJR" secondAttribute="leading" id="ued-HQ-ePW"/>
-                <constraint firstAttribute="trailing" secondItem="CKg-Te-4LD" secondAttribute="trailing" constant="8" id="yEM-4v-Opa"/>
                 <constraint firstItem="eic-No-jR6" firstAttribute="top" secondItem="PZu-tI-LVY" secondAttribute="bottom" constant="1" id="yxA-Al-8ba"/>
             </constraints>
             <point key="canvasLocation" x="477" y="341"/>
         </view>
+        <tapGestureRecognizer id="XY1-F3-eNl"/>
+        <tapGestureRecognizer id="fjE-9F-meR"/>
+        <tapGestureRecognizer id="8gc-Jn-VSI"/>
+        <tapGestureRecognizer id="rye-iU-eYF"/>
     </objects>
     <resources>
         <image name=" Back" width="58" height="22"/>
-        <image name="cena" width="375" height="231"/>
-        <image name="content-avatar-default" width="20" height="20"/>
+        <image name="camera" width="200" height="200"/>
+        <image name="cena01" width="85" height="85"/>
+        <image name="cena02" width="85" height="85"/>
+        <image name="chica4" width="75" height="76"/>
         <image name="conversation03" width="933" height="930"/>
     </resources>
 </document>
