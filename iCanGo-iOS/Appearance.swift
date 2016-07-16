@@ -56,6 +56,13 @@ class Appearance: UIView {
         btn4.layer.cornerRadius = 5
     }
     
+    internal static func addDidLayoutSubviewsFourImages(img1: UIImageView, img2: UIImageView, img3: UIImageView, img4: UIImageView){
+        img1.layer.cornerRadius = 5
+        img2.layer.cornerRadius = 5
+        img3.layer.cornerRadius = 5
+        img4.layer.cornerRadius = 5
+    }
+    
     internal static func setupCellUI (cell: UICollectionViewCell) {
         cell.contentView.layer.borderWidth = 1.0
         cell.contentView.layer.borderColor = UIColor.clearColor().CGColor
