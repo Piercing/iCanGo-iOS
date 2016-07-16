@@ -66,12 +66,7 @@ class LoginViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func doLogin(sender: AnyObject) {
-        validateForm()
         login()
-    }
-    
-    func validateForm() -> Void {
-        btnInitSession.enabled = txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress
     }
     
     func login() -> Void {
@@ -165,6 +160,11 @@ extension LoginViewController: UITextFieldDelegate{
     }
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        btnInitSession.enabled = txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress
+        return true
+    }
+    
+    func textFieldShouldClear(textField: UITextField) -> Bool {
         btnInitSession.enabled = txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress
         return true
     }
