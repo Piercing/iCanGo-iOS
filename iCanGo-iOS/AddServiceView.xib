@@ -175,7 +175,7 @@
                         </imageView>
                     </subviews>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="194-OF-QZr" userLabel="btn Twitter">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="194-OF-QZr" userLabel="btn Twitter" customClass="CircularImageButton" customModule="iCanGo_iOS" customModuleProvider="target">
                     <rect key="frame" x="172" y="451" width="30" height="26"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -188,7 +188,7 @@
                         <action selector="twitterHighServiceAction:" destination="-1" eventType="touchUpInside" id="YMa-8P-I8a"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7s-Yp-nf0" userLabel="btn Google+">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7s-Yp-nf0" userLabel="btn Google+" customClass="CircularImageButton" customModule="iCanGo_iOS" customModuleProvider="target">
                     <rect key="frame" x="248" y="451" width="30" height="26"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -201,7 +201,7 @@
                         <action selector="googlePlusHighServiceAction:" destination="-1" eventType="touchUpInside" id="AP0-gD-8fU"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLv-x6-uMI" userLabel="btn Facebook">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLv-x6-uMI" userLabel="btn Facebook" customClass="CircularImageButton" customModule="iCanGo_iOS" customModuleProvider="target">
                     <rect key="frame" x="210" y="451" width="30" height="26"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -223,7 +223,7 @@
                     <color key="textColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QbG-75-wPh" userLabel="btn Google+">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QbG-75-wPh" userLabel="btn Google+" customClass="CircularImageButton" customModule="iCanGo_iOS" customModuleProvider="target">
                     <rect key="frame" x="286" y="451" width="30" height="26"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
