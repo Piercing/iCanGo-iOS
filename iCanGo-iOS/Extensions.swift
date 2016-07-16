@@ -26,8 +26,11 @@ extension UIView {
 
 extension Double {
     
-    func ToString() -> String {
-        return String(format:"%f", self)
+    var asLocaleCurrency:String {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.locale = NSLocale.currentLocale()
+        return formatter.stringFromNumber(self)!
     }
     
 }
