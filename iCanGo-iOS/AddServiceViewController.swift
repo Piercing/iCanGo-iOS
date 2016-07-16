@@ -56,7 +56,7 @@ class AddServiceViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func addService(sender: AnyObject) {
+    @IBAction func saveService(sender: AnyObject) {
         print("Tapped buttom add service")
     }
     @IBAction func cancelHighService(sender: AnyObject) {

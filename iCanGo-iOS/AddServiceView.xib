@@ -37,16 +37,16 @@
                     </textAttributes>
                     <items>
                         <navigationItem title="Add service" id="dyI-Fu-1Bm">
-                            <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XvB-Mr-zDd">
+                            <barButtonItem key="leftBarButtonItem" systemItem="save" id="XvB-Mr-zDd">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="cancelHighService:" destination="-1" id="EiE-UR-6nt"/>
+                                    <action selector="saveService:" destination="-1" id="vo0-PI-Lgu"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" systemItem="add" id="CvO-cI-WM1">
+                            <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="CvO-cI-WM1">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="addService:" destination="-1" id="P4J-kH-uGN"/>
+                                    <action selector="cancelHighService:" destination="-1" id="meQ-Oq-lA5"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>
@@ -201,19 +201,6 @@
                         <action selector="googlePlusHighServiceAction:" destination="-1" eventType="touchUpInside" id="AP0-gD-8fU"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLv-x6-uMI" userLabel="btn Facebook" customClass="CircularImageButton" customModule="iCanGo_iOS" customModuleProvider="target">
-                    <rect key="frame" x="210" y="451" width="30" height="26"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="0l2-mw-eBQ"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="facebook-icon">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="facebookHighServiceAction:" destination="-1" eventType="touchUpInside" id="Pgf-UC-utc"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHARED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZh-dR-5vI">
                     <rect key="frame" x="172" y="411" width="56" height="22"/>
                     <constraints>
@@ -243,6 +230,19 @@
                         <constraint firstAttribute="height" constant="59" id="qRZ-e4-MdN"/>
                     </constraints>
                 </pickerView>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLv-x6-uMI" userLabel="btn Facebook" customClass="CircularImageButton" customModule="iCanGo_iOS" customModuleProvider="target">
+                    <rect key="frame" x="210" y="451" width="30" height="26"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="0l2-mw-eBQ"/>
+                    </constraints>
+                    <state key="normal" image="facebook-icon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="facebookHighServiceAction:" destination="-1" eventType="touchUpInside" id="Pgf-UC-utc"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
