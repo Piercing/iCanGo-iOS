@@ -37,16 +37,16 @@
                     </textAttributes>
                     <items>
                         <navigationItem title="Add service" id="dyI-Fu-1Bm">
-                            <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XvB-Mr-zDd">
+                            <barButtonItem key="leftBarButtonItem" systemItem="save" id="XvB-Mr-zDd">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="cancelHighService:" destination="-1" id="EiE-UR-6nt"/>
+                                    <action selector="saveService:" destination="-1" id="vo0-PI-Lgu"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" systemItem="add" id="CvO-cI-WM1">
+                            <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="CvO-cI-WM1">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="addService:" destination="-1" id="P4J-kH-uGN"/>
+                                    <action selector="cancelHighService:" destination="-1" id="meQ-Oq-lA5"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>

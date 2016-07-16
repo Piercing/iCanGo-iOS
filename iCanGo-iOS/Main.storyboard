@@ -383,7 +383,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0AM-Zn-r38" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2515.5" y="2408.5"/>
+            <point key="canvasLocation" x="1971.5" y="2408.5"/>
         </scene>
         <!--commetsUsers-->
         <scene sceneID="FFP-JU-PbR">
@@ -407,7 +407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9y9-lc-sYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3093.5" y="2408.5"/>
+            <point key="canvasLocation" x="2395.5" y="2408.5"/>
         </scene>
         <!--profileEdit-->
         <scene sceneID="PVC-1t-Rh3">
@@ -455,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ln-CL-PVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1327.5" y="2408.5"/>
+            <point key="canvasLocation" x="1147.5" y="2408.5"/>
         </scene>
         <!--shearchProfile-->
         <scene sceneID="m2I-2g-x4M">
@@ -479,7 +479,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEU-MH-ZyD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925.5" y="2408.5"/>
+            <point key="canvasLocation" x="1555.5" y="2408.5"/>
         </scene>
         <!--register-->
         <scene sceneID="C4e-g5-OnB">
@@ -521,7 +521,7 @@
         <image name="services" width="375" height="670"/>
         <image name="shared" width="375" height="667"/>
         <image name="sharedProfile" width="376" height="667"/>
-        <image name="turquesa01" width="150" height="150"/>
+        <image name="turquesa01" width="200" height="200"/>
         <image name="usersComments" width="376" height="667"/>
     </resources>
 </document>
