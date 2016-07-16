@@ -33,6 +33,8 @@
 		52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */; };
 		52EF05CD1D2E4D82001B0FE4 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */; };
 		52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F367AA1D28FBFF0064583C /* LoginView.xib */; };
+		7924E66C1D3A88A900D758AD /* CircularImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7924E66A1D3A88A900D758AD /* CircularImageButton.swift */; };
+		7924E66D1D3A88A900D758AD /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7924E66B1D3A88A900D758AD /* CircularImageView.swift */; };
 		7939EC421D3A400C009C5359 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7939EC411D3A400C009C5359 /* Extensions.swift */; };
 		793E1D2E1D32890B00A6324A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793E1D2D1D32890B00A6324A /* Utils.swift */; };
 		79CA66DB1D36F73900C67E67 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CA66DA1D36F73900C67E67 /* MapKit.framework */; };
@@ -98,6 +100,8 @@
 		52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		52F367AA1D28FBFF0064583C /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		7924E66A1D3A88A900D758AD /* CircularImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageButton.swift; sourceTree = "<group>"; };
+		7924E66B1D3A88A900D758AD /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
 		7939EC411D3A400C009C5359 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		793E1D2D1D32890B00A6324A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		79CA66DA1D36F73900C67E67 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -155,6 +159,8 @@
 		5256B1281D3312310049ED9A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7924E66A1D3A88A900D758AD /* CircularImageButton.swift */,
+				7924E66B1D3A88A900D758AD /* CircularImageView.swift */,
 				5256B1261D3310600049ED9A /* MyProfileCell.swift */,
 				52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */,
 			);
@@ -542,6 +548,7 @@
 				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
 				527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */,
 				5272E1801D2C17E3007211E4 /* StartUpController.swift in Sources */,
+				7924E66D1D3A88A900D758AD /* CircularImageView.swift in Sources */,
 				D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */,
 				D308447A1D23AE1400A25CF4 /* Response.swift in Sources */,
 				D305B23D1D24FDCF0072B634 /* Localization.swift in Sources */,
@@ -550,6 +557,7 @@
 				52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */,
 				527F870F1D2B28BC00D0E1EC /* LocationViewController.swift in Sources */,
 				5295D2521D3462A9009F93E7 /* RegisterViewController.swift in Sources */,
+				7924E66C1D3A88A900D758AD /* CircularImageButton.swift in Sources */,
 				527F87131D2B297B00D0E1EC /* AddServiceViewController.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
 				D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */,
