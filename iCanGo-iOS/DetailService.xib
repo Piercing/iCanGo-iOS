@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -14,6 +14,7 @@
                 <outlet property="contactPersonDetailServiceBtn" destination="eic-No-jR6" id="pfI-6h-nZq"/>
                 <outlet property="dataDetailService" destination="SdG-et-pb7" id="N35-tn-z9n"/>
                 <outlet property="descriptionDetatilService" destination="gbc-Un-SqS" id="PaN-hN-Jaf"/>
+                <outlet property="nameServiceDetailService" destination="8UP-YW-miG" id="uTu-Zw-2NV"/>
                 <outlet property="nameUserDetailService" destination="Qg4-tt-y17" id="DWw-dU-FKD"/>
                 <outlet property="priceDetailService" destination="vqK-Jh-JPe" id="yOI-tx-iIw"/>
                 <outlet property="publishedDetailService" destination="v1I-dh-9gY" id="Atw-bC-tjY"/>
@@ -143,15 +144,6 @@
                         <action selector="btnContactPersonDetailService:" destination="-1" eventType="touchUpInside" id="7wO-lT-itp"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Published" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jig-mb-0gN">
-                    <rect key="frame" x="491" y="233" width="67" height="18"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="67" id="eQK-bG-BGa"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                    <color key="textColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Careted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H1G-9B-l4U">
                     <rect key="frame" x="491" y="251" width="67" height="18"/>
                     <constraints>
@@ -165,6 +157,15 @@
                     <rect key="frame" x="8" y="307" width="584" height="24"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                     <color key="textColor" red="0.2156862745" green="0.43137254899999999" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Published" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jig-mb-0gN">
+                    <rect key="frame" x="491" y="233" width="67" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="67" id="eQK-bG-BGa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                    <color key="textColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>

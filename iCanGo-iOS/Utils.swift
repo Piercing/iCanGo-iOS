@@ -54,27 +54,52 @@ func loadUserAuthInfo() -> User {
 
 func loadImage(imageUrl: NSURL, imageView: UIImageView) {
     
-    let session = Session.iCanGoSessionImages()
-    let _ = session.getImageData(imageUrl)
-    
-        .observeOn(MainScheduler.instance)
-        .subscribe { event in
+    let request = NSMutableURLRequest(URL: imageUrl)
+    let session = NSURLSession.sharedSession()
+    let task = session.dataTaskWithRequest(request) { data, response, error in
+        
+        guard data != nil else {
+            return
+        }
+
+        let image = UIImage(data: data!)
+        
+        dispatch_async(dispatch_get_main_queue(), {
             
-            switch event {
-            case let .Next(data):
-                let image = UIImage(data: data)
-                imageView.image = image
-                imageView.fadeOut(duration: 0.0)
-                imageView.fadeIn()
-                
-            case .Error:
-                return
-                
-            default:
-                break
-            }
+            imageView.image = image
+            imageView.fadeOut(duration: 0.0)
+            imageView.fadeIn()
+            
+        })
     }
+    
+    task.resume()
+    
 }
+
+//func loadImage(imageUrl: NSURL, imageView: UIImageView) {
+//    
+//    let session = Session.iCanGoSessionImages()
+//    let _ = session.getImageData(imageUrl)
+//    
+//        .observeOn(MainScheduler.instance)
+//        .subscribe { event in
+//            
+//            switch event {
+//            case let .Next(data):
+//                let image = UIImage(data: data)
+//                imageView.image = image
+//                imageView.fadeOut(duration: 0.0)
+//                imageView.fadeIn()
+//                
+//            case .Error:
+//                return
+//                
+//            default:
+//                break
+//            }
+//    }
+//}
 
 func isConnectedToNetwork() -> Bool {
     var zeroAddress = sockaddr_in()
@@ -113,34 +138,4 @@ func checkConection(controller: UIViewController) {
     }
 }
 
-public extension UIView {
-    
-    func fadeIn(duration duration: NSTimeInterval = 1.0) {
-        UIView.animateWithDuration(duration, animations: {
-            self.alpha = 1.0
-        })
-    }
-    
-    func fadeOut(duration duration: NSTimeInterval = 1.0) {
-        UIView.animateWithDuration(duration, animations: {
-            self.alpha = 0.0
-        })
-    }
-    
-}
 
-//public extension UIImageView {
-//    
-//    func fadeIn(duration duration: NSTimeInterval = 1.0) {
-//        UIImageView.animateWithDuration(duration, animations: {
-//            self.alpha = 1.0
-//        })
-//    }
-//    
-//    func fadeOut(duration duration: NSTimeInterval = 1.0) {
-//        UIImageView.animateWithDuration(duration, animations: {
-//            self.alpha = 0.0
-//        })
-//    }
-//    
-//}

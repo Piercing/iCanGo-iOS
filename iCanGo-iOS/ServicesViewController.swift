@@ -168,12 +168,8 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func showModal(index: Int) {
-        
         let detailServiceViewController = DetailServiceViewController()
-        
         self.navigationController?.pushViewController(detailServiceViewController, animated: true)
-        //self.presentViewController(detailServiceViewController, animated: true, completion: nil)
-        
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -183,21 +179,10 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! ServiceCell
         
+        // TODO: Appearance settings should be moved to a Theme
         Appearance.setupCellUI(cell)
         
-        let index = indexPath.row % services!.count
-        let service = services![index]
-        //cell.serviceImage?.image = UIImage(named: service.mainImage!)
-        cell.commentLabel?.text = service.name
-        
-        // load the image asynchronous
-        if service.mainImage != nil {
-            loadImage(service.mainImage!, imageView: cell.imageService)
-        }
-        
-        if service.ownerImage != nil {
-            loadImage(service.ownerImage!, imageView: cell.imageUser)
-        }
+        cell.service = services![indexPath.row % services!.count]
         
         return cell
     }

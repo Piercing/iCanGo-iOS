@@ -72,7 +72,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chica03" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-D2-eWQ">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chica03" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-D2-eWQ" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
                         <rect key="frame" x="14" y="100" width="40" height="40"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oE2-jM-JBE" userLabel="Favourites">
@@ -97,7 +97,7 @@
                 <outlet property="labelDescriptionMyProfileCell" destination="Mjj-TG-BO3" id="zhe-TZ-Abf"/>
                 <outlet property="labelPriceMyProfileCell" destination="R5H-jc-UsV" id="jRa-3s-xVJ"/>
             </connections>
-            <point key="canvasLocation" x="425" y="244"/>
+            <point key="canvasLocation" x="734" y="176"/>
         </collectionViewCell>
     </objects>
     <resources>
