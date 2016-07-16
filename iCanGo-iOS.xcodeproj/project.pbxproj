@@ -33,6 +33,7 @@
 		52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */; };
 		52EF05CD1D2E4D82001B0FE4 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */; };
 		52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F367AA1D28FBFF0064583C /* LoginView.xib */; };
+		7939EC421D3A400C009C5359 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7939EC411D3A400C009C5359 /* Extensions.swift */; };
 		793E1D2E1D32890B00A6324A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793E1D2D1D32890B00A6324A /* Utils.swift */; };
 		79CA66DB1D36F73900C67E67 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CA66DA1D36F73900C67E67 /* MapKit.framework */; };
 		79CA66DD1D3703FB00C67E67 /* ServicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79CA66DC1D3703FB00C67E67 /* ServicesView.xib */; };
@@ -97,6 +98,7 @@
 		52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		52F367AA1D28FBFF0064583C /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		7939EC411D3A400C009C5359 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		793E1D2D1D32890B00A6324A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		79CA66DA1D36F73900C67E67 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		79CA66DC1D3703FB00C67E67 /* ServicesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicesView.xib; sourceTree = "<group>"; };
@@ -171,7 +173,6 @@
 				5295D2511D3462A9009F93E7 /* RegisterView.xib */,
 				52DFD0A51D37ED6A000C4FE4 /* UserRegisterView.xib */,
 				79CA66DC1D3703FB00C67E67 /* ServicesView.xib */,
-
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -353,6 +354,7 @@
 				D37630FB1D06C0CA0001E29F /* Framework.swift */,
 				D305B23C1D24FDCF0072B634 /* Localization.swift */,
 				793E1D2D1D32890B00A6324A /* Utils.swift */,
+				7939EC411D3A400C009C5359 /* Extensions.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -560,6 +562,7 @@
 				52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */,
 				5282521F1D359BB30041A992 /* DetailServiceViewController.swift in Sources */,
 				527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */,
+				7939EC421D3A400C009C5359 /* Extensions.swift in Sources */,
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,
 				5256B1271D3310600049ED9A /* MyProfileCell.swift in Sources */,
 				52D37E0D1D2EDB63009F2FC3 /* ServiceCell.swift in Sources */,
