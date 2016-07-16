@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520BDD231D3A48DD008FE4AB /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520BDD221D3A48DD008FE4AB /* CircularImageView.swift */; };
+		520BDD251D3A4913008FE4AB /* CircularImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520BDD241D3A4913008FE4AB /* CircularImageButton.swift */; };
 		5256B1251D330D620049ED9A /* MyProfileCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5256B1241D330D620049ED9A /* MyProfileCellView.xib */; };
 		5256B1271D3310600049ED9A /* MyProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256B1261D3310600049ED9A /* MyProfileCell.swift */; };
 		5272E1801D2C17E3007211E4 /* StartUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272E17E1D2C17E3007211E4 /* StartUpController.swift */; };
@@ -72,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		520BDD221D3A48DD008FE4AB /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
+		520BDD241D3A4913008FE4AB /* CircularImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageButton.swift; sourceTree = "<group>"; };
 		5256B1241D330D620049ED9A /* MyProfileCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileCellView.xib; sourceTree = "<group>"; };
 		5256B1261D3310600049ED9A /* MyProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileCell.swift; sourceTree = "<group>"; };
 		5272E17E1D2C17E3007211E4 /* StartUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpController.swift; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 				52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */,
 				52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */,
 				52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */,
+				520BDD221D3A48DD008FE4AB /* CircularImageView.swift */,
+				520BDD241D3A4913008FE4AB /* CircularImageButton.swift */,
 			);
 			name = Themes;
 			sourceTree = "<group>";
@@ -550,6 +556,7 @@
 				52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */,
 				527F870F1D2B28BC00D0E1EC /* LocationViewController.swift in Sources */,
 				5295D2521D3462A9009F93E7 /* RegisterViewController.swift in Sources */,
+				520BDD251D3A4913008FE4AB /* CircularImageButton.swift in Sources */,
 				527F87131D2B297B00D0E1EC /* AddServiceViewController.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
 				D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */,
@@ -562,7 +569,11 @@
 				52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */,
 				5282521F1D359BB30041A992 /* DetailServiceViewController.swift in Sources */,
 				527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */,
+<<<<<<< HEAD
 				7939EC421D3A400C009C5359 /* Extensions.swift in Sources */,
+=======
+				520BDD231D3A48DD008FE4AB /* CircularImageView.swift in Sources */,
+>>>>>>> 2b9a88d7f8304510d606419ee9900e668b4fb3af
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,
 				5256B1271D3310600049ED9A /* MyProfileCell.swift in Sources */,
 				52D37E0D1D2EDB63009F2FC3 /* ServiceCell.swift in Sources */,
