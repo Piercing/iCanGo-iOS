@@ -137,12 +137,6 @@
                     <color key="textColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Necesito chef para cena a domicilio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8UP-YW-miG">
-                    <rect key="frame" x="7" y="176" width="584" height="24"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                    <color key="textColor" red="0.2156862745" green="0.43137254899999999" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Published" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jig-mb-0gN">
                     <rect key="frame" x="490" y="102" width="67" height="18"/>
                     <constraints>
@@ -155,49 +149,37 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3eC-hE-MMg">
                     <rect key="frame" x="7" y="465" width="364" height="85"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="nNe-gg-iNq" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="nNe-gg-iNq" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="85" id="lF3-gz-CLz"/>
                                 <constraint firstAttribute="width" constant="85" id="pzp-e8-4We"/>
                             </constraints>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="XY1-F3-eNl" appends="YES" id="1Hr-hN-3sm"/>
-                            </connections>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-fk-d9j">
+                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-fk-d9j">
                             <rect key="frame" x="93" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="85" id="YQN-bW-dSQ"/>
                                 <constraint firstAttribute="height" constant="85" id="kga-D3-HB3"/>
                             </constraints>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="fjE-9F-meR" appends="YES" id="mL9-Lf-vYJ"/>
-                            </connections>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ysE-4D-CYb">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ysE-4D-CYb">
                             <rect key="frame" x="186" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="85" id="VRG-Ys-cvK"/>
                                 <constraint firstAttribute="height" constant="85" id="cCI-r6-CZX"/>
                             </constraints>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="8gc-Jn-VSI" appends="YES" id="HOT-Pl-y1Y"/>
-                            </connections>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="279" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="85" id="4x8-ej-5nc"/>
                                 <constraint firstAttribute="width" constant="85" id="lvI-h4-4qn"/>
                             </constraints>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="rye-iU-eYF" appends="YES" id="453-QX-Cqd"/>
-                            </connections>
                         </imageView>
                     </subviews>
                     <constraints>
@@ -218,6 +200,12 @@
                         <action selector="btnDeleteServiceDetail:" destination="-1" eventType="touchUpInside" id="uUo-5m-Ony"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Necesito chef para cena a domicilio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8UP-YW-miG">
+                    <rect key="frame" x="7" y="176" width="584" height="24"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                    <color key="textColor" red="0.2156862745" green="0.43137254899999999" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -228,6 +216,7 @@
                 <constraint firstItem="v1I-dh-9gY" firstAttribute="leading" secondItem="vqK-Jh-JPe" secondAttribute="leading" constant="67" id="592-yf-neU"/>
                 <constraint firstAttribute="trailing" secondItem="7Xa-cg-UVm" secondAttribute="trailing" id="8Bg-Hh-mlF"/>
                 <constraint firstItem="PZu-tI-LVY" firstAttribute="leading" secondItem="H1G-9B-l4U" secondAttribute="trailing" id="8Dy-84-rPP"/>
+                <constraint firstItem="3eC-hE-MMg" firstAttribute="top" secondItem="K8o-mg-09H" secondAttribute="bottom" constant="8" symbolic="YES" id="AgQ-1o-fwX"/>
                 <constraint firstItem="8UP-YW-miG" firstAttribute="leading" secondItem="gbc-Un-SqS" secondAttribute="leading" id="CTb-8h-UIF"/>
                 <constraint firstItem="gbc-Un-SqS" firstAttribute="top" secondItem="8UP-YW-miG" secondAttribute="bottom" id="DaY-QT-4el"/>
                 <constraint firstItem="8UP-YW-miG" firstAttribute="top" secondItem="QcX-g6-mJR" secondAttribute="bottom" constant="24" id="GDZ-Yb-wGn"/>
@@ -245,7 +234,6 @@
                 <constraint firstItem="H1G-9B-l4U" firstAttribute="leading" secondItem="v1I-dh-9gY" secondAttribute="trailing" constant="-101" id="Wzt-C2-bTi"/>
                 <constraint firstItem="7Xa-cg-UVm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="X66-e0-lrk"/>
                 <constraint firstItem="3eC-hE-MMg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="7" id="aQE-W9-bpw"/>
-                <constraint firstItem="QcX-g6-mJR" firstAttribute="top" secondItem="3eC-hE-MMg" secondAttribute="bottom" constant="-458" id="bjA-8v-jU9"/>
                 <constraint firstAttribute="trailing" secondItem="K8o-mg-09H" secondAttribute="trailing" constant="9" id="bpY-Y7-Khl"/>
                 <constraint firstItem="PZu-tI-LVY" firstAttribute="trailing" secondItem="eic-No-jR6" secondAttribute="trailing" constant="-1" id="d2m-xB-edK"/>
                 <constraint firstItem="7Xa-cg-UVm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="d3l-F8-Hvg"/>
@@ -269,10 +257,6 @@
             </constraints>
             <point key="canvasLocation" x="477" y="341"/>
         </view>
-        <tapGestureRecognizer id="XY1-F3-eNl"/>
-        <tapGestureRecognizer id="fjE-9F-meR"/>
-        <tapGestureRecognizer id="8gc-Jn-VSI"/>
-        <tapGestureRecognizer id="rye-iU-eYF"/>
     </objects>
     <resources>
         <image name=" Back" width="58" height="22"/>
