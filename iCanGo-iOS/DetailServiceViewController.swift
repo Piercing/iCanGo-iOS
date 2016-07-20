@@ -27,10 +27,9 @@ class DetailServiceViewController: UIViewController {
     @IBOutlet weak var imgDetailService03: UIImageView!
     @IBOutlet weak var imgDetailService04: UIImageView!
     
-    var lastRotation = CGFloat()
     let titleView = "Detail Services"
-    let tapRecognizer = UITapGestureRecognizer()
-    var popVIewController = PopUpImagesViewController()
+    //var tapRecognizer: UITapGestureRecognizer? = nil
+    var popUpVIewController: PopUpImagesViewController?
     var selectImage =  UIImageView()
     
     // MARK: - Init
@@ -44,20 +43,7 @@ class DetailServiceViewController: UIViewController {
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
         
-        Appearance.addDidLayoutSubviewsFourImages(
-            imgDetailService01,
-            img2: imgDetailService02,
-            img3: imgDetailService03,
-            img4: imgDetailService04)
-
         gestureReconizerForImages()
-    }
-    
-    override func viewDidLayoutSubviews(){
-        super.viewDidLayoutSubviews()
-        
-        contactPersonDetailServiceBtn.layer.cornerRadius = 5
-        clearServiceDetailBtn.layer.cornerRadius = 5
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,29 +83,14 @@ class DetailServiceViewController: UIViewController {
     @IBAction func goBack(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-//
-//    @IBAction func selectImg01(sender: UIImageView) {
-//        //openPopover(sender)
-//    }
-//    
-//    @IBAction func selectImg02(sender: UIImageView) {
-//        //openPopover(sender)
-//    }
-//    
-//    @IBAction func selectImg03(sender: UIImageView) {
-//        //openPopover(sender)
-//    }
-//    
-//    @IBAction func selectImg04(sender: UIImageView) {
-//        //openPopover(sender)
-//    }
-
     
     // MARK: - Gesture Recognizer Views
     
     func gestureReconizerForImages() {
         
-        self.tapRecognizer.addTarget(self, action: #selector(DetailServiceViewController.tappedView))
+        let tapRecognizer  = UITapGestureRecognizer()
+        
+        tapRecognizer.addTarget(self, action: #selector(DetailServiceViewController.tappedView))
         tapRecognizer.numberOfTapsRequired = 1
         
         imgDetailService01.userInteractionEnabled = true
@@ -136,11 +107,12 @@ class DetailServiceViewController: UIViewController {
     
     func tappedView(sender: UITapGestureRecognizer) {
         
+        var popUpVIewController = PopUpImagesViewController()
         selectImage = (sender.view as? UIImageView)!
         
         print("tapped reconigzer")
-        self.popVIewController = PopUpImagesViewController(nibName: "PopUpImagesView", bundle: nil)
-        self.popVIewController.showInView(self.view, withImage: selectImage.image ?? UIImage(named: "camera"), withMessage: nameServiceDetailService.text, animated: true)
+        popUpVIewController = PopUpImagesViewController(nibName: "PopUpImagesView", bundle: nil)
+        popUpVIewController.showInView(self.view, withImage: selectImage.image ?? UIImage(named: "camera"), withMessage: nameServiceDetailService.text, animated: true)
         
     }
     //

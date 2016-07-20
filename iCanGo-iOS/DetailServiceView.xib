@@ -114,7 +114,7 @@
                         <constraint firstAttribute="height" constant="141" id="WRn-kL-OiE"/>
                     </constraints>
                 </mapView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eic-No-jR6">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eic-No-jR6" customClass="RoundedCornersButtons" customModule="iCanGo_iOS" customModuleProvider="target">
                     <rect key="frame" x="557" y="139" width="35" height="35"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -149,7 +149,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3eC-hE-MMg">
                     <rect key="frame" x="7" y="465" width="364" height="85"/>
                     <subviews>
-                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="nNe-gg-iNq" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="nNe-gg-iNq" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -157,7 +157,7 @@
                                 <constraint firstAttribute="width" constant="85" id="pzp-e8-4We"/>
                             </constraints>
                         </imageView>
-                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-fk-d9j">
+                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-fk-d9j" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="93" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -165,7 +165,7 @@
                                 <constraint firstAttribute="height" constant="85" id="kga-D3-HB3"/>
                             </constraints>
                         </imageView>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ysE-4D-CYb">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ysE-4D-CYb" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="186" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -173,7 +173,7 @@
                                 <constraint firstAttribute="height" constant="85" id="cCI-r6-CZX"/>
                             </constraints>
                         </imageView>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="279" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -186,7 +186,7 @@
                         <constraint firstAttribute="width" constant="364" id="Dg1-IT-fWz"/>
                     </constraints>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oX-0I-Ek3">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oX-0I-Ek3" customClass="RoundedCornersButtons" customModule="iCanGo_iOS" customModuleProvider="target">
                     <rect key="frame" x="6" y="566" width="584" height="34"/>
                     <color key="backgroundColor" red="0.16078431369999999" green="0.56862745100000001" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>

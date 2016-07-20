@@ -24,6 +24,8 @@
 		527F871C1D2B29C500D0E1EC /* MyProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527F871A1D2B29C500D0E1EC /* MyProfileView.xib */; };
 		5282521F1D359BB30041A992 /* DetailServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282521D1D359BB30041A992 /* DetailServiceViewController.swift */; };
 		528252201D359BB30041A992 /* DetailServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5282521E1D359BB30041A992 /* DetailServiceView.xib */; };
+		52837DBF1D3ED7B100ED98FB /* RoundedCornersImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52837DBE1D3ED7B100ED98FB /* RoundedCornersImages.swift */; };
+		52837DC11D3EDDCD00ED98FB /* RoundedCornersButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52837DC01D3EDDCD00ED98FB /* RoundedCornersButtons.swift */; };
 		5295D2521D3462A9009F93E7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295D2501D3462A9009F93E7 /* RegisterViewController.swift */; };
 		5295D2531D3462A9009F93E7 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295D2511D3462A9009F93E7 /* RegisterView.xib */; };
 		52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */; };
@@ -93,6 +95,8 @@
 		527F871A1D2B29C500D0E1EC /* MyProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileView.xib; sourceTree = "<group>"; };
 		5282521D1D359BB30041A992 /* DetailServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailServiceViewController.swift; sourceTree = "<group>"; };
 		5282521E1D359BB30041A992 /* DetailServiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailServiceView.xib; sourceTree = "<group>"; };
+		52837DBE1D3ED7B100ED98FB /* RoundedCornersImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersImages.swift; sourceTree = "<group>"; };
+		52837DC01D3EDDCD00ED98FB /* RoundedCornersButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersButtons.swift; sourceTree = "<group>"; };
 		5295D2501D3462A9009F93E7 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5295D2511D3462A9009F93E7 /* RegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
 		52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCellView.xib; sourceTree = "<group>"; };
@@ -296,9 +300,11 @@
 		79F418461D043C01002131C7 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */,
 				52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */,
 				52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */,
-				52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */,
+				52837DBE1D3ED7B100ED98FB /* RoundedCornersImages.swift */,
+				52837DC01D3EDDCD00ED98FB /* RoundedCornersButtons.swift */,
 			);
 			name = Themes;
 			sourceTree = "<group>";
@@ -558,6 +564,8 @@
 				7924E66D1D3A88A900D758AD /* CircularImageView.swift in Sources */,
 				D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */,
 				D308447A1D23AE1400A25CF4 /* Response.swift in Sources */,
+				52837DC11D3EDDCD00ED98FB /* RoundedCornersButtons.swift in Sources */,
+				52837DBF1D3ED7B100ED98FB /* RoundedCornersImages.swift in Sources */,
 				D305B23D1D24FDCF0072B634 /* Localization.swift in Sources */,
 				D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */,
 				D37630F61D05CA770001E29F /* Service.swift in Sources */,

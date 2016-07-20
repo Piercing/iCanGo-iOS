@@ -19,10 +19,10 @@ class PopUpImagesViewController: UIViewController {
     
     let detailService = DetailServiceViewController()
     
-//    // MARK: - Init
-//    convenience init() {
-//        self.init(nibName: "PopUpImagesView", bundle: nil)
-//    }
+    //    // MARK: - Init
+    //    convenience init() {
+    //        self.init(nibName: "PopUpImagesView", bundle: nil)
+    //    }
     
     // MARK: - Init
     
@@ -50,15 +50,21 @@ class PopUpImagesViewController: UIViewController {
     
     func popUpImages() {
         
+        self.view.frame = CGRectMake(65, 110, detailService.view.frame.size.width / 2.5, detailService.view.frame.size.height / 2.5)
+        
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         self.popUpView.layer.cornerRadius = 5
         self.popUpView.layer.shadowOpacity = 0.8
         self.popUpView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
     }
     
-    
     func showInView(aView: UIView!, withImage image : UIImage!, withMessage message: String!, animated: Bool) {
-        aView.center = CGPointMake(detailService.view.frame.size.width / 2, detailService.view.frame.size.height / 2)
+        
+        let popUpImagesViewController = PopUpImagesViewController()
+
+        presentViewController(popUpImagesViewController, animated: true, completion: nil)
+        popUpImagesViewController
+
         aView.addSubview(self.view)
         popUpImage!.image = image
         titleService!.text = message
@@ -70,19 +76,19 @@ class PopUpImagesViewController: UIViewController {
     
     func showAnimate() {
         self.view.transform = CGAffineTransformMakeScale(1.3, 1.3)
-        self.view.alpha = 0.0;
+        self.view.alpha = 0.0
         UIView.animateWithDuration(0.5, animations: {
             self.view.alpha = 1.0
-            self.view.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            self.view.transform = CGAffineTransformMakeScale(1.3, 1.3)
         });
     }
     
     func removeAnimate() {
         UIView.animateWithDuration(0.5, animations: {
             self.view.transform = CGAffineTransformMakeScale(1.3, 1.3)
-            self.view.alpha = 0.0;
+            self.view.alpha = 0.0
             }, completion:{(finished : Bool)  in
-                if (finished)
+                if finished
                 {
                     self.view.removeFromSuperview()
                 }
@@ -91,8 +97,8 @@ class PopUpImagesViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func closePopUp(sender: AnyObject) {
-        self.removeAnimate()
+    @IBAction func popUpClose(sender: AnyObject) {
+        removeAnimate()
     }
 }
 
