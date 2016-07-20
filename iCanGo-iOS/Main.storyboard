@@ -521,7 +521,7 @@
         <image name="services" width="375" height="670"/>
         <image name="shared" width="375" height="667"/>
         <image name="sharedProfile" width="376" height="667"/>
-        <image name="turquesa01" width="200" height="200"/>
+        <image name="turquesa01" width="82" height="82"/>
         <image name="usersComments" width="376" height="667"/>
     </resources>
 </document>
