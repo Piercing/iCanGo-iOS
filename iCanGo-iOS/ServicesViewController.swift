@@ -33,7 +33,7 @@ class ServicesViewController: UIViewController {
         super.viewDidLoad()
         
         registerCustomCell()
-
+        
         servicesCollectionView.delegate = self
         servicesCollectionView.dataSource = self
         
@@ -49,20 +49,20 @@ class ServicesViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Actions
     
     // MARK: Methods
     
     func setupUIAllServices() -> Void {
-    
+        
         searchBar.resignFirstResponder()
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
         Appearance.tabBarColor(self.tabBarController!)
         Appearance.customizeAppearance(self.view)
         servicesCollectionView.fadeOut(duration: 0.0)
-
+        
     }
     
     // MARK: Cell registration
@@ -81,7 +81,7 @@ class ServicesViewController: UIViewController {
     func loadDataFromApi(stringToFind: String, page: UInt) -> Void {
         
         self.servicesCollectionView.fadeIn(duration: 0.3)
-
+        
         let session = Session.iCanGoSession()
         // TODO: Parameter Rows pendin
         let _ = session.getServices(page, rows: rowsPerPage)
@@ -102,7 +102,6 @@ class ServicesViewController: UIViewController {
                 default:
                     break
                 }
-                
         }
     }
 }
@@ -125,12 +124,12 @@ extension ServicesViewController: UISearchBarDelegate {
     
     func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
         searchBar.showsCancelButton = true
-        servicesCollectionView.fadeOut(duration: 0.3)
+        //servicesCollectionView.fadeOut(duration: 0.3)
         return true
     }
     
     func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
-        servicesCollectionView.fadeIn(duration: 0.3)
+        //servicesCollectionView.fadeIn(duration: 0.3)
         searchBar.showsCancelButton = false
         if (searchBar.text == "") {
             //loadDataFromApi(searchBar.text!)
@@ -192,7 +191,7 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-
+        
         if totalRows == self.services?.count {
             return
         }
