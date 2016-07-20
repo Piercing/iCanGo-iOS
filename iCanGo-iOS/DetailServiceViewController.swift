@@ -22,17 +22,19 @@ class DetailServiceViewController: UIViewController {
     @IBOutlet weak var priceDetailService: UILabel!
     @IBOutlet weak var descriptionDetatilService: UITextView!
     
-    @IBOutlet weak var imgDetailService01: CircularImageView!
+    @IBOutlet weak var imgDetailService01: UIImageView!
     @IBOutlet weak var imgDetailService02: UIImageView!
     @IBOutlet weak var imgDetailService03: UIImageView!
-    @IBOutlet weak var imgDetailService04: CircularImageView!
-    
+    @IBOutlet weak var imgDetailService04: UIImageView!
     
     let titleView = "Detail Services"
+    //var tapRecognizer: UITapGestureRecognizer? = nil
+    var popUpVIewController: PopUpImagesViewController?
+    var selectImage =  UIImageView()
     
     // MARK: - Init
     convenience init() {
-        self.init(nibName: "DetailService", bundle: nil)
+        self.init(nibName: "DetailServiceView", bundle: nil)
     }
     
     override func viewDidLoad() {
@@ -41,29 +43,16 @@ class DetailServiceViewController: UIViewController {
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
         
-        Appearance.addDidLayoutSubviewsFourImages(
-            imgDetailService01,
-            img2: imgDetailService02,
-            img3: imgDetailService03,
-            img4: imgDetailService04)
+        gestureReconizerForImages()
     }
-    
-    override func viewDidLayoutSubviews(){
-        super.viewDidLayoutSubviews()
-        
-        contactPersonDetailServiceBtn.layer.cornerRadius = 5
-        clearServiceDetailBtn.layer.cornerRadius = 5
-    }
-    
-    // MARK: Methods
-    
-    
-    // MARK: - Actions
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Actions
+    
     @IBAction func btnContactPersonDetailService(sender: AnyObject) {
         print("Tapped btn contact user Detail Service")
     }
@@ -85,10 +74,8 @@ class DetailServiceViewController: UIViewController {
         
         activityVC.popoverPresentationController?.sourceView = sender as? UIView
         self.presentViewController(activityVC, animated: true, completion: nil)
-        
-        
-        print("Tapped btn shared Detail Service")
     }
+    
     @IBAction func btnBackDetailService(sender: AnyObject) {
         print("Tapped btn back Detail Service")
     }
@@ -96,7 +83,57 @@ class DetailServiceViewController: UIViewController {
     @IBAction func goBack(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
+    
+    // MARK: - Gesture Recognizer Views
+    
+    func gestureReconizerForImages() {
+        
+        let tapRecognizer  = UITapGestureRecognizer()
+        
+        tapRecognizer.addTarget(self, action: #selector(DetailServiceViewController.tappedView))
+        tapRecognizer.numberOfTapsRequired = 1
+        
+        imgDetailService01.userInteractionEnabled = true
+        imgDetailService02.userInteractionEnabled = true
+        imgDetailService03.userInteractionEnabled = true
+        imgDetailService04.userInteractionEnabled = true
+        
+        imgDetailService01.addGestureRecognizer(tapRecognizer)
+        imgDetailService02.addGestureRecognizer(tapRecognizer)
+        imgDetailService03.addGestureRecognizer(tapRecognizer)
+        imgDetailService04.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    func tappedView(sender: UITapGestureRecognizer) {
+        
+        var popUpVIewController = PopUpImagesViewController()
+        selectImage = (sender.view as? UIImageView)!
+        
+        print("tapped reconigzer")
+        popUpVIewController = PopUpImagesViewController(nibName: "PopUpImagesView", bundle: nil)
+        popUpVIewController.showInView(self.view, withImage: selectImage.image ?? UIImage(named: "camera"), withMessage: nameServiceDetailService.text, animated: true)
+        
+    }
+    //
+    //    func imageTapped(img: UIImage) -> UIImage {
+    //        
+    //        switch img {
+    //        case img.isEqual(imgDetailService01):
+    //            return imgDetailService01.image!
+    //        case img.isEqual(imgDetailService02):
+    //            return imgDetailService02.image!
+    //        case img.isEqual(imgDetailService03):
+    //            return imgDetailService03.image!
+    //        case img.isEqual(imgDetailService04):
+    //            return imgDetailService04.image!
+    //        default:
+    //            return UIImage(named: "camera")!
+    //        }
+    //    }
 }
+
+
 
 
 
