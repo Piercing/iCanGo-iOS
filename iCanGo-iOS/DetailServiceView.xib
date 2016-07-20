@@ -149,37 +149,69 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3eC-hE-MMg">
                     <rect key="frame" x="7" y="465" width="364" height="85"/>
                     <subviews>
-                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="nNe-gg-iNq" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="nNe-gg-iNq" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="85" id="lF3-gz-CLz"/>
                                 <constraint firstAttribute="width" constant="85" id="pzp-e8-4We"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="ww3-uy-qnG" appends="YES" id="iJe-1e-a6P"/>
+                            </connections>
                         </imageView>
-                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-fk-d9j" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-fk-d9j" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="93" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="85" id="YQN-bW-dSQ"/>
                                 <constraint firstAttribute="height" constant="85" id="kga-D3-HB3"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="CXg-Fe-3D3" appends="YES" id="z5f-FN-ha2"/>
+                            </connections>
                         </imageView>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ysE-4D-CYb" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ysE-4D-CYb" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="186" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="85" id="VRG-Ys-cvK"/>
                                 <constraint firstAttribute="height" constant="85" id="cCI-r6-CZX"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="dPT-bL-1f8" appends="YES" id="ibQ-pB-3gk"/>
+                            </connections>
                         </imageView>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="279" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="85" id="4x8-ej-5nc"/>
                                 <constraint firstAttribute="width" constant="85" id="lvI-h4-4qn"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="28k-JN-PBo" appends="YES" id="3CG-ND-l6x"/>
+                            </connections>
                         </imageView>
                     </subviews>
                     <constraints>
@@ -196,6 +228,11 @@
                     <state key="normal" title="Delete Service">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="btnDeleteServiceDetail:" destination="-1" eventType="touchUpInside" id="uUo-5m-Ony"/>
                     </connections>
@@ -257,10 +294,33 @@
             </constraints>
             <point key="canvasLocation" x="477" y="341"/>
         </view>
+        <tapGestureRecognizer id="ww3-uy-qnG">
+            <connections>
+                <action selector="tapGestureImg01:" destination="-1" id="zSI-Ve-sRP"/>
+                <outlet property="delegate" destination="nNe-gg-iNq" id="TRi-ne-jXG"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="CXg-Fe-3D3">
+            <connections>
+                <action selector="tapGestureImg02:" destination="-1" id="A4D-BT-zjb"/>
+                <outlet property="delegate" destination="hGb-fk-d9j" id="bgw-1t-r21"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="dPT-bL-1f8">
+            <connections>
+                <action selector="tapGestureImg03:" destination="-1" id="3uF-Fp-RgB"/>
+                <outlet property="delegate" destination="ysE-4D-CYb" id="yhP-mY-pko"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="28k-JN-PBo">
+            <connections>
+                <action selector="tapGestureImg04:" destination="-1" id="qc5-tB-R99"/>
+                <outlet property="delegate" destination="MQJ-8V-Gz7" id="w72-f2-Xwx"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name=" Back" width="58" height="22"/>
-        <image name="camera" width="200" height="200"/>
         <image name="cena01" width="85" height="85"/>
         <image name="cena02" width="85" height="85"/>
         <image name="chica4" width="75" height="76"/>
