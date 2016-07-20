@@ -13,7 +13,8 @@ let loginKoTitle = "Wrong login"
 let loginKoMessage = "Please, enter a valid email and password"
 let noConnectionTitle = "No internet connection"
 let noConnectionMessage = "An Internet connection is needed to log in"
-
+let noGeoUserTitle = "Location services are disabled"
+let noGeoUserMessage = "For you to see nearby services, you need to enable location services in Settings"
 
 // MARK: Time zone.
 let timeZoneApp = String("GMT")
