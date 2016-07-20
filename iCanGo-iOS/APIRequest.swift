@@ -11,6 +11,7 @@ import Foundation
 enum APIRequest {
     case getServices(key: String, page: UInt, rows: UInt)
     case getServicesByStatus(key: String, status: UInt, page: UInt, rows: UInt)
+    case getServicesByGeoText(key: String, latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?, page: UInt, rows: UInt)
     case getServiceById(key: String, id: String)
     case getServiceImages(key: String, id: String)
     case getUsers(key: String, page: UInt)
@@ -33,6 +34,7 @@ extension APIRequest: Resource {
         switch self {
         case APIRequest.getServices,
              APIRequest.getServicesByStatus,
+             APIRequest.getServicesByGeoText,
              APIRequest.getServiceById,
              APIRequest.getServiceImages,
              APIRequest.getUsers,
@@ -58,6 +60,8 @@ extension APIRequest: Resource {
         case APIRequest.getServices:
             return "services"
         case APIRequest.getServicesByStatus:
+            return "services"
+        case APIRequest.getServicesByGeoText:
             return "services"
         case let APIRequest.getServiceById(_, id):
             return "services/\(id)"
@@ -94,11 +98,37 @@ extension APIRequest: Resource {
     var parameters: [String: String] {
         switch self {
         case let APIRequest.getServices(_, page, rows):
-            return ["rows": String(rows), "page": String(page)]
+             return ["rows": String(rows), "page": String(page)]
             
         case let APIRequest.getServicesByStatus(_, status, page, rows):
-            return ["status": String(status), "page": String(page), "rows": String(rows)]
+           return ["status": String(status), "page": String(page), "rows": String(rows)]
         
+        case let APIRequest.getServicesByGeoText(_, latitude, longitude, distance, searchText, page, rows):
+            if let latitude = latitude, longitude = longitude, distance = distance, searchText = searchText {
+                return ["latitude": String(format:"%f", latitude),
+                       "longitude": String(format:"%f", longitude),
+                        "distance": String(distance),
+                      "searchText": searchText,
+                            "page": String(page),
+                            "rows": String(rows)]
+            } else {
+                if let latitude = latitude, longitude = longitude, distance = distance {
+                    return ["latitude": String(format:"%f", latitude),
+                           "longitude": String(format:"%f", longitude),
+                            "distance": String(distance),
+                                "page": String(page),
+                                "rows": String(rows)]
+                } else {
+                    if let searchText = searchText {
+                        return ["searchText": searchText,
+                                      "page": String(page),
+                                      "rows": String(rows)]
+                    } else {
+                        return [:]
+                    }
+                }
+            }
+
         case APIRequest.getServiceById:
             return [:]
             
@@ -112,7 +142,7 @@ extension APIRequest: Resource {
             return [:]
             
         case let APIRequest.getUserServicesByType(_, _, type, _):
-            return ["type": String(type)]
+             return ["type": String(type)]
         
         case APIRequest.getUserById:
             return [:]
@@ -166,8 +196,8 @@ extension APIRequest: Resource {
                    "status": status != nil ? String(status!) : ""]
         
         case let APIRequest.postServiceImage(id: id, imageUrl: imageUrl):
-            return ["idService": id,
-                     "imageUrl": imageUrl.absoluteString]
+        return ["idService": id,
+                 "imageUrl": imageUrl.absoluteString]
         
         case let APIRequest.putService(
                          id: _,
