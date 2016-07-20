@@ -55,6 +55,7 @@
 		D305B23D1D24FDCF0072B634 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D305B23C1D24FDCF0072B634 /* Localization.swift */; };
 		D308447A1D23AE1400A25CF4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30844791D23AE1400A25CF4 /* Response.swift */; };
 		D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3567BBF1D1BC38B00E5A5EE /* User.swift */; };
+		D36825801D3FB51C00EDA31C /* ServiceAnnotationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D368257F1D3FB51C00EDA31C /* ServiceAnnotationMap.swift */; };
 		D375F2AD1D34150F00EE6A57 /* ServiceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375F2AC1D34150F00EE6A57 /* ServiceImage.swift */; };
 		D37630EC1D058F660001E29F /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630EB1D058F660001E29F /* Resource.swift */; };
 		D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630ED1D05B5F40001E29F /* APIRequest.swift */; };
@@ -130,6 +131,7 @@
 		D305B23C1D24FDCF0072B634 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		D30844791D23AE1400A25CF4 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D3567BBF1D1BC38B00E5A5EE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D368257F1D3FB51C00EDA31C /* ServiceAnnotationMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAnnotationMap.swift; sourceTree = "<group>"; };
 		D375F2AC1D34150F00EE6A57 /* ServiceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceImage.swift; sourceTree = "<group>"; };
 		D37630EB1D058F660001E29F /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		D37630ED1D05B5F40001E29F /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 			children = (
 				D37630F51D05CA770001E29F /* Service.swift */,
 				D375F2AC1D34150F00EE6A57 /* ServiceImage.swift */,
+				D368257F1D3FB51C00EDA31C /* ServiceAnnotationMap.swift */,
 				D3567BBF1D1BC38B00E5A5EE /* User.swift */,
 				D30844791D23AE1400A25CF4 /* Response.swift */,
 			);
@@ -570,6 +573,7 @@
 				D37630EE1D05B5F40001E29F /* APIRequest.swift in Sources */,
 				D37630F61D05CA770001E29F /* Service.swift in Sources */,
 				52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */,
+				D36825801D3FB51C00EDA31C /* ServiceAnnotationMap.swift in Sources */,
 				527F870F1D2B28BC00D0E1EC /* LocationViewController.swift in Sources */,
 				5295D2521D3462A9009F93E7 /* RegisterViewController.swift in Sources */,
 				7924E66C1D3A88A900D758AD /* CircularImageButton.swift in Sources */,

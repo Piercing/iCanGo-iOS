@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import CoreLocation
 import MapKit
+import RxSwift
 
 class LocationViewController: UIViewController {
     
@@ -18,6 +18,7 @@ class LocationViewController: UIViewController {
     
     let titleView = "Location"
     var locationManager: CLLocationManager?
+    private var services: [Service]?
     
     
     // MARK: - Init
@@ -56,15 +57,52 @@ class LocationViewController: UIViewController {
     }
     
     
-    // Private Methods
+    // MARK: Private Methods
     private func zoomIn() {
         
         var userRegion: MKCoordinateRegion = MKCoordinateRegion()
         userRegion.center.latitude = (locationManager?.location?.coordinate.latitude)!
         userRegion.center.longitude = (locationManager?.location?.coordinate.longitude)!
-        userRegion.span.latitudeDelta = 0.010000
-        userRegion.span.longitudeDelta = 0.010000
+        userRegion.span.latitudeDelta = 0.100000
+        userRegion.span.longitudeDelta = 0.100000
         mapView.setRegion(userRegion, animated: true)
+    }
+    
+    private func loadDataFromApi(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?) -> Void {
+        
+        let session = Session.iCanGoSession()
+        // TODO: Parameter Rows pendin
+        let _ = session.getServicesByGeoText(latitude, longitude: longitude, distance: distance, searchText: searchText, page: 1, rows: rowsPerPage)
+        
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                switch event {
+                case let .Next(services):
+                    
+                    self?.services = services
+                    if self?.services?.count > 0 {
+                        self?.showServicesInMap()
+                    }
+                    break
+                
+                case .Error (let error):
+                    print(error)
+                
+                default:
+                    break
+                }
+        }
+    }
+    
+    private func showServicesInMap() -> Void {
+        
+        for service in self.services! {
+            
+            let coordinate = CLLocationCoordinate2D(latitude: service.latitude!, longitude: service.longitude!)
+            let serviceAnnotationMap = ServiceAnnotationMap(coordinate: coordinate, title: service.name, subtitle: service.description)
+            mapView.addAnnotation(serviceAnnotationMap)
+        }
     }
 }
 
@@ -78,6 +116,10 @@ extension LocationViewController: CLLocationManagerDelegate {
         case .Authorized,
              .AuthorizedWhenInUse:
             zoomIn()
+            loadDataFromApi(locationManager?.location?.coordinate.latitude,
+                 longitude: locationManager?.location?.coordinate.longitude,
+                  distance: 10,
+                searchText: nil)
             
         case .Restricted,
              .Denied:
