@@ -156,6 +156,11 @@
                                 <constraint firstAttribute="height" constant="85" id="lF3-gz-CLz"/>
                                 <constraint firstAttribute="width" constant="85" id="pzp-e8-4We"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                         <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-fk-d9j" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="93" y="0.0" width="85" height="85"/>
@@ -164,6 +169,11 @@
                                 <constraint firstAttribute="width" constant="85" id="YQN-bW-dSQ"/>
                                 <constraint firstAttribute="height" constant="85" id="kga-D3-HB3"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                         <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ysE-4D-CYb" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="186" y="0.0" width="85" height="85"/>
@@ -172,14 +182,24 @@
                                 <constraint firstAttribute="width" constant="85" id="VRG-Ys-cvK"/>
                                 <constraint firstAttribute="height" constant="85" id="cCI-r6-CZX"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="279" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="85" id="4x8-ej-5nc"/>
                                 <constraint firstAttribute="width" constant="85" id="lvI-h4-4qn"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                     </subviews>
                     <constraints>
@@ -196,6 +216,11 @@
                     <state key="normal" title="Delete Service">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="btnDeleteServiceDetail:" destination="-1" eventType="touchUpInside" id="uUo-5m-Ony"/>
                     </connections>

@@ -14,15 +14,34 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="RoundedCorners" customModule="iCanGo_iOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HsC-eJ-FRD" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HsC-eJ-FRD" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tg5-OE-YcW">
+                    <rect key="frame" x="225" y="235" width="17" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="aqT-zd-gVc"/>
+                        <constraint firstAttribute="width" constant="17" id="ff8-d1-zm3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
+                    <state key="normal" title="X">
+                        <color key="titleColor" red="0.13430340939999999" green="0.67552377659999996" blue="0.76851395389999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="popUpClose:" destination="-1" eventType="touchUpInside" id="Ij0-My-ilG"/>
+                    </connections>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="lLg-Zl-T67">
-                    <rect key="frame" x="11" y="235" width="200" height="15"/>
+                    <rect key="frame" x="25" y="235" width="200" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="Y33-IB-CCe"/>
                     </constraints>
@@ -30,27 +49,13 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tg5-OE-YcW">
-                    <rect key="frame" x="209" y="235" width="30" height="15"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="15" id="aqT-zd-gVc"/>
-                        <constraint firstAttribute="width" constant="30" id="ff8-d1-zm3"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
-                    <state key="normal" title="X">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="popUpClose:" destination="-1" eventType="touchUpInside" id="Ij0-My-ilG"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="HsC-eJ-FRD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="32N-Dp-1LI"/>
-                <constraint firstItem="lLg-Zl-T67" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="11" id="C6u-h0-WNN"/>
-                <constraint firstItem="HsC-eJ-FRD" firstAttribute="centerX" secondItem="lLg-Zl-T67" secondAttribute="centerX" constant="14" id="C8L-Hr-YCO"/>
-                <constraint firstItem="lLg-Zl-T67" firstAttribute="centerX" secondItem="tg5-OE-YcW" secondAttribute="centerX" constant="-113" id="L2W-nw-s2A"/>
+                <constraint firstItem="lLg-Zl-T67" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="C6u-h0-WNN"/>
+                <constraint firstItem="HsC-eJ-FRD" firstAttribute="centerX" secondItem="lLg-Zl-T67" secondAttribute="centerX" id="C8L-Hr-YCO"/>
+                <constraint firstItem="lLg-Zl-T67" firstAttribute="centerX" secondItem="tg5-OE-YcW" secondAttribute="centerX" constant="-108.5" id="L2W-nw-s2A"/>
                 <constraint firstAttribute="bottom" secondItem="tg5-OE-YcW" secondAttribute="bottom" id="RHk-N5-FGr"/>
                 <constraint firstItem="HsC-eJ-FRD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XUr-6z-uFb"/>
                 <constraint firstItem="HsC-eJ-FRD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dEe-sE-9n2"/>
@@ -59,7 +64,12 @@
                 <constraint firstItem="tg5-OE-YcW" firstAttribute="top" secondItem="HsC-eJ-FRD" secondAttribute="bottom" constant="-15" id="vL4-EV-ruL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="218" y="443"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="3"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="414" y="594"/>
         </view>
     </objects>
 </document>
