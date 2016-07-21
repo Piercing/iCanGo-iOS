@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5233514F1D3BC325004A6C05 /* PopUpImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5233514D1D3BC325004A6C05 /* PopUpImagesViewController.swift */; };
 		523351501D3BC325004A6C05 /* PopUpImagesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5233514E1D3BC325004A6C05 /* PopUpImagesView.xib */; };
+		525351A71D41191C004614DF /* RecoverPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525351A51D41191C004614DF /* RecoverPassViewController.swift */; };
+		525351A81D41191C004614DF /* RecoverPassView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 525351A61D41191C004614DF /* RecoverPassView.xib */; };
 		5256B1251D330D620049ED9A /* MyProfileCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5256B1241D330D620049ED9A /* MyProfileCellView.xib */; };
 		5256B1271D3310600049ED9A /* MyProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256B1261D3310600049ED9A /* MyProfileCell.swift */; };
 		5272E1801D2C17E3007211E4 /* StartUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272E17E1D2C17E3007211E4 /* StartUpController.swift */; };
@@ -84,6 +86,8 @@
 /* Begin PBXFileReference section */
 		5233514D1D3BC325004A6C05 /* PopUpImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpImagesViewController.swift; sourceTree = "<group>"; };
 		5233514E1D3BC325004A6C05 /* PopUpImagesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpImagesView.xib; sourceTree = "<group>"; };
+		525351A51D41191C004614DF /* RecoverPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverPassViewController.swift; sourceTree = "<group>"; };
+		525351A61D41191C004614DF /* RecoverPassView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecoverPassView.xib; sourceTree = "<group>"; };
 		5256B1241D330D620049ED9A /* MyProfileCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileCellView.xib; sourceTree = "<group>"; };
 		5256B1261D3310600049ED9A /* MyProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileCell.swift; sourceTree = "<group>"; };
 		5272E17E1D2C17E3007211E4 /* StartUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpController.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 				527F871A1D2B29C500D0E1EC /* MyProfileView.xib */,
 				527F87161D2B29A200D0E1EC /* NotificationsView.xib */,
 				5233514E1D3BC325004A6C05 /* PopUpImagesView.xib */,
+				525351A61D41191C004614DF /* RecoverPassView.xib */,
 				5295D2511D3462A9009F93E7 /* RegisterView.xib */,
 				79CA66DC1D3703FB00C67E67 /* ServicesView.xib */,
 				52DFD0A51D37ED6A000C4FE4 /* UserRegisterView.xib */,
@@ -280,6 +285,7 @@
 				527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */,
 				527F87151D2B29A200D0E1EC /* NotificationsViewController.swift */,
 				5233514D1D3BC325004A6C05 /* PopUpImagesViewController.swift */,
+				525351A51D41191C004614DF /* RecoverPassViewController.swift */,
 				5295D2501D3462A9009F93E7 /* RegisterViewController.swift */,
 				527F87091D2B09F000D0E1EC /* ServicesViewController.swift */,
 				5272E17E1D2C17E3007211E4 /* StartUpController.swift */,
@@ -493,6 +499,7 @@
 				523351501D3BC325004A6C05 /* PopUpImagesView.xib in Resources */,
 				52DD0E0E1D18655200A2E55E /* Main.storyboard in Resources */,
 				527F87101D2B28BC00D0E1EC /* LocationView.xib in Resources */,
+				525351A81D41191C004614DF /* RecoverPassView.xib in Resources */,
 				527F87181D2B29A200D0E1EC /* NotificationsView.xib in Resources */,
 				5256B1251D330D620049ED9A /* MyProfileCellView.xib in Resources */,
 				529F46CD1D4044BF000FDF28 /* LogProfileCellView.xib in Resources */,
@@ -572,6 +579,7 @@
 			files = (
 				D37630FE1D06CA280001E29F /* Session.swift in Sources */,
 				529F46CC1D4044BF000FDF28 /* LogProfileCell.swift in Sources */,
+				525351A71D41191C004614DF /* RecoverPassViewController.swift in Sources */,
 				D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */,
 				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
 				527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */,
