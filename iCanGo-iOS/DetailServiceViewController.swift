@@ -28,14 +28,12 @@ class DetailServiceViewController: UIViewController {
     @IBOutlet weak var imgDetailService04: UIImageView!
     
     let titleView = "Detail Services"
-    //var tapRecognizer: UITapGestureRecognizer? = nil
     var popUpVIewController: PopUpImagesViewController?
     var selectImage =  UIImageView()
     var serviceModel: Service!
     
     // MARK: - Init
     convenience init(service: Service) {
-        
         self.init(nibName: "DetailServiceView", bundle: nil)
         self.serviceModel = service
     }
@@ -72,8 +70,6 @@ class DetailServiceViewController: UIViewController {
                 loadImage(serviceImages[3].imageUrl, imageView: imgDetailService04)
             }
         }
-        
-        gestureReconizerForImages()
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,7 +97,6 @@ class DetailServiceViewController: UIViewController {
         let activityVC = UIActivityViewController(activityItems: objetsToShare, applicationActivities: nil)
         
         activityVC.excludedActivityTypes = [UIActivityTypeAddToReadingList]
-        
         activityVC.popoverPresentationController?.sourceView = sender as? UIView
         self.presentViewController(activityVC, animated: true, completion: nil)
     }
@@ -116,51 +111,49 @@ class DetailServiceViewController: UIViewController {
     
     // MARK: - Gesture Recognizer Views
     
-    func gestureReconizerForImages() {
-        
-        let tapRecognizer  = UITapGestureRecognizer()
-        
-        tapRecognizer.addTarget(self, action: #selector(DetailServiceViewController.tappedView))
-        tapRecognizer.numberOfTapsRequired = 1
-        
-        imgDetailService01.userInteractionEnabled = true
-        imgDetailService02.userInteractionEnabled = true
-        imgDetailService03.userInteractionEnabled = true
-        imgDetailService04.userInteractionEnabled = true
-        
-        imgDetailService01.addGestureRecognizer(tapRecognizer)
-        imgDetailService02.addGestureRecognizer(tapRecognizer)
-        imgDetailService03.addGestureRecognizer(tapRecognizer)
-        imgDetailService04.addGestureRecognizer(tapRecognizer)
-        
+    @IBAction func tapGestureImg01(sender: AnyObject) {
+        tappedView(sender as! UITapGestureRecognizer)
+    }
+    
+    @IBAction func tapGestureImg02(sender: AnyObject) {
+        tappedView(sender as! UITapGestureRecognizer)
+    }
+    
+    @IBAction func tapGestureImg03(sender: AnyObject) {
+        tappedView(sender as! UITapGestureRecognizer)
+    }
+    
+    @IBAction func tapGestureImg04(sender: AnyObject) {
+        tappedView(sender as! UITapGestureRecognizer)
     }
     
     func tappedView(sender: UITapGestureRecognizer) {
         
         var popUpVIewController = PopUpImagesViewController()
-        selectImage = (sender.view as? UIImageView)!
         
-        print("tapped reconigzer")
         popUpVIewController = PopUpImagesViewController(nibName: "PopUpImagesView", bundle: nil)
-        popUpVIewController.showInView(self.view, withImage: selectImage.image ?? UIImage(named: "camera"), withMessage: nameServiceDetailService.text, animated: true)
-        
+        popUpVIewController.showInView(
+            self.view,
+            withImage: imageTapped(sender).image ?? UIImage(named: "1024-emptyCamera-center-ios"),
+            withMessage: nameServiceDetailService.text,
+            animated: true)
     }
-    //
-    //    func imageTapped(img: UIImage) -> UIImage {
-    //
-    //        switch img {
-    //        case img.isEqual(imgDetailService01):
-    //            return imgDetailService01.image!
-    //        case img.isEqual(imgDetailService02):
-    //            return imgDetailService02.image!
-    //        case img.isEqual(imgDetailService03):
-    //            return imgDetailService03.image!
-    //        case img.isEqual(imgDetailService04):
-    //            return imgDetailService04.image!
-    //        default:
-    //            return UIImage(named: "camera")!
-    //        }
-    //    }
+    
+    func imageTapped(sender: UITapGestureRecognizer) -> UIImageView {
+        
+        if let selectImage = sender.view as? UIImageView{
+            if selectImage.tag == 1 {
+                self.selectImage = imgDetailService01
+            } else if selectImage.tag == 2 {
+                self.selectImage = imgDetailService02
+            } else if selectImage.tag == 3 {
+                self.selectImage = imgDetailService03
+            } else if selectImage.tag == 4{
+                self.selectImage = imgDetailService04
+            }
+        }
+        return selectImage
+    }
 }
 
 

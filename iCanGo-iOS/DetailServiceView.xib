@@ -162,7 +162,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <outletCollection property="gestureRecognizers" destination="ww3-uy-qnG" appends="YES" id="iJe-1e-a6P"/>
+                                <outletCollection property="gestureRecognizers" destination="4Yc-8h-VzI" appends="YES" id="i4b-Wm-qns"/>
                             </connections>
                         </imageView>
                         <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-fk-d9j" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
@@ -178,7 +178,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <outletCollection property="gestureRecognizers" destination="CXg-Fe-3D3" appends="YES" id="z5f-FN-ha2"/>
+                                <outletCollection property="gestureRecognizers" destination="5Ur-5e-EGy" appends="YES" id="9aG-WE-fIP"/>
                             </connections>
                         </imageView>
                         <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1024-emptyCamera-center-ios" translatesAutoresizingMaskIntoConstraints="NO" id="ysE-4D-CYb" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
@@ -194,10 +194,10 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <outletCollection property="gestureRecognizers" destination="dPT-bL-1f8" appends="YES" id="ibQ-pB-3gk"/>
+                                <outletCollection property="gestureRecognizers" destination="w2g-Ca-cel" appends="YES" id="lZb-Bc-Pko"/>
                             </connections>
                         </imageView>
-                        <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iCanGoEmptyImage-560x" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="279" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -210,7 +210,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <outletCollection property="gestureRecognizers" destination="28k-JN-PBo" appends="YES" id="3CG-ND-l6x"/>
+                                <outletCollection property="gestureRecognizers" destination="rsh-3T-MoX" appends="YES" id="uqA-Xq-FKi"/>
                             </connections>
                         </imageView>
                     </subviews>
@@ -294,28 +294,24 @@
             </constraints>
             <point key="canvasLocation" x="477" y="341"/>
         </view>
-        <tapGestureRecognizer id="ww3-uy-qnG">
+        <tapGestureRecognizer id="4Yc-8h-VzI" userLabel="tapGestureImg01">
             <connections>
-                <action selector="tapGestureImg01:" destination="-1" id="zSI-Ve-sRP"/>
-                <outlet property="delegate" destination="nNe-gg-iNq" id="TRi-ne-jXG"/>
+                <action selector="tapGestureImg01:" destination="-1" id="yhy-aF-YpF"/>
             </connections>
         </tapGestureRecognizer>
-        <tapGestureRecognizer id="CXg-Fe-3D3">
+        <tapGestureRecognizer id="5Ur-5e-EGy" userLabel="tapGestureImg02">
             <connections>
-                <action selector="tapGestureImg02:" destination="-1" id="A4D-BT-zjb"/>
-                <outlet property="delegate" destination="hGb-fk-d9j" id="bgw-1t-r21"/>
+                <action selector="tapGestureImg02:" destination="-1" id="IOX-vC-R8t"/>
             </connections>
         </tapGestureRecognizer>
-        <tapGestureRecognizer id="dPT-bL-1f8">
+        <tapGestureRecognizer id="w2g-Ca-cel" userLabel="tapGestureImg03">
             <connections>
-                <action selector="tapGestureImg03:" destination="-1" id="3uF-Fp-RgB"/>
-                <outlet property="delegate" destination="ysE-4D-CYb" id="yhP-mY-pko"/>
+                <action selector="tapGestureImg03:" destination="-1" id="Z5W-bg-QLi"/>
             </connections>
         </tapGestureRecognizer>
-        <tapGestureRecognizer id="28k-JN-PBo">
+        <tapGestureRecognizer id="rsh-3T-MoX" userLabel="tapGestureImg04">
             <connections>
-                <action selector="tapGestureImg04:" destination="-1" id="qc5-tB-R99"/>
-                <outlet property="delegate" destination="MQJ-8V-Gz7" id="w72-f2-Xwx"/>
+                <action selector="tapGestureImg04:" destination="-1" id="bcc-55-4Gh"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
@@ -326,5 +322,6 @@
         <image name="cena02" width="85" height="85"/>
         <image name="chica4" width="75" height="76"/>
         <image name="conversation03" width="933" height="930"/>
+        <image name="iCanGoEmptyImage-560x" width="560" height="560"/>
     </resources>
 </document>
