@@ -36,6 +36,9 @@ class LocationViewController: UIViewController {
         
         searchBarLocation.resignFirstResponder()
         
+        // Configure MapView.
+        mapView.delegate = self
+        
         // Configure Location Manager.
         locationManager = CLLocationManager()
         locationManager?.delegate = self
@@ -100,7 +103,7 @@ class LocationViewController: UIViewController {
         for service in self.services! {
             
             let coordinate = CLLocationCoordinate2D(latitude: service.latitude!, longitude: service.longitude!)
-            let serviceAnnotationMap = ServiceAnnotationMap(coordinate: coordinate, title: service.name, subtitle: service.description)
+            let serviceAnnotationMap = ServiceAnnotationMap(coordinate: coordinate, title: service.name, subtitle: "", service: service)
             mapView.addAnnotation(serviceAnnotationMap)
         }
     }
@@ -129,6 +132,45 @@ extension LocationViewController: CLLocationManagerDelegate {
             break
         }
     }    
+}
+
+extension LocationViewController: MKMapViewDelegate {
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    
+        let currentLocation = "Current Location"
+        let identifier = "pin"
+        
+        if let annotationTitle  = annotation.title where
+               annotationTitle != currentLocation {
+            
+            if let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {
+                annotationView.annotation = annotation
+                return annotationView
+
+            } else {
+                let annotationView = MKPinAnnotationView(annotation:annotation, reuseIdentifier:identifier)
+                annotationView.enabled = true
+                annotationView.canShowCallout = true
+                let btn = UIButton(type: .DetailDisclosure)
+                annotationView.rightCalloutAccessoryView = btn
+                return annotationView
+            }
+        
+        } else {
+            return nil
+        }
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+     
+        if let serviceAnnotationMap = view.annotation as? ServiceAnnotationMap {
+            
+            let detailServiceViewController = DetailServiceViewController(service: serviceAnnotationMap.service)
+            print(self.navigationController)
+            self.navigationController?.pushViewController(detailServiceViewController, animated: true)
+        }
+    }
 }
 
 
