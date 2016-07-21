@@ -31,10 +31,13 @@ class DetailServiceViewController: UIViewController {
     //var tapRecognizer: UITapGestureRecognizer? = nil
     var popUpVIewController: PopUpImagesViewController?
     var selectImage =  UIImageView()
+    var serviceModel: Service!
     
     // MARK: - Init
-    convenience init() {
+    convenience init(service: Service) {
+
         self.init(nibName: "DetailServiceView", bundle: nil)
+        self.serviceModel = service
     }
     
     override func viewDidLoad() {
@@ -43,7 +46,38 @@ class DetailServiceViewController: UIViewController {
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
         
+<<<<<<< HEAD
         //gestureReconizerForImages()
+=======
+        nameServiceDetailService.text  = serviceModel.name
+        nameUserDetailService.text     = serviceModel.userFirstName + " " + serviceModel.userLastName
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dataDetailService.text         = dateFormatter.stringFromDate(serviceModel.dateCreated)
+        publishedDetailService.text    = String(serviceModel.numPublishedServices)
+        caretedDetailsService.text     = String(serviceModel.numAttendedServices)
+        priceDetailService.text        = String(format: "%.2f", serviceModel.price)
+        descriptionDetatilService.text = serviceModel.description
+        
+        if let serviceImages = serviceModel.images {
+            
+            loadImage(serviceImages[0].imageUrl, imageView: imgDetailService01)
+            
+            if serviceImages[1].id != "" {
+                loadImage(serviceImages[1].imageUrl, imageView: imgDetailService02)
+            }
+            
+            if serviceImages[2].id != "" {
+                loadImage(serviceImages[2].imageUrl, imageView: imgDetailService03)
+            }
+            
+            if serviceImages[3].id != "" {
+                loadImage(serviceImages[3].imageUrl, imageView: imgDetailService04)
+            }
+        }
+        
+        gestureReconizerForImages()
+>>>>>>> feature/MapGoToService
     }
     
     override func didReceiveMemoryWarning() {
