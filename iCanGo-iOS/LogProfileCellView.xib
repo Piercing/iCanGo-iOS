@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="logProfileCell" id="gTV-IL-0wX" customClass="LogProfileCollectionViewCell" customModule="iCanGo_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CII-2l-A14">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRz-hi-ROB" customClass="RoundedCorners" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvF-99-Y5b" userLabel="View Labels">
+                                <rect key="frame" x="0.0" y="120" width="180" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gje-OZ-mMd" userLabel="Label Price Log Profile Cell">
+                                        <rect key="frame" x="4" y="15" width="172" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="42m-Xu-txL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Viajar a Granada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTt-Mp-Qjh" userLabel="Label Price Log Profile Cell">
+                                        <rect key="frame" x="4" y="44" width="172" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="avj-ug-ymm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="8nh-rO-64k"/>
+                                    <constraint firstItem="gje-OZ-mMd" firstAttribute="top" secondItem="xvF-99-Y5b" secondAttribute="top" constant="15" id="E5S-Lj-UHK"/>
+                                    <constraint firstAttribute="width" constant="180" id="MHH-Uf-nPV"/>
+                                    <constraint firstItem="UTt-Mp-Qjh" firstAttribute="leading" secondItem="xvF-99-Y5b" secondAttribute="leading" constant="4" id="Z2C-Qv-2W4"/>
+                                    <constraint firstAttribute="trailing" secondItem="UTt-Mp-Qjh" secondAttribute="trailing" constant="4" id="sgi-6V-xNk"/>
+                                    <constraint firstItem="UTt-Mp-Qjh" firstAttribute="top" secondItem="gje-OZ-mMd" secondAttribute="bottom" constant="8" id="snx-Wx-bdv"/>
+                                    <constraint firstItem="gje-OZ-mMd" firstAttribute="leading" secondItem="xvF-99-Y5b" secondAttribute="leading" constant="4" id="wby-eT-qJm"/>
+                                    <constraint firstAttribute="trailing" secondItem="gje-OZ-mMd" secondAttribute="trailing" constant="4" id="z0I-au-Ix6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2WO-wk-Znc" userLabel="View Image Service">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="121"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="vEw-EB-D7g" userLabel="Image Service Log Profile Cell">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="121"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="121" id="5tH-HG-hNK"/>
+                                            <constraint firstAttribute="width" constant="180" id="clA-g6-5Hc"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="vEw-EB-D7g" firstAttribute="leading" secondItem="2WO-wk-Znc" secondAttribute="leading" id="N0W-n0-fpQ"/>
+                                    <constraint firstItem="vEw-EB-D7g" firstAttribute="top" secondItem="2WO-wk-Znc" secondAttribute="top" id="bfn-W0-Q6k"/>
+                                    <constraint firstAttribute="trailing" secondItem="vEw-EB-D7g" secondAttribute="trailing" id="rBg-4R-zAD"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chica4" translatesAutoresizingMaskIntoConstraints="NO" id="ia3-hd-auC" userLabel="Image User My Profile">
+                                <rect key="frame" x="14" y="100" width="40" height="40"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_emptyHeart" translatesAutoresizingMaskIntoConstraints="NO" id="4TE-gh-Yhh" userLabel="Favourites">
+                                <rect key="frame" x="140" y="130" width="17" height="17"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xvF-99-Y5b" firstAttribute="leading" secondItem="aRz-hi-ROB" secondAttribute="leading" id="Eee-bv-UaP"/>
+                            <constraint firstAttribute="trailing" secondItem="xvF-99-Y5b" secondAttribute="trailing" id="Kcv-2y-D2c"/>
+                            <constraint firstItem="2WO-wk-Znc" firstAttribute="leading" secondItem="xvF-99-Y5b" secondAttribute="leading" id="P3L-3K-zAk"/>
+                            <constraint firstItem="2WO-wk-Znc" firstAttribute="top" secondItem="aRz-hi-ROB" secondAttribute="top" id="ZOw-DN-fKQ"/>
+                            <constraint firstAttribute="bottom" secondItem="xvF-99-Y5b" secondAttribute="bottom" id="oRG-oO-wdH"/>
+                            <constraint firstAttribute="bottom" secondItem="2WO-wk-Znc" secondAttribute="bottom" constant="79" id="wvc-8j-oGq"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="aRz-hi-ROB" firstAttribute="leading" secondItem="CII-2l-A14" secondAttribute="leading" id="0af-xL-ZDX"/>
+                <constraint firstItem="aRz-hi-ROB" firstAttribute="bottom" secondItem="CII-2l-A14" secondAttribute="bottom" id="Epx-dV-LxJ"/>
+                <constraint firstAttribute="trailing" secondItem="CII-2l-A14" secondAttribute="trailing" id="W09-l8-bxi"/>
+                <constraint firstAttribute="bottom" secondItem="CII-2l-A14" secondAttribute="bottom" id="edT-gs-tnF"/>
+                <constraint firstItem="CII-2l-A14" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="sSn-Jt-eYO"/>
+                <constraint firstItem="aRz-hi-ROB" firstAttribute="top" secondItem="CII-2l-A14" secondAttribute="top" id="vHg-RR-hMM"/>
+                <constraint firstItem="CII-2l-A14" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yxZ-ax-wSS"/>
+            </constraints>
+            <point key="canvasLocation" x="514" y="418"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cena02" width="85" height="85"/>
+        <image name="chica4" width="75" height="76"/>
+        <image name="icon_emptyHeart" width="15" height="14"/>
+    </resources>
+</document>

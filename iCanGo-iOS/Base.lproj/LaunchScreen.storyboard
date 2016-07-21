@@ -29,23 +29,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="iCanGoLogotype" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-Ae-jyS">
-                                <rect key="frame" x="20" y="104" width="560" height="291"/>
+                                <rect key="frame" x="77" y="164" width="447" height="202"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="291" id="NBo-KI-OdX"/>
+                                    <constraint firstAttribute="height" constant="202" id="NBo-KI-OdX"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCanGo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUG-jB-FCA">
+                                <rect key="frame" x="212" y="374" width="177" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="3Jo-nz-lHH"/>
+                                    <constraint firstAttribute="width" constant="177" id="Swo-9Z-Ot9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="43"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="uzz-nX-pM8" secondAttribute="bottom" constant="20" symbolic="YES" id="0Cf-1c-U3y"/>
-                            <constraint firstItem="PLi-Ae-jyS" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="84" id="2pw-he-jLU"/>
+                            <constraint firstItem="PLi-Ae-jyS" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="144" id="2pw-he-jLU"/>
                             <constraint firstAttribute="trailing" secondItem="aLN-su-u0s" secondAttribute="trailing" id="CiR-uW-qRi"/>
                             <constraint firstItem="aLN-su-u0s" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Gvu-bo-bqa"/>
                             <constraint firstItem="aLN-su-u0s" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="eoz-Jo-lwl"/>
-                            <constraint firstItem="PLi-Ae-jyS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="hL2-6o-n5m"/>
+                            <constraint firstItem="DUG-jB-FCA" firstAttribute="centerX" secondItem="uzz-nX-pM8" secondAttribute="centerX" id="gK5-32-wmb"/>
+                            <constraint firstItem="PLi-Ae-jyS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="57" id="hL2-6o-n5m"/>
                             <constraint firstItem="aLN-su-u0s" firstAttribute="centerX" secondItem="uzz-nX-pM8" secondAttribute="centerX" id="hqW-MR-wTn"/>
-                            <constraint firstItem="PLi-Ae-jyS" firstAttribute="leading" secondItem="uzz-nX-pM8" secondAttribute="leading" id="jVs-yW-H8p"/>
-                            <constraint firstItem="PLi-Ae-jyS" firstAttribute="trailing" secondItem="uzz-nX-pM8" secondAttribute="trailing" id="m2g-fZ-jNs"/>
+                            <constraint firstItem="PLi-Ae-jyS" firstAttribute="leading" secondItem="uzz-nX-pM8" secondAttribute="leading" constant="57" id="jVs-yW-H8p"/>
+                            <constraint firstItem="DUG-jB-FCA" firstAttribute="top" secondItem="PLi-Ae-jyS" secondAttribute="bottom" constant="8" id="jsI-dC-DFP"/>
+                            <constraint firstItem="PLi-Ae-jyS" firstAttribute="trailing" secondItem="uzz-nX-pM8" secondAttribute="trailing" constant="-56" id="m2g-fZ-jNs"/>
                             <constraint firstItem="aLN-su-u0s" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="v33-pw-3YT"/>
                         </constraints>
                     </view>
