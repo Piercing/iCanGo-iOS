@@ -167,7 +167,7 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func showModal(index: Int) {
-        let detailServiceViewController = DetailServiceViewController()
+        let detailServiceViewController = DetailServiceViewController(service: services![index])
         self.navigationController?.pushViewController(detailServiceViewController, animated: true)
     }
     

@@ -32,7 +32,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         
         let servicesViewController = ServicesViewController()
-        let itemLocationTabBar =  LocationViewController()
+        let locationViewController =  LocationViewController()
         let itemCreateServiceTabBar =  AddServiceViewController()
         let itemNotificationsTabBar = NotificationsViewController()
         let myProfileViewController = MyProfileViewController()
@@ -68,17 +68,21 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
                 .imageWithRenderingMode(.AlwaysTemplate))
         
         servicesViewController.tabBarItem = allServicesTabBarItem
-        itemLocationTabBar.tabBarItem = iconLocationTabBar
+        locationViewController.tabBarItem = iconLocationTabBar
         itemCreateServiceTabBar.tabBarItem = iconCreateServicesTabBar
         itemNotificationsTabBar.tabBarItem = iconNotificationsTabBar
         myProfileViewController.tabBarItem = myProfileTabBarItem
         
-        let navVC = UINavigationController(rootViewController: servicesViewController)
-        navVC.navigationBarHidden = true
+        let navVCServices = UINavigationController(rootViewController: servicesViewController)
+        navVCServices.navigationBarHidden = true
+        let navVCLocation = UINavigationController(rootViewController: locationViewController)
+        navVCLocation.navigationBarHidden = true
+        
+        
         let controllers =
             [
-                navVC,
-                itemLocationTabBar,
+                navVCServices,
+                navVCLocation,
                 itemCreateServiceTabBar,
                 itemNotificationsTabBar,
                 myProfileViewController
