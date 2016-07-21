@@ -30,6 +30,8 @@
 		5295D2531D3462A9009F93E7 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295D2511D3462A9009F93E7 /* RegisterView.xib */; };
 		529F46C81D4033EB000FDF28 /* LogProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529F46C61D4033EB000FDF28 /* LogProfileViewController.swift */; };
 		529F46C91D4033EB000FDF28 /* LogProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529F46C71D4033EB000FDF28 /* LogProfileView.xib */; };
+		529F46CC1D4044BF000FDF28 /* LogProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529F46CA1D4044BF000FDF28 /* LogProfileCell.swift */; };
+		529F46CD1D4044BF000FDF28 /* LogProfileCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529F46CB1D4044BF000FDF28 /* LogProfileCellView.xib */; };
 		52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */; };
 		52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */; };
 		52D37E0D1D2EDB63009F2FC3 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */; };
@@ -103,6 +105,8 @@
 		5295D2511D3462A9009F93E7 /* RegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
 		529F46C61D4033EB000FDF28 /* LogProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogProfileViewController.swift; sourceTree = "<group>"; };
 		529F46C71D4033EB000FDF28 /* LogProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogProfileView.xib; sourceTree = "<group>"; };
+		529F46CA1D4044BF000FDF28 /* LogProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogProfileCell.swift; sourceTree = "<group>"; };
+		529F46CB1D4044BF000FDF28 /* LogProfileCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogProfileCellView.xib; sourceTree = "<group>"; };
 		52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCellView.xib; sourceTree = "<group>"; };
 		52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 			children = (
 				5256B1261D3310600049ED9A /* MyProfileCell.swift */,
 				52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */,
+				529F46CA1D4044BF000FDF28 /* LogProfileCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 			children = (
 				52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */,
 				5256B1241D330D620049ED9A /* MyProfileCellView.xib */,
+				529F46CB1D4044BF000FDF28 /* LogProfileCellView.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -489,6 +495,7 @@
 				527F87101D2B28BC00D0E1EC /* LocationView.xib in Resources */,
 				527F87181D2B29A200D0E1EC /* NotificationsView.xib in Resources */,
 				5256B1251D330D620049ED9A /* MyProfileCellView.xib in Resources */,
+				529F46CD1D4044BF000FDF28 /* LogProfileCellView.xib in Resources */,
 				527F871C1D2B29C500D0E1EC /* MyProfileView.xib in Resources */,
 				5295D2531D3462A9009F93E7 /* RegisterView.xib in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
@@ -564,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37630FE1D06CA280001E29F /* Session.swift in Sources */,
+				529F46CC1D4044BF000FDF28 /* LogProfileCell.swift in Sources */,
 				D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */,
 				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
 				527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */,
