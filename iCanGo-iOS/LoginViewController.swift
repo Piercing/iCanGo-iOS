@@ -99,21 +99,29 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func btnForgetPASS(sender: AnyObject) {
+        openRecoverPassView()
     }
     
     @IBAction func btnNoRG(sender: AnyObject) {
+        
     }
     
     @IBAction func cancelTapped(sender: AnyObject) {
         close()
     }
     
+    // MARK: Methods
+    
+    func openRecoverPassView(){
+        var recoverPassVC = RecoverPassViewController()
+        recoverPassVC = RecoverPassViewController(nibName: "RecoverPassView", bundle: nil)
+        self.presentViewController(recoverPassVC, animated: true, completion: nil)
+    }
+    
     func close() -> Void {
         self.delegate?.back(selectedTabItemIndex!);
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    // MARK: Methods
     
     private func loginNoSuccess(error: SessionError?) {
         
@@ -145,11 +153,11 @@ extension LoginViewController: UITextFieldDelegate{
         self.view.endEditing(true)
         return true
     }
-
+    
     func textFieldDidBeginEditing(textField: UITextField) {
-       btnInitSession.enabled = txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress
+        btnInitSession.enabled = txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress
     }
-
+    
     func textFieldDidEndEditing(textField: UITextField) {
         btnInitSession.enabled = txtFieldUser.text != "" && txtFieldPassw.text != "" && !loginInProgress
     }

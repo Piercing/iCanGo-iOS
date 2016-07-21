@@ -24,15 +24,14 @@ class RegisterViewController: UIViewController {
         self.init(nibName: "RegisterView", bundle: nil)
     }
     
+    // MARK: LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
     }
-
-    // MARK: Methods
-
     
     // MARK: - Actions
     
