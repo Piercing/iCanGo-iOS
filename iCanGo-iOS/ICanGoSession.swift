@@ -62,6 +62,20 @@ extension Session {
         }
     }
     
+    // GET Services by GeoLocalization & Text Search.
+    func getServicesByGeoText(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?, page: UInt, rows: UInt) -> Observable<[Service]> {
+    
+        return response(APIRequest.getServicesByGeoText(key: "",
+                                                   latitude: latitude,
+                                                  longitude: longitude,
+                                                   distance: distance,
+                                                 searchText: searchText,
+                                                       page: page,
+                                                       rows: rows)).map { response in
+            return try self.returnServices(response)
+        }
+    }
+
     // GET Service.
     func getServiceById(id: String) -> Observable<Service> {
         

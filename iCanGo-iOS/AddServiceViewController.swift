@@ -35,11 +35,6 @@ class AddServiceViewController: UIViewController {
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
         Appearance.customizeAppearance(self.view)
-        Appearance.addDidLayoutSubviewsFourButtons(
-            btnTwitterHighService,
-            btn2: btnFacebookHighService,
-            btn3: btnGooglePlusHighService,
-            btn4: btnLinkedinHighService)
     }
     
     override func didReceiveMemoryWarning() {

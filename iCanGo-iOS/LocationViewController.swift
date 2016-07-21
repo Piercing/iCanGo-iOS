@@ -7,23 +7,27 @@
 //
 
 import UIKit
+import MapKit
+import RxSwift
 
 class LocationViewController: UIViewController {
     
     // MARK: - Properties
-    
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBarLocation: UISearchBar!
     
     let titleView = "Location"
+    var locationManager: CLLocationManager?
+    private var services: [Service]?
+    
     
     // MARK: - Init
-    
     convenience init() {
         self.init(nibName: "LocationView", bundle: nil)
     }
     
-    // MARK: - LifeCycle
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,26 +35,108 @@ class LocationViewController: UIViewController {
         self.title = title
         
         searchBarLocation.resignFirstResponder()
+        
+        // Configure Location Manager.
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager!.requestWhenInUseAuthorization()
     }
     
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        super.didReceiveMemoryWarning()
     }
     
     
-     // MARK: - Actions
-    
+    // MARK: - Actions
     @IBAction func btnFavouritesLocation(sender: AnyObject) {
+        
         // TODO:
         print("Tapp buttom favourites Location")
     }
+    
+    
+    // MARK: Private Methods
+    private func zoomIn() {
+        
+        var userRegion: MKCoordinateRegion = MKCoordinateRegion()
+        userRegion.center.latitude = (locationManager?.location?.coordinate.latitude)!
+        userRegion.center.longitude = (locationManager?.location?.coordinate.longitude)!
+        userRegion.span.latitudeDelta = 0.100000
+        userRegion.span.longitudeDelta = 0.100000
+        mapView.setRegion(userRegion, animated: true)
+    }
+    
+    private func loadDataFromApi(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?) -> Void {
+        
+        let session = Session.iCanGoSession()
+        // TODO: Parameter Rows pendin
+        let _ = session.getServicesByGeoText(latitude, longitude: longitude, distance: distance, searchText: searchText, page: 1, rows: rowsPerPage)
+        
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                switch event {
+                case let .Next(services):
+                    
+                    self?.services = services
+                    if self?.services?.count > 0 {
+                        self?.showServicesInMap()
+                    }
+                    break
+                
+                case .Error (let error):
+                    print(error)
+                
+                default:
+                    break
+                }
+        }
+    }
+    
+    private func showServicesInMap() -> Void {
+        
+        for service in self.services! {
+            
+            let coordinate = CLLocationCoordinate2D(latitude: service.latitude!, longitude: service.longitude!)
+            let serviceAnnotationMap = ServiceAnnotationMap(coordinate: coordinate, title: service.name, subtitle: service.description)
+            mapView.addAnnotation(serviceAnnotationMap)
+        }
+    }
 }
 
-// MARK: - Extensions - Collection view delegates and datasource
 
+// MARK: - Extension - CLLocationManager
+extension LocationViewController: CLLocationManagerDelegate {
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+       
+        switch status {
+        case .Authorized,
+             .AuthorizedWhenInUse:
+            zoomIn()
+            loadDataFromApi(locationManager?.location?.coordinate.latitude,
+                 longitude: locationManager?.location?.coordinate.longitude,
+                  distance: 10,
+                searchText: nil)
+            
+        case .Restricted,
+             .Denied:
+            showAlert(noGeoUserTitle, message: noGeoUserMessage, controller: self)
+            
+        case .NotDetermined:
+            break
+        }
+    }    
+}
+
+
+// MARK: - Extensions - Collection view delegates and datasource
 extension LocationViewController: UISearchBarDelegate {
+    
     func textFieldShouldReturn(searchBar: UISearchBar) -> Bool {
+        
         self.view.endEditing(true)
         return true
     }
