@@ -28,6 +28,10 @@
 		52837DC11D3EDDCD00ED98FB /* RoundedCornersButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52837DC01D3EDDCD00ED98FB /* RoundedCornersButtons.swift */; };
 		5295D2521D3462A9009F93E7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295D2501D3462A9009F93E7 /* RegisterViewController.swift */; };
 		5295D2531D3462A9009F93E7 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295D2511D3462A9009F93E7 /* RegisterView.xib */; };
+		529F46C81D4033EB000FDF28 /* LogProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529F46C61D4033EB000FDF28 /* LogProfileViewController.swift */; };
+		529F46C91D4033EB000FDF28 /* LogProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529F46C71D4033EB000FDF28 /* LogProfileView.xib */; };
+		529F46CC1D4044BF000FDF28 /* LogProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529F46CA1D4044BF000FDF28 /* LogProfileCell.swift */; };
+		529F46CD1D4044BF000FDF28 /* LogProfileCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529F46CB1D4044BF000FDF28 /* LogProfileCellView.xib */; };
 		52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */; };
 		52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */; };
 		52D37E0D1D2EDB63009F2FC3 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */; };
@@ -100,6 +104,10 @@
 		52837DC01D3EDDCD00ED98FB /* RoundedCornersButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersButtons.swift; sourceTree = "<group>"; };
 		5295D2501D3462A9009F93E7 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5295D2511D3462A9009F93E7 /* RegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
+		529F46C61D4033EB000FDF28 /* LogProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogProfileViewController.swift; sourceTree = "<group>"; };
+		529F46C71D4033EB000FDF28 /* LogProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogProfileView.xib; sourceTree = "<group>"; };
+		529F46CA1D4044BF000FDF28 /* LogProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogProfileCell.swift; sourceTree = "<group>"; };
+		529F46CB1D4044BF000FDF28 /* LogProfileCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogProfileCellView.xib; sourceTree = "<group>"; };
 		52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCellView.xib; sourceTree = "<group>"; };
 		52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
@@ -169,10 +177,9 @@
 		5256B1281D3312310049ED9A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				7924E66A1D3A88A900D758AD /* CircularImageButton.swift */,
-				7924E66B1D3A88A900D758AD /* CircularImageView.swift */,
 				5256B1261D3310600049ED9A /* MyProfileCell.swift */,
 				52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */,
+				529F46CA1D4044BF000FDF28 /* LogProfileCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -184,12 +191,13 @@
 				5282521E1D359BB30041A992 /* DetailServiceView.xib */,
 				527F870E1D2B28BC00D0E1EC /* LocationView.xib */,
 				52F367AA1D28FBFF0064583C /* LoginView.xib */,
+				529F46C71D4033EB000FDF28 /* LogProfileView.xib */,
 				527F871A1D2B29C500D0E1EC /* MyProfileView.xib */,
 				527F87161D2B29A200D0E1EC /* NotificationsView.xib */,
 				5233514E1D3BC325004A6C05 /* PopUpImagesView.xib */,
 				5295D2511D3462A9009F93E7 /* RegisterView.xib */,
-				52DFD0A51D37ED6A000C4FE4 /* UserRegisterView.xib */,
 				79CA66DC1D3703FB00C67E67 /* ServicesView.xib */,
+				52DFD0A51D37ED6A000C4FE4 /* UserRegisterView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -270,6 +278,7 @@
 				5282521D1D359BB30041A992 /* DetailServiceViewController.swift */,
 				527F870D1D2B28BC00D0E1EC /* LocationViewController.swift */,
 				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
+				529F46C61D4033EB000FDF28 /* LogProfileViewController.swift */,
 				527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */,
 				527F87151D2B29A200D0E1EC /* NotificationsViewController.swift */,
 				5233514D1D3BC325004A6C05 /* PopUpImagesViewController.swift */,
@@ -303,6 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				52EF05CC1D2E4D82001B0FE4 /* Appearance.swift */,
+				7924E66A1D3A88A900D758AD /* CircularImageButton.swift */,
+				7924E66B1D3A88A900D758AD /* CircularImageView.swift */,
 				52E9730C1D29246D007696FB /* CustomActivityIndicatorView.swift */,
 				52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */,
 				52837DBE1D3ED7B100ED98FB /* RoundedCornersImages.swift */,
@@ -316,6 +327,7 @@
 			children = (
 				52D37E071D2EC811009F2FC3 /* ServiceCellView.xib */,
 				5256B1241D330D620049ED9A /* MyProfileCellView.xib */,
+				529F46CB1D4044BF000FDF28 /* LogProfileCellView.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -486,11 +498,13 @@
 				527F87101D2B28BC00D0E1EC /* LocationView.xib in Resources */,
 				527F87181D2B29A200D0E1EC /* NotificationsView.xib in Resources */,
 				5256B1251D330D620049ED9A /* MyProfileCellView.xib in Resources */,
+				529F46CD1D4044BF000FDF28 /* LogProfileCellView.xib in Resources */,
 				527F871C1D2B29C500D0E1EC /* MyProfileView.xib in Resources */,
 				5295D2531D3462A9009F93E7 /* RegisterView.xib in Resources */,
 				79F4183E1D043B56002131C7 /* .git in Resources */,
 				52DFD0A71D37ED6A000C4FE4 /* UserRegisterView.xib in Resources */,
 				52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */,
+				529F46C91D4033EB000FDF28 /* LogProfileView.xib in Resources */,
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
 				79F418401D043B56002131C7 /* README.md in Resources */,
 				D37630F01D05C0FB0001E29F /* iCanGO-iOS.md in Resources */,
@@ -560,12 +574,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37630FE1D06CA280001E29F /* Session.swift in Sources */,
+				529F46CC1D4044BF000FDF28 /* LogProfileCell.swift in Sources */,
 				D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */,
 				D37630EC1D058F660001E29F /* Resource.swift in Sources */,
 				527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */,
 				5272E1801D2C17E3007211E4 /* StartUpController.swift in Sources */,
 				7924E66D1D3A88A900D758AD /* CircularImageView.swift in Sources */,
 				D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */,
+				529F46C81D4033EB000FDF28 /* LogProfileViewController.swift in Sources */,
 				D308447A1D23AE1400A25CF4 /* Response.swift in Sources */,
 				52837DC11D3EDDCD00ED98FB /* RoundedCornersButtons.swift in Sources */,
 				52837DBF1D3ED7B100ED98FB /* RoundedCornersImages.swift in Sources */,
