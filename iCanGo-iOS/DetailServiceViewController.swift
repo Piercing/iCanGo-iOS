@@ -106,7 +106,7 @@ class DetailServiceViewController: UIViewController {
         var popUpVIewController = PopUpImagesViewController()
 
         popUpVIewController = PopUpImagesViewController(nibName: "PopUpImagesView", bundle: nil)
-        popUpVIewController.showInView(self.view, withImage: imageTapped(sender).image ?? UIImage(named: "camera"), withMessage: nameServiceDetailService.text, animated: true)
+        popUpVIewController.showInView(self.view, withImage: imageTapped(sender).image ?? UIImage(named: "1024-emptyCamera-center-ios"), withMessage: nameServiceDetailService.text, animated: true)
     }
     
     func imageTapped(sender: UITapGestureRecognizer) -> UIImageView {

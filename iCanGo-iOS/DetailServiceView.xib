@@ -181,7 +181,7 @@
                                 <outletCollection property="gestureRecognizers" destination="CXg-Fe-3D3" appends="YES" id="z5f-FN-ha2"/>
                             </connections>
                         </imageView>
-                        <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ysE-4D-CYb" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1024-emptyCamera-center-ios" translatesAutoresizingMaskIntoConstraints="NO" id="ysE-4D-CYb" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="186" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -197,7 +197,7 @@
                                 <outletCollection property="gestureRecognizers" destination="dPT-bL-1f8" appends="YES" id="ibQ-pB-3gk"/>
                             </connections>
                         </imageView>
-                        <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="279" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -321,6 +321,7 @@
     </objects>
     <resources>
         <image name=" Back" width="58" height="22"/>
+        <image name="1024-emptyCamera-center-ios" width="1024" height="1024"/>
         <image name="cena01" width="85" height="85"/>
         <image name="cena02" width="85" height="85"/>
         <image name="chica4" width="75" height="76"/>
