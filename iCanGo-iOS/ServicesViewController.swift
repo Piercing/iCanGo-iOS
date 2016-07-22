@@ -84,7 +84,7 @@ class ServicesViewController: UIViewController {
         
         let session = Session.iCanGoSession()
         // TODO: Parameter Rows pendin
-        let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: nil, page: page, rows: rowsPerPage)
+        let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind, page: page, rows: rowsPerPage)
             
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
@@ -119,6 +119,9 @@ extension ServicesViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        self.currentPage = 1
+        self.services?.removeAll()
         loadDataFromApi(searchBar.text!, page: self.currentPage)
     }
     
@@ -138,7 +141,11 @@ extension ServicesViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        
         deActivateSearchBar()
+        self.currentPage = 1
+        self.services?.removeAll()
+        loadDataFromApi("", page: self.currentPage)
     }
     
     func deActivateSearchBar() {
@@ -196,8 +203,12 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
             return
         }
         
-        if indexPath.row == (self.services?.count)! - 2 {
-            loadDataFromApi(searchBar.text!, page: self.currentPage)
+        if (indexPath.row == (self.services?.count)! - 2) {
+            
+            let servicesInList = (self.services?.count)! % Int(rowsPerPage)
+            if (servicesInList == 0) {
+                loadDataFromApi(searchBar.text!, page: self.currentPage)
+            }
         }
     }
 }
