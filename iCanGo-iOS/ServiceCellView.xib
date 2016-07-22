@@ -23,16 +23,16 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFM-yW-0Pf" customClass="RoundedCorners" customModule="iCanGo_iOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yC2-Yi-ema" customClass="RoundedCornersView" customModule="iCanGo_iOS" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yC2-Yi-ema" customClass="RoundedCornersView" customModule="iCanGo_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="116" width="180" height="88"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 €" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwd-1m-dxZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwd-1m-dxZ">
                                         <rect key="frame" x="4" y="20" width="172" height="21"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Urge furgoneta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTJ-YS-l4d">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTJ-YS-l4d">
                                         <rect key="frame" x="4" y="50" width="172" height="18"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,7 +58,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FdI-KB-OgJ" customClass="RoundedCornersView" customModule="iCanGo_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="120"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="furgoneta" translatesAutoresizingMaskIntoConstraints="NO" id="ChR-Fv-gSW">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iCanGoEmptyImage-560x" translatesAutoresizingMaskIntoConstraints="NO" id="ChR-Fv-gSW">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="hmU-xI-Z2J"/>
@@ -126,7 +126,7 @@
     </objects>
     <resources>
         <image name="content-avatar-default-ios" width="278" height="155"/>
-        <image name="furgoneta" width="158" height="88"/>
         <image name="heart" width="15" height="14"/>
+        <image name="iCanGoEmptyImage-560x" width="560" height="560"/>
     </resources>
 </document>
