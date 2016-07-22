@@ -157,24 +157,6 @@ class DetailServiceViewController: UIViewController {
         }
         return selectImage
     }
-<<<<<<< HEAD
-=======
-    //
-    //    func imageTapped(img: UIImage) -> UIImage {
-    //
-    //        switch img {
-    //        case img.isEqual(imgDetailService01):
-    //            return imgDetailService01.image!
-    //        case img.isEqual(imgDetailService02):
-    //            return imgDetailService02.image!
-    //        case img.isEqual(imgDetailService03):
-    //            return imgDetailService03.image!
-    //        case img.isEqual(imgDetailService04):
-    //            return imgDetailService04.image!
-    //        default:
-    //            return UIImage(named: "camera")!
-    //        }
-    //    }
     
     
     // MARK - Private Methods
@@ -200,7 +182,6 @@ class DetailServiceViewController: UIViewController {
                 }
         }
     }
->>>>>>> feature/changeAPI
 }
 
 
