@@ -52,6 +52,7 @@ func loadUserAuthInfo() -> User {
                 numAttendedServices: 0)
 }
 
+/*
 func loadImage(imageUrl: NSURL, imageView: UIImageView) {
     
     let request = NSMutableURLRequest(URL: imageUrl)
@@ -76,30 +77,31 @@ func loadImage(imageUrl: NSURL, imageView: UIImageView) {
     task.resume()
     
 }
+*/
 
-//func loadImage(imageUrl: NSURL, imageView: UIImageView) {
-//    
-//    let session = Session.iCanGoSessionImages()
-//    let _ = session.getImageData(imageUrl)
-//    
-//        .observeOn(MainScheduler.instance)
-//        .subscribe { event in
-//            
-//            switch event {
-//            case let .Next(data):
-//                let image = UIImage(data: data)
-//                imageView.image = image
-//                imageView.fadeOut(duration: 0.0)
-//                imageView.fadeIn()
-//                
-//            case .Error:
-//                return
-//                
-//            default:
-//                break
-//            }
-//    }
-//}
+func loadImage(imageUrl: NSURL, imageView: UIImageView) {
+    
+    let session = Session.iCanGoSessionImages()
+    let _ = session.getImageData(imageUrl)
+    
+        .observeOn(MainScheduler.instance)
+        .subscribe { event in
+            
+            switch event {
+            case let .Next(data):
+                let image = UIImage(data: data)
+                imageView.image = image
+                imageView.fadeOut(duration: 0.0)
+                imageView.fadeIn()
+                
+            case .Error:
+                return
+                
+            default:
+                break
+            }
+    }
+}
 
 func isConnectedToNetwork() -> Bool {
     var zeroAddress = sockaddr_in()

@@ -92,11 +92,16 @@ class ServicesViewController: UIViewController {
                 self?.loginInProgress = actionFinished(self!.activityIndicatorView)
                 switch event {
                 case let .Next(services):
-                    self?.services?.appendContentsOf(services)
-                    self?.servicesCollectionView.reloadData()
-                    //self?.servicesCollectionView.fadeIn(duration: 0.3)
-                    self?.currentPage += 1
+                    if services.count > 0 {
+                        self?.services?.appendContentsOf(services)
+                        self?.servicesCollectionView.reloadData()
+                        //self?.servicesCollectionView.fadeIn(duration: 0.3)
+                        self?.currentPage += 1
+                    } else {
+                        showAlert(serviceSearchNoTitle, message: serviceSearchNoMessage, controller: self!)
+                    }
                     break
+                    
                 case .Error (let error):
                     //self!.loginNoSuccess(error as? SessionError)
                     print(error)

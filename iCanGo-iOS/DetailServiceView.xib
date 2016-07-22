@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailServiceViewController" customModule="iCanGo_iOS" customModuleProvider="target">
             <connections>
-                <outlet property="caretedDetailsService" destination="H1G-9B-l4U" id="fvd-ML-Oko"/>
+                <outlet property="caretedDetailsService" destination="PZu-tI-LVY" id="QJ5-NK-oG3"/>
                 <outlet property="clearServiceDetailBtn" destination="5oX-0I-Ek3" id="l3n-oD-oJv"/>
                 <outlet property="contactPersonDetailServiceBtn" destination="eic-No-jR6" id="pfI-6h-nZq"/>
                 <outlet property="dataDetailService" destination="SdG-et-pb7" id="N35-tn-z9n"/>
@@ -149,7 +149,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3eC-hE-MMg">
                     <rect key="frame" x="7" y="465" width="364" height="85"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena01" translatesAutoresizingMaskIntoConstraints="NO" id="nNe-gg-iNq" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1024-emptyCamera-center-ios" translatesAutoresizingMaskIntoConstraints="NO" id="nNe-gg-iNq" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -165,7 +165,7 @@
                                 <outletCollection property="gestureRecognizers" destination="4Yc-8h-VzI" appends="YES" id="i4b-Wm-qns"/>
                             </connections>
                         </imageView>
-                        <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cena02" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-fk-d9j" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1024-emptyCamera-center-ios" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-fk-d9j" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="93" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -197,7 +197,7 @@
                                 <outletCollection property="gestureRecognizers" destination="w2g-Ca-cel" appends="YES" id="lZb-Bc-Pko"/>
                             </connections>
                         </imageView>
-                        <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iCanGoEmptyImage-560x" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1024-emptyCamera-center-ios" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-8V-Gz7" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                             <rect key="frame" x="279" y="0.0" width="85" height="85"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -318,10 +318,7 @@
     <resources>
         <image name=" Back" width="58" height="22"/>
         <image name="1024-emptyCamera-center-ios" width="1024" height="1024"/>
-        <image name="cena01" width="85" height="85"/>
-        <image name="cena02" width="85" height="85"/>
         <image name="chica4" width="75" height="76"/>
         <image name="conversation03" width="933" height="930"/>
-        <image name="iCanGoEmptyImage-560x" width="560" height="560"/>
     </resources>
 </document>
