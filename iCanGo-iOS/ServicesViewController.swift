@@ -84,7 +84,8 @@ class ServicesViewController: UIViewController {
         
         let session = Session.iCanGoSession()
         // TODO: Parameter Rows pendin
-        let _ = session.getServices(page, rows: rowsPerPage)
+        let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: nil, page: page, rows: rowsPerPage)
+            
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
@@ -107,7 +108,6 @@ class ServicesViewController: UIViewController {
 }
 
 // MARK: - Extensions - Collection view delegates and datasource
-
 extension ServicesViewController: UISearchBarDelegate {
     func textFieldShouldReturn(searchBar: UISearchBar) -> Bool {
         self.view.endEditing(true)

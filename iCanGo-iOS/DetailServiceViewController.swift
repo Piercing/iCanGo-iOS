@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class DetailServiceViewController: UIViewController {
     
@@ -82,9 +83,11 @@ class DetailServiceViewController: UIViewController {
     @IBAction func btnContactPersonDetailService(sender: AnyObject) {
         print("Tapped btn contact user Detail Service")
     }
+    
     @IBAction func btnDeleteServiceDetail(sender: AnyObject) {
-        print("Tapped btn delete Detail Service")
+        deteteServiceAPI(serviceModel.id)
     }
+    
     @IBAction func btnSharedDetatilService(sender: AnyObject) {
         
         let nameServiceToShare = nameServiceDetailService.text
@@ -154,6 +157,52 @@ class DetailServiceViewController: UIViewController {
         }
         return selectImage
     }
+<<<<<<< HEAD
+=======
+    //
+    //    func imageTapped(img: UIImage) -> UIImage {
+    //
+    //        switch img {
+    //        case img.isEqual(imgDetailService01):
+    //            return imgDetailService01.image!
+    //        case img.isEqual(imgDetailService02):
+    //            return imgDetailService02.image!
+    //        case img.isEqual(imgDetailService03):
+    //            return imgDetailService03.image!
+    //        case img.isEqual(imgDetailService04):
+    //            return imgDetailService04.image!
+    //        default:
+    //            return UIImage(named: "camera")!
+    //        }
+    //    }
+    
+    
+    // MARK - Private Methods
+    private func deteteServiceAPI(id: String) -> Void {
+        
+        let session = Session.iCanGoSession()
+        // TODO: Parameter Rows pendin
+        let _ = session.deleteService(id)
+            
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                switch event {
+                case .Next(_):
+                    showAlert(serviceDeleteTitle, message: serviceDeleteMessage, controller: self!)
+                    break
+                    
+                case .Error (let error):
+                    print(error)
+                    
+                default:
+                    break
+                }
+        }
+    }
+>>>>>>> feature/changeAPI
 }
+
+
 
 
