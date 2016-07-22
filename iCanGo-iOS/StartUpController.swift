@@ -37,35 +37,36 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         let itemNotificationsTabBar = NotificationsViewController()
         let myProfileViewController = MyProfileViewController()
         
+       
         let allServicesTabBarItem = UITabBarItem(
             title: "All Services",
-            image: UIImage(named: "pin-1.png"),
-            selectedImage: UIImage(named: "pin-1.png")?
-                .imageWithRenderingMode(.AlwaysTemplate))
+            image: UIImage(named: "correcaminos-ios-25px.png"),
+            selectedImage: UIImage(named: "correcaminos-ios-25px.png")?
+                .imageWithRenderingMode(.AlwaysOriginal))
         
         let iconLocationTabBar = UITabBarItem(
             title: "Location",
-            image: UIImage(named: "pin-1.png"), // Unselected image
-            selectedImage: UIImage(named: "pin-1.png")?
-                .imageWithRenderingMode(.AlwaysTemplate)) // Selected image original color
+            image: UIImage(named: "iConTabBarLocation-ios-25px.png"), // Unselected image
+            selectedImage: UIImage(named: "iConTabBarLocation-ios-25px.png")?
+                .imageWithRenderingMode(.AlwaysOriginal)) // Selected image original color
         
         let iconCreateServicesTabBar = UITabBarItem(
             title: "Add Services",
-            image: UIImage(named: "pin-1.png"),
-            selectedImage: UIImage(named: "pin-1.png")?
-                .imageWithRenderingMode(.AlwaysTemplate))
+            image: UIImage(named: "addServices-icon-25px.png"),
+            selectedImage: UIImage(named: "addServices-icon-25px.png")?
+                .imageWithRenderingMode(.AlwaysOriginal))
         
         let iconNotificationsTabBar = UITabBarItem(
             title: "Notifications",
-            image: UIImage(named: "pin-1.png"),
-            selectedImage: UIImage(named: "pin-1.png")?
-                .imageWithRenderingMode(.AlwaysTemplate))
+            image: UIImage(named: "icon_InboxNotification.png"),
+            selectedImage: UIImage(named: "icon_InboxNotification.png")?
+                .imageWithRenderingMode(.AlwaysOriginal))
         
         let myProfileTabBarItem = UITabBarItem(
             title: "My Profile",
-            image: UIImage(named: "pin-1.png"),
-            selectedImage: UIImage(named: "pin-1.png")?
-                .imageWithRenderingMode(.AlwaysTemplate))
+            image: UIImage(named: "myProfile-ios-25px.png"),
+            selectedImage: UIImage(named: "myProfile-ios-25px.png")?
+                .imageWithRenderingMode(.AlwaysOriginal))
         
         servicesViewController.tabBarItem = allServicesTabBarItem
         locationViewController.tabBarItem = iconLocationTabBar
