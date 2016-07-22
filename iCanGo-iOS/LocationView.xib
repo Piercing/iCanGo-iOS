@@ -25,13 +25,13 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QxB-3X-50T">
                     <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                 </mapView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8r-ui-Ewe">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8r-ui-Ewe">
                     <rect key="frame" x="525" y="480" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="kaz-86-9Y4"/>
                         <constraint firstAttribute="width" constant="50" id="mLO-sa-pf6"/>
                     </constraints>
-                    <state key="normal" backgroundImage="pin-1"/>
+                    <state key="normal" image="reload-256"/>
                     <connections>
                         <action selector="reloadServices:" destination="-1" eventType="touchUpInside" id="l9J-Qc-oBB"/>
                     </connections>
@@ -53,6 +53,6 @@
         </view>
     </objects>
     <resources>
-        <image name="pin-1" width="25" height="25"/>
+        <image name="reload-256" width="72" height="72"/>
     </resources>
 </document>
