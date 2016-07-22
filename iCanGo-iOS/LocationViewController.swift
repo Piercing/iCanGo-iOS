@@ -49,6 +49,13 @@ class LocationViewController: UIViewController {
         locationManager?.startUpdatingLocation()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        
+        if let statusLocation = statusLocation {
+            checkStatus(statusLocation)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         // Dispose of any resources that can be recreated.
         super.didReceiveMemoryWarning()
@@ -77,30 +84,33 @@ class LocationViewController: UIViewController {
     
     private func loadDataFromApi(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?) -> Void {
         
-        let session = Session.iCanGoSession()
-        // TODO: Parameter Rows pendin
-        let _ = session.getServices(latitude, longitude: longitude, distance: distance, searchText: searchText, page: 1, rows: rowsPerPage)
+        if isConnectedToNetwork() {
+
+            let session = Session.iCanGoSession()
+            // TODO: Parameter Rows pendin
+            let _ = session.getServices(latitude, longitude: longitude, distance: distance, searchText: searchText, page: 1, rows: rowsPerPage)
         
-            .observeOn(MainScheduler.instance)
-            .subscribe { [weak self] event in
+                .observeOn(MainScheduler.instance)
+                .subscribe { [weak self] event in
                 
-                switch event {
-                case let .Next(services):
+                    switch event {
+                    case let .Next(services):
                     
-                    self?.services = services
-                    if self?.services?.count > 0 {
-                        self?.showServicesInMap()
-                    } else {
-                        showAlert(serviceLocationNoTitle, message: serviceLocationNoMessage, controller: self!)
+                        self?.services = services
+                        if self?.services?.count > 0 {
+                            self?.showServicesInMap()
+                        } else {
+                            showAlert(serviceLocationNoTitle, message: serviceLocationNoMessage, controller: self!)
+                        }
+                    
+                        break
+                
+                    case .Error (let error):
+                        print(error)
+                
+                    default:
+                        break
                     }
-                    
-                    break
-                
-                case .Error (let error):
-                    print(error)
-                
-                default:
-                    break
                 }
         }
     }
@@ -123,11 +133,15 @@ class LocationViewController: UIViewController {
         switch status {
         case .Authorized,
              .AuthorizedWhenInUse:
-            zoomIn()
-            loadDataFromApi(locationManager?.location?.coordinate.latitude,
-                            longitude: locationManager?.location?.coordinate.longitude,
-                            distance: 10,
-                            searchText: nil)
+            
+            if isConnectedToNetwork() {
+                zoomIn()
+                loadDataFromApi(locationManager?.location?.coordinate.latitude,
+                     longitude: locationManager?.location?.coordinate.longitude,
+                      distance: 10,
+                    searchText: nil)
+            }
+            
         case .Restricted,
              .Denied:
             showAlert(noGeoUserTitle, message: noGeoUserMessage, controller: self)
@@ -223,7 +237,13 @@ extension LocationViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        
         deActivateSearchBar()
+        self.services?.removeAll()
+        loadDataFromApi( locationManager?.location?.coordinate.latitude,
+                         longitude: locationManager?.location?.coordinate.longitude,
+                         distance: 10,
+                         searchText: "")
     }
     
     func deActivateSearchBar() {
