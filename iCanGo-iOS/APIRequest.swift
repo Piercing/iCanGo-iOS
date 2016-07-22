@@ -9,9 +9,8 @@
 import Foundation
 
 enum APIRequest {
-    case getServices(key: String, page: UInt, rows: UInt)
+    case getServices(key: String, latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?, page: UInt, rows: UInt)
     case getServicesByStatus(key: String, status: UInt, page: UInt, rows: UInt)
-    case getServicesByGeoText(key: String, latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?, page: UInt, rows: UInt)
     case getServiceById(key: String, id: String)
     case getServiceImages(key: String, id: String)
     case getUsers(key: String, page: UInt)
@@ -26,6 +25,7 @@ enum APIRequest {
     case postService(name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
     case postServiceImage(id: String, imageUrl: NSURL)
     case putService(id: String, name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
+    case deleteServiceById(key: String, id: String)
 }
 
 extension APIRequest: Resource {
@@ -34,7 +34,6 @@ extension APIRequest: Resource {
         switch self {
         case APIRequest.getServices,
              APIRequest.getServicesByStatus,
-             APIRequest.getServicesByGeoText,
              APIRequest.getServiceById,
              APIRequest.getServiceImages,
              APIRequest.getUsers,
@@ -52,6 +51,8 @@ extension APIRequest: Resource {
             return Method.POST
         case APIRequest.putService:
             return Method.PUT
+        case APIRequest.deleteServiceById:
+            return Method.DELETE
         }
     }
     
@@ -60,8 +61,6 @@ extension APIRequest: Resource {
         case APIRequest.getServices:
             return "services"
         case APIRequest.getServicesByStatus:
-            return "services"
-        case APIRequest.getServicesByGeoText:
             return "services"
         case let APIRequest.getServiceById(_, id):
             return "services/\(id)"
@@ -92,18 +91,14 @@ extension APIRequest: Resource {
             return "images/"
         case let APIRequest.putService(id, _, _, _, _, _, _, _, _, _):
             return "services/\(id)"
+        case let APIRequest.deleteServiceById(_, id):
+            return "services/\(id)"
         }
     }
     
     var parameters: [String: String] {
         switch self {
-        case let APIRequest.getServices(_, page, rows):
-             return ["rows": String(rows), "page": String(page)]
-            
-        case let APIRequest.getServicesByStatus(_, status, page, rows):
-           return ["status": String(status), "page": String(page), "rows": String(rows)]
-        
-        case let APIRequest.getServicesByGeoText(_, latitude, longitude, distance, searchText, page, rows):
+        case let APIRequest.getServices(_, latitude, longitude, distance, searchText, page, rows):
             if let latitude = latitude, longitude = longitude, distance = distance, searchText = searchText {
                 return ["latitude": String(format:"%f", latitude),
                        "longitude": String(format:"%f", longitude),
@@ -111,7 +106,7 @@ extension APIRequest: Resource {
                       "searchText": searchText,
                             "page": String(page),
                             "rows": String(rows)]
-            } else {
+             } else {
                 if let latitude = latitude, longitude = longitude, distance = distance {
                     return ["latitude": String(format:"%f", latitude),
                            "longitude": String(format:"%f", longitude),
@@ -121,14 +116,18 @@ extension APIRequest: Resource {
                 } else {
                     if let searchText = searchText {
                         return ["searchText": searchText,
-                                      "page": String(page),
-                                      "rows": String(rows)]
+                                "page": String(page),
+                                "rows": String(rows)]
                     } else {
-                        return [:]
+                        return ["rows": String(rows),
+                                "page": String(page)]
                     }
                 }
             }
-
+            
+        case let APIRequest.getServicesByStatus(_, status, page, rows):
+           return ["status": String(status), "page": String(page), "rows": String(rows)]
+        
         case APIRequest.getServiceById:
             return [:]
             
@@ -219,6 +218,9 @@ extension APIRequest: Resource {
                 "longitude": longitude != nil ? String(format:"%f", longitude!) : "",
                   "address": address != nil ? address! : "",
                    "status": status != nil ? String(status!) : ""]
+            
+        case APIRequest.deleteServiceById:
+            return [:]
         }
     }
 }

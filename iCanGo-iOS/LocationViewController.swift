@@ -18,7 +18,8 @@ class LocationViewController: UIViewController {
     
     let titleView = "Location"
     var locationManager: CLLocationManager?
-    private var services: [Service]?
+    var services: [Service]?
+    var statusLocation: CLAuthorizationStatus?
     
     
     // MARK: - Init
@@ -35,6 +36,7 @@ class LocationViewController: UIViewController {
         self.title = title
         
         searchBarLocation.resignFirstResponder()
+        searchBarLocation.delegate = self
         
         // Configure MapView.
         mapView.delegate = self
@@ -43,7 +45,8 @@ class LocationViewController: UIViewController {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager!.requestWhenInUseAuthorization()
+        locationManager?.requestWhenInUseAuthorization()
+        locationManager?.startUpdatingLocation()
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,10 +56,11 @@ class LocationViewController: UIViewController {
     
     
     // MARK: - Actions
-    @IBAction func btnFavouritesLocation(sender: AnyObject) {
-        
-        // TODO:
-        print("Tapp buttom favourites Location")
+    @IBAction func reloadServices(sender: AnyObject) {
+
+        if let statusLocation = statusLocation {
+            checkStatus(statusLocation)
+        }
     }
     
     
@@ -65,7 +69,7 @@ class LocationViewController: UIViewController {
         
         var userRegion: MKCoordinateRegion = MKCoordinateRegion()
         userRegion.center.latitude = (locationManager?.location?.coordinate.latitude)!
-        userRegion.center.longitude = (locationManager?.location?.coordinate.longitude)!
+        userRegion.center.longitude = (locationManager?.location?.coordinate.longitude)!        
         userRegion.span.latitudeDelta = 0.100000
         userRegion.span.longitudeDelta = 0.100000
         mapView.setRegion(userRegion, animated: true)
@@ -75,7 +79,7 @@ class LocationViewController: UIViewController {
         
         let session = Session.iCanGoSession()
         // TODO: Parameter Rows pendin
-        let _ = session.getServicesByGeoText(latitude, longitude: longitude, distance: distance, searchText: searchText, page: 1, rows: rowsPerPage)
+        let _ = session.getServices(latitude, longitude: longitude, distance: distance, searchText: searchText, page: 1, rows: rowsPerPage)
         
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
@@ -86,7 +90,10 @@ class LocationViewController: UIViewController {
                     self?.services = services
                     if self?.services?.count > 0 {
                         self?.showServicesInMap()
+                    } else {
+                        showAlert(serviceLocationNoTitle, message: serviceLocationNoMessage, controller: self!)
                     }
+                    
                     break
                 
                 case .Error (let error):
@@ -100,11 +107,32 @@ class LocationViewController: UIViewController {
     
     private func showServicesInMap() -> Void {
         
+        let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.userLocation }
+        mapView.removeAnnotations( annotationsToRemove )
+        
         for service in self.services! {
             
             let coordinate = CLLocationCoordinate2D(latitude: service.latitude!, longitude: service.longitude!)
             let serviceAnnotationMap = ServiceAnnotationMap(coordinate: coordinate, title: service.name, subtitle: "", service: service)
             mapView.addAnnotation(serviceAnnotationMap)
+        }
+    }
+    
+    private func checkStatus(status: CLAuthorizationStatus) {
+     
+        switch status {
+        case .Authorized,
+             .AuthorizedWhenInUse:
+            zoomIn()
+            loadDataFromApi(locationManager?.location?.coordinate.latitude,
+                            longitude: locationManager?.location?.coordinate.longitude,
+                            distance: 10,
+                            searchText: nil)
+        case .Restricted,
+             .Denied:
+            showAlert(noGeoUserTitle, message: noGeoUserMessage, controller: self)
+        case .NotDetermined:
+            break
         }
     }
 }
@@ -115,23 +143,9 @@ extension LocationViewController: CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
        
-        switch status {
-        case .Authorized,
-             .AuthorizedWhenInUse:
-            zoomIn()
-            loadDataFromApi(locationManager?.location?.coordinate.latitude,
-                 longitude: locationManager?.location?.coordinate.longitude,
-                  distance: 10,
-                searchText: nil)
-            
-        case .Restricted,
-             .Denied:
-            showAlert(noGeoUserTitle, message: noGeoUserMessage, controller: self)
-            
-        case .NotDetermined:
-            break
-        }
-    }    
+        statusLocation = status
+        checkStatus(status)
+    }
 }
 
 extension LocationViewController: MKMapViewDelegate {
@@ -178,12 +192,54 @@ extension LocationViewController: MKMapViewDelegate {
 extension LocationViewController: UISearchBarDelegate {
     
     func textFieldShouldReturn(searchBar: UISearchBar) -> Bool {
-        
         self.view.endEditing(true)
         return true
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         searchBarLocation.resignFirstResponder()
+    }
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        loadDataFromApi( locationManager?.location?.coordinate.latitude,
+              longitude: locationManager?.location?.coordinate.longitude,
+               distance: 10,
+             searchText: searchBarLocation.text!)
+    }
+    
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        searchBar.showsCancelButton = true
+        //servicesCollectionView.fadeOut(duration: 0.3)
+        return true
+    }
+    
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        //servicesCollectionView.fadeIn(duration: 0.3)
+        searchBar.showsCancelButton = false
+        if (searchBar.text == "") {
+            //loadDataFromApi(searchBar.text!)
+        }
+        return true
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        deActivateSearchBar()
+    }
+    
+    func deActivateSearchBar() {
+        searchBarLocation.showsCancelButton = false
+        searchBarLocation.resignFirstResponder()
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        
+        searchBar.setShowsCancelButton(true, animated: true)
+        for ob: UIView in ((searchBar.subviews[0] )).subviews {
+            
+            if let z = ob as? UIButton {
+                let btn: UIButton = z
+                btn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            }
+        }
     }
 }
