@@ -19,6 +19,8 @@ let serviceDeleteTitle = "Service deleted successfully"
 let serviceDeleteMessage = "Service deleted successfully"
 let serviceLocationNoTitle = "Sorry no services nearby"
 let serviceLocationNoMessage = "Sorry no services nearby with that description"
+let serviceSearchNoTitle = "Sorry no services"
+let serviceSearchNoMessage = "Sorry no services with that description"
 
 
 // MARK: Time zone.
