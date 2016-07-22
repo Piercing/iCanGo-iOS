@@ -31,46 +31,26 @@ class DetailServiceViewController: UIViewController {
     let titleView = "Detail Services"
     var popUpVIewController: PopUpImagesViewController?
     var selectImage =  UIImageView()
+    var idService: String?
     var serviceModel: Service!
     
     // MARK: - Init
     convenience init(service: Service) {
         self.init(nibName: "DetailServiceView", bundle: nil)
+        self.idService    = service.id
         self.serviceModel = service
+        loadService(service.id)
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
-        
-        nameServiceDetailService.text  = serviceModel.name
-        nameUserDetailService.text     = serviceModel.userFirstName + " " + serviceModel.userLastName
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        dataDetailService.text         = dateFormatter.stringFromDate(serviceModel.dateCreated)
-        publishedDetailService.text    = String(serviceModel.numPublishedServices)
-        caretedDetailsService.text     = String(serviceModel.numAttendedServices)
-        priceDetailService.text        = String(format: "%.2f", serviceModel.price)
-        descriptionDetatilService.text = serviceModel.description
-        
-        if let serviceImages = serviceModel.images {
-            
-            loadImage(serviceImages[0].imageUrl, imageView: imgDetailService01)
-            
-            if serviceImages[1].id != "" {
-                loadImage(serviceImages[1].imageUrl, imageView: imgDetailService02)
-            }
-            
-            if serviceImages[2].id != "" {
-                loadImage(serviceImages[2].imageUrl, imageView: imgDetailService03)
-            }
-            
-            if serviceImages[3].id != "" {
-                loadImage(serviceImages[3].imageUrl, imageView: imgDetailService04)
-            }
-        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        showDataService()
     }
     
     override func didReceiveMemoryWarning() {
@@ -180,6 +160,65 @@ class DetailServiceViewController: UIViewController {
                 default:
                     break
                 }
+        }
+    }
+    
+    private func loadService(id: String) -> Void {
+        
+        if isConnectedToNetwork() {
+            
+            let session = Session.iCanGoSession()
+            // TODO: Parameter Rows pendin
+            let _ = session.getServiceById(id)
+                
+                .observeOn(MainScheduler.instance)
+                .subscribe { [weak self] event in
+                    
+                    switch event {
+                    case let .Next(service):
+                        self?.serviceModel = service
+                        self?.showDataService()
+                        break
+                        
+                    case .Error (let error):
+                        print(error)
+                        
+                    default:
+                        break
+                    }
+            }
+        }
+    }
+    
+    private func showDataService() {
+        
+        nameServiceDetailService.text  = serviceModel.name
+        nameUserDetailService.text     = serviceModel.userFirstName + " " + serviceModel.userLastName
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dataDetailService.text         = dateFormatter.stringFromDate(serviceModel.dateCreated)
+        publishedDetailService.text    = String(serviceModel.numPublishedServices)
+        caretedDetailsService.text     = String(serviceModel.numAttendedServices)
+        priceDetailService.text        = String(format: "%.2f", serviceModel.price)
+        descriptionDetatilService.text = serviceModel.description
+        
+        if let serviceImages = serviceModel.images {
+            
+            if serviceImages.count > 0 {
+                loadImage(serviceImages[0].imageUrl, imageView: imgDetailService01)
+            }
+
+            if serviceImages.count > 1 {
+                loadImage(serviceImages[1].imageUrl, imageView: imgDetailService02)
+            }
+
+            if serviceImages.count > 2 {
+                loadImage(serviceImages[2].imageUrl, imageView: imgDetailService03)
+            }
+
+            if serviceImages.count > 3 {
+                loadImage(serviceImages[3].imageUrl, imageView: imgDetailService04)
+            }
         }
     }
 }
