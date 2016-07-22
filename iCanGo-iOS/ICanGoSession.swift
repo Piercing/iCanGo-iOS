@@ -45,11 +45,16 @@ extension Session {
 extension Session {
     
     // GET Services.
-    func getServices(page: UInt, rows: UInt) -> Observable<[Service]> {
+    func getServices(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?, page: UInt, rows: UInt) -> Observable<[Service]> {
         
-        return response(APIRequest.getServices(key: "", page: page, rows: rows)).map { response in
-            
-            return try self.returnServices(response)
+        return response(APIRequest.getServices(key: "",
+            latitude: latitude,
+            longitude: longitude,
+            distance: distance,
+            searchText: searchText,
+            page: page,
+            rows: rows)).map { response in
+                return try self.returnServices(response)
         }
     }
     
@@ -62,20 +67,6 @@ extension Session {
         }
     }
     
-    // GET Services by GeoLocalization & Text Search.
-    func getServicesByGeoText(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?, page: UInt, rows: UInt) -> Observable<[Service]> {
-    
-        return response(APIRequest.getServicesByGeoText(key: "",
-                                                   latitude: latitude,
-                                                  longitude: longitude,
-                                                   distance: distance,
-                                                 searchText: searchText,
-                                                       page: page,
-                                                       rows: rows)).map { response in
-            return try self.returnServices(response)
-        }
-    }
-
     // GET Service.
     func getServiceById(id: String) -> Observable<Service> {
         
@@ -249,6 +240,15 @@ extension Session {
         }
     }
     
+    // DELETE Service.
+    func deleteService(id: String) -> Observable<Service> {
+        
+        return response(APIRequest.deleteServiceById(key: "", id: id)).map { response in
+            
+            return try self.returnService(response)
+        }
+    }
+
     
     // MARK: - Private responses.
     private func returnServices(response: Response) throws -> [Service] {
