@@ -63,7 +63,6 @@ class PopUpImagesViewController: UIViewController {
         let popUpImagesViewController = PopUpImagesViewController()
 
         presentViewController(popUpImagesViewController, animated: true, completion: nil)
-        //popUpImagesViewController
 
         aView.addSubview(self.view)
         popUpImage!.image = image
