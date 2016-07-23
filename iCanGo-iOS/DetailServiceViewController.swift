@@ -124,13 +124,17 @@ class DetailServiceViewController: UIViewController {
     
     func imageTapped(sender: UITapGestureRecognizer) -> UIImageView {
         
-        if let selectImage = sender.view as? UIImageView{
+        if let selectImage = sender.view as? UIImageView {
+            
             if selectImage.tag == 1 {
                 self.selectImage = imgDetailService01
+                
             } else if selectImage.tag == 2 {
                 self.selectImage = imgDetailService02
+                
             } else if selectImage.tag == 3 {
                 self.selectImage = imgDetailService03
+                
             } else if selectImage.tag == 4{
                 self.selectImage = imgDetailService04
             }

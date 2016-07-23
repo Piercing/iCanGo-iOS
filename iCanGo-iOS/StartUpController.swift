@@ -11,6 +11,7 @@ import UIKit
 class StartUpController: UITabBarController, UITabBarControllerDelegate {
     
     var loginVC: LoginViewController?
+    var i = 0
     
     // MARK: - Life Cycle
     
@@ -37,42 +38,50 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         let itemNotificationsTabBar = NotificationsViewController()
         let myProfileViewController = MyProfileViewController()
         
-       
+        let imagesItemsTabBar = ["allServices-withoutBorders-ios-25px.png",
+                                 "location-withoutBorders-ios-25px.png",
+                                 "addServices-withoutBorders-ios-25px.png",
+                                 "notifications-withoutBorders-ios-25px.png",
+                                 "myProfile-withoutBorders-ios-25px.png"]
+        
+        
         let allServicesTabBarItem = UITabBarItem(
             title: "All Services",
-            image: UIImage(named: "correcaminos-ios-25px.png"),
-            selectedImage: UIImage(named: "correcaminos-ios-25px.png")?
+            image: UIImage(named: "allServices-borders-ios-25px.png"),
+            selectedImage: UIImage(named: "allServices-borders-ios-25px.png")?
                 .imageWithRenderingMode(.AlwaysOriginal))
         
         let iconLocationTabBar = UITabBarItem(
             title: "Location",
-            image: UIImage(named: "iConTabBarLocation-ios-25px.png"), // Unselected image
-            selectedImage: UIImage(named: "iConTabBarLocation-ios-25px.png")?
+            image: UIImage(named: "location-borders-ios-25px.png"), // Unselected image
+            selectedImage: UIImage(named: "location-borders-ios-25px.png")?
                 .imageWithRenderingMode(.AlwaysOriginal)) // Selected image original color
         
         let iconCreateServicesTabBar = UITabBarItem(
             title: "Add Services",
-            image: UIImage(named: "addServices-icon-25px.png"),
-            selectedImage: UIImage(named: "addServices-icon-25px.png")?
+            image: UIImage(named: "addServices-borders-icon-25px.png"),
+            selectedImage: UIImage(named: "addServices-borders-icon-25px.png")?
                 .imageWithRenderingMode(.AlwaysOriginal))
         
         let iconNotificationsTabBar = UITabBarItem(
             title: "Notifications",
-            image: UIImage(named: "icon_InboxNotification.png"),
-            selectedImage: UIImage(named: "icon_InboxNotification.png")?
+            image: UIImage(named: "notifications-borders-ios-25px.png"),
+            selectedImage: UIImage(named: "notifications-borders-ios-25px.png")?
                 .imageWithRenderingMode(.AlwaysOriginal))
         
         let myProfileTabBarItem = UITabBarItem(
             title: "My Profile",
-            image: UIImage(named: "myProfile-ios-25px.png"),
-            selectedImage: UIImage(named: "myProfile-ios-25px.png")?
+            image: UIImage(named: "myProfile-borders-ios-25px.png"),
+            selectedImage: UIImage(named: "myProfile-borders-ios-25px.png")?
                 .imageWithRenderingMode(.AlwaysOriginal))
+        
         
         servicesViewController.tabBarItem = allServicesTabBarItem
         locationViewController.tabBarItem = iconLocationTabBar
         itemCreateServiceTabBar.tabBarItem = iconCreateServicesTabBar
         itemNotificationsTabBar.tabBarItem = iconNotificationsTabBar
         myProfileViewController.tabBarItem = myProfileTabBarItem
+        
         
         let navVCServices = UINavigationController(rootViewController: servicesViewController)
         navVCServices.navigationBarHidden = true
@@ -87,9 +96,14 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
                 itemCreateServiceTabBar,
                 itemNotificationsTabBar,
                 myProfileViewController
-            ]
+        ]
         
         self.viewControllers = controllers
+        
+        for item in self.tabBar.items! as [UITabBarItem]{
+            item.image = UIImage(named: imagesItemsTabBar[i])?.imageWithRenderingMode(.AlwaysOriginal)
+            self.i += 1
+        }
         
         Appearance.tabBarItemColor()
         Appearance.tabBarColor(self)
