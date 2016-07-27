@@ -35,6 +35,7 @@ class AddServiceViewController: UIViewController {
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
         Appearance.customizeAppearance(self.view)
+        
     }
     
     override func didReceiveMemoryWarning() {

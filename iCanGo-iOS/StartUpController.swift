@@ -82,7 +82,6 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         itemNotificationsTabBar.tabBarItem = iconNotificationsTabBar
         myProfileViewController.tabBarItem = myProfileTabBarItem
         
-        
         let navVCServices = UINavigationController(rootViewController: servicesViewController)
         navVCServices.navigationBarHidden = true
         let navVCLocation = UINavigationController(rootViewController: locationViewController)

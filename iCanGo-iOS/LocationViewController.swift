@@ -88,7 +88,13 @@ class LocationViewController: UIViewController {
 
             let session = Session.iCanGoSession()
             // TODO: Parameter Rows pendin
-            let _ = session.getServices(latitude, longitude: longitude, distance: distance, searchText: searchText, page: 1, rows: rowsPerPage)
+            let _ = session.getServices(
+                latitude,
+                longitude: longitude,
+                distance: distance,
+                searchText: searchText,
+                page: 1,
+                rows: rowsPerPage)
         
                 .observeOn(MainScheduler.instance)
                 .subscribe { [weak self] event in
