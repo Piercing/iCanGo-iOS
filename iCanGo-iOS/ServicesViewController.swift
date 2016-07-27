@@ -5,116 +5,116 @@ import RxSwift
 class ServicesViewController: UIViewController {
     
     // MARK: - Properties
-    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var servicesCollectionView: UICollectionView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
-    private var loginInProgress: Bool!
+    private var requestDataInProgress: Bool!
     private var currentPage: UInt = 1
     private let disposeBag = DisposeBag()
+    private var services: [Service]?
     
-    var isLoaded = false
+    //var isLoaded = false
+    
+    // MARK: - Constants
     let cellId = "serviceCell"
     let nibId = "ServiceCellView"
     let titleView = "All Services"
     
-    private var services: [Service]?
     
     // MARK: - Init
-    
     convenience init() {
         self.init(nibName: "ServicesView", bundle: nil)
     }
     
-    // MARK: - Life Cycle
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
+        // Register Nib Cells.
         registerCustomCell()
         
+        // Configure collection views.
         servicesCollectionView.delegate = self
         servicesCollectionView.dataSource = self
         
-        self.loginInProgress = false
+        // Initialize variables.
+        self.requestDataInProgress = false
         self.services = [Service]()
         
+        // Setup UI.
         setupUIAllServices()
-        // do api call
-        loadDataFromApi(searchBar.text!, page: self.currentPage)
+        
+        // Get data from API.
+        getDataFromApi("", page: self.currentPage)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Actions
     
-    // MARK: Methods
-    
-    func setupUIAllServices() -> Void {
-        
-        searchBar.resignFirstResponder()
-        let title = Appearance.setupUI(self.view, title: self.titleView)
-        self.title = title
-        Appearance.tabBarColor(self.tabBarController!)
-        Appearance.customizeAppearance(self.view)
-        servicesCollectionView.fadeOut(duration: 0.0)
-        
-    }
-    
-    // MARK: Cell registration
-    
-    func registerCustomCell() {
+    // MARK: Private Methods
+    private func registerCustomCell() {
         servicesCollectionView.registerNib(UINib(nibName: nibId, bundle: nil), forCellWithReuseIdentifier: cellId)
     }
     
-    // MARK: Data validation
-    
-    func validateData() -> Void {
+    private func setupUIAllServices() -> Void {
         
+        let title = Appearance.setupUI(self.view, title: self.titleView)
+        self.title = title
+        searchBar.resignFirstResponder()
+        Appearance.tabBarColor(self.tabBarController!)
+        Appearance.customizeAppearance(self.view)
+        servicesCollectionView.fadeOut(duration: 0.0)
     }
     
-    // MARK: Api call
-    func loadDataFromApi(stringToFind: String, page: UInt) -> Void {
+    private func getDataFromApi(stringToFind: String, page: UInt) -> Void {
         
-        self.servicesCollectionView.fadeIn(duration: 0.3)
-        
-        let session = Session.iCanGoSession()
-        // TODO: Parameter Rows pendin
-        let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind, page: page, rows: rowsPerPage)
+        if requestDataInProgress == false {
             
-            .observeOn(MainScheduler.instance)
-            .subscribe { [weak self] event in
+            requestDataInProgress = true
+            let session = Session.iCanGoSession()
+            let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind, page: page, rows: rowsPerPage)
                 
-                self?.loginInProgress = actionFinished(self!.activityIndicatorView)
-                switch event {
-                case let .Next(services):
-                    if services.count > 0 {
-                        self?.services?.appendContentsOf(services)
-                        self?.servicesCollectionView.reloadData()
-                        //self?.servicesCollectionView.fadeIn(duration: 0.3)
-                        self?.currentPage += 1
-                    } else {
-                        showAlert(serviceSearchNoTitle, message: serviceSearchNoMessage, controller: self!)
-                    }
-                    break
+                .observeOn(MainScheduler.instance)
+                .subscribe { [weak self] event in
                     
-                case .Error (let error):
-                    //self!.loginNoSuccess(error as? SessionError)
-                    print(error)
-                default:
-                    break
-                }
+                    actionFinished(self!.activityIndicatorView)
+                    
+                    switch event {
+                    case let .Next(services):
+                        self?.requestDataInProgress = false
+                        if services.count > 0 {
+                            self?.services?.appendContentsOf(services)
+                            self?.servicesCollectionView.reloadData()
+                            self?.servicesCollectionView.fadeIn(duration: 0.3)
+                            self?.currentPage += 1
+                        } else {
+                            showAlert(serviceSearchNoTitle, message: serviceSearchNoMessage, controller: self!)
+                        }
+                        //break
+                        
+                    case .Error (let error):
+                        self?.requestDataInProgress = false
+                        print(error)
+                        
+                    default:
+                        self?.requestDataInProgress = false
+                    }
+            }
         }
     }
 }
 
+
 // MARK: - Extensions - Collection view delegates and datasource
 extension ServicesViewController: UISearchBarDelegate {
+    
     func textFieldShouldReturn(searchBar: UISearchBar) -> Bool {
+        
         self.view.endEditing(true)
         return true
     }
@@ -127,21 +127,19 @@ extension ServicesViewController: UISearchBarDelegate {
         
         self.currentPage = 1
         self.services?.removeAll()
-        loadDataFromApi(searchBar.text!, page: self.currentPage)
+        self.servicesCollectionView.reloadData()
+        getDataFromApi(searchBar.text!, page: self.currentPage)
     }
     
     func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        
         searchBar.showsCancelButton = true
-        //servicesCollectionView.fadeOut(duration: 0.3)
         return true
     }
     
     func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
-        //servicesCollectionView.fadeIn(duration: 0.3)
+        
         searchBar.showsCancelButton = false
-        if (searchBar.text == "") {
-            //loadDataFromApi(searchBar.text!)
-        }
         return true
     }
     
@@ -150,10 +148,12 @@ extension ServicesViewController: UISearchBarDelegate {
         deActivateSearchBar()
         self.currentPage = 1
         self.services?.removeAll()
-        loadDataFromApi("", page: self.currentPage)
+        searchBar.text = ""
+        getDataFromApi("", page: self.currentPage)
     }
     
     func deActivateSearchBar() {
+        
         searchBar.showsCancelButton = false
         searchBar.resignFirstResponder()
     }
@@ -169,16 +169,26 @@ extension ServicesViewController: UISearchBarDelegate {
             }
         }
     }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if services?.count != 0 {
+            self.services?.removeAll()
+            self.servicesCollectionView.reloadData()
+        }
+    }
 }
 
 extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
         let index = indexPath.row % services!.count
         showModal(index)
     }
     
     func showModal(index: Int) {
+        
         let detailServiceViewController = DetailServiceViewController(service: services![index])
         self.navigationController?.pushViewController(detailServiceViewController, animated: true)
     }
@@ -188,13 +198,10 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! ServiceCell
-        
-        // TODO: Appearance settings should be moved to a Theme
         Appearance.setupCellUI(cell)
-        
         cell.service = services![indexPath.row % services!.count]
-        
         return cell
     }
     
@@ -212,28 +219,8 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
             
             let servicesInList = (self.services?.count)! % Int(rowsPerPage)
             if (servicesInList == 0) {
-                loadDataFromApi(searchBar.text!, page: self.currentPage)
+                getDataFromApi(searchBar.text!, page: self.currentPage)
             }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
