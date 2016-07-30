@@ -58,6 +58,10 @@ class DetailServiceViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        descriptionDetatilService.resignFirstResponder()
+    }
+    
     // MARK: - Actions
     
     @IBAction func btnContactPersonDetailService(sender: AnyObject) {
@@ -82,10 +86,6 @@ class DetailServiceViewController: UIViewController {
         activityVC.excludedActivityTypes = [UIActivityTypeAddToReadingList]
         activityVC.popoverPresentationController?.sourceView = sender as? UIView
         self.presentViewController(activityVC, animated: true, completion: nil)
-    }
-    
-    @IBAction func btnBackDetailService(sender: AnyObject) {
-        print("Tapped btn back Detail Service")
     }
     
     @IBAction func goBack(sender: AnyObject) {
@@ -128,14 +128,14 @@ class DetailServiceViewController: UIViewController {
             
             if selectImage.tag == 1 {
                 self.selectImage = imgDetailService01
-                
-            } else if selectImage.tag == 2 {
+            }
+            if selectImage.tag == 2 {
                 self.selectImage = imgDetailService02
-                
-            } else if selectImage.tag == 3 {
+            }
+            if selectImage.tag == 3 {
                 self.selectImage = imgDetailService03
-                
-            } else if selectImage.tag == 4{
+            }
+            if selectImage.tag == 4{
                 self.selectImage = imgDetailService04
             }
         }
@@ -211,15 +211,15 @@ class DetailServiceViewController: UIViewController {
             if serviceImages.count > 0 {
                 loadImage(serviceImages[0].imageUrl, imageView: imgDetailService01)
             }
-
+            
             if serviceImages.count > 1 {
                 loadImage(serviceImages[1].imageUrl, imageView: imgDetailService02)
             }
-
+            
             if serviceImages.count > 2 {
                 loadImage(serviceImages[2].imageUrl, imageView: imgDetailService03)
             }
-
+            
             if serviceImages.count > 3 {
                 loadImage(serviceImages[3].imageUrl, imageView: imgDetailService04)
             }

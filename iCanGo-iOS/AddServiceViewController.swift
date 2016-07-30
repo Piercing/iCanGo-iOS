@@ -17,6 +17,7 @@ class AddServiceViewController: UIViewController {
     @IBOutlet weak var txtViewDescriptionAddService: UITextView!
     @IBOutlet weak var txtFieldCategoryAddService: UITextField!
     @IBOutlet weak var txtFieldPriceAddService: UITextField!
+    @IBOutlet weak var txtFieldAdressAddService: UITextField!
     
     let pickerData = ["€","$","¥"]
     
@@ -48,6 +49,7 @@ class AddServiceViewController: UIViewController {
         txtViewDescriptionAddService.resignFirstResponder()
         txtFieldCategoryAddService.resignFirstResponder()
         txtFieldPriceAddService.resignFirstResponder()
+        txtFieldAdressAddService.resignFirstResponder()
     }
     
     // MARK: - Actions

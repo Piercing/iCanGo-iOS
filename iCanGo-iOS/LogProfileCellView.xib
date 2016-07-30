@@ -105,7 +105,7 @@
                 <constraint firstItem="aRz-hi-ROB" firstAttribute="top" secondItem="CII-2l-A14" secondAttribute="top" id="vHg-RR-hMM"/>
                 <constraint firstItem="CII-2l-A14" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yxZ-ax-wSS"/>
             </constraints>
-            <point key="canvasLocation" x="514" y="418"/>
+            <point key="canvasLocation" x="636" y="401"/>
         </collectionViewCell>
     </objects>
     <resources>
