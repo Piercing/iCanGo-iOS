@@ -18,11 +18,11 @@
             <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HsC-eJ-FRD" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="HsC-eJ-FRD" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="0.0"/>
+                            <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </imageView>
@@ -69,7 +69,7 @@
                     <real key="value" value="3"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="414" y="594"/>
+            <point key="canvasLocation" x="485" y="594"/>
         </view>
     </objects>
 </document>

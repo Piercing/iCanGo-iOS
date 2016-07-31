@@ -47,6 +47,7 @@ class DetailServiceViewController: UIViewController {
         super.viewDidLoad()
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
+        descriptionDetatilService.resignFirstResponder()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -56,6 +57,10 @@ class DetailServiceViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        descriptionDetatilService.resignFirstResponder()
     }
     
     // MARK: - Actions
@@ -84,31 +89,43 @@ class DetailServiceViewController: UIViewController {
         self.presentViewController(activityVC, animated: true, completion: nil)
     }
     
-    @IBAction func btnBackDetailService(sender: AnyObject) {
-        print("Tapped btn back Detail Service")
-    }
-    
     @IBAction func goBack(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     // MARK: - Gesture Recognizer Views
     
-    @IBAction func tapGestureImg01(sender: AnyObject) {
-        tappedView(sender as! UITapGestureRecognizer)
+    @IBAction func tapGestureImage01(sender: UITapGestureRecognizer) {
+        tappedView(sender)
     }
     
-    @IBAction func tapGestureImg02(sender: AnyObject) {
-        tappedView(sender as! UITapGestureRecognizer)
+    @IBAction func tapGestureImage02(sender: UITapGestureRecognizer) {
+        tappedView(sender)
     }
     
-    @IBAction func tapGestureImg03(sender: AnyObject) {
-        tappedView(sender as! UITapGestureRecognizer)
+    @IBAction func tapGestureImage03(sender: UITapGestureRecognizer) {
+        tappedView(sender)
     }
     
-    @IBAction func tapGestureImg04(sender: AnyObject) {
-        tappedView(sender as! UITapGestureRecognizer)
+    @IBAction func tapGestureImage04(sender: UITapGestureRecognizer) {
+        tappedView(sender)
     }
+    
+    //    @IBAction func tapGestureImg01(sender: AnyObject) {
+    //        tappedView(sender as! UITapGestureRecognizer)
+    //    }
+    //    
+    //    @IBAction func tapGestureImg02(sender: AnyObject) {
+    //        tappedView(sender as! UITapGestureRecognizer)
+    //    }
+    //    
+    //    @IBAction func tapGestureImg03(sender: AnyObject) {
+    //        tappedView(sender as! UITapGestureRecognizer)
+    //    }
+    //    
+    //    @IBAction func tapGestureImg04(sender: AnyObject) {
+    //        tappedView(sender as! UITapGestureRecognizer)
+    //    }
     
     func tappedView(sender: UITapGestureRecognizer) {
         
@@ -128,14 +145,14 @@ class DetailServiceViewController: UIViewController {
             
             if selectImage.tag == 1 {
                 self.selectImage = imgDetailService01
-                
-            } else if selectImage.tag == 2 {
+            }
+            if selectImage.tag == 2 {
                 self.selectImage = imgDetailService02
-                
-            } else if selectImage.tag == 3 {
+            }
+            if selectImage.tag == 3 {
                 self.selectImage = imgDetailService03
-                
-            } else if selectImage.tag == 4{
+            }
+            if selectImage.tag == 4 {
                 self.selectImage = imgDetailService04
             }
         }
@@ -198,8 +215,8 @@ class DetailServiceViewController: UIViewController {
         
         nameServiceDetailService.text  = serviceModel.name
         nameUserDetailService.text     = serviceModel.userFirstName + " " + serviceModel.userLastName
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let dateFormatter              = NSDateFormatter()
+        dateFormatter.dateFormat       = "dd-MM-yyyy"
         dataDetailService.text         = dateFormatter.stringFromDate(serviceModel.dateCreated)
         publishedDetailService.text    = String(serviceModel.numPublishedServices)
         caretedDetailsService.text     = String(serviceModel.numAttendedServices)
@@ -211,15 +228,15 @@ class DetailServiceViewController: UIViewController {
             if serviceImages.count > 0 {
                 loadImage(serviceImages[0].imageUrl, imageView: imgDetailService01)
             }
-
+            
             if serviceImages.count > 1 {
                 loadImage(serviceImages[1].imageUrl, imageView: imgDetailService02)
             }
-
+            
             if serviceImages.count > 2 {
                 loadImage(serviceImages[2].imageUrl, imageView: imgDetailService03)
             }
-
+            
             if serviceImages.count > 3 {
                 loadImage(serviceImages[3].imageUrl, imageView: imgDetailService04)
             }

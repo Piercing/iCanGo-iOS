@@ -73,12 +73,12 @@
                 <constraint firstAttribute="trailing" secondItem="7Ci-nc-71p" secondAttribute="trailing" id="D35-XG-SUQ"/>
                 <constraint firstAttribute="bottom" secondItem="QBa-ZM-X5c" secondAttribute="bottom" constant="-24" id="FKh-am-VyO"/>
                 <constraint firstItem="1Sz-Xa-owM" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Jbi-zt-e7a"/>
+                <constraint firstItem="iGe-Wj-Grq" firstAttribute="centerY" secondItem="CJj-sb-ari" secondAttribute="centerY" id="Kfk-R0-6KW"/>
                 <constraint firstItem="CJj-sb-ari" firstAttribute="leading" secondItem="7Ci-nc-71p" secondAttribute="leading" id="LLS-EZ-wO3"/>
                 <constraint firstItem="7Ci-nc-71p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="MN4-Op-Joy"/>
                 <constraint firstItem="1Sz-Xa-owM" firstAttribute="centerX" secondItem="CJj-sb-ari" secondAttribute="centerX" id="TdT-k6-Vtz"/>
-                <constraint firstItem="iGe-Wj-Grq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="cxR-iM-ECf"/>
+                <constraint firstItem="iGe-Wj-Grq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="a4n-XB-fYd"/>
                 <constraint firstItem="CJj-sb-ari" firstAttribute="top" secondItem="7Ci-nc-71p" secondAttribute="top" id="jSa-jb-qPZ"/>
-                <constraint firstItem="iGe-Wj-Grq" firstAttribute="centerY" secondItem="7Ci-nc-71p" secondAttribute="centerY" id="tSU-5z-CA9"/>
                 <constraint firstItem="QBa-ZM-X5c" firstAttribute="leading" secondItem="7Ci-nc-71p" secondAttribute="leading" id="xXi-wc-n69"/>
             </constraints>
             <point key="canvasLocation" x="58" y="-156"/>
