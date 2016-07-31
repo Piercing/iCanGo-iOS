@@ -152,7 +152,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bxa-mc-lUU">
                                     <rect key="frame" x="8" y="349" width="584" height="140"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iCanGoLogotype" translatesAutoresizingMaskIntoConstraints="NO" id="j6T-OX-Tey" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                                        <imageView tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iCanGoLogotype" translatesAutoresizingMaskIntoConstraints="NO" id="j6T-OX-Tey" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                             <gestureRecognizers/>
                                             <constraints>
@@ -165,10 +165,10 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <outletCollection property="gestureRecognizers" destination="yvV-TN-nl2" appends="YES" id="YOg-4E-4KI"/>
+                                                <outletCollection property="gestureRecognizers" destination="a7w-1y-PQz" appends="YES" id="gFx-C9-udr"/>
                                             </connections>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iCanGoLogotype" translatesAutoresizingMaskIntoConstraints="NO" id="OcZ-Cl-gzi" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                                        <imageView tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iCanGoLogotype" translatesAutoresizingMaskIntoConstraints="NO" id="OcZ-Cl-gzi" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                                             <rect key="frame" x="148" y="0.0" width="140" height="140"/>
                                             <gestureRecognizers/>
                                             <constraints>
@@ -180,10 +180,10 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <outletCollection property="gestureRecognizers" destination="yfs-zz-mAg" appends="YES" id="P41-pv-vGa"/>
+                                                <outletCollection property="gestureRecognizers" destination="gzp-Kw-Ipl" appends="YES" id="f2C-gp-tzM"/>
                                             </connections>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="w0W-1g-1n6" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                                        <imageView tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="w0W-1g-1n6" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                                             <rect key="frame" x="296" y="0.0" width="140" height="140"/>
                                             <gestureRecognizers/>
                                             <constraints>
@@ -195,10 +195,10 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <outletCollection property="gestureRecognizers" destination="AIX-T5-ICh" appends="YES" id="6t8-iB-lpa"/>
+                                                <outletCollection property="gestureRecognizers" destination="uqJ-rx-BM1" appends="YES" id="37q-YK-J3b"/>
                                             </connections>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="pzL-10-srB" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                                        <imageView tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pzL-10-srB" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
                                             <rect key="frame" x="444" y="0.0" width="140" height="140"/>
                                             <gestureRecognizers/>
                                             <userDefinedRuntimeAttributes>
@@ -207,7 +207,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <outletCollection property="gestureRecognizers" destination="14U-0Y-zQ4" appends="YES" id="soG-VW-01r"/>
+                                                <outletCollection property="gestureRecognizers" destination="5KW-7T-vEK" appends="YES" id="XBO-TD-ydl"/>
                                             </connections>
                                         </imageView>
                                     </subviews>
@@ -226,6 +226,9 @@
                                             <real key="value" value="5"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btnDeleteServiceDetail:" destination="-1" eventType="touchUpInside" id="hD0-GJ-lUK"/>
+                                    </connections>
                                 </button>
                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tM1-Xd-4OL">
                                     <rect key="frame" x="8" y="213" width="584" height="128"/>
@@ -313,26 +316,26 @@
                 <constraint firstItem="7Xa-cg-UVm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="d3l-F8-Hvg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="573" y="336"/>
+            <point key="canvasLocation" x="468" y="334"/>
         </view>
-        <tapGestureRecognizer id="yvV-TN-nl2" userLabel="imgDetailService01">
+        <tapGestureRecognizer id="a7w-1y-PQz" userLabel="tapGestureImg01">
             <connections>
-                <action selector="tapGestureImg01:" destination="-1" id="PxO-zH-mSi"/>
+                <action selector="tapGestureImage01:" destination="-1" id="yPD-hR-vGm"/>
             </connections>
         </tapGestureRecognizer>
-        <tapGestureRecognizer id="yfs-zz-mAg" userLabel="imgDetailService02">
+        <tapGestureRecognizer id="gzp-Kw-Ipl" userLabel="tapGestureImg02">
             <connections>
-                <action selector="tapGestureImg02:" destination="-1" id="kQe-Ha-AKq"/>
+                <action selector="tapGestureImage02:" destination="-1" id="j5T-7P-GwY"/>
             </connections>
         </tapGestureRecognizer>
-        <tapGestureRecognizer id="AIX-T5-ICh" userLabel="imgDetailService03">
+        <tapGestureRecognizer id="uqJ-rx-BM1" userLabel="tapGestureImg03">
             <connections>
-                <action selector="tapGestureImg03:" destination="-1" id="ah2-ku-b96"/>
+                <action selector="tapGestureImage03:" destination="-1" id="Uof-j3-FkV"/>
             </connections>
         </tapGestureRecognizer>
-        <tapGestureRecognizer id="14U-0Y-zQ4" userLabel="imgDetailService04">
+        <tapGestureRecognizer id="5KW-7T-vEK" userLabel="tapGestureImg04">
             <connections>
-                <action selector="tapGestureImg04:" destination="-1" id="ODE-bp-7Ve"/>
+                <action selector="tapGestureImage04:" destination="-1" id="GwR-8J-0Ba"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

@@ -47,6 +47,7 @@ class DetailServiceViewController: UIViewController {
         super.viewDidLoad()
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
+        descriptionDetatilService.resignFirstResponder()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -94,21 +95,37 @@ class DetailServiceViewController: UIViewController {
     
     // MARK: - Gesture Recognizer Views
     
-    @IBAction func tapGestureImg01(sender: AnyObject) {
-        tappedView(sender as! UITapGestureRecognizer)
+    @IBAction func tapGestureImage01(sender: UITapGestureRecognizer) {
+        tappedView(sender)
     }
     
-    @IBAction func tapGestureImg02(sender: AnyObject) {
-        tappedView(sender as! UITapGestureRecognizer)
+    @IBAction func tapGestureImage02(sender: UITapGestureRecognizer) {
+        tappedView(sender)
     }
     
-    @IBAction func tapGestureImg03(sender: AnyObject) {
-        tappedView(sender as! UITapGestureRecognizer)
+    @IBAction func tapGestureImage03(sender: UITapGestureRecognizer) {
+        tappedView(sender)
     }
     
-    @IBAction func tapGestureImg04(sender: AnyObject) {
-        tappedView(sender as! UITapGestureRecognizer)
+    @IBAction func tapGestureImage04(sender: UITapGestureRecognizer) {
+        tappedView(sender)
     }
+    
+    //    @IBAction func tapGestureImg01(sender: AnyObject) {
+    //        tappedView(sender as! UITapGestureRecognizer)
+    //    }
+    //    
+    //    @IBAction func tapGestureImg02(sender: AnyObject) {
+    //        tappedView(sender as! UITapGestureRecognizer)
+    //    }
+    //    
+    //    @IBAction func tapGestureImg03(sender: AnyObject) {
+    //        tappedView(sender as! UITapGestureRecognizer)
+    //    }
+    //    
+    //    @IBAction func tapGestureImg04(sender: AnyObject) {
+    //        tappedView(sender as! UITapGestureRecognizer)
+    //    }
     
     func tappedView(sender: UITapGestureRecognizer) {
         
@@ -135,7 +152,7 @@ class DetailServiceViewController: UIViewController {
             if selectImage.tag == 3 {
                 self.selectImage = imgDetailService03
             }
-            if selectImage.tag == 4{
+            if selectImage.tag == 4 {
                 self.selectImage = imgDetailService04
             }
         }
@@ -198,8 +215,8 @@ class DetailServiceViewController: UIViewController {
         
         nameServiceDetailService.text  = serviceModel.name
         nameUserDetailService.text     = serviceModel.userFirstName + " " + serviceModel.userLastName
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let dateFormatter              = NSDateFormatter()
+        dateFormatter.dateFormat       = "dd-MM-yyyy"
         dataDetailService.text         = dateFormatter.stringFromDate(serviceModel.dateCreated)
         publishedDetailService.text    = String(serviceModel.numPublishedServices)
         caretedDetailsService.text     = String(serviceModel.numAttendedServices)
