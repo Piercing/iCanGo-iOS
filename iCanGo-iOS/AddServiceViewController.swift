@@ -17,6 +17,7 @@ class AddServiceViewController: UIViewController {
     @IBOutlet weak var txtViewDescriptionAddService: UITextView!
     @IBOutlet weak var txtFieldCategoryAddService: UITextField!
     @IBOutlet weak var txtFieldPriceAddService: UITextField!
+    @IBOutlet weak var txtFieldAdressAddService: UITextField!
     
     let pickerData = ["€","$","¥"]
     
@@ -35,6 +36,7 @@ class AddServiceViewController: UIViewController {
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
         Appearance.customizeAppearance(self.view)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,6 +49,7 @@ class AddServiceViewController: UIViewController {
         txtViewDescriptionAddService.resignFirstResponder()
         txtFieldCategoryAddService.resignFirstResponder()
         txtFieldPriceAddService.resignFirstResponder()
+        txtFieldAdressAddService.resignFirstResponder()
     }
     
     // MARK: - Actions
