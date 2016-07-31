@@ -12,7 +12,7 @@ import Foundation
 let loginKoTitle = "Wrong login"
 let loginKoMessage = "Please, enter a valid email and password"
 let noConnectionTitle = "No internet connection"
-let noConnectionMessage = "An Internet connection is needed to log in"
+let noConnectionMessage = "An Internet connection is needed"
 let noGeoUserTitle = "Location services are disabled"
 let noGeoUserMessage = "For you to see nearby services, you need to enable location services in Settings"
 let serviceDeleteTitle = "Service deleted successfully"
@@ -21,7 +21,8 @@ let serviceLocationNoTitle = "Sorry no services nearby"
 let serviceLocationNoMessage = "Sorry no services nearby with that description"
 let serviceSearchNoTitle = "Sorry no services"
 let serviceSearchNoMessage = "Sorry no services with that description"
-
+let publishedText = "Published"
+let attendedText = "Attended"
 
 // MARK: Time zone.
 let timeZoneApp = String("GMT")

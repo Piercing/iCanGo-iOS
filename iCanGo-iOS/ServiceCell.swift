@@ -1,4 +1,3 @@
-
 import UIKit
 
 // Delegate for cell
@@ -42,11 +41,11 @@ class ServiceCell: UICollectionViewCell {
                 
                 // load the image asynchronous
                 if service.mainImage != nil {
-                    loadImage(service.mainImage!, imageView: imageService)
+                    loadImage(service.mainImage!, imageView: imageService, withAnimation: true)
                 }
                 
                 if service.ownerImage != nil {
-                    loadImage(service.ownerImage!, imageView: imageUser)
+                    loadImage(service.ownerImage!, imageView: imageUser, withAnimation: true)
                 }
             }
         }
