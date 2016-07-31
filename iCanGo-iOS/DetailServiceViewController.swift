@@ -25,8 +25,8 @@ class DetailServiceViewController: UIViewController {
     @IBOutlet weak var priceDetailService: UILabel!
     @IBOutlet weak var descriptionDetatilService: UITextView!
     @IBOutlet weak var publishedLabel: UILabel!
-    @IBOutlet weak var imgDetailService01: UIImageView!
     @IBOutlet weak var attendedLabel: UILabel!
+    @IBOutlet weak var imgDetailService01: UIImageView!
     @IBOutlet weak var imgDetailService02: UIImageView!
     @IBOutlet weak var imgDetailService03: UIImageView!
     @IBOutlet weak var imgDetailService04: UIImageView!
@@ -59,17 +59,7 @@ class DetailServiceViewController: UIViewController {
         self.title = title
         
         // Initialize data en view.
-        nameServiceDetailService.text = ""
-        nameUserDetailService.text = ""
-        dataDetailService.text = ""
-        publishedLabel.text = ""
-        publishedDetailService.text = ""
-        attendedLabel.text = ""
-        caretedDetailsService.text = ""
-        priceDetailService.text = ""
-        descriptionDetatilService.text = ""
-        photoUserDetailService.image = nil
-        contactPersonDetailServiceBtn.setImage(nil, forState: UIControlState.Normal)
+        setupViews()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -81,7 +71,7 @@ class DetailServiceViewController: UIViewController {
         
         // Load default images and textLabel.
         contactPersonDetailServiceBtn.setImage(UIImage.init(named:"conversation03"), forState: UIControlState.Normal)
-        photoUserDetailService.image = UIImage.init(named: "content-avatar-default-ios")
+        photoUserDetailService.image = UIImage.init(named: "userDefaultiCanGo")
         imgDetailService01.image = UIImage.init(named: "1024-emptyCamera-center-ios")
         imgDetailService02.image = UIImage.init(named: "1024-emptyCamera-center-ios")
         imgDetailService03.image = UIImage.init(named: "1024-emptyCamera-center-ios")
@@ -260,6 +250,26 @@ class DetailServiceViewController: UIViewController {
         }
     }
     
+    private func setupViews() {
+        
+        nameServiceDetailService.text = ""
+        nameUserDetailService.text = ""
+        dataDetailService.text = ""
+        publishedLabel.text = ""
+        publishedDetailService.text = ""
+        attendedLabel.text = ""
+        caretedDetailsService.text = ""
+        priceDetailService.text = ""
+        descriptionDetatilService.text = ""
+        photoUserDetailService.image = nil
+        imgDetailService01.image = nil
+        imgDetailService02.image = nil
+        imgDetailService03.image = nil
+        imgDetailService04.image = nil
+        mapView.hidden = true
+        contactPersonDetailServiceBtn.setImage(nil, forState: UIControlState.Normal)
+    }
+    
     private func showDataService() {
         
         nameServiceDetailService.text  = service.name
@@ -297,6 +307,7 @@ class DetailServiceViewController: UIViewController {
         if let latitude = service.latitude,
             longitude = service.longitude {
             
+            mapView.hidden = false
             let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             let serviceAnnotationMap = ServiceAnnotationMap(coordinate: coordinate, title: "", subtitle: "", service: service)
             mapView.addAnnotation(serviceAnnotationMap)

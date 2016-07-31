@@ -37,7 +37,7 @@ class ServiceCell: UICollectionViewCell {
                 
                 // Load default images.
                 imageService.image = UIImage.init(named: "iCanGoEmptyImage-560x")
-                imageUser.image = UIImage.init(named: "content-avatar-default-ios")
+                imageUser.image = UIImage.init(named: "userDefaultiCanGo")
                 
                 // load the image asynchronous
                 if service.mainImage != nil {
