@@ -1,4 +1,3 @@
-
 import UIKit
 import RxSwift
 
@@ -11,10 +10,8 @@ class ServicesViewController: UIViewController {
     
     private var requestDataInProgress: Bool!
     private var currentPage: UInt = 1
-    private let disposeBag = DisposeBag()
     private var services: [Service]?
     
-    //var isLoaded = false
     
     // MARK: - Constants
     let cellId = "serviceCell"
@@ -50,7 +47,7 @@ class ServicesViewController: UIViewController {
         // Get data from API.
         getDataFromApi("", page: self.currentPage)
     }
-    
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -73,38 +70,44 @@ class ServicesViewController: UIViewController {
     
     private func getDataFromApi(stringToFind: String, page: UInt) -> Void {
         
-        if requestDataInProgress == false {
+        if isConnectedToNetwork() {
             
-            requestDataInProgress = true
-            let session = Session.iCanGoSession()
-            let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind, page: page, rows: rowsPerPage)
+            if requestDataInProgress == false {
                 
-                .observeOn(MainScheduler.instance)
-                .subscribe { [weak self] event in
+                requestDataInProgress = true
+                let session = Session.iCanGoSession()
+                let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind, page: page, rows: rowsPerPage)
                     
-                    actionFinished(self!.activityIndicatorView)
-                    
-                    switch event {
-                    case let .Next(services):
-                        self?.requestDataInProgress = false
-                        if services.count > 0 {
-                            self?.services?.appendContentsOf(services)
-                            self?.servicesCollectionView.reloadData()
-                            self?.servicesCollectionView.fadeIn(duration: 0.3)
-                            self?.currentPage += 1
-                        } else {
-                            showAlert(serviceSearchNoTitle, message: serviceSearchNoMessage, controller: self!)
+                    .observeOn(MainScheduler.instance)
+                    .subscribe { [weak self] event in
+                        
+                        actionFinished(self!.activityIndicatorView)
+                        
+                        switch event {
+                        case let .Next(services):
+                            self?.requestDataInProgress = false
+                            if services.count > 0 {
+                                self?.services?.appendContentsOf(services)
+                                self?.servicesCollectionView.reloadData()
+                                self?.servicesCollectionView.fadeIn(duration: 0.3)
+                                self?.currentPage += 1
+                            } else {
+                                showAlert(serviceSearchNoTitle, message: serviceSearchNoMessage, controller: self!)
+                            }
+                            
+                        case .Error (let error):
+                            self?.requestDataInProgress = false
+                            print(error)
+                            
+                        default:
+                            self?.requestDataInProgress = false
                         }
-                        //break
-                        
-                    case .Error (let error):
-                        self?.requestDataInProgress = false
-                        print(error)
-                        
-                    default:
-                        self?.requestDataInProgress = false
-                    }
+                }
             }
+        } else {
+            
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            actionFinished(self.activityIndicatorView)
         }
     }
 }
@@ -128,6 +131,7 @@ extension ServicesViewController: UISearchBarDelegate {
         self.currentPage = 1
         self.services?.removeAll()
         self.servicesCollectionView.reloadData()
+        actionStarted(self.activityIndicatorView)
         getDataFromApi(searchBar.text!, page: self.currentPage)
     }
     
@@ -149,6 +153,7 @@ extension ServicesViewController: UISearchBarDelegate {
         self.currentPage = 1
         self.services?.removeAll()
         searchBar.text = ""
+        actionStarted(self.activityIndicatorView)
         getDataFromApi("", page: self.currentPage)
     }
     

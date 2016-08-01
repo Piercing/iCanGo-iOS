@@ -1,5 +1,4 @@
 
-
 import SystemConfiguration
 import UIKit
 import RxSwift
@@ -11,14 +10,12 @@ func actionStarted(activityIndicatorView: UIActivityIndicatorView) -> Bool {
     activityIndicatorView.hidden = false
     activityIndicatorView.startAnimating()
     return true
-    
 }
 
 func actionFinished(activityIndicatorView: UIActivityIndicatorView) -> Bool {
     
     activityIndicatorView.stopAnimating()
     activityIndicatorView.hidden = true
-    
     return false;
 }
 
@@ -26,10 +23,10 @@ func isUserloged() -> Bool {
     
     let user = loadUserAuthInfo()
     return user.id != ""
-    
 }
 
 func saveAuthInfo(user: User) -> Void {
+    
     let userPersisted = copyUser(user)
     NSUserDefaults.standardUserDefaults().setObject(NSKeyedArchiver.archivedDataWithRootObject(userPersisted), forKey: "user")
 }
@@ -41,6 +38,7 @@ func loadUserAuthInfo() -> User {
         let user = copyUser(userPersisted!)
         return user
     }
+    
     return User(id: "",
                 email: "",
                 firstName: "",
@@ -52,38 +50,11 @@ func loadUserAuthInfo() -> User {
                 numAttendedServices: 0)
 }
 
-/*
-func loadImage(imageUrl: NSURL, imageView: UIImageView) {
-    
-    let request = NSMutableURLRequest(URL: imageUrl)
-    let session = NSURLSession.sharedSession()
-    let task = session.dataTaskWithRequest(request) { data, response, error in
-        
-        guard data != nil else {
-            return
-        }
-
-        let image = UIImage(data: data!)
-        
-        dispatch_async(dispatch_get_main_queue(), {
-            
-            imageView.image = image
-            imageView.fadeOut(duration: 0.0)
-            imageView.fadeIn()
-            
-        })
-    }
-    
-    task.resume()
-    
-}
-*/
-
-func loadImage(imageUrl: NSURL, imageView: UIImageView) {
+func loadImage(imageUrl: NSURL, imageView: UIImageView, withAnimation: Bool) {
     
     let session = Session.iCanGoSessionImages()
     let _ = session.getImageData(imageUrl)
-    
+        
         .observeOn(MainScheduler.instance)
         .subscribe { event in
             
@@ -91,8 +62,10 @@ func loadImage(imageUrl: NSURL, imageView: UIImageView) {
             case let .Next(data):
                 let image = UIImage(data: data)
                 imageView.image = image
-                imageView.fadeOut(duration: 0.0)
-                imageView.fadeIn()
+                if withAnimation {
+                    imageView.fadeOut(duration: 0.0)
+                    imageView.fadeIn()
+                }
                 
             case .Error:
                 return
@@ -104,6 +77,7 @@ func loadImage(imageUrl: NSURL, imageView: UIImageView) {
 }
 
 func isConnectedToNetwork() -> Bool {
+    
     var zeroAddress = sockaddr_in()
     zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
     zeroAddress.sin_family = sa_family_t(AF_INET)
@@ -130,10 +104,10 @@ func showAlert(title: String, message: String, controller: UIViewController) {
 func showModal(callerController: UIViewController, calledContainer: UIViewController) {
     
     callerController.presentViewController(calledContainer, animated: true, completion: nil)
-    
 }
 
 func checkConection(controller: UIViewController) {
+    
     if (!isConnectedToNetwork()) {
         showAlert(noConnectionTitle, message: noConnectionMessage, controller: controller)
         return
