@@ -26,6 +26,8 @@ class DetailServiceViewController: UIViewController {
     @IBOutlet weak var descriptionDetatilService: UITextView!
     @IBOutlet weak var publishedLabel: UILabel!
     @IBOutlet weak var attendedLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var addressText: UITextView!
     @IBOutlet weak var imgDetailService01: UIImageView!
     @IBOutlet weak var imgDetailService02: UIImageView!
     @IBOutlet weak var imgDetailService03: UIImageView!
@@ -267,6 +269,8 @@ class DetailServiceViewController: UIViewController {
         imgDetailService03.image = nil
         imgDetailService04.image = nil
         mapView.hidden = true
+        addressLabel.hidden = true
+        addressText.hidden = true
         contactPersonDetailServiceBtn.setImage(nil, forState: UIControlState.Normal)
     }
     
@@ -308,6 +312,8 @@ class DetailServiceViewController: UIViewController {
             longitude = service.longitude {
             
             mapView.hidden = false
+            addressLabel.hidden = true
+            addressText.hidden = true
             let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             let serviceAnnotationMap = ServiceAnnotationMap(coordinate: coordinate, title: "", subtitle: "", service: service)
             mapView.addAnnotation(serviceAnnotationMap)
@@ -319,7 +325,12 @@ class DetailServiceViewController: UIViewController {
             userRegion.span.longitudeDelta = 0.001000
             mapView.setRegion(userRegion, animated: true)
         } else {
-            mapView.hidden = true
+            if service.address != nil {
+                mapView.hidden = true
+                addressLabel.hidden = false
+                addressText.hidden = false
+                addressText.text = service.address
+            }
         }
     }    
 }

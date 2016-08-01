@@ -43,17 +43,11 @@ class ServicesViewController: UIViewController {
         
         // Setup UI.
         setupUIAllServices()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        
-        super.viewDidAppear(animated)
         
         // Get data from API.
         getDataFromApi("", page: self.currentPage)
     }
-    
-    
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -137,6 +131,7 @@ extension ServicesViewController: UISearchBarDelegate {
         self.currentPage = 1
         self.services?.removeAll()
         self.servicesCollectionView.reloadData()
+        actionStarted(self.activityIndicatorView)
         getDataFromApi(searchBar.text!, page: self.currentPage)
     }
     
@@ -158,6 +153,7 @@ extension ServicesViewController: UISearchBarDelegate {
         self.currentPage = 1
         self.services?.removeAll()
         searchBar.text = ""
+        actionStarted(self.activityIndicatorView)
         getDataFromApi("", page: self.currentPage)
     }
     
