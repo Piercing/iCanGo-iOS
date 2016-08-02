@@ -227,7 +227,7 @@
                                         <constraint firstAttribute="height" constant="140" id="tZO-CP-hyA"/>
                                     </constraints>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YX5-1D-8Vs" customClass="RoundedCornersButtons" customModule="iCanGo_iOS" customModuleProvider="target">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YX5-1D-8Vs" customClass="RoundedCornersButtons" customModule="iCanGo_iOS" customModuleProvider="target">
                                     <rect key="frame" x="8" y="493" width="584" height="35"/>
                                     <color key="backgroundColor" red="0.090196078430000007" green="0.5450980392" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
