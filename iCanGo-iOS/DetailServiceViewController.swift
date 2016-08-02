@@ -96,7 +96,13 @@ class DetailServiceViewController: UIViewController {
     }
     
     @IBAction func btnDeleteServiceDetail(sender: AnyObject) {
-        deteteServiceAPI(service.id)
+        
+        let alertController = UIAlertController(title: serviceDeleteTitle, message: serviceDeleteConfirmationMessage, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler:{ (action: UIAlertAction!) in
+            self.deteteServiceAPI(self.service.id)
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     @IBAction func btnSharedDetatilService(sender: AnyObject) {
@@ -201,12 +207,23 @@ class DetailServiceViewController: UIViewController {
                     .subscribe { [weak self] event in
                         
                         switch event {
-                        case .Next(_):
-                            showAlert(serviceDeleteTitle, message: serviceDeleteMessage, controller: self!)
+                        case let .Next(service):
+                            if service.deleted == true {
+                                
+                                let alertController = UIAlertController(title: serviceDeleteTitle, message: serviceDeleteMessage, preferredStyle: .Alert)
+                                alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler:{ (action: UIAlertAction!) in
+                                    self!.navigationController?.popToRootViewControllerAnimated(true)
+                                }))
+                                self!.presentViewController(alertController, animated: true, completion: nil)
+                            
+                            } else {
+                                showAlert(serviceDeleteTitle, message: serviceDeleteKOMessage, controller: self!)
+                            }
                             self?.requestDataInProgress = false
                             
                         case .Error (let error):
                             self?.requestDataInProgress = false
+                            showAlert(serviceDeleteTitle, message: serviceDeleteKOMessage, controller: self!)
                             print(error)
                             
                         default:
@@ -271,11 +288,14 @@ class DetailServiceViewController: UIViewController {
         mapView.hidden = true
         addressLabel.hidden = true
         addressText.hidden = true
+        clearServiceDetailBtn.enabled = false
+        clearServiceDetailBtn.hidden = true
         contactPersonDetailServiceBtn.setImage(nil, forState: UIControlState.Normal)
     }
     
     private func showDataService() {
         
+        // Show data of service.
         nameServiceDetailService.text  = service.name
         if service.ownerImage != nil {
             loadImage(service.ownerImage!, imageView: photoUserDetailService, withAnimation: false)
@@ -289,25 +309,7 @@ class DetailServiceViewController: UIViewController {
         priceDetailService.text        = String(format: "%.2f", service.price)
         descriptionDetatilService.text = service.description
         
-        if let serviceImages = service.images {
-            
-            if serviceImages.count > 0 {
-                loadImage(serviceImages[0].imageUrl, imageView: imgDetailService01, withAnimation: true)
-            }
-            
-            if serviceImages.count > 1 {
-                loadImage(serviceImages[1].imageUrl, imageView: imgDetailService02, withAnimation: true)
-            }
-            
-            if serviceImages.count > 2 {
-                loadImage(serviceImages[2].imageUrl, imageView: imgDetailService03, withAnimation: true)
-            }
-            
-            if serviceImages.count > 3 {
-                loadImage(serviceImages[3].imageUrl, imageView: imgDetailService04, withAnimation: true)
-            }
-        }
-        
+        // Show geoposition or address service.
         if let latitude = service.latitude,
             longitude = service.longitude {
             
@@ -330,6 +332,37 @@ class DetailServiceViewController: UIViewController {
                 addressLabel.hidden = false
                 addressText.hidden = false
                 addressText.text = service.address
+            }
+        }
+
+        // Show service images
+        if let serviceImages = service.images {
+            
+            if serviceImages.count > 0 {
+                loadImage(serviceImages[0].imageUrl, imageView: imgDetailService01, withAnimation: true)
+            }
+            
+            if serviceImages.count > 1 {
+                loadImage(serviceImages[1].imageUrl, imageView: imgDetailService02, withAnimation: true)
+            }
+            
+            if serviceImages.count > 2 {
+                loadImage(serviceImages[2].imageUrl, imageView: imgDetailService03, withAnimation: true)
+            }
+            
+            if serviceImages.count > 3 {
+                loadImage(serviceImages[3].imageUrl, imageView: imgDetailService04, withAnimation: true)
+            }
+        }
+        
+        // Show delete service
+        if (service.status == 0 && !service.deleted) {
+            let user: User = loadUserAuthInfo()
+            if user.id != "" {
+                if service.idUserRequest == user.id {
+                    clearServiceDetailBtn.enabled = true
+                    clearServiceDetailBtn.hidden = false
+                }
             }
         }
     }    
