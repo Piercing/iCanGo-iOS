@@ -1,4 +1,3 @@
-
 import UIKit
 
 // Delegate for cell
@@ -38,15 +37,15 @@ class ServiceCell: UICollectionViewCell {
                 
                 // Load default images.
                 imageService.image = UIImage.init(named: "iCanGoEmptyImage-560x")
-                imageUser.image = UIImage.init(named: "content-avatar-default-ios")
+                imageUser.image = UIImage.init(named: "userDefaultiCanGo")
                 
                 // load the image asynchronous
                 if service.mainImage != nil {
-                    loadImage(service.mainImage!, imageView: imageService)
+                    loadImage(service.mainImage!, imageView: imageService, withAnimation: true)
                 }
                 
                 if service.ownerImage != nil {
-                    loadImage(service.ownerImage!, imageView: imageUser)
+                    loadImage(service.ownerImage!, imageView: imageUser, withAnimation: true)
                 }
             }
         }
