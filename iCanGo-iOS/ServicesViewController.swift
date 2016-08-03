@@ -128,9 +128,10 @@ extension ServicesViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
-        self.currentPage = 1
-        self.services?.removeAll()
-        self.servicesCollectionView.reloadData()
+        searchBar.endEditing(true)
+        currentPage = 1
+        services?.removeAll()
+        servicesCollectionView.reloadData()
         actionStarted(self.activityIndicatorView)
         getDataFromApi(searchBar.text!, page: self.currentPage)
     }
@@ -150,8 +151,9 @@ extension ServicesViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         
         deActivateSearchBar()
-        self.currentPage = 1
-        self.services?.removeAll()
+        currentPage = 1
+        services?.removeAll()
+        servicesCollectionView.reloadData()
         searchBar.text = ""
         actionStarted(self.activityIndicatorView)
         getDataFromApi("", page: self.currentPage)
@@ -178,8 +180,8 @@ extension ServicesViewController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
         if services?.count != 0 {
-            self.services?.removeAll()
-            self.servicesCollectionView.reloadData()
+            services?.removeAll()
+            servicesCollectionView.reloadData()
         }
     }
 }
@@ -195,6 +197,7 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     func showModal(index: Int) {
         
         let detailServiceViewController = DetailServiceViewController(service: services![index])
+        detailServiceViewController.delegate = self
         self.navigationController?.pushViewController(detailServiceViewController, animated: true)
     }
     
@@ -226,6 +229,24 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
             if (servicesInList == 0) {
                 getDataFromApi(searchBar.text!, page: self.currentPage)
             }
+        }
+    }
+}
+
+extension ServicesViewController: DetailServiceProtocolDelegate {
+    
+    func goBackAfterDeleteService(service: Service) {
+        
+        // Search service in array of services.
+        let deletedServicesID = service.id
+        var index: Int = 0
+        for service in services! {
+            if service.id == deletedServicesID {
+                services?.removeAtIndex(index)
+                self.servicesCollectionView.reloadData()
+                break
+            }
+            index += 1
         }
     }
 }

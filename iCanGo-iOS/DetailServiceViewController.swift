@@ -10,6 +10,12 @@ import UIKit
 import MapKit
 import RxSwift
 
+// Protocolo for delegate.
+protocol DetailServiceProtocolDelegate {
+    func goBackAfterDeleteService(service: Service)
+}
+
+
 class DetailServiceViewController: UIViewController {
     
     // MARK: - Properties
@@ -35,6 +41,7 @@ class DetailServiceViewController: UIViewController {
     
     var popUpVIewController: PopUpImagesViewController?
     var selectImage =  UIImageView()
+    var delegate: DetailServiceProtocolDelegate?
     private var requestDataInProgress: Bool!
     private var service: Service!
     
@@ -50,6 +57,7 @@ class DetailServiceViewController: UIViewController {
         // Initialize variables.
         self.requestDataInProgress = false
         self.service = service
+        self.delegate = nil
     }
     
     
@@ -213,9 +221,11 @@ class DetailServiceViewController: UIViewController {
                                 let alertController = UIAlertController(title: serviceDeleteTitle, message: serviceDeleteMessage, preferredStyle: .Alert)
                                 alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler:{ (action: UIAlertAction!) in
                                     self!.navigationController?.popToRootViewControllerAnimated(true)
+                                    if let delegate = self!.delegate {
+                                        delegate.goBackAfterDeleteService(service)
+                                    }
                                 }))
                                 self!.presentViewController(alertController, animated: true, completion: nil)
-                            
                             } else {
                                 showAlert(serviceDeleteTitle, message: serviceDeleteKOMessage, controller: self!)
                             }
