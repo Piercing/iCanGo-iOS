@@ -126,10 +126,6 @@ class DetailServiceViewController: UIViewController {
         self.presentViewController(activityVC, animated: true, completion: nil)
     }
     
-    @IBAction func btnBackDetailService(sender: AnyObject) {
-        print("Tapped btn back Detail Service")
-    }
-    
     @IBAction func goBack(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
@@ -185,14 +181,14 @@ class DetailServiceViewController: UIViewController {
             
             if selectImage.tag == 1 {
                 self.selectImage = imgDetailService01
-                
-            } else if selectImage.tag == 2 {
+            }
+            if selectImage.tag == 2 {
                 self.selectImage = imgDetailService02
-                
-            } else if selectImage.tag == 3 {
+            }
+            if selectImage.tag == 3 {
                 self.selectImage = imgDetailService03
-                
-            } else if selectImage.tag == 4{
+            }
+            if selectImage.tag == 4 {
                 self.selectImage = imgDetailService04
             }
         }
@@ -344,7 +340,7 @@ class DetailServiceViewController: UIViewController {
                 addressText.text = service.address
             }
         }
-
+        
         // Show service images
         if let serviceImages = service.images {
             
