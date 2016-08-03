@@ -127,31 +127,47 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chica4" translatesAutoresizingMaskIntoConstraints="NO" id="8aW-zF-URC">
                             <rect key="frame" x="0.0" y="0.0" width="140" height="80"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="140" id="TvO-CE-vGI"/>
                                 <constraint firstAttribute="height" constant="80" id="mhP-oF-BVq"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="AXU-sj-0W7" appends="YES" id="k7t-8t-eXB"/>
+                            </connections>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chica03" translatesAutoresizingMaskIntoConstraints="NO" id="WjO-XJ-BWT">
                             <rect key="frame" x="148" y="0.0" width="140" height="80"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="Okj-Gk-alG"/>
                                 <constraint firstAttribute="width" constant="140" id="cYv-2y-Irh"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="xBQ-yp-gcv" appends="YES" id="1LN-L7-2UJ"/>
+                            </connections>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ufF-Tr-dLD">
                             <rect key="frame" x="296" y="0.0" width="140" height="80"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="cL6-I4-IX8"/>
                                 <constraint firstAttribute="width" constant="140" id="jvi-f4-vsM"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="M7d-o1-2th" appends="YES" id="TOV-ju-2dh"/>
+                            </connections>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="8cc-Mu-s6g">
                             <rect key="frame" x="444" y="0.0" width="140" height="80"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="7Vz-3o-uKb"/>
                                 <constraint firstAttribute="width" constant="140" id="sCN-i4-ma1"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="lQe-mT-9hP" appends="YES" id="e2W-ZC-uKS"/>
+                            </connections>
                         </imageView>
                     </subviews>
                     <constraints>
@@ -363,6 +379,10 @@
         <tapGestureRecognizer id="4Bx-sn-4M0"/>
         <tapGestureRecognizer id="ngm-WS-6zU"/>
         <tapGestureRecognizer id="kXH-JV-fGr"/>
+        <tapGestureRecognizer id="AXU-sj-0W7" userLabel="Tap Photo01"/>
+        <tapGestureRecognizer id="xBQ-yp-gcv" userLabel="Tap Photo02"/>
+        <tapGestureRecognizer id="M7d-o1-2th" userLabel="Tap Photo03"/>
+        <tapGestureRecognizer id="lQe-mT-9hP" userLabel="Tap Photo04"/>
     </objects>
     <resources>
         <image name="camera" width="200" height="200"/>
