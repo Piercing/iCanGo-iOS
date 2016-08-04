@@ -60,6 +60,7 @@ class AddServiceViewController: UIViewController {
     @IBAction func cancelHighService(sender: AnyObject) {
         print("Tapped buttom cancel High service")
     }
+    
     @IBAction func twitterHighServiceAction(sender: AnyObject) {
         print("Tapped buttom Twitter")
     }
@@ -67,12 +68,31 @@ class AddServiceViewController: UIViewController {
     @IBAction func facebookHighServiceAction(sender: AnyObject) {
         print("Tapped buttom Facebook")
     }
+    
     @IBAction func googlePlusHighServiceAction(sender: AnyObject) {
         print("Tapped buttom Google+")
     }
+    
     @IBAction func linkedinHighServicesAction(sender: AnyObject) {
         print("Tapped buttom Linkedin")
     }
+    
+    @IBAction func tapPhoto01(sender: UITapGestureRecognizer) {
+        print("Tapped photo01")
+    }
+    
+    @IBAction func tapPhoto02(sender: UITapGestureRecognizer) {
+         print("Tapped photo02")
+    }
+    
+    @IBAction func tapPhoto03(sender: UITapGestureRecognizer) {
+         print("Tapped photo03")
+    }
+    
+    @IBAction func tapPhoto04(sender: UITapGestureRecognizer) {
+         print("Tapped photo04")
+    }
+    
 }
 
 // MARK: - Extensions - Delegates & Data source

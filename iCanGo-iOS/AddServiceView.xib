@@ -375,16 +375,32 @@
                     <exclude reference="BRa-Pu-6Z0"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="439" y="463"/>
+            <point key="canvasLocation" x="473" y="455"/>
         </view>
-        <tapGestureRecognizer id="7ZE-aT-9eC"/>
-        <tapGestureRecognizer id="4Bx-sn-4M0"/>
-        <tapGestureRecognizer id="ngm-WS-6zU"/>
-        <tapGestureRecognizer id="kXH-JV-fGr"/>
-        <tapGestureRecognizer id="AXU-sj-0W7" userLabel="Tap Photo01"/>
-        <tapGestureRecognizer id="xBQ-yp-gcv" userLabel="Tap Photo02"/>
-        <tapGestureRecognizer id="M7d-o1-2th" userLabel="Tap Photo03"/>
-        <tapGestureRecognizer id="lQe-mT-9hP" userLabel="Tap Photo04"/>
+        <tapGestureRecognizer id="AXU-sj-0W7" userLabel="Tap Photo01">
+            <connections>
+                <action selector="tapPhoto01:" destination="-1" id="EJq-Fk-LzS"/>
+                <outlet property="delegate" destination="8aW-zF-URC" id="Oz4-8o-pW6"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="xBQ-yp-gcv" userLabel="Tap Photo02">
+            <connections>
+                <action selector="tapPhoto02:" destination="-1" id="O0P-AF-mOc"/>
+                <outlet property="delegate" destination="WjO-XJ-BWT" id="e9r-IV-JGQ"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="M7d-o1-2th" userLabel="Tap Photo03">
+            <connections>
+                <action selector="tapPhoto03:" destination="-1" id="eak-Tw-OK7"/>
+                <outlet property="delegate" destination="ufF-Tr-dLD" id="Y8w-Pr-6yf"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="lQe-mT-9hP" userLabel="Tap Photo04">
+            <connections>
+                <action selector="tapPhoto04:" destination="-1" id="1LT-Qy-WXf"/>
+                <outlet property="delegate" destination="8cc-Mu-s6g" id="ljm-ed-xXX"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="camera" width="200" height="200"/>
