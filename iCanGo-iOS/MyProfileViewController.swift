@@ -15,13 +15,16 @@ class MyProfileViewController: UIViewController {
     @IBOutlet weak var labelUserName: UILabel!
     @IBOutlet weak var labelLocalizationUser: UILabel!
     @IBOutlet weak var labelPublishedAmount: UILabel!
+    @IBOutlet weak var labelPerformedAmount: UILabel!
     @IBOutlet weak var myProfileCollecionView: UICollectionView!
-    @IBOutlet weak var segmentControlMyProfile: UISegmentedControl!
     @IBOutlet weak var btnEditLogProfile: UIBarButtonItem!
+    @IBOutlet weak var labelService: UILabel!
+    @IBOutlet weak var labelSeparator: UILabel!
+    @IBOutlet weak var segmentControlMyProfile: SegmentedControlMyProfile!
     
-    let cellId = "myProfileCell"
-    let nibId = "MyProfileCellView"
-    let titleView = "My Profile"
+    let cellId      = "myProfileCell"
+    let nibId       = "MyProfileCellView"
+    let titleView   = "My Profile"
     
     // MARK: - Init
     
@@ -39,6 +42,10 @@ class MyProfileViewController: UIViewController {
         registerCustomCell()
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
+        labelPublishedAmount.text = "977 published"
+        labelSeparator.text = ""
+        
+        setUpSegmentControl()
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,11 +55,46 @@ class MyProfileViewController: UIViewController {
     
     // MARK: Methods
     
-//    func setupUI() -> Void {
-//        self.title = "My Profile"
-//        Appearance.customizeAppearance(self.view)
-//    }
-//    
+    func setUpSegmentControl () {
+        segmentControlMyProfile.items = ["Published", "Performed", "Searches"]
+        segmentControlMyProfile.font = UIFont(name: "Avenir Next", size: 12)
+        //segmentControlMyProfile.borderColor = UIColor(white: 1.0, alpha: 0.3)
+        segmentControlMyProfile.selectedIndex = 0
+        segmentControlMyProfile.addTarget(self, action: #selector(MyProfileViewController.segmentValueChanged(_:)), forControlEvents: .ValueChanged)
+    }
+    
+    func segmentValueChanged(sender: AnyObject?){
+        
+        // TODO:
+        switch segmentControlMyProfile.selectedIndex {
+        case 0:
+            labelService.text = "Services"
+            labelPublishedAmount.text = "977 published"
+            labelPerformedAmount.text = ""
+            labelSeparator.text = ""
+            print("Segment Published")
+        case 1:
+            labelService.text = "Services"
+            labelPublishedAmount.text = "79 performed"
+            labelPerformedAmount.text = ""
+            labelSeparator.text = ""
+            print("Segment Performed")
+        case 2:
+            labelService.text = "Services"
+            labelPublishedAmount.text = "977 published"
+            labelPerformedAmount.text = "79 performed"
+            labelSeparator.text = "|"
+            print("Segment Searches")
+        default:
+            break
+        }
+    }
+    //    func setupUI() -> Void {
+    //        self.title = "My Profile"
+    //        Appearance.customizeAppearance(self.view)
+    //    }
+    
+    
     // MARK: Cell registration
     
     func registerCustomCell() {
@@ -63,25 +105,38 @@ class MyProfileViewController: UIViewController {
     
     @IBAction func btnEditMyProfile(sender: AnyObject) {
         // TODO:
-
         print("Tapped buttom Edit My Profile")
     }
-
     
     @IBAction func cancelMyProfile(sender: AnyObject) {
         // TODO:
         print("Butoom Cancel My Profile")
-    
     }
-    @IBAction func segmentControlMyProfile(sender: AnyObject) {
+    
+    @IBAction func segmentControlMyProfile(sender: UISegmentedControl) {
         // TODO:
-        if segmentControlMyProfile.selectedSegmentIndex == 0 {
-            print("Segment Published")
-        } else if segmentControlMyProfile.selectedSegmentIndex == 1 {
-            print("Segment tapped Performed")
-        } else {
-            print("Segmente tapped Searched")
-        }
+        //        switch segmentControlMyProfile.selectedSegmentIndex {
+        //        case 0:
+        //            labelService.text = "Services"
+        //            labelPublishedAmount.text = "977 published"
+        //            labelPerformedAmount.text = ""
+        //            labelSeparator.text = ""
+        //            print("Segment Published")
+        //        case 1:
+        //            labelService.text = "Services"
+        //            labelPublishedAmount.text = "79 performed"
+        //            labelPerformedAmount.text = ""
+        //            labelSeparator.text = ""
+        //            print("Segment Performed")
+        //        case 2:
+        //            labelService.text = "Services"
+        //            labelPublishedAmount.text = "977 published"
+        //            labelPerformedAmount.text = "79 performed"
+        //            labelSeparator.text = "|"
+        //            print("Segment Searches")
+        //        default:
+        //            break
+        //        }
     }
 }
 

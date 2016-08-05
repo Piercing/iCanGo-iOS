@@ -34,12 +34,7 @@ class MyProfileCell: UICollectionViewCell {
         }
     }
     
-    
-    // MARK: - Mask Rounded Images
-    
-    
     // MARK: - Actions
-    
     @IBAction func btnFavouritesMyProfileCell(sender: AnyObject) {
         print("Tapped buttom favourites My profile")
     }
