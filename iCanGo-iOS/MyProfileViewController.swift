@@ -21,6 +21,7 @@ class MyProfileViewController: UIViewController {
     @IBOutlet weak var labelService: UILabel!
     @IBOutlet weak var labelSeparator: UILabel!
     @IBOutlet weak var segmentControlMyProfile: SegmentedControlMyProfile!
+    @IBOutlet weak var myProfileSearchesTableView: UITableView!
     
     let cellId      = "myProfileCell"
     let nibId       = "MyProfileCellView"
@@ -42,8 +43,6 @@ class MyProfileViewController: UIViewController {
         registerCustomCell()
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
-        labelPublishedAmount.text = "977 published"
-        labelSeparator.text = ""
         
         setUpSegmentControl()
     }
@@ -55,7 +54,10 @@ class MyProfileViewController: UIViewController {
     
     // MARK: Methods
     
-    func setUpSegmentControl () {
+    func setUpSegmentControl() -> Void {
+        myProfileSearchesTableView.hidden = true
+        labelPublishedAmount.text = "977 published"
+        labelSeparator.text = ""
         segmentControlMyProfile.items = ["Published", "Performed", "Searches"]
         segmentControlMyProfile.font = UIFont(name: "Avenir Next", size: 12)
         //segmentControlMyProfile.borderColor = UIColor(white: 1.0, alpha: 0.3)
@@ -72,19 +74,22 @@ class MyProfileViewController: UIViewController {
             labelPublishedAmount.text = "977 published"
             labelPerformedAmount.text = ""
             labelSeparator.text = ""
-            print("Segment Published")
+            myProfileSearchesTableView.hidden = true
+            myProfileCollecionView.hidden = false
         case 1:
             labelService.text = "Services"
             labelPublishedAmount.text = "79 performed"
             labelPerformedAmount.text = ""
             labelSeparator.text = ""
-            print("Segment Performed")
+            myProfileCollecionView.hidden = true
+            myProfileSearchesTableView.hidden = true
         case 2:
             labelService.text = "Services"
             labelPublishedAmount.text = "977 published"
             labelPerformedAmount.text = "79 performed"
             labelSeparator.text = "|"
-            print("Segment Searches")
+            myProfileCollecionView.hidden = true
+            myProfileSearchesTableView.hidden = false
         default:
             break
         }
@@ -112,34 +117,7 @@ class MyProfileViewController: UIViewController {
         // TODO:
         print("Butoom Cancel My Profile")
     }
-    
-    @IBAction func segmentControlMyProfile(sender: UISegmentedControl) {
-        // TODO:
-        //        switch segmentControlMyProfile.selectedSegmentIndex {
-        //        case 0:
-        //            labelService.text = "Services"
-        //            labelPublishedAmount.text = "977 published"
-        //            labelPerformedAmount.text = ""
-        //            labelSeparator.text = ""
-        //            print("Segment Published")
-        //        case 1:
-        //            labelService.text = "Services"
-        //            labelPublishedAmount.text = "79 performed"
-        //            labelPerformedAmount.text = ""
-        //            labelSeparator.text = ""
-        //            print("Segment Performed")
-        //        case 2:
-        //            labelService.text = "Services"
-        //            labelPublishedAmount.text = "977 published"
-        //            labelPerformedAmount.text = "79 performed"
-        //            labelSeparator.text = "|"
-        //            print("Segment Searches")
-        //        default:
-        //            break
-        //        }
-    }
 }
-
 
 // MARK: - Extensions - Collection view delegates and datasource
 

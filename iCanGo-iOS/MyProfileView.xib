@@ -15,6 +15,7 @@
                 <outlet property="labelService" destination="11R-5C-WCH" id="cQD-LJ-Mhr"/>
                 <outlet property="labelUserName" destination="hB7-zN-fKu" id="6aC-ww-w7S"/>
                 <outlet property="myProfileCollecionView" destination="yC2-tU-Gan" id="eoW-xt-FJR"/>
+                <outlet property="myProfileSearchesTableView" destination="m01-iZ-Ivx" id="Jjg-lF-MzH"/>
                 <outlet property="segmentControlMyProfile" destination="YAd-Sh-vpf" id="rNa-MW-pUR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -149,6 +150,10 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m01-iZ-Ivx">
+                    <rect key="frame" x="0.0" y="241" width="600" height="359"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -182,7 +187,7 @@
                 <constraint firstItem="hB7-zN-fKu" firstAttribute="leading" secondItem="cNy-am-mGQ" secondAttribute="trailing" constant="15" id="ze3-CZ-r9Q"/>
                 <constraint firstItem="bFr-VW-xee" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zj1-kq-L8G"/>
             </constraints>
-            <point key="canvasLocation" x="1463" y="290"/>
+            <point key="canvasLocation" x="1335" y="293"/>
         </view>
     </objects>
     <resources>
