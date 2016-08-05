@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5233514F1D3BC325004A6C05 /* PopUpImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5233514D1D3BC325004A6C05 /* PopUpImagesViewController.swift */; };
 		523351501D3BC325004A6C05 /* PopUpImagesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5233514E1D3BC325004A6C05 /* PopUpImagesView.xib */; };
+		5234A94B1D53AEE900A9A9D6 /* SegmentedControlMyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5234A94A1D53AEE900A9A9D6 /* SegmentedControlMyProfile.swift */; };
 		525351A71D41191C004614DF /* RecoverPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525351A51D41191C004614DF /* RecoverPassViewController.swift */; };
 		525351A81D41191C004614DF /* RecoverPassView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 525351A61D41191C004614DF /* RecoverPassView.xib */; };
 		5256B1251D330D620049ED9A /* MyProfileCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5256B1241D330D620049ED9A /* MyProfileCellView.xib */; };
@@ -87,6 +88,7 @@
 /* Begin PBXFileReference section */
 		5233514D1D3BC325004A6C05 /* PopUpImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpImagesViewController.swift; sourceTree = "<group>"; };
 		5233514E1D3BC325004A6C05 /* PopUpImagesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpImagesView.xib; sourceTree = "<group>"; };
+		5234A94A1D53AEE900A9A9D6 /* SegmentedControlMyProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlMyProfile.swift; sourceTree = "<group>"; };
 		525351A51D41191C004614DF /* RecoverPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverPassViewController.swift; sourceTree = "<group>"; };
 		525351A61D41191C004614DF /* RecoverPassView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecoverPassView.xib; sourceTree = "<group>"; };
 		5256B1241D330D620049ED9A /* MyProfileCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileCellView.xib; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				52D37E091D2ECC88009F2FC3 /* RoundedCorners.swift */,
 				52837DBE1D3ED7B100ED98FB /* RoundedCornersImages.swift */,
 				52837DC01D3EDDCD00ED98FB /* RoundedCornersButtons.swift */,
+				5234A94A1D53AEE900A9A9D6 /* SegmentedControlMyProfile.swift */,
 			);
 			name = Themes;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				5295D2521D3462A9009F93E7 /* RegisterViewController.swift in Sources */,
 				7924E66C1D3A88A900D758AD /* CircularImageButton.swift in Sources */,
 				527F87131D2B297B00D0E1EC /* AddServiceViewController.swift in Sources */,
+				5234A94B1D53AEE900A9A9D6 /* SegmentedControlMyProfile.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
 				D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */,
 				52EF05CD1D2E4D82001B0FE4 /* Appearance.swift in Sources */,
