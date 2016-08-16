@@ -15,11 +15,17 @@ class LocationViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBarLocation: UISearchBar!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var updatePins: UIButton!
     
+    private var services: [Service]?
+    private var locationManager: CLLocationManager?
+    private var statusLocation: CLAuthorizationStatus?
+    private var requestDataInProgress: Bool!
+    
+    
+    // MARK: - Constants
     let titleView = "Location"
-    var locationManager: CLLocationManager?
-    var services: [Service]?
-    var statusLocation: CLAuthorizationStatus?
     
     
     // MARK: - Init
@@ -28,15 +34,19 @@ class LocationViewController: UIViewController {
     }
     
     
-    // MARK: - LifeCycle
+    // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
         
+        // Initialize variables.
+        requestDataInProgress = false
+        services = [Service]()
         searchBarLocation.resignFirstResponder()
         searchBarLocation.delegate = self
+        activityIndicatorView.hidden = true
         
         // Configure MapView.
         mapView.delegate = self
@@ -52,7 +62,7 @@ class LocationViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         
         if let statusLocation = statusLocation {
-            checkStatus(statusLocation)
+            checkStatusAndGetData(statusLocation, searchText: nil)
         }
     }
     
@@ -66,7 +76,11 @@ class LocationViewController: UIViewController {
     @IBAction func reloadServices(sender: AnyObject) {
 
         if let statusLocation = statusLocation {
-            checkStatus(statusLocation)
+            if searchBarLocation.text != "" {
+                checkStatusAndGetData(statusLocation, searchText: searchBarLocation.text)
+            } else {
+                checkStatusAndGetData(statusLocation, searchText: nil)
+            }
         }
     }
     
@@ -82,12 +96,12 @@ class LocationViewController: UIViewController {
         mapView.setRegion(userRegion, animated: true)
     }
     
-    private func loadDataFromApi(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?) -> Void {
+    private func getDataFromApi(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?) -> Void {
         
-        if isConnectedToNetwork() {
-
+        if requestDataInProgress == false {
+            
+            requestDataInProgress = true
             let session = Session.iCanGoSession()
-            // TODO: Parameter Rows pendin
             let _ = session.getServices(
                 latitude,
                 longitude: longitude,
@@ -99,9 +113,11 @@ class LocationViewController: UIViewController {
                 .observeOn(MainScheduler.instance)
                 .subscribe { [weak self] event in
                 
+                    self!.stopActivityIndicator()
+                        
                     switch event {
                     case let .Next(services):
-                    
+                        self?.requestDataInProgress = false
                         self?.services = services
                         if self?.services?.count > 0 {
                             self?.showServicesInMap()
@@ -109,13 +125,12 @@ class LocationViewController: UIViewController {
                             showAlert(serviceLocationNoTitle, message: serviceLocationNoMessage, controller: self!)
                         }
                     
-                        break
-                
                     case .Error (let error):
+                        self?.requestDataInProgress = false
                         print(error)
                 
                     default:
-                        break
+                        self?.requestDataInProgress = false
                     }
                 }
         }
@@ -126,7 +141,7 @@ class LocationViewController: UIViewController {
         let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.userLocation }
         mapView.removeAnnotations( annotationsToRemove )
         
-        for service in self.services! {
+        for service in services! {
             
             let coordinate = CLLocationCoordinate2D(latitude: service.latitude!, longitude: service.longitude!)
             let serviceAnnotationMap = ServiceAnnotationMap(coordinate: coordinate, title: service.name, subtitle: "", service: service)
@@ -134,26 +149,54 @@ class LocationViewController: UIViewController {
         }
     }
     
-    private func checkStatus(status: CLAuthorizationStatus) {
+    private func checkStatusAndGetData(status: CLAuthorizationStatus, searchText: String?) {
      
         switch status {
         case .Authorized,
              .AuthorizedWhenInUse:
             
             if isConnectedToNetwork() {
-                zoomIn()
-                loadDataFromApi(locationManager?.location?.coordinate.latitude,
-                     longitude: locationManager?.location?.coordinate.longitude,
-                      distance: 10,
-                    searchText: nil)
+
+                starActivityIndicator()
+
+                if let searchText = searchText {
+                    getDataFromApi(locationManager?.location?.coordinate.latitude,
+                        longitude: locationManager?.location?.coordinate.longitude,
+                         distance: 10,
+                       searchText: searchText)
+                
+                } else {
+                    getDataFromApi(locationManager?.location?.coordinate.latitude,
+                        longitude: locationManager?.location?.coordinate.longitude,
+                         distance: 10,
+                       searchText: nil)
+                }
+            
+            } else {
+                showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
             }
             
         case .Restricted,
              .Denied:
             showAlert(noGeoUserTitle, message: noGeoUserMessage, controller: self)
+            
         case .NotDetermined:
             break
         }
+    }
+    
+    private func starActivityIndicator() {
+       
+        actionStarted(activityIndicatorView)
+        updatePins.enabled = false
+        updatePins.hidden = true
+    }
+    
+    private func stopActivityIndicator() {
+        
+        actionFinished(activityIndicatorView)
+        updatePins.enabled = true
+        updatePins.hidden = false
     }
 }
 
@@ -164,7 +207,8 @@ extension LocationViewController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
        
         statusLocation = status
-        checkStatus(status)
+        checkStatusAndGetData(status, searchText: nil)
+        zoomIn()
     }
 }
 
@@ -201,7 +245,7 @@ extension LocationViewController: MKMapViewDelegate {
         if let serviceAnnotationMap = view.annotation as? ServiceAnnotationMap {
             
             let detailServiceViewController = DetailServiceViewController(service: serviceAnnotationMap.service)
-            print(self.navigationController)
+            detailServiceViewController.delegate = self
             self.navigationController?.pushViewController(detailServiceViewController, animated: true)
         }
     }
@@ -221,38 +265,36 @@ extension LocationViewController: UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        loadDataFromApi( locationManager?.location?.coordinate.latitude,
-              longitude: locationManager?.location?.coordinate.longitude,
-               distance: 10,
-             searchText: searchBarLocation.text!)
+        
+        searchBar.endEditing(true)
+        services?.removeAll()
+        showServicesInMap()
+        checkStatusAndGetData(statusLocation!, searchText: searchBarLocation.text!)
     }
     
     func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+
         searchBar.showsCancelButton = true
-        //servicesCollectionView.fadeOut(duration: 0.3)
         return true
     }
     
     func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
-        //servicesCollectionView.fadeIn(duration: 0.3)
+
         searchBar.showsCancelButton = false
-        if (searchBar.text == "") {
-            //loadDataFromApi(searchBar.text!)
-        }
         return true
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         
         deActivateSearchBar()
-        self.services?.removeAll()
-        loadDataFromApi( locationManager?.location?.coordinate.latitude,
-                         longitude: locationManager?.location?.coordinate.longitude,
-                         distance: 10,
-                         searchText: "")
+        searchBar.text = ""
+        services?.removeAll()
+        showServicesInMap()
+        checkStatusAndGetData(statusLocation!, searchText: nil)
     }
     
     func deActivateSearchBar() {
+        
         searchBarLocation.showsCancelButton = false
         searchBarLocation.resignFirstResponder()
     }
@@ -268,4 +310,33 @@ extension LocationViewController: UISearchBarDelegate {
             }
         }
     }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if services?.count != 0 {
+            services?.removeAll()
+            showServicesInMap()
+        }
+    }
 }
+
+
+// MARK: - Extensions - Detail Service Protocol Delete Service.
+extension LocationViewController: DetailServiceProtocolDelegate {
+    
+    func goBackAfterDeleteService(service: Service) {
+        
+        // Search service in array of services.
+        let deletedServicesID = service.id
+        var index: Int = 0
+        for service in services! {
+            if service.id == deletedServicesID {
+                services?.removeAtIndex(index)
+                showServicesInMap()
+                break
+            }
+            index += 1
+        }
+    }
+}
+
