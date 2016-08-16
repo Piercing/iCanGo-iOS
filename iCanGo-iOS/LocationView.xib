@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,8 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationViewController" customModule="iCanGo_iOS" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicatorView" destination="446-bM-jAr" id="EL9-uq-GGa"/>
                 <outlet property="mapView" destination="QxB-3X-50T" id="WqX-Hr-4NH"/>
                 <outlet property="searchBarLocation" destination="VFX-Ue-y4Q" id="6xR-ec-ULH"/>
+                <outlet property="updatePins" destination="F8r-ui-Ewe" id="3Xm-nV-04x"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,6 +38,14 @@
                         <action selector="reloadServices:" destination="-1" eventType="touchUpInside" id="l9J-Qc-oBB"/>
                     </connections>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="446-bM-jAr">
+                    <rect key="frame" x="538" y="493" width="37" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="azn-pP-70e"/>
+                        <constraint firstAttribute="height" constant="37" id="c3o-Af-67T"/>
+                    </constraints>
+                    <color key="color" red="0.090196078431372548" green="0.36078431372549019" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -46,9 +56,19 @@
                 <constraint firstItem="F8r-ui-Ewe" firstAttribute="trailing" secondItem="QxB-3X-50T" secondAttribute="trailing" constant="-25" id="cVm-yw-GpI"/>
                 <constraint firstItem="VFX-Ue-y4Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="cuS-lQ-GeW"/>
                 <constraint firstAttribute="trailing" secondItem="QxB-3X-50T" secondAttribute="trailing" id="eif-2f-dQq"/>
+                <constraint firstAttribute="trailing" secondItem="446-bM-jAr" secondAttribute="trailing" constant="35" id="ems-Jc-MOE"/>
                 <constraint firstItem="VFX-Ue-y4Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hkH-1s-Blq"/>
                 <constraint firstItem="QxB-3X-50T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qDG-iG-qWS"/>
+                <constraint firstItem="446-bM-jAr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="rwT-ll-Vux"/>
+                <constraint firstAttribute="bottom" secondItem="446-bM-jAr" secondAttribute="bottom" constant="70" id="sXb-3U-ENV"/>
+                <constraint firstAttribute="trailing" secondItem="446-bM-jAr" secondAttribute="trailing" constant="25" id="tRt-MX-Eus"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="ems-Jc-MOE"/>
+                    <exclude reference="rwT-ll-Vux"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="500" y="420"/>
         </view>
     </objects>
