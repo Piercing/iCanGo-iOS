@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -12,6 +12,10 @@
                 <outlet property="btnGooglePlusHighService" destination="c7s-Yp-nf0" id="GAp-tN-WAN"/>
                 <outlet property="btnLinkedinHighService" destination="QbG-75-wPh" id="8BZ-Tg-kcw"/>
                 <outlet property="btnTwitterHighService" destination="194-OF-QZr" id="TmW-yg-jbT"/>
+                <outlet property="imgAddService01" destination="8aW-zF-URC" id="HqX-Fv-Et8"/>
+                <outlet property="imgAddService02" destination="WjO-XJ-BWT" id="SRh-j8-ffX"/>
+                <outlet property="imgAddService03" destination="ufF-Tr-dLD" id="zCX-cS-oYS"/>
+                <outlet property="imgAddService04" destination="8cc-Mu-s6g" id="xgY-hF-RGi"/>
                 <outlet property="labelCoinHighService" destination="GNg-BH-sdD" id="7YW-ek-If1"/>
                 <outlet property="pickerHighService" destination="Ehu-9G-Te0" id="I6f-Fm-2t1"/>
                 <outlet property="txtFieldAdressAddService" destination="DNf-Z3-pGo" id="ZGQ-B6-Ozp"/>
@@ -125,7 +129,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lb4-p8-WS5">
                     <rect key="frame" x="8" y="455" width="584" height="80"/>
                     <subviews>
-                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chica4" translatesAutoresizingMaskIntoConstraints="NO" id="8aW-zF-URC">
+                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="8aW-zF-URC">
                             <rect key="frame" x="0.0" y="0.0" width="140" height="80"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -136,7 +140,7 @@
                                 <outletCollection property="gestureRecognizers" destination="AXU-sj-0W7" appends="YES" id="k7t-8t-eXB"/>
                             </connections>
                         </imageView>
-                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chica03" translatesAutoresizingMaskIntoConstraints="NO" id="WjO-XJ-BWT">
+                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="WjO-XJ-BWT">
                             <rect key="frame" x="148" y="0.0" width="140" height="80"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -375,7 +379,7 @@
                     <exclude reference="BRa-Pu-6Z0"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="473" y="455"/>
+            <point key="canvasLocation" x="294" y="459"/>
         </view>
         <tapGestureRecognizer id="AXU-sj-0W7" userLabel="Tap Photo01">
             <connections>
@@ -404,8 +408,6 @@
     </objects>
     <resources>
         <image name="camera" width="200" height="200"/>
-        <image name="chica03" width="82" height="82"/>
-        <image name="chica4" width="75" height="76"/>
         <image name="facebook-icon" width="346" height="346"/>
         <image name="google-plus" width="256" height="256"/>
         <image name="linkedin-icon" width="300" height="300"/>
