@@ -47,7 +47,7 @@ class ServicesViewController: UIViewController {
         // Get data from API.
         getDataFromApi("", page: self.currentPage)
     }
-        
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -215,7 +215,8 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         // return CGSize(width: 170, height: 190)
-        return CGSizeMake((UIScreen.mainScreen().bounds.width)/2.2,190);
+        return CGSizeMake((UIScreen.mainScreen().bounds.width)/2.2, 190)
+        
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {

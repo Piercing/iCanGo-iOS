@@ -70,18 +70,8 @@
                                         <constraint firstAttribute="width" constant="80" id="QFo-6N-BKV"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linda Washington" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="aJL-Rd-aJ5">
-                                    <rect key="frame" x="96" y="15" width="153" height="28"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="28" id="j8f-TR-mkd"/>
-                                        <constraint firstAttribute="width" constant="153" id="qmc-iO-Pdr"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                    <color key="textColor" red="0.090196078431372548" green="0.54509803921568623" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15/12/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lym-iE-Jdx">
-                                    <rect key="frame" x="96" y="46" width="81" height="28"/>
+                                    <rect key="frame" x="96" y="57" width="81" height="28"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="81" id="hXR-RX-zll"/>
                                         <constraint firstAttribute="height" constant="28" id="sp6-kT-oFg"/>
@@ -289,6 +279,16 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linda Washington" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="aJL-Rd-aJ5">
+                                    <rect key="frame" x="96" y="5" width="393" height="51"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="51" id="j8f-TR-mkd"/>
+                                        <constraint firstAttribute="width" constant="393" id="qmc-iO-Pdr"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                    <color key="textColor" red="0.090196078431372548" green="0.54509803921568623" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="Gb4-Ly-1c8" secondAttribute="trailing" constant="8" id="2Oa-3a-1Yu"/>
@@ -308,14 +308,15 @@
                                 <constraint firstItem="wAA-Gy-wNd" firstAttribute="top" secondItem="yAT-g9-nb1" secondAttribute="bottom" constant="8" id="TE3-fq-HIs"/>
                                 <constraint firstItem="Bxa-mc-lUU" firstAttribute="leading" secondItem="eOt-dd-pRe" secondAttribute="leading" constant="8" id="TMc-7a-uDe"/>
                                 <constraint firstAttribute="trailing" secondItem="Bxa-mc-lUU" secondAttribute="trailing" constant="8" id="UFN-UF-O7o"/>
-                                <constraint firstItem="aJL-Rd-aJ5" firstAttribute="top" secondItem="eOt-dd-pRe" secondAttribute="top" constant="15" id="bZL-Oz-Mov"/>
+                                <constraint firstItem="aJL-Rd-aJ5" firstAttribute="top" secondItem="eOt-dd-pRe" secondAttribute="top" constant="5" id="bZL-Oz-Mov"/>
                                 <constraint firstItem="zNm-Rd-6Yb" firstAttribute="top" secondItem="D2F-I8-WZE" secondAttribute="bottom" constant="2" id="ejb-77-wSY"/>
                                 <constraint firstItem="yAT-g9-nb1" firstAttribute="leading" secondItem="eOt-dd-pRe" secondAttribute="leading" constant="8" id="f4C-Sp-0B4"/>
                                 <constraint firstItem="T3w-Xf-Aly" firstAttribute="top" secondItem="zNm-Rd-6Yb" secondAttribute="bottom" constant="7" id="fCm-xd-qhh"/>
+                                <constraint firstItem="D2F-I8-WZE" firstAttribute="leading" secondItem="aJL-Rd-aJ5" secondAttribute="trailing" constant="8" id="gAa-ts-L1t"/>
                                 <constraint firstItem="pqs-LV-Ilb" firstAttribute="top" secondItem="zNm-Rd-6Yb" secondAttribute="bottom" constant="3" id="hs5-me-5yw"/>
                                 <constraint firstItem="wAA-Gy-wNd" firstAttribute="leading" secondItem="eOt-dd-pRe" secondAttribute="leading" constant="8" id="j8U-D0-BvP"/>
                                 <constraint firstItem="tM1-Xd-4OL" firstAttribute="top" secondItem="R3H-lC-Zax" secondAttribute="bottom" constant="8" id="kPM-Ld-8OR"/>
-                                <constraint firstItem="Lym-iE-Jdx" firstAttribute="top" secondItem="aJL-Rd-aJ5" secondAttribute="bottom" constant="3" id="kw1-MB-bub"/>
+                                <constraint firstItem="Lym-iE-Jdx" firstAttribute="top" secondItem="aJL-Rd-aJ5" secondAttribute="bottom" constant="1" id="kw1-MB-bub"/>
                                 <constraint firstItem="uib-Cp-DL3" firstAttribute="top" secondItem="R3H-lC-Zax" secondAttribute="bottom" constant="10" id="lui-A9-IBn"/>
                                 <constraint firstAttribute="trailing" secondItem="YX5-1D-8Vs" secondAttribute="trailing" constant="8" id="mLv-kI-lwz"/>
                                 <constraint firstItem="e1e-fM-t3R" firstAttribute="leading" secondItem="eOt-dd-pRe" secondAttribute="leading" constant="8" id="nDc-VC-cUL"/>

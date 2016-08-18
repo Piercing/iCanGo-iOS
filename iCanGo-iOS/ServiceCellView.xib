@@ -103,7 +103,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userDefaultiCanGo" translatesAutoresizingMaskIntoConstraints="NO" id="8aL-ad-q9n" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
                         <rect key="frame" x="8" y="102" width="35" height="35"/>
                     </imageView>
-                    <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b20-o7-4Y3" userLabel="Favourites">
+                    <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b20-o7-4Y3" userLabel="Favourites">
                         <rect key="frame" x="140" y="130" width="17" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="17" id="7vY-Th-jg7"/>
