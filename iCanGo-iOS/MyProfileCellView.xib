@@ -38,14 +38,27 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oE2-jM-JBE" userLabel="Favourites">
+                                        <rect key="frame" x="150" y="8" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="17" id="AQd-dG-r0i"/>
+                                            <constraint firstAttribute="height" constant="17" id="tio-48-Ohj"/>
+                                        </constraints>
+                                        <state key="normal" image="heart"/>
+                                        <connections>
+                                            <action selector="btnFavouritesMyProfileCell:" destination="-1" eventType="touchUpInside" id="rsz-Rk-IFg"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="R5H-jc-UsV" firstAttribute="top" secondItem="80q-66-qFN" secondAttribute="top" constant="15" id="4LR-WL-qLf"/>
+                                    <constraint firstAttribute="trailing" secondItem="oE2-jM-JBE" secondAttribute="trailing" constant="13" id="AlT-Id-1zi"/>
                                     <constraint firstItem="R5H-jc-UsV" firstAttribute="leading" secondItem="Mjj-TG-BO3" secondAttribute="leading" id="F13-Xh-qBV"/>
                                     <constraint firstItem="R5H-jc-UsV" firstAttribute="leading" secondItem="80q-66-qFN" secondAttribute="leading" constant="4" id="FV9-K5-7wJ"/>
                                     <constraint firstItem="Mjj-TG-BO3" firstAttribute="top" secondItem="R5H-jc-UsV" secondAttribute="bottom" constant="8" symbolic="YES" id="J4G-Dv-X9j"/>
                                     <constraint firstItem="R5H-jc-UsV" firstAttribute="trailing" secondItem="Mjj-TG-BO3" secondAttribute="trailing" id="SoF-pF-rM8"/>
+                                    <constraint firstItem="oE2-jM-JBE" firstAttribute="top" secondItem="80q-66-qFN" secondAttribute="top" constant="8" id="p2u-Ia-cMI"/>
                                     <constraint firstItem="R5H-jc-UsV" firstAttribute="centerX" secondItem="80q-66-qFN" secondAttribute="centerX" id="pWa-Dn-lCb"/>
                                 </constraints>
                             </view>
@@ -75,13 +88,6 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chica03" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-D2-eWQ" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
                         <rect key="frame" x="14" y="100" width="40" height="40"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oE2-jM-JBE" userLabel="Favourites">
-                        <rect key="frame" x="140" y="130" width="17" height="17"/>
-                        <state key="normal" image="heart"/>
-                        <connections>
-                            <action selector="btnFavouritesMyProfileCell:" destination="-1" eventType="touchUpInside" id="rsz-Rk-IFg"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>

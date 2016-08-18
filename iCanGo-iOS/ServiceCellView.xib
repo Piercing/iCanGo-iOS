@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -103,8 +103,12 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userDefaultiCanGo" translatesAutoresizingMaskIntoConstraints="NO" id="8aL-ad-q9n" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
                         <rect key="frame" x="8" y="102" width="35" height="35"/>
                     </imageView>
-                    <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b20-o7-4Y3" userLabel="Favourites">
+                    <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b20-o7-4Y3" userLabel="Favourites">
                         <rect key="frame" x="140" y="130" width="17" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="17" id="7vY-Th-jg7"/>
+                            <constraint firstAttribute="height" constant="17" id="u9K-yV-pi3"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <state key="normal" image="heart"/>
                     </button>
@@ -112,6 +116,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
+                <constraint firstItem="b20-o7-4Y3" firstAttribute="top" secondItem="uyR-lE-YGs" secondAttribute="top" constant="130" id="61U-vw-Kv7"/>
                 <constraint firstItem="wFM-yW-0Pf" firstAttribute="top" secondItem="var-g5-0RN" secondAttribute="top" id="Ajb-Gg-nRf"/>
                 <constraint firstItem="wFM-yW-0Pf" firstAttribute="trailing" secondItem="var-g5-0RN" secondAttribute="trailing" id="CLH-F7-bBp"/>
                 <constraint firstAttribute="trailing" secondItem="wFM-yW-0Pf" secondAttribute="trailing" id="GAU-lJ-46f"/>
@@ -120,6 +125,7 @@
                 <constraint firstItem="wFM-yW-0Pf" firstAttribute="leading" secondItem="var-g5-0RN" secondAttribute="leading" id="fVX-CI-kc8"/>
                 <constraint firstAttribute="bottom" secondItem="wFM-yW-0Pf" secondAttribute="bottom" id="iLL-WP-5Bp"/>
                 <constraint firstItem="wFM-yW-0Pf" firstAttribute="bottom" secondItem="var-g5-0RN" secondAttribute="bottom" id="je5-ZL-5v2"/>
+                <constraint firstAttribute="trailing" secondItem="b20-o7-4Y3" secondAttribute="trailing" constant="23" id="v10-Ga-bcU"/>
             </constraints>
             <connections>
                 <outlet property="commentLabel" destination="QTJ-YS-l4d" id="hlp-V6-k09"/>

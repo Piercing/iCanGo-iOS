@@ -47,6 +47,10 @@
                 </searchBar>
                 <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGe-Wj-Grq" userLabel="Favourites">
                     <rect key="frame" x="15" y="31" width="20" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="8ts-1b-ZOg"/>
+                        <constraint firstAttribute="width" constant="20" id="tHK-ov-d8n"/>
+                    </constraints>
                     <state key="normal" image="icon_Star"/>
                     <connections>
                         <action selector="btnFavourites:" destination="-2" eventType="touchUpInside" id="foB-C9-sG5"/>

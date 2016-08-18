@@ -81,7 +81,7 @@ class MyProfileViewController: UIViewController {
             labelPublishedAmount.text = "79 performed"
             labelPerformedAmount.text = ""
             labelSeparator.text = ""
-            myProfileCollecionView.hidden = true
+            myProfileCollecionView.hidden = false
             myProfileSearchesTableView.hidden = true
         case 2:
             labelService.text = "Services"
@@ -133,6 +133,13 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: 170, height: 190)
+        //return CGSize(width: 170, height: 190)
+        
+        return CGSizeMake((UIScreen.mainScreen().bounds.width)/2.2,190);
     }
 }
+
+
+
+
+
