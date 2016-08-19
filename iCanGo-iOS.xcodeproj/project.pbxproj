@@ -73,6 +73,7 @@
 		D37630FE1D06CA280001E29F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630FD1D06CA280001E29F /* Session.swift */; };
 		D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630FF1D06D2A10001E29F /* ICanGoSession.swift */; };
 		D37631021D06D3090001E29F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37631011D06D3090001E29F /* Constants.swift */; };
+		D37D53911D64632100E8E702 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D53901D64632100E8E702 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		D37630FD1D06CA280001E29F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D37630FF1D06D2A10001E29F /* ICanGoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICanGoSession.swift; sourceTree = "<group>"; };
 		D37631011D06D3090001E29F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D37D53901D64632100E8E702 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D9BCFB28C96273CCDD0CF172 /* Pods_iCanGo_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCanGo_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD015E1B48C5387CAA502C8B /* Pods-iCanGo-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -397,6 +399,7 @@
 				D305B23C1D24FDCF0072B634 /* Localization.swift */,
 				793E1D2D1D32890B00A6324A /* Utils.swift */,
 				7939EC411D3A400C009C5359 /* Extensions.swift */,
+				D37D53901D64632100E8E702 /* Colors.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				527F87131D2B297B00D0E1EC /* AddServiceViewController.swift in Sources */,
 				5234A94B1D53AEE900A9A9D6 /* SegmentedControlMyProfile.swift in Sources */,
 				79F418211D043B36002131C7 /* AppDelegate.swift in Sources */,
+				D37D53911D64632100E8E702 /* Colors.swift in Sources */,
 				D37630F31D05C1960001E29F /* JSONDecodable.swift in Sources */,
 				52EF05CD1D2E4D82001B0FE4 /* Appearance.swift in Sources */,
 				5233514F1D3BC325004A6C05 /* PopUpImagesViewController.swift in Sources */,
