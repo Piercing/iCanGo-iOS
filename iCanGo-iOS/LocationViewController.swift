@@ -84,16 +84,21 @@ class LocationViewController: UIViewController {
         }
     }
     
+    @IBAction func findMyPosition(sender: AnyObject) {
+        zoomToMyPosition()
+    }
     
-    // MARK: Private Methods
-    private func zoomIn() {
+    private func zoomToMyPosition() {
         
-        var userRegion: MKCoordinateRegion = MKCoordinateRegion()
-        userRegion.center.latitude = (locationManager?.location?.coordinate.latitude)!
-        userRegion.center.longitude = (locationManager?.location?.coordinate.longitude)!        
-        userRegion.span.latitudeDelta = 0.100000
-        userRegion.span.longitudeDelta = 0.100000
-        mapView.setRegion(userRegion, animated: true)
+        if statusLocation == CLAuthorizationStatus.AuthorizedAlways || statusLocation == CLAuthorizationStatus.AuthorizedWhenInUse {
+
+            var userRegion: MKCoordinateRegion = MKCoordinateRegion()
+            userRegion.center.latitude = (locationManager?.location?.coordinate.latitude)!
+            userRegion.center.longitude = (locationManager?.location?.coordinate.longitude)!
+            userRegion.span.latitudeDelta = 0.100000
+            userRegion.span.longitudeDelta = 0.100000
+            mapView.setRegion(userRegion, animated: true)
+        }
     }
     
     private func getDataFromApi(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?) -> Void {
@@ -152,7 +157,7 @@ class LocationViewController: UIViewController {
     private func checkStatusAndGetData(status: CLAuthorizationStatus, searchText: String?) {
      
         switch status {
-        case .Authorized,
+        case .AuthorizedAlways,
              .AuthorizedWhenInUse:
             
             if isConnectedToNetwork() {
@@ -208,7 +213,7 @@ extension LocationViewController: CLLocationManagerDelegate {
        
         statusLocation = status
         checkStatusAndGetData(status, searchText: nil)
-        zoomIn()
+        zoomToMyPosition()
     }
 }
 

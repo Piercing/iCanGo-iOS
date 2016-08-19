@@ -27,8 +27,27 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QxB-3X-50T">
                     <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                 </mapView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faO-1d-kXJ" userLabel="My Position" customClass="CircularImageButton" customModule="iCanGo_iOS" customModuleProvider="target">
+                    <rect key="frame" x="525" y="390" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="A32-bJ-5vB"/>
+                        <constraint firstAttribute="width" constant="50" id="nKs-zB-cgI"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="myPosition"/>
+                    <connections>
+                        <action selector="findMyPosition:" destination="-1" eventType="touchUpInside" id="san-5O-kdU"/>
+                    </connections>
+                </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="446-bM-jAr">
+                    <rect key="frame" x="538" y="473" width="37" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="azn-pP-70e"/>
+                        <constraint firstAttribute="height" constant="37" id="c3o-Af-67T"/>
+                    </constraints>
+                    <color key="color" red="0.090196078431372548" green="0.36078431372549019" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8r-ui-Ewe">
-                    <rect key="frame" x="525" y="480" width="50" height="50"/>
+                    <rect key="frame" x="525" y="460" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="kaz-86-9Y4"/>
                         <constraint firstAttribute="width" constant="50" id="mLO-sa-pf6"/>
@@ -38,21 +57,14 @@
                         <action selector="reloadServices:" destination="-1" eventType="touchUpInside" id="l9J-Qc-oBB"/>
                     </connections>
                 </button>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="446-bM-jAr">
-                    <rect key="frame" x="538" y="493" width="37" height="37"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="37" id="azn-pP-70e"/>
-                        <constraint firstAttribute="height" constant="37" id="c3o-Af-67T"/>
-                    </constraints>
-                    <color key="color" red="0.090196078431372548" green="0.36078431372549019" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
-                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="QxB-3X-50T" firstAttribute="top" secondItem="VFX-Ue-y4Q" secondAttribute="bottom" id="EWL-zb-nmh"/>
-                <constraint firstItem="F8r-ui-Ewe" firstAttribute="bottom" secondItem="QxB-3X-50T" secondAttribute="bottom" constant="-70" id="PBF-Wa-uWl"/>
+                <constraint firstItem="F8r-ui-Ewe" firstAttribute="bottom" secondItem="QxB-3X-50T" secondAttribute="bottom" constant="-90" id="PBF-Wa-uWl"/>
                 <constraint firstAttribute="trailing" secondItem="VFX-Ue-y4Q" secondAttribute="trailing" id="PLw-i0-gTA"/>
                 <constraint firstAttribute="bottom" secondItem="QxB-3X-50T" secondAttribute="bottom" id="RKH-SY-CQa"/>
+                <constraint firstAttribute="trailing" secondItem="faO-1d-kXJ" secondAttribute="trailing" constant="25" id="ZCc-Ig-SgT"/>
                 <constraint firstItem="F8r-ui-Ewe" firstAttribute="trailing" secondItem="QxB-3X-50T" secondAttribute="trailing" constant="-25" id="cVm-yw-GpI"/>
                 <constraint firstItem="VFX-Ue-y4Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="cuS-lQ-GeW"/>
                 <constraint firstAttribute="trailing" secondItem="QxB-3X-50T" secondAttribute="trailing" id="eif-2f-dQq"/>
@@ -60,8 +72,9 @@
                 <constraint firstItem="VFX-Ue-y4Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hkH-1s-Blq"/>
                 <constraint firstItem="QxB-3X-50T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qDG-iG-qWS"/>
                 <constraint firstItem="446-bM-jAr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="rwT-ll-Vux"/>
-                <constraint firstAttribute="bottom" secondItem="446-bM-jAr" secondAttribute="bottom" constant="70" id="sXb-3U-ENV"/>
+                <constraint firstAttribute="bottom" secondItem="446-bM-jAr" secondAttribute="bottom" constant="90" id="sXb-3U-ENV"/>
                 <constraint firstAttribute="trailing" secondItem="446-bM-jAr" secondAttribute="trailing" constant="25" id="tRt-MX-Eus"/>
+                <constraint firstItem="F8r-ui-Ewe" firstAttribute="top" secondItem="faO-1d-kXJ" secondAttribute="bottom" constant="20" id="u84-9z-idl"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
@@ -73,6 +86,7 @@
         </view>
     </objects>
     <resources>
+        <image name="myPosition" width="1024" height="1024"/>
         <image name="reload-256" width="72" height="72"/>
     </resources>
 </document>
