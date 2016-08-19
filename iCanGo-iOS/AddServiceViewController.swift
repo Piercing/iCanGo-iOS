@@ -5,8 +5,6 @@ import UIKit
 class AddServiceViewController: UIViewController {
     
     // MARK: - Properties
-    let titleView = "Add Service"
-    
     @IBOutlet weak var btnTwitterHighService: UIButton!
     @IBOutlet weak var btnFacebookHighService: UIButton!
     @IBOutlet weak var btnGooglePlusHighService: UIButton!
@@ -18,25 +16,36 @@ class AddServiceViewController: UIViewController {
     @IBOutlet weak var txtFieldCategoryAddService: UITextField!
     @IBOutlet weak var txtFieldPriceAddService: UITextField!
     @IBOutlet weak var txtFieldAdressAddService: UITextField!
+    @IBOutlet weak var imgAddService01: UIImageView!
+    @IBOutlet weak var imgAddService04: UIImageView!
+    @IBOutlet weak var imgAddService03: UIImageView!
+    @IBOutlet weak var imgAddService02: UIImageView!
+
     
+    // MARK: - Constants
+    let titleView = "Add Service"
     let pickerData = ["€","$","¥"]
+    
     
     // MARK: - Init
     convenience init() {
         self.init(nibName: "AddServiceView", bundle: nil)
     }
     
+    
+    // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pickerHighService.dataSource = self
         pickerHighService.delegate = self
         
-        // MARK: - UI
         let title = Appearance.setupUI(self.view, title: self.titleView)
         self.title = title
         Appearance.customizeAppearance(self.view)
         
+        // Initialize data en view.
+        setupViews()
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,19 +53,12 @@ class AddServiceViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        txtFieldTitleAddService.resignFirstResponder()
-        txtViewDescriptionAddService.resignFirstResponder()
-        txtFieldCategoryAddService.resignFirstResponder()
-        txtFieldPriceAddService.resignFirstResponder()
-        txtFieldAdressAddService.resignFirstResponder()
-    }
     
     // MARK: - Actions
-    
     @IBAction func saveService(sender: AnyObject) {
         print("Tapped buttom add service")
     }
+    
     @IBAction func cancelHighService(sender: AnyObject) {
         print("Tapped buttom cancel High service")
     }
@@ -93,9 +95,33 @@ class AddServiceViewController: UIViewController {
          print("Tapped photo04")
     }
     
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        txtFieldTitleAddService.resignFirstResponder()
+        txtViewDescriptionAddService.resignFirstResponder()
+        txtFieldCategoryAddService.resignFirstResponder()
+        txtFieldPriceAddService.resignFirstResponder()
+        txtFieldAdressAddService.resignFirstResponder()
+    }
+
+    
+    // MARK - Private Methods
+    private func setupViews() {
+        
+        txtFieldTitleAddService.text = ""
+        txtViewDescriptionAddService.text = ""
+        txtFieldCategoryAddService.text = ""
+        txtFieldAdressAddService.text = ""
+        txtFieldPriceAddService.text = ""
+        
+        txtViewDescriptionAddService.layer.cornerRadius = 5
+        txtViewDescriptionAddService.layer.borderColor = UIColor(named: .BorderTextFieldNormal).CGColor
+        txtViewDescriptionAddService.layer.borderWidth = 0.5
+    }
 }
 
-// MARK: - Extensions - Delegates & Data source
+
+// MARK: - Extensions - UIPickerView DataSource & Delegate
 extension AddServiceViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     // MARK: - Data Source
@@ -115,7 +141,9 @@ extension AddServiceViewController: UIPickerViewDataSource, UIPickerViewDelegate
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         labelCoinHighService.text = pickerData[row]
     }
+    
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    
         let titleData = pickerData[row]
         let title = NSAttributedString(
             string: titleData,
@@ -125,8 +153,12 @@ extension AddServiceViewController: UIPickerViewDataSource, UIPickerViewDelegate
     }
 }
 
-extension AddServiceViewController: UITextFieldDelegate{
+
+// MARK: - Extensions - UITextFieldDelegate
+extension AddServiceViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+    
         self.view.endEditing(true)
         return true
     }
