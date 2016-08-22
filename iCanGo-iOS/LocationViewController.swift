@@ -25,7 +25,7 @@ class LocationViewController: UIViewController {
     
     
     // MARK: - Constants
-    let titleView = "Location"
+    let titleView = locationTitleVC
     
     
     // MARK: - Init
@@ -73,14 +73,12 @@ class LocationViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func reloadServices(sender: AnyObject) {
-
-        if let statusLocation = statusLocation {
-            if searchBarLocation.text != "" {
-                checkStatusAndGetData(statusLocation, getData: true, searchText: searchBarLocation.text)
-            } else {
-                checkStatusAndGetData(statusLocation, getData: true, searchText: nil)
-            }
+        
+        guard let statusLocation = statusLocation else {
+            return
         }
+        
+        checkStatusAndGetData(statusLocation, getData: true, searchText: searchBarLocation.text == "" ? nil : searchBarLocation.text)
     }
     
     @IBAction func findMyPosition(sender: AnyObject) {
@@ -96,8 +94,8 @@ class LocationViewController: UIViewController {
             var userRegion: MKCoordinateRegion = MKCoordinateRegion()
             userRegion.center.latitude = (locationManager?.location?.coordinate.latitude)!
             userRegion.center.longitude = (locationManager?.location?.coordinate.longitude)!
-            userRegion.span.latitudeDelta = 0.100000
-            userRegion.span.longitudeDelta = 0.100000
+            userRegion.span.latitudeDelta = spanInMap
+            userRegion.span.longitudeDelta = spanInMap
             mapView.setRegion(userRegion, animated: true)
         }
     }
@@ -170,13 +168,13 @@ class LocationViewController: UIViewController {
                     if let searchText = searchText {
                         getDataFromApi(locationManager?.location?.coordinate.latitude,
                             longitude: locationManager?.location?.coordinate.longitude,
-                             distance: 10,
+                             distance: distanceSearchService,
                            searchText: searchText)
                 
                     } else {
                         getDataFromApi(locationManager?.location?.coordinate.latitude,
                             longitude: locationManager?.location?.coordinate.longitude,
-                             distance: 10,
+                             distance: distanceSearchService,
                              searchText: nil)
                     }
                 }
