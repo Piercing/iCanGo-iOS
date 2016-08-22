@@ -7,18 +7,27 @@
 //
 
 import UIKit
+import MapKit
 
 class StartUpController: UITabBarController, UITabBarControllerDelegate {
     
+    // MARK: - Properties
     var loginVC: LoginViewController?
     var i = 0
     
-    // MARK: - Life Cycle
+    private var locationManager: CLLocationManager?
+
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
+        
+        // Configure Location Manager.
+        locationManager = CLLocationManager()
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager?.requestWhenInUseAuthorization()
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,8 +35,8 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Internal Methods
     
+    // MARK: - Internal Methods
     func setup() {
         
         self.delegate = self
@@ -106,7 +115,6 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         
         Appearance.tabBarItemColor()
         Appearance.tabBarColor(self)
-        
     }
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
@@ -127,19 +135,8 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
     }
 }
 
+
 // MARK: - Extensions - Delegate Methods
-
-//extension StartUp: UITabBarControllerDelegate {
-//    
-//    func tabBarController(
-//        tabBarController: UITabBarController,
-//        shouldSelectViewController viewController: UIViewController) -> Bool {
-//        
-//        print("Should select viewController: \(viewController.title) ?")
-//        return true
-//    }
-//}
-
 extension StartUpController: ComunicationLoginControllerDelegate {
     
     func back(index: Int) {
