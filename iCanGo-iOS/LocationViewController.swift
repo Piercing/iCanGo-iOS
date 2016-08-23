@@ -61,7 +61,7 @@ class LocationViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         
         if let statusLocation = statusLocation {
-            checkStatusAndGetData(statusLocation, getData: true, searchText: nil)
+            checkStatusAndGetData(statusLocation, searchText: nil)
         }
     }
     
@@ -78,12 +78,13 @@ class LocationViewController: UIViewController {
             return
         }
         
-        checkStatusAndGetData(statusLocation, getData: true, searchText: searchBarLocation.text == "" ? nil : searchBarLocation.text)
+        //checkStatusAndGetData(statusLocation, getData: true, searchText: searchBarLocation.text == "" ? nil : searchBarLocation.text)
+        checkStatusAndGetData(statusLocation, searchText: searchBarLocation.text == "" ? nil : searchBarLocation.text)
     }
     
     @IBAction func findMyPosition(sender: AnyObject) {
         
-        checkStatusAndGetData(statusLocation!, getData: false, searchText: nil)
+        checkStatusAndGetData(statusLocation!, searchText: nil)
         zoomToMyPosition()
     }
     
@@ -153,42 +154,38 @@ class LocationViewController: UIViewController {
         }
     }
     
-    private func checkStatusAndGetData(status: CLAuthorizationStatus, getData: Bool, searchText: String?) {
-     
-        switch status {
-        case .AuthorizedAlways,
-             .AuthorizedWhenInUse:
-            
-            if isConnectedToNetwork() {
-
-                if getData {
-                    
-                    starActivityIndicator()
-
-                    if let searchText = searchText {
-                        getDataFromApi(locationManager?.location?.coordinate.latitude,
-                            longitude: locationManager?.location?.coordinate.longitude,
-                             distance: distanceSearchService,
-                           searchText: searchText)
-                
-                    } else {
-                        getDataFromApi(locationManager?.location?.coordinate.latitude,
-                            longitude: locationManager?.location?.coordinate.longitude,
-                             distance: distanceSearchService,
-                             searchText: nil)
-                    }
-                }
-            } else {
-                showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
-            }
-            
-        case .Restricted,
-             .Denied:
-            showAlert(noGeoUserTitle, message: noGeoUserMessage, controller: self)
-            
-        case .NotDetermined:
-            break
+    private func checkStatusAndGetData(status: CLAuthorizationStatus, searchText: String?) {
+        if !checkLocationStatus(status) {
+            return
         }
+        getData(searchText)
+    }
+    
+    private func checkLocationStatus(status: CLAuthorizationStatus) -> Bool {
+        
+        if status != .AuthorizedAlways && status != .AuthorizedWhenInUse {
+            showAlert(noGeoUserTitle, message: noGeoUserMessage, controller: self)
+            return false
+        }
+        
+        return true
+    }
+    
+    private func getData(searchText: String?) {
+        
+        // Programación defensiva
+        guard let latitude = locationManager?.location?.coordinate.latitude, longitude = locationManager?.location?.coordinate.longitude else {
+            return
+        }
+        
+        if !isConnectedToNetwork() {
+            return
+        }
+        
+        starActivityIndicator()
+        
+        getDataFromApi(latitude, longitude: longitude, distance: distanceSearchService, searchText: searchText == nil ? searchText : searchText!)
+        
     }
     
     private func starActivityIndicator() {
@@ -213,7 +210,7 @@ extension LocationViewController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
        
         statusLocation = status
-        checkStatusAndGetData(status, getData: true, searchText: nil)
+        checkStatusAndGetData(status, searchText: nil)
         zoomToMyPosition()
     }
 }
@@ -275,7 +272,7 @@ extension LocationViewController: UISearchBarDelegate {
         searchBar.endEditing(true)
         services?.removeAll()
         showServicesInMap()
-        checkStatusAndGetData(statusLocation!, getData: true, searchText: searchBarLocation.text!)
+        checkStatusAndGetData(statusLocation!, searchText: searchBarLocation.text!)
     }
     
     func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
@@ -296,7 +293,7 @@ extension LocationViewController: UISearchBarDelegate {
         searchBar.text = ""
         services?.removeAll()
         showServicesInMap()
-        checkStatusAndGetData(statusLocation!, getData: true, searchText: nil)
+        checkStatusAndGetData(statusLocation!, searchText: nil)
     }
     
     func deActivateSearchBar() {
