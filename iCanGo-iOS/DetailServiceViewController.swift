@@ -308,7 +308,8 @@ class DetailServiceViewController: UIViewController {
         if service.ownerImage != nil {
             loadImage(service.ownerImage!, imageView: photoUserDetailService, withAnimation: false)
         }
-        nameUserDetailService.text     = service.userFirstName + " " + service.userLastName
+        //nameUserDetailService.text     = service.userFirstName + " " + service.userLastName
+        nameUserDetailService.text = "\(service.userFirstName) \(service.userLastName)"
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         dataDetailService.text         = dateFormatter.stringFromDate(service.dateCreated)
