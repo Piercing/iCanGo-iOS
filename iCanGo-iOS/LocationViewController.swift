@@ -25,7 +25,7 @@ class LocationViewController: UIViewController {
     
     
     // MARK: - Constants
-    let titleView = "Location"
+    let titleView = locationTitleVC
     
     
     // MARK: - Init
@@ -55,14 +55,13 @@ class LocationViewController: UIViewController {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager?.requestWhenInUseAuthorization()
         locationManager?.startUpdatingLocation()
     }
     
     override func viewDidAppear(animated: Bool) {
         
         if let statusLocation = statusLocation {
-            checkStatusAndGetData(statusLocation, searchText: nil)
+            checkStatusAndGetData(statusLocation, getData: true, searchText: nil)
         }
     }
     
@@ -74,17 +73,17 @@ class LocationViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func reloadServices(sender: AnyObject) {
-
-        if let statusLocation = statusLocation {
-            if searchBarLocation.text != "" {
-                checkStatusAndGetData(statusLocation, searchText: searchBarLocation.text)
-            } else {
-                checkStatusAndGetData(statusLocation, searchText: nil)
-            }
+        
+        guard let statusLocation = statusLocation else {
+            return
         }
+        
+        checkStatusAndGetData(statusLocation, getData: true, searchText: searchBarLocation.text == "" ? nil : searchBarLocation.text)
     }
     
     @IBAction func findMyPosition(sender: AnyObject) {
+        
+        checkStatusAndGetData(statusLocation!, getData: false, searchText: nil)
         zoomToMyPosition()
     }
     
@@ -95,8 +94,8 @@ class LocationViewController: UIViewController {
             var userRegion: MKCoordinateRegion = MKCoordinateRegion()
             userRegion.center.latitude = (locationManager?.location?.coordinate.latitude)!
             userRegion.center.longitude = (locationManager?.location?.coordinate.longitude)!
-            userRegion.span.latitudeDelta = 0.100000
-            userRegion.span.longitudeDelta = 0.100000
+            userRegion.span.latitudeDelta = spanInMap
+            userRegion.span.longitudeDelta = spanInMap
             mapView.setRegion(userRegion, animated: true)
         }
     }
@@ -154,7 +153,7 @@ class LocationViewController: UIViewController {
         }
     }
     
-    private func checkStatusAndGetData(status: CLAuthorizationStatus, searchText: String?) {
+    private func checkStatusAndGetData(status: CLAuthorizationStatus, getData: Bool, searchText: String?) {
      
         switch status {
         case .AuthorizedAlways,
@@ -162,21 +161,23 @@ class LocationViewController: UIViewController {
             
             if isConnectedToNetwork() {
 
-                starActivityIndicator()
+                if getData {
+                    
+                    starActivityIndicator()
 
-                if let searchText = searchText {
-                    getDataFromApi(locationManager?.location?.coordinate.latitude,
-                        longitude: locationManager?.location?.coordinate.longitude,
-                         distance: 10,
-                       searchText: searchText)
+                    if let searchText = searchText {
+                        getDataFromApi(locationManager?.location?.coordinate.latitude,
+                            longitude: locationManager?.location?.coordinate.longitude,
+                             distance: distanceSearchService,
+                           searchText: searchText)
                 
-                } else {
-                    getDataFromApi(locationManager?.location?.coordinate.latitude,
-                        longitude: locationManager?.location?.coordinate.longitude,
-                         distance: 10,
-                       searchText: nil)
+                    } else {
+                        getDataFromApi(locationManager?.location?.coordinate.latitude,
+                            longitude: locationManager?.location?.coordinate.longitude,
+                             distance: distanceSearchService,
+                             searchText: nil)
+                    }
                 }
-            
             } else {
                 showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
             }
@@ -212,7 +213,7 @@ extension LocationViewController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
        
         statusLocation = status
-        checkStatusAndGetData(status, searchText: nil)
+        checkStatusAndGetData(status, getData: true, searchText: nil)
         zoomToMyPosition()
     }
 }
@@ -274,7 +275,7 @@ extension LocationViewController: UISearchBarDelegate {
         searchBar.endEditing(true)
         services?.removeAll()
         showServicesInMap()
-        checkStatusAndGetData(statusLocation!, searchText: searchBarLocation.text!)
+        checkStatusAndGetData(statusLocation!, getData: true, searchText: searchBarLocation.text!)
     }
     
     func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
@@ -295,7 +296,7 @@ extension LocationViewController: UISearchBarDelegate {
         searchBar.text = ""
         services?.removeAll()
         showServicesInMap()
-        checkStatusAndGetData(statusLocation!, searchText: nil)
+        checkStatusAndGetData(statusLocation!, getData: true, searchText: nil)
     }
     
     func deActivateSearchBar() {

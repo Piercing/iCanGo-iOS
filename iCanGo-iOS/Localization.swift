@@ -8,8 +8,7 @@
 
 import Foundation
 
-// MARK: Constants.
-// Messages.
+// MARK: Messages.
 let loginKoTitle = "Wrong login"
 let loginKoMessage = "Please, enter a valid email and password"
 let noConnectionTitle = "No internet connection"
@@ -25,7 +24,7 @@ let serviceLocationNoMessage = "Sorry no services nearby with that description"
 let serviceSearchNoTitle = "Sorry no services"
 let serviceSearchNoMessage = "Sorry no services with that description"
 
-// Texts.
+// MARK: Texts.
 let publishedText = "Published"
 let attendedText = "Attended"
 let cancel = "Cancel"
@@ -34,3 +33,5 @@ let ok = "Ok"
 // MARK: Time zone.
 let timeZoneApp = String("GMT")
 
+// Titles - View Controllers.
+let locationTitleVC = "Location"
