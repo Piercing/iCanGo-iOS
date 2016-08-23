@@ -244,35 +244,37 @@ class DetailServiceViewController: UIViewController {
     
     private func loadService(id: String) -> Void {
         
-        if isConnectedToNetwork() {
-            
-            if requestDataInProgress == false {
-                
-                requestDataInProgress = true
-                let session = Session.iCanGoSession()
-                let _ = session.getServiceById(id)
-                    
-                    .observeOn(MainScheduler.instance)
-                    .subscribe { [weak self] event in
-                        
-                        switch event {
-                        case let .Next(service):
-                            self?.service = service
-                            self?.showDataService()
-                            self?.requestDataInProgress = false
-                            
-                        case .Error (let error):
-                            self?.requestDataInProgress = false
-                            print(error)
-                            
-                        default:
-                            self?.requestDataInProgress = false
-                        }
-                }
-            }
-        } else {
+        if !isConnectedToNetwork()  {
             showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
         }
+        
+        if !requestDataInProgress {
+            return
+        }
+        
+        requestDataInProgress = true
+        let session = Session.iCanGoSession()
+        let _ = session.getServiceById(id)
+            
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                switch event {
+                case let .Next(service):
+                    self?.service = service
+                    self?.showDataService()
+                    self?.requestDataInProgress = false
+                    
+                case .Error (let error):
+                    self?.requestDataInProgress = false
+                    print(error)
+                    
+                default:
+                    self?.requestDataInProgress = false
+                }
+        }
+        
     }
     
     private func setupViews() {
@@ -306,7 +308,8 @@ class DetailServiceViewController: UIViewController {
         if service.ownerImage != nil {
             loadImage(service.ownerImage!, imageView: photoUserDetailService, withAnimation: false)
         }
-        nameUserDetailService.text     = service.userFirstName + " " + service.userLastName
+        //nameUserDetailService.text     = service.userFirstName + " " + service.userLastName
+        nameUserDetailService.text = "\(service.userFirstName) \(service.userLastName)"
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         dataDetailService.text         = dateFormatter.stringFromDate(service.dateCreated)
