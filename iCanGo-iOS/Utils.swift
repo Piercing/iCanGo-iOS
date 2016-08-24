@@ -96,7 +96,16 @@ func isConnectedToNetwork() -> Bool {
 func showAlert(title: String, message: String, controller: UIViewController) {
     
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-    alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+    alertController.addAction(UIAlertAction(title: ok, style: .Default, handler: nil))
+    controller.presentViewController(alertController, animated: true, completion: nil)
+}
+
+func showAlertWithActions(title: String, message: String, controller: UIViewController, actions: [UIAlertAction]) {
+    
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+    for action in actions {
+        alertController.addAction(action)
+    }
     controller.presentViewController(alertController, animated: true, completion: nil)
 }
 
