@@ -7,7 +7,6 @@ class AddServiceViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var btnTwitterHighService: UIButton!
     @IBOutlet weak var btnFacebookHighService: UIButton!
-    @IBOutlet weak var btnGooglePlusHighService: UIButton!
     @IBOutlet weak var btnLinkedinHighService: UIButton!
     @IBOutlet weak var pickerHighService: UIPickerView!
     @IBOutlet weak var labelCoinHighService: UILabel!
@@ -56,7 +55,7 @@ class AddServiceViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func saveService(sender: AnyObject) {
-        print("Tapped buttom add service")
+        print("Tapped buttom save service")
     }
     
     @IBAction func cancelHighService(sender: AnyObject) {
@@ -69,10 +68,6 @@ class AddServiceViewController: UIViewController {
     
     @IBAction func facebookHighServiceAction(sender: AnyObject) {
         print("Tapped buttom Facebook")
-    }
-    
-    @IBAction func googlePlusHighServiceAction(sender: AnyObject) {
-        print("Tapped buttom Google+")
     }
     
     @IBAction func linkedinHighServicesAction(sender: AnyObject) {
@@ -155,14 +150,15 @@ extension AddServiceViewController: UIPickerViewDataSource, UIPickerViewDelegate
 
 
 // MARK: - Extensions - UITextFieldDelegate
-extension AddServiceViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-    
-        self.view.endEditing(true)
-        return true
-    }
-}
+//extension AddServiceViewController: UITextFieldDelegate {
+//    
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//    
+//        self.view.endEditing(true)
+//        return true
+//    }
+//}
+
 
 
 
