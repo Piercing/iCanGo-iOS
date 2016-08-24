@@ -95,7 +95,7 @@ class LocationViewController: UIViewController {
             var userRegion: MKCoordinateRegion = MKCoordinateRegion()
             userRegion.center.latitude = (locationManager?.location?.coordinate.latitude)!
             userRegion.center.longitude = (locationManager?.location?.coordinate.longitude)!
-            userRegion.span.latitudeDelta = spanInMap
+            userRegion.span.gti = spanInMap
             userRegion.span.longitudeDelta = spanInMap
             mapView.setRegion(userRegion, animated: true)
         }
