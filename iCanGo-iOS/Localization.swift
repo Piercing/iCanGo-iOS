@@ -35,3 +35,4 @@ let timeZoneApp = String("GMT")
 
 // Titles - View Controllers.
 let locationTitleVC = "Location"
+let detailServiceTitleVC = "Detail Service"
