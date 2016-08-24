@@ -103,42 +103,44 @@ class LocationViewController: UIViewController {
     
     private func getDataFromApi(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?) -> Void {
         
-        if requestDataInProgress == false {
-            
-            requestDataInProgress = true
-            let session = Session.iCanGoSession()
-            let _ = session.getServices(
-                latitude,
-                longitude: longitude,
-                distance: distance,
-                searchText: searchText,
-                page: 1,
-                rows: rowsPerPage)
-        
-                .observeOn(MainScheduler.instance)
-                .subscribe { [weak self] event in
-                
-                    self!.stopActivityIndicator()
-                        
-                    switch event {
-                    case let .Next(services):
-                        self?.requestDataInProgress = false
-                        self?.services = services
-                        if self?.services?.count > 0 {
-                            self?.showServicesInMap()
-                        } else {
-                            showAlert(serviceLocationNoTitle, message: serviceLocationNoMessage, controller: self!)
-                        }
-                    
-                    case .Error (let error):
-                        self?.requestDataInProgress = false
-                        print(error)
-                
-                    default:
-                        self?.requestDataInProgress = false
-                    }
-                }
+        if (requestDataInProgress != nil) && requestDataInProgress {
+            return
         }
+        
+        requestDataInProgress = true
+        let session = Session.iCanGoSession()
+        let _ = session.getServices(
+            latitude,
+            longitude: longitude,
+            distance: distance,
+            searchText: searchText,
+            page: 1,
+            rows: rowsPerPage)
+        
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                self!.stopActivityIndicator()
+                        
+                switch event {
+                case let .Next(services):
+                    self?.requestDataInProgress = false
+                    self?.services = services
+                    if self?.services?.count > 0 {
+                        self?.showServicesInMap()
+                    } else {
+                        showAlert(serviceLocationNoTitle, message: serviceLocationNoMessage, controller: self!)
+                    }
+                    
+                case .Error (let error):
+                    self?.requestDataInProgress = false
+                    print(error)
+                
+                default:
+                    self?.requestDataInProgress = false
+                }
+            }
+    
     }
     
     private func showServicesInMap() -> Void {
@@ -162,6 +164,11 @@ class LocationViewController: UIViewController {
     }
     
     private func checkLocationStatus(status: CLAuthorizationStatus) -> Bool {
+        
+        if status == .NotDetermined {
+            locationManager?.requestWhenInUseAuthorization()
+            return false
+        }
         
         if status != .AuthorizedAlways && status != .AuthorizedWhenInUse {
             showAlert(noGeoUserTitle, message: noGeoUserMessage, controller: self)

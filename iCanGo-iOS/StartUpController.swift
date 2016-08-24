@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MapKit
 
 class StartUpController: UITabBarController, UITabBarControllerDelegate {
     
@@ -15,19 +14,12 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
     var loginVC: LoginViewController?
     var i = 0
     
-    private var locationManager: CLLocationManager?
-
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
-        
-        // Configure Location Manager.
-        locationManager = CLLocationManager()
-        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager?.requestWhenInUseAuthorization()
+        setup()        
     }
     
     override func didReceiveMemoryWarning() {

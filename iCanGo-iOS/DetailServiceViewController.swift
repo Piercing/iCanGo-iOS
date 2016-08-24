@@ -44,9 +44,13 @@ class DetailServiceViewController: UIViewController {
     var delegate: DetailServiceProtocolDelegate?
     private var requestDataInProgress: Bool!
     private var service: Service!
-    
+    let titleView = detailServiceTitleVC
+
     // MARK: - Constant.
-    let titleView = "Detail Service"
+    let conversationNameImage = "conversation03"
+    let userDefaultiCanGoNameImage = "userDefaultiCanGo"
+    let emptyCameraNameImage = "1024-emptyCamera-center-ios"
+    let popUpImagesNameImage = "PopUpImagesView"
     
     
     // MARK: - Init
@@ -80,12 +84,12 @@ class DetailServiceViewController: UIViewController {
         loadService(service.id)
         
         // Load default images and textLabel.
-        contactPersonDetailServiceBtn.setImage(UIImage.init(named:"conversation03"), forState: UIControlState.Normal)
-        photoUserDetailService.image = UIImage.init(named: "userDefaultiCanGo")
-        imgDetailService01.image = UIImage.init(named: "1024-emptyCamera-center-ios")
-        imgDetailService02.image = UIImage.init(named: "1024-emptyCamera-center-ios")
-        imgDetailService03.image = UIImage.init(named: "1024-emptyCamera-center-ios")
-        imgDetailService04.image = UIImage.init(named: "1024-emptyCamera-center-ios")
+        contactPersonDetailServiceBtn.setImage(UIImage.init(named: conversationNameImage), forState: UIControlState.Normal)
+        photoUserDetailService.image = UIImage.init(named: userDefaultiCanGoNameImage)
+        imgDetailService01.image = UIImage.init(named: emptyCameraNameImage)
+        imgDetailService02.image = UIImage.init(named: emptyCameraNameImage)
+        imgDetailService03.image = UIImage.init(named: emptyCameraNameImage)
+        imgDetailService04.image = UIImage.init(named: emptyCameraNameImage)
         publishedLabel.text = publishedText
         attendedLabel.text = attendedText
         
@@ -105,12 +109,12 @@ class DetailServiceViewController: UIViewController {
     
     @IBAction func btnDeleteServiceDetail(sender: AnyObject) {
         
-        let alertController = UIAlertController(title: serviceDeleteTitle, message: serviceDeleteConfirmationMessage, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler:{ (action: UIAlertAction!) in
+        let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
             self.deteteServiceAPI(self.service.id)
-        }))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        })
+        let cancelAction = UIAlertAction(title: cancel, style: .Cancel, handler: nil)
+        let actions = [okAction, cancelAction]
+        showAlertWithActions(serviceDeleteTitle, message: serviceDeleteConfirmationMessage, controller: self, actions: actions)
     }
     
     @IBAction func btnSharedDetatilService(sender: AnyObject) {
@@ -167,10 +171,10 @@ class DetailServiceViewController: UIViewController {
     func tappedView(sender: UITapGestureRecognizer) {
         
         var popUpVIewController = PopUpImagesViewController()
-        popUpVIewController = PopUpImagesViewController(nibName: "PopUpImagesView", bundle: nil)
+        popUpVIewController = PopUpImagesViewController(nibName: popUpImagesNameImage, bundle: nil)
         popUpVIewController.showInView(
             self.view,
-            withImage: imageTapped(sender).image ?? UIImage(named: "1024-emptyCamera-center-ios"),
+            withImage: imageTapped(sender).image ?? UIImage(named: emptyCameraNameImage),
             withMessage: nameServiceDetailService.text,
             animated: true)
     }
@@ -199,47 +203,48 @@ class DetailServiceViewController: UIViewController {
     // MARK - Private Methods
     private func deteteServiceAPI(id: String) -> Void {
         
-        if isConnectedToNetwork() {
-            
-            if requestDataInProgress == false {
-                
-                requestDataInProgress = true
-                let session = Session.iCanGoSession()
-                let _ = session.deleteService(id)
+        if !isConnectedToNetwork() {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
+        
+        if (requestDataInProgress != nil) && requestDataInProgress {
+            return
+        }
+        
+        requestDataInProgress = true
+        let session = Session.iCanGoSession()
+        let _ = session.deleteService(id)
                     
-                    .observeOn(MainScheduler.instance)
-                    .subscribe { [weak self] event in
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
                         
-                        switch event {
-                        case let .Next(service):
-                            if service.deleted == true {
-                                
-                                let alertController = UIAlertController(title: serviceDeleteTitle, message: serviceDeleteMessage, preferredStyle: .Alert)
-                                alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler:{ (action: UIAlertAction!) in
-                                    self!.navigationController?.popToRootViewControllerAnimated(true)
-                                    if let delegate = self!.delegate {
-                                        delegate.goBackAfterDeleteService(service)
-                                    }
-                                }))
-                                self!.presentViewController(alertController, animated: true, completion: nil)
-                            } else {
-                                showAlert(serviceDeleteTitle, message: serviceDeleteKOMessage, controller: self!)
-                            }
-                            self?.requestDataInProgress = false
+                switch event {
+                case let .Next(service):
+                    if service.deleted {
+                        let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
+                            self!.navigationController?.popToRootViewControllerAnimated(true)
+                            if let delegate = self!.delegate {
+                                delegate.goBackAfterDeleteService(service)
+                            }})
+                        
+                        let actions = [okAction]
+                        showAlertWithActions(serviceDeleteTitle, message: serviceDeleteMessage, controller: self!, actions: actions)
+                    
+                    } else {
+                        showAlert(serviceDeleteTitle, message: serviceDeleteKOMessage, controller: self!)
+                    }
+                    self?.requestDataInProgress = false
                             
-                        case .Error (let error):
-                            self?.requestDataInProgress = false
-                            showAlert(serviceDeleteTitle, message: serviceDeleteKOMessage, controller: self!)
-                            print(error)
+                case .Error (let error):
+                    self?.requestDataInProgress = false
+                    showAlert(serviceDeleteTitle, message: serviceDeleteKOMessage, controller: self!)
+                    print(error)
                             
-                        default:
-                            self?.requestDataInProgress = false
-                        }
+                default:
+                    self?.requestDataInProgress = false
                 }
             }
-        } else {
-            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
-        }
     }
     
     private func loadService(id: String) -> Void {
@@ -308,14 +313,13 @@ class DetailServiceViewController: UIViewController {
         if service.ownerImage != nil {
             loadImage(service.ownerImage!, imageView: photoUserDetailService, withAnimation: false)
         }
-        //nameUserDetailService.text     = service.userFirstName + " " + service.userLastName
         nameUserDetailService.text = "\(service.userFirstName) \(service.userLastName)"
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        dataDetailService.text         = dateFormatter.stringFromDate(service.dateCreated)
-        publishedDetailService.text    = String(service.numPublishedServices)
-        caretedDetailsService.text     = String(service.numAttendedServices)
-        priceDetailService.text        = String(format: "%.2f", service.price)
+        dateFormatter.dateFormat = dateFormat
+        dataDetailService.text = dateFormatter.stringFromDate(service.dateCreated)
+        publishedDetailService.text = String(service.numPublishedServices)
+        caretedDetailsService.text = String(service.numAttendedServices)
+        priceDetailService.text = String(format: priceFormat, service.price)
         descriptionDetatilService.text = service.description
         
         // Show geoposition or address service.
