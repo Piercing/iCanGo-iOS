@@ -8,7 +8,7 @@ class ServicesViewController: UIViewController {
     @IBOutlet weak var servicesCollectionView: UICollectionView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
-    private var requestDataInProgress: Bool!
+    private var requestDataInProgress: Bool = false
     private var currentPage: UInt = 1
     private var services: [Service]?
     
@@ -16,7 +16,6 @@ class ServicesViewController: UIViewController {
     // MARK: - Constants
     let cellId = "serviceCell"
     let nibId = "ServiceCellView"
-    let titleView = "All Services"
     
     
     // MARK: - Init
@@ -38,7 +37,6 @@ class ServicesViewController: UIViewController {
         servicesCollectionView.dataSource = self
         
         // Initialize variables.
-        self.requestDataInProgress = false
         self.services = [Service]()
         
         // Setup UI.
@@ -60,8 +58,7 @@ class ServicesViewController: UIViewController {
     
     private func setupUIAllServices() -> Void {
         
-        let title = Appearance.setupUI(self.view, title: self.titleView)
-        self.title = title
+        self.title = Appearance.setupUI(self.view, title: servicesListVC)
         searchBar.resignFirstResponder()
         Appearance.tabBarColor(self.tabBarController!)
         Appearance.customizeAppearance(self.view)
@@ -70,44 +67,43 @@ class ServicesViewController: UIViewController {
     
     private func getDataFromApi(stringToFind: String, page: UInt) -> Void {
         
-        if isConnectedToNetwork() {
-            
-            if requestDataInProgress == false {
-                
-                requestDataInProgress = true
-                let session = Session.iCanGoSession()
-                let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind, page: page, rows: rowsPerPage)
-                    
-                    .observeOn(MainScheduler.instance)
-                    .subscribe { [weak self] event in
-                        
-                        actionFinished(self!.activityIndicatorView)
-                        
-                        switch event {
-                        case let .Next(services):
-                            self?.requestDataInProgress = false
-                            if services.count > 0 {
-                                self?.services?.appendContentsOf(services)
-                                self?.servicesCollectionView.reloadData()
-                                self?.servicesCollectionView.fadeIn(duration: 0.3)
-                                self?.currentPage += 1
-                            } else {
-                                showAlert(serviceSearchNoTitle, message: serviceSearchNoMessage, controller: self!)
-                            }
-                            
-                        case .Error (let error):
-                            self?.requestDataInProgress = false
-                            print(error)
-                            
-                        default:
-                            self?.requestDataInProgress = false
-                        }
-                }
-            }
-        } else {
-            
+        if !isConnectedToNetwork() {
             showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
-            actionFinished(self.activityIndicatorView)
+            return
+        }
+        
+        if requestDataInProgress {
+            return
+        }
+
+        requestDataInProgress = true
+        let session = Session.iCanGoSession()
+        let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind, page: page, rows: rowsPerPage)
+                    
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                        
+                actionFinished(self!.activityIndicatorView)
+                        
+                switch event {
+                case let .Next(services):
+                    self?.requestDataInProgress = false
+                    if services.count > 0 {
+                        self?.services?.appendContentsOf(services)
+                        self?.servicesCollectionView.reloadData()
+                        self?.servicesCollectionView.fadeIn(duration: 0.3)
+                        self?.currentPage += 1
+                    } else {
+                        showAlert(serviceSearchNoTitle, message: serviceSearchNoMessage, controller: self!)
+                    }
+                            
+                case .Error (let error):
+                    self?.requestDataInProgress = false
+                    print(error)
+                            
+                default:
+                    self?.requestDataInProgress = false
+                }
         }
     }
 }

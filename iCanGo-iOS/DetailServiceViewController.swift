@@ -42,9 +42,9 @@ class DetailServiceViewController: UIViewController {
     var popUpVIewController: PopUpImagesViewController?
     var selectImage =  UIImageView()
     var delegate: DetailServiceProtocolDelegate?
-    private var requestDataInProgress: Bool!
+    private var requestDataInProgress: Bool = false
     private var service: Service!
-    let titleView = detailServiceTitleVC
+
 
     // MARK: - Constant.
     let conversationNameImage = "conversation03"
@@ -59,7 +59,6 @@ class DetailServiceViewController: UIViewController {
         self.init(nibName: "DetailServiceView", bundle: nil)
         
         // Initialize variables.
-        self.requestDataInProgress = false
         self.service = service
         self.delegate = nil
     }
@@ -69,8 +68,7 @@ class DetailServiceViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let title = Appearance.setupUI(self.view, title: self.titleView)
-        self.title = title
+        self.title = Appearance.setupUI(self.view, title: detailServiceTitleVC)
         
         // Initialize data en view.
         setupViews()
@@ -208,7 +206,7 @@ class DetailServiceViewController: UIViewController {
             return
         }
         
-        if (requestDataInProgress != nil) && requestDataInProgress {
+        if requestDataInProgress {
             return
         }
         
@@ -254,7 +252,7 @@ class DetailServiceViewController: UIViewController {
             return
         }
         
-        if !requestDataInProgress {
+        if requestDataInProgress {
             return
         }
         

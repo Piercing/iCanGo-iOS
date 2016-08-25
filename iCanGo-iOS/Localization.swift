@@ -23,6 +23,13 @@ let serviceLocationNoTitle = "Sorry no services nearby"
 let serviceLocationNoMessage = "Sorry no services nearby with that description"
 let serviceSearchNoTitle = "Sorry no services"
 let serviceSearchNoMessage = "Sorry no services with that description"
+let serviceAddFieldError = "Error with service data"
+let serviceAddTitleEmpty = "The service must have a title"
+let serviceAddDescriptionEmpty = "The service must have a description"
+let serviceAddCategoryEmpty = "The service must have a category"
+let serviceAddAddressEmpty = "The service must have an address"
+let serviceAddPriceEmpty = "The service must have a price"
+
 
 // MARK: Texts.
 let publishedText = "Published"
@@ -30,9 +37,21 @@ let attendedText = "Attended"
 let cancel = "Cancel"
 let ok = "Ok"
 
+
 // MARK: Time zone.
 let timeZoneApp = String("GMT")
 
-// Titles - View Controllers.
-let locationTitleVC = "Location"
+
+// MARK: Currencies.
+let pickerData = ["€","$","¥"]
+
+
+// MARK: Titles View Controllers.
+let servicesListVC = "All Services"
 let detailServiceTitleVC = "Detail Service"
+let locationTitleVC = "Location"
+let addServiceTitleVC = "Add Service"
+
+
+
+
