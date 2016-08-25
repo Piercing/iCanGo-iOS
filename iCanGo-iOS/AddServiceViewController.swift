@@ -20,12 +20,7 @@ class AddServiceViewController: UIViewController {
     @IBOutlet weak var imgAddService03: UIImageView!
     @IBOutlet weak var imgAddService02: UIImageView!
 
-    
-    // MARK: - Constants
-    let titleView = "Add Service"
-    let pickerData = ["€","$","¥"]
-    
-    
+
     // MARK: - Init
     convenience init() {
         self.init(nibName: "AddServiceView", bundle: nil)
@@ -39,7 +34,7 @@ class AddServiceViewController: UIViewController {
         pickerHighService.dataSource = self
         pickerHighService.delegate = self
         
-        let title = Appearance.setupUI(self.view, title: self.titleView)
+        let title = Appearance.setupUI(self.view, title: addServiceTitleVC)
         self.title = title
         Appearance.customizeAppearance(self.view)
         
@@ -55,13 +50,11 @@ class AddServiceViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func saveService(sender: AnyObject) {
-        print("Tapped buttom save service")
+        
+        // Validate all data.
+        validateDataService()
     }
-    
-    @IBAction func cancelHighService(sender: AnyObject) {
-        print("Tapped buttom cancel High service")
-    }
-    
+        
     @IBAction func twitterHighServiceAction(sender: AnyObject) {
         print("Tapped buttom Twitter")
     }
@@ -109,9 +102,81 @@ class AddServiceViewController: UIViewController {
         txtFieldAdressAddService.text = ""
         txtFieldPriceAddService.text = ""
         
-        txtViewDescriptionAddService.layer.cornerRadius = 5
-        txtViewDescriptionAddService.layer.borderColor = UIColor(named: .BorderTextFieldNormal).CGColor
-        txtViewDescriptionAddService.layer.borderWidth = 0.5
+        let arrayBordersViews = [txtFieldTitleAddService,
+                                 txtViewDescriptionAddService,
+                                 txtFieldCategoryAddService,
+                                 txtFieldAdressAddService,
+                                 txtFieldPriceAddService]
+        
+        bordersInViews(arrayBordersViews)
+    }
+    
+    private func bordersInViews(views: [UIView]) {
+        
+        for view in views {
+            
+            view.layer.cornerRadius = 5
+            view.layer.borderColor = UIColor(named: .BorderTextFieldNormal).CGColor
+            view.layer.borderWidth = 0.5
+        }
+    }
+    
+    private func validateDataService() {
+        
+        var findError: Bool = false
+
+        if !findError {
+            findError = validateEmptyDataField(txtFieldTitleAddService, message: serviceAddTitleEmpty)
+        }
+        
+        if !findError {
+            findError = validateEmptyDataField(txtViewDescriptionAddService, message: serviceAddDescriptionEmpty)
+        }
+
+        if !findError {
+            findError = validateEmptyDataField(txtFieldCategoryAddService, message: serviceAddCategoryEmpty)
+        }
+
+        if !findError {
+            findError = validateEmptyDataField(txtFieldAdressAddService, message: serviceAddAddressEmpty)
+        }
+
+        if !findError {
+            findError = validateEmptyDataField(txtFieldPriceAddService, message: serviceAddPriceEmpty)
+        }
+
+
+        
+        
+        
+        // LO UNICO QUE LA API VALIDA ES: name, description, price y idUserRequest.
+        // VALIDAR ADDRESS SOLO SI NO TENEMOS latitude y longitude.        
+    }
+    
+    private func validateEmptyDataField(field: UIView, message: String) -> Bool {
+    
+        let textView: AnyObject?
+        
+        if field == txtViewDescriptionAddService {
+            textView = field as? UITextView
+        } else {
+            textView = field as? UITextField
+        }
+        
+        guard let textViewField = textView else {
+            return true
+        }
+        
+        if textViewField.text == "" {
+            
+            textViewField.becomeFirstResponder()
+            textViewField.layer.borderColor = UIColor(named: .BorderTextFieldError).CGColor
+            showAlert(serviceAddFieldError, message: message, controller: self)
+            return true
+        } else {
+            textViewField.layer.borderColor = UIColor(named: .BorderTextFieldNormal).CGColor
+            return false
+        }
     }
 }
 
@@ -142,7 +207,7 @@ extension AddServiceViewController: UIPickerViewDataSource, UIPickerViewDelegate
         let titleData = pickerData[row]
         let title = NSAttributedString(
             string: titleData,
-            attributes: [NSFontAttributeName: UIFont(name: "Avenir Next", size: 13.0)!,
+            attributes: [NSFontAttributeName: UIFont(name: avenirNextFont, size: 13.0)!,
                 NSForegroundColorAttributeName:UIColor(red: 26/255, green: 147/255, blue: 165/255, alpha: 1.0)])
         return title
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -62,16 +62,10 @@
                     </textAttributes>
                     <items>
                         <navigationItem title="Add Service" id="OQl-Fi-Oui">
-                            <barButtonItem key="leftBarButtonItem" systemItem="save" id="FXs-XX-KAW">
+                            <barButtonItem key="rightBarButtonItem" systemItem="save" id="FXs-XX-KAW">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="saveService:" destination="-1" id="LNq-EP-fLm"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="2en-Tl-iNH">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="cancelHighService:" destination="-1" id="QWc-2C-18H"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>
@@ -222,7 +216,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9c-wH-g9Z" customClass="RoundedCornersButtons" customModule="iCanGo_iOS" customModuleProvider="target">
-                                            <rect key="frame" x="35" y="0.0" width="30" height="30"/>
+                                            <rect key="frame" x="35" y="0.0" width="31" height="30"/>
                                             <state key="normal" image="facebook-icon"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -234,7 +228,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFh-wU-wnO" customClass="RoundedCornersButtons" customModule="iCanGo_iOS" customModuleProvider="target">
-                                            <rect key="frame" x="69" y="0.0" width="31" height="30"/>
+                                            <rect key="frame" x="70" y="0.0" width="31" height="30"/>
                                             <state key="normal" image="linkedin-icon"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
