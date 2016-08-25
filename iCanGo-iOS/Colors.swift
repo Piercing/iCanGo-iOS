@@ -12,11 +12,14 @@ extension UIColor {
     
     enum Name {
         case BorderTextFieldNormal
+        case BorderTextFieldError
         
         var rgbaValue: UInt32! {
             switch self {
-            case .BorderTextFieldNormal:
+            case BorderTextFieldNormal:
                 return 0xcdcdcdff
+            case BorderTextFieldError:
+                return 0xff0000ff
             }
         }
     }
@@ -24,7 +27,7 @@ extension UIColor {
     convenience init(named name: Name) {
         self.init(rgbaValue: name.rgbaValue)
     }
-
+    
     convenience init(rgbaValue: UInt32) {
         
         let red   = CGFloat((rgbaValue >> 24) & 0xff) / 255.0

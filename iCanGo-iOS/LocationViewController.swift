@@ -21,11 +21,7 @@ class LocationViewController: UIViewController {
     private var services: [Service]?
     private var locationManager: CLLocationManager?
     private var statusLocation: CLAuthorizationStatus?
-    private var requestDataInProgress: Bool!
-    
-    
-    // MARK: - Constants
-    let titleView = locationTitleVC
+    private var requestDataInProgress: Bool = false
     
     
     // MARK: - Init
@@ -38,11 +34,10 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let title = Appearance.setupUI(self.view, title: self.titleView)
+        let title = Appearance.setupUI(self.view, title: locationTitleVC)
         self.title = title
         
         // Initialize variables.
-        requestDataInProgress = false
         services = [Service]()
         searchBarLocation.resignFirstResponder()
         searchBarLocation.delegate = self
@@ -103,7 +98,7 @@ class LocationViewController: UIViewController {
     
     private func getDataFromApi(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?) -> Void {
         
-        if (requestDataInProgress != nil) && requestDataInProgress {
+        if requestDataInProgress {
             return
         }
         
