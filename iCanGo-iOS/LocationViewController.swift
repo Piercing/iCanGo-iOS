@@ -34,8 +34,7 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let title = Appearance.setupUI(self.view, title: locationTitleVC)
-        self.title = title
+        self.title = Appearance.setupUI(self.view, title: locationTitleVC)
         
         // Initialize variables.
         services = [Service]()

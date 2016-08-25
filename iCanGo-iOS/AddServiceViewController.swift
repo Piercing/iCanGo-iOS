@@ -34,8 +34,7 @@ class AddServiceViewController: UIViewController {
         pickerHighService.dataSource = self
         pickerHighService.delegate = self
         
-        let title = Appearance.setupUI(self.view, title: addServiceTitleVC)
-        self.title = title
+        self.title = Appearance.setupUI(self.view, title: addServiceTitleVC)
         Appearance.customizeAppearance(self.view)
         
         // Initialize data en view.

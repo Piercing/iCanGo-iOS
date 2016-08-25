@@ -68,8 +68,7 @@ class DetailServiceViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let title = Appearance.setupUI(self.view, title: detailServiceTitleVC)
-        self.title = title
+        self.title = Appearance.setupUI(self.view, title: detailServiceTitleVC)
         
         // Initialize data en view.
         setupViews()

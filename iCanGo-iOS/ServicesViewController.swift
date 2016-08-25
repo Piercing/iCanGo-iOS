@@ -58,8 +58,7 @@ class ServicesViewController: UIViewController {
     
     private func setupUIAllServices() -> Void {
         
-        let title = Appearance.setupUI(self.view, title: servicesListVC)
-        self.title = title
+        self.title = Appearance.setupUI(self.view, title: servicesListVC)
         searchBar.resignFirstResponder()
         Appearance.tabBarColor(self.tabBarController!)
         Appearance.customizeAppearance(self.view)
