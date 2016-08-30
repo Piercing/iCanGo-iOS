@@ -23,18 +23,18 @@ let serviceLocationNoTitle = "Sorry no services nearby"
 let serviceLocationNoMessage = "Sorry no services nearby with that description"
 let serviceSearchNoTitle = "Sorry no services"
 let serviceSearchNoMessage = "Sorry no services with that description"
-let serviceAddFieldError = "Error with service data"
-let serviceAddTitleEmpty = "The service must have a title"
-let serviceAddDescriptionEmpty = "The service must have a description"
-let serviceAddCategoryEmpty = "The service must have a category"
-let serviceAddAddressEmpty = "The service must have an address"
-let serviceAddPriceEmpty = "The service must have a price"
+let serviceAddTitle = "Add Service"
+let serviceAddConfirmationMessage = "Do you want add this service?"
+let serviceAddMessage = "Service add successfully"
+let serviceAddKOMessage = "It's not possible add this service"
+let serviceAddFieldEmply = "These service data can't be empty"
 
 
 // MARK: Texts.
 let publishedText = "Published"
 let attendedText = "Attended"
 let cancel = "Cancel"
+let next = "Next"
 let ok = "Ok"
 
 

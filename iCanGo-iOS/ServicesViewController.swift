@@ -41,11 +41,11 @@ class ServicesViewController: UIViewController {
         
         // Setup UI.
         setupUIAllServices()
-        
+
         // Get data from API.
         getDataFromApi("", page: self.currentPage)
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -76,6 +76,7 @@ class ServicesViewController: UIViewController {
             return
         }
 
+        actionStarted(activityIndicatorView)
         requestDataInProgress = true
         let session = Session.iCanGoSession()
         let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind, page: page, rows: rowsPerPage)
@@ -128,7 +129,6 @@ extension ServicesViewController: UISearchBarDelegate {
         currentPage = 1
         services?.removeAll()
         servicesCollectionView.reloadData()
-        actionStarted(self.activityIndicatorView)
         getDataFromApi(searchBar.text!, page: self.currentPage)
     }
     
@@ -151,7 +151,6 @@ extension ServicesViewController: UISearchBarDelegate {
         services?.removeAll()
         servicesCollectionView.reloadData()
         searchBar.text = ""
-        actionStarted(self.activityIndicatorView)
         getDataFromApi("", page: self.currentPage)
     }
     

@@ -21,6 +21,7 @@ let widthReducedImage: CGFloat = 600.0 // final size for images reduced
 // Map
 let distanceSearchService: UInt = 10 // distance to search services around
 let spanInMap: Double = 0.100000
+let maxUpdatesPosition: UInt = 5
 
 
 // Formats

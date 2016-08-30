@@ -22,6 +22,8 @@ class LocationViewController: UIViewController {
     private var locationManager: CLLocationManager?
     private var statusLocation: CLAuthorizationStatus?
     private var requestDataInProgress: Bool = false
+    private var updatingLocation: Bool = true
+    private var numberUpdatesPosition: UInt = 0
     
     
     // MARK: - Init
@@ -50,13 +52,19 @@ class LocationViewController: UIViewController {
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         locationManager?.startUpdatingLocation()
+        updatingLocation = true
+        numberUpdatesPosition = 0
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         
         if let statusLocation = statusLocation {
             checkStatusAndGetData(statusLocation, searchText: nil)
         }
+    }
+
+    override func viewWillDisappear(animated: Bool) {
+        locationManager?.stopUpdatingLocation()
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,8 +86,16 @@ class LocationViewController: UIViewController {
     
     @IBAction func findMyPosition(sender: AnyObject) {
         
-        checkStatusAndGetData(statusLocation!, searchText: nil)
-        zoomToMyPosition()
+        if checkLocationStatus(statusLocation!) {
+            if !updatingLocation {
+                
+                locationManager?.startUpdatingLocation()
+                updatingLocation = true
+                numberUpdatesPosition = 0
+            }
+            
+            zoomToMyPosition()
+        }
     }
     
     private func zoomToMyPosition() {
@@ -186,7 +202,6 @@ class LocationViewController: UIViewController {
         starActivityIndicator()
         
         getDataFromApi(latitude, longitude: longitude, distance: distanceSearchService, searchText: searchText == nil ? searchText : searchText!)
-        
     }
     
     private func starActivityIndicator() {
@@ -213,6 +228,16 @@ extension LocationViewController: CLLocationManagerDelegate {
         statusLocation = status
         checkStatusAndGetData(status, searchText: nil)
         zoomToMyPosition()
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if (numberUpdatesPosition < maxUpdatesPosition) {
+            numberUpdatesPosition += 1
+        } else {
+            locationManager?.stopUpdatingLocation()
+            updatingLocation = false
+        }
     }
 }
 
