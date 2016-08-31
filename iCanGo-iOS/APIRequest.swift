@@ -22,7 +22,7 @@ enum APIRequest {
     case getImageData(key: String, urlImage: NSURL)
     case postLogin(user: String, password: String)
     case postUser(user: String, password: String, firstName: String, lastName: String, photoUrl: NSURL?, searchPreferences: String?, status: UInt?)
-    case postService(name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
+    case postService(name: String, description: String, price: Double, tags: String?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
     case postServiceImage(id: String, imageUrl: NSURL)
     case putService(id: String, name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
     case deleteServiceById(key: String, id: String)
@@ -186,8 +186,8 @@ extension APIRequest: Resource {
                      status: status):
              return ["name": name,
               "description": description,
-                    "price": price.asLocaleCurrency,
-                     "tags": tags != nil ? String.stringsToString(tags!) : "",
+                    "price": String(price),
+                     "tags": tags != nil ? tags! : "",
             "idUserRequest": idUserRequest,
                  "latitude": latitude != nil ? String(format:"%f", latitude!) : "",
                 "longitude": longitude != nil ? String(format:"%f", longitude!) : "",
@@ -211,7 +211,7 @@ extension APIRequest: Resource {
                      status: status):
              return ["name": name,
               "description": description,
-                    "price": price.asLocaleCurrency,
+                    "price": String(price),
                      "tags": tags != nil ? String.stringsToString(tags!) : "",
             "idUserRequest": idUserRequest,
                  "latitude": latitude != nil ? String(format:"%f", latitude!) : "",

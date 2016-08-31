@@ -1,6 +1,8 @@
 
 
 import UIKit
+import MapKit
+import RxSwift
 
 class AddServiceViewController: UIViewController {
     
@@ -8,7 +10,6 @@ class AddServiceViewController: UIViewController {
     @IBOutlet weak var btnTwitterHighService: UIButton!
     @IBOutlet weak var btnFacebookHighService: UIButton!
     @IBOutlet weak var btnLinkedinHighService: UIButton!
-    @IBOutlet weak var pickerHighService: UIPickerView!
     @IBOutlet weak var labelCoinHighService: UILabel!
     @IBOutlet weak var txtFieldTitleAddService: UITextField!
     @IBOutlet weak var txtViewDescriptionAddService: UITextView!
@@ -19,6 +20,12 @@ class AddServiceViewController: UIViewController {
     @IBOutlet weak var imgAddService04: UIImageView!
     @IBOutlet weak var imgAddService03: UIImageView!
     @IBOutlet weak var imgAddService02: UIImageView!
+    
+    private var locationManager: CLLocationManager?
+    private var statusLocation: CLAuthorizationStatus?
+    private var myPosition: CLLocation?
+    private var requestDataInProgress: Bool = false
+    private var numberUpdatesPosition: UInt = 0
 
 
     // MARK: - Init
@@ -31,14 +38,21 @@ class AddServiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pickerHighService.dataSource = self
-        pickerHighService.delegate = self
-        
         self.title = Appearance.setupUI(self.view, title: addServiceTitleVC)
         Appearance.customizeAppearance(self.view)
         
+        // Configure Location Manager.
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager?.startUpdatingLocation()
+
         // Initialize data en view.
         setupViews()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        checkLocationStatus()
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,10 +64,20 @@ class AddServiceViewController: UIViewController {
     // MARK: - Actions
     @IBAction func saveService(sender: AnyObject) {
         
-        // Validate all data.
-        validateDataService()
-    }
+        resignFirstResponderAllFields()
         
+        if !self.serviceWithErrorData() {
+
+            // Validate all data.
+            let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
+                self.postDataService()
+            })
+            let cancelAction = UIAlertAction(title: cancel, style: .Cancel, handler: nil)
+            let actions = [okAction, cancelAction]
+            showAlertWithActions(serviceAddTitle, message: serviceAddConfirmationMessage, controller: self, actions: actions)
+        }
+    }
+    
     @IBAction func twitterHighServiceAction(sender: AnyObject) {
         print("Tapped buttom Twitter")
     }
@@ -84,11 +108,7 @@ class AddServiceViewController: UIViewController {
     
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        txtFieldTitleAddService.resignFirstResponder()
-        txtViewDescriptionAddService.resignFirstResponder()
-        txtFieldCategoryAddService.resignFirstResponder()
-        txtFieldPriceAddService.resignFirstResponder()
-        txtFieldAdressAddService.resignFirstResponder()
+        resignFirstResponderAllFields()
     }
 
     
@@ -108,6 +128,22 @@ class AddServiceViewController: UIViewController {
                                  txtFieldPriceAddService]
         
         bordersInViews(arrayBordersViews)
+        
+        let titleActions: [String : Selector] = [next : #selector(AddServiceViewController.nextTitle),
+                                                   ok : #selector(AddServiceViewController.okTitle)]
+        let descriptionActions: [String : Selector] = [next : #selector(AddServiceViewController.nextDescription),
+                                                         ok : #selector(AddServiceViewController.okDescription)]
+        let categoryActions: [String : Selector] = [next : #selector(AddServiceViewController.nextCategory),
+                                                      ok : #selector(AddServiceViewController.okCategory)]
+        let addressActions: [String : Selector] = [next : #selector(AddServiceViewController.nextAddress),
+                                                     ok : #selector(AddServiceViewController.okAdress)]
+        let priceActions: [String : Selector] = [ok : #selector(AddServiceViewController.okPrice)]
+        
+        txtFieldTitleAddService.inputAccessoryView = setupInputAccessoryView(titleActions)
+        txtViewDescriptionAddService.inputAccessoryView = setupInputAccessoryView(descriptionActions)
+        txtFieldCategoryAddService.inputAccessoryView = setupInputAccessoryView(categoryActions)
+        txtFieldAdressAddService.inputAccessoryView = setupInputAccessoryView(addressActions)
+        txtFieldPriceAddService.inputAccessoryView = setupInputAccessoryView(priceActions)
     }
     
     private func bordersInViews(views: [UIView]) {
@@ -120,97 +156,220 @@ class AddServiceViewController: UIViewController {
         }
     }
     
-    private func validateDataService() {
+    private func setupInputAccessoryView(actions: [String : Selector])-> UIToolbar {
         
-        var findError: Bool = false
-
-        if !findError {
-            findError = validateEmptyDataField(txtFieldTitleAddService, message: serviceAddTitleEmpty)
-        }
+        let toolBar = UIToolbar()
+        toolBar.translucent = true
+        toolBar.tintColor = UIColor(named: .TextColor1)
         
-        if !findError {
-            findError = validateEmptyDataField(txtViewDescriptionAddService, message: serviceAddDescriptionEmpty)
+        var nextButton: UIBarButtonItem = UIBarButtonItem()
+        var okButton: UIBarButtonItem = UIBarButtonItem()
+        if let nextSelector = actions[next] {
+            nextButton = UIBarButtonItem(title: next, style: UIBarButtonItemStyle.Plain, target: self, action: nextSelector)
         }
-
-        if !findError {
-            findError = validateEmptyDataField(txtFieldCategoryAddService, message: serviceAddCategoryEmpty)
+        if let okSelector = actions[ok] {
+            okButton = UIBarButtonItem(title: ok, style: UIBarButtonItemStyle.Plain, target: self, action: okSelector)
         }
-
-        if !findError {
-            findError = validateEmptyDataField(txtFieldAdressAddService, message: serviceAddAddressEmpty)
-        }
-
-        if !findError {
-            findError = validateEmptyDataField(txtFieldPriceAddService, message: serviceAddPriceEmpty)
-        }
-
-
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         
-        
-        
-        // LO UNICO QUE LA API VALIDA ES: name, description, price y idUserRequest.
-        // VALIDAR ADDRESS SOLO SI NO TENEMOS latitude y longitude.        
+        toolBar.setItems([spaceButton, okButton, nextButton], animated: false)
+        toolBar.userInteractionEnabled = true
+        toolBar.sizeToFit()
+        return toolBar
     }
     
-    private func validateEmptyDataField(field: UIView, message: String) -> Bool {
+    @objc private func nextTitle() {
+        txtViewDescriptionAddService.becomeFirstResponder()
+    }
+
+    @objc private func okTitle() {
+        txtFieldTitleAddService.resignFirstResponder()
+    }
+
+    @objc private func nextDescription() {
+        txtFieldCategoryAddService.becomeFirstResponder()
+    }
+
+    @objc private func okDescription() {
+        txtViewDescriptionAddService.resignFirstResponder()
+    }
+
+    @objc private func nextCategory() {
+        txtFieldAdressAddService.becomeFirstResponder()
+    }
+
+    @objc private func okCategory() {
+        txtFieldCategoryAddService.resignFirstResponder()
+    }
     
-        let textView: AnyObject?
+    @objc private func nextAddress() {
+        txtFieldPriceAddService.becomeFirstResponder()
+    }
+
+    @objc private func okAdress() {
+        txtFieldAdressAddService.resignFirstResponder()
+    }
+
+    @objc private func okPrice() {
+        txtFieldPriceAddService.resignFirstResponder()
+    }
+    
+    private func checkLocationStatus() {
         
-        if field == txtViewDescriptionAddService {
-            textView = field as? UITextView
-        } else {
-            textView = field as? UITextField
+        guard let status = statusLocation else {
+            return
         }
         
-        guard let textViewField = textView else {
-            return true
+        if status == .NotDetermined {
+            locationManager?.requestWhenInUseAuthorization()
         }
         
-        if textViewField.text == "" {
+        if status != .AuthorizedAlways && status != .AuthorizedWhenInUse {
+            showAlert(noGeoUserTitle, message: noGeoUserMessage, controller: self)
+        }
+    }
+    
+    private func serviceWithErrorData() -> Bool {
+        
+        var findError = false
+        
+        if txtFieldTitleAddService.text == "" {
             
-            textViewField.becomeFirstResponder()
-            textViewField.layer.borderColor = UIColor(named: .BorderTextFieldError).CGColor
-            showAlert(serviceAddFieldError, message: message, controller: self)
-            return true
+            if !findError { txtFieldTitleAddService.becomeFirstResponder() }
+            txtFieldTitleAddService.layer.borderColor = UIColor(named: .BorderTextFieldError).CGColor
+            findError = true
         } else {
-            textViewField.layer.borderColor = UIColor(named: .BorderTextFieldNormal).CGColor
-            return false
+            txtFieldTitleAddService.layer.borderColor = UIColor(named: .BorderTextFieldNormal).CGColor
+        }
+        
+        if txtViewDescriptionAddService.text == "" {
+            
+            if !findError { txtViewDescriptionAddService.becomeFirstResponder() }
+            txtViewDescriptionAddService.layer.borderColor = UIColor(named: .BorderTextFieldError).CGColor
+            findError = true
+        } else {
+            txtViewDescriptionAddService.layer.borderColor = UIColor(named: .BorderTextFieldNormal).CGColor
+        }
+        
+        if txtFieldCategoryAddService.text == "" {
+            
+            if !findError { txtFieldCategoryAddService.becomeFirstResponder() }
+            txtFieldCategoryAddService.layer.borderColor = UIColor(named: .BorderTextFieldError).CGColor
+            findError = true
+        } else {
+            txtFieldCategoryAddService.layer.borderColor = UIColor(named: .BorderTextFieldNormal).CGColor
+        }
+        
+        if myPosition == nil {
+            if txtFieldAdressAddService.text == "" {
+                
+                if !findError { txtFieldAdressAddService.becomeFirstResponder() }
+                txtFieldAdressAddService.layer.borderColor = UIColor(named: .BorderTextFieldError).CGColor
+                findError = true
+            } else {
+                txtFieldAdressAddService.layer.borderColor = UIColor(named: .BorderTextFieldNormal).CGColor
+            }
+        }
+    
+        if txtFieldPriceAddService.text == "" {
+            
+            if !findError { txtFieldPriceAddService.becomeFirstResponder() }
+            txtFieldPriceAddService.layer.borderColor = UIColor(named: .BorderTextFieldError).CGColor
+            findError = true
+        } else {
+            txtFieldPriceAddService.layer.borderColor = UIColor(named: .BorderTextFieldNormal).CGColor
+        }
+
+        if findError {
+            showAlert(serviceAddTitle, message: serviceAddFieldEmply, controller: self)
+        }
+        
+        return findError
+    }
+    
+    private func postDataService() {
+    
+        if !isConnectedToNetwork() {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
+        
+        if requestDataInProgress {
+            return
+        }
+        
+        requestDataInProgress = true
+        let session = Session.iCanGoSession()
+        let _ = session.postService(txtFieldTitleAddService.text!,
+                       description: txtViewDescriptionAddService.text,
+                             price: Double(txtFieldPriceAddService.text!.stringByReplacingOccurrencesOfString(",", withString: "."))!,
+                              tags: txtFieldCategoryAddService.text,
+                     idUserRequest: loadUserAuthInfo().id,
+                          latitude: myPosition?.coordinate.latitude,
+                         longitude: myPosition?.coordinate.longitude,
+                           address: txtFieldAdressAddService.text,
+                            status: 0)
+            
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                //actionFinished(self!.activityIndicatorView)
+                
+                switch event {
+                case .Next:
+                    let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in                        
+                        self!.tabBarController!.selectedIndex = 0
+                    })
+                    let actions = [okAction]
+                    showAlertWithActions(serviceAddTitle, message: serviceAddMessage, controller: self!, actions: actions)
+                    self?.requestDataInProgress = false
+                    
+                case .Error (let error):
+                    self?.requestDataInProgress = false
+                    showAlert(serviceAddTitle, message: serviceAddKOMessage, controller: self!)
+                    print(error)
+                    
+                default:
+                    self?.requestDataInProgress = false
+                }
+        }
+    }
+    
+    private func resignFirstResponderAllFields() {
+
+        txtFieldTitleAddService.resignFirstResponder()
+        txtViewDescriptionAddService.resignFirstResponder()
+        txtFieldCategoryAddService.resignFirstResponder()
+        txtFieldPriceAddService.resignFirstResponder()
+        txtFieldAdressAddService.resignFirstResponder()
+    }
+}
+
+
+// MARK: - Extension - CLLocationManagerDelegate
+extension AddServiceViewController: CLLocationManagerDelegate {
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+
+        statusLocation = status
+        checkLocationStatus()
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+        if (numberUpdatesPosition < maxUpdatesPosition) {
+
+            myPosition = locations.last
+            numberUpdatesPosition += 1
+        } else {
+            locationManager?.stopUpdatingLocation()
         }
     }
 }
 
 
-// MARK: - Extensions - UIPickerView DataSource & Delegate
-extension AddServiceViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    // MARK: - Data Source
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    // MARK: - Delegate
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        labelCoinHighService.text = pickerData[row]
-    }
-    
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-    
-        let titleData = pickerData[row]
-        let title = NSAttributedString(
-            string: titleData,
-            attributes: [NSFontAttributeName: UIFont(name: avenirNextFont, size: 13.0)!,
-                NSForegroundColorAttributeName:UIColor(red: 26/255, green: 147/255, blue: 165/255, alpha: 1.0)])
-        return title
-    }
-}
+
+
 
 
 // MARK: - Extensions - UITextFieldDelegate

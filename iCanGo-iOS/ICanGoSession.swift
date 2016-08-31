@@ -182,7 +182,7 @@ extension Session {
     func postService(name: String,
               description: String,
                     price: Double,
-                     tags: [String]?,
+                     tags: String?,
             idUserRequest: String,
                  latitude: Double?,
                 longitude: Double?,
