@@ -13,6 +13,7 @@ extension UIColor {
     enum Name {
         case BorderTextFieldNormal
         case BorderTextFieldError
+        case TextColor1
         
         var rgbaValue: UInt32! {
             switch self {
@@ -20,6 +21,8 @@ extension UIColor {
                 return 0xcdcdcdff
             case BorderTextFieldError:
                 return 0xff0000ff
+            case TextColor1:
+                return 0x2991A7ff
             }
         }
     }

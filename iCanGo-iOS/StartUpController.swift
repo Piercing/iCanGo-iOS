@@ -110,7 +110,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        if viewController is MyProfileViewController {
+        if (viewController is MyProfileViewController || viewController is AddServiceViewController) {
             
             if !isUserloged() {
                 
