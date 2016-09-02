@@ -116,7 +116,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
                 
                 loginVC = LoginViewController(nibName: "LoginView", bundle: nil)
                 loginVC!.delegate = self
-                loginVC!.selectedTabItemIndex = tabBarController.selectedIndex
+                loginVC!.selectedTabItemIndex = tabBarController.viewControllers?.indexOf(viewController)
                 
                 showModal(self, calledContainer: loginVC!)
                 return false;

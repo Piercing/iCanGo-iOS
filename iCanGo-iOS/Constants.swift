@@ -31,3 +31,12 @@ let priceFormat = "%.2f"
 
 // Fonts
 let avenirNextFont = "Avenir Next"
+
+
+// Notifications
+let notificationKeyServicesChange: String = "notificationKeyServicesChange"
+
+
+
+
+
