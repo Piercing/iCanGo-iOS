@@ -45,6 +45,11 @@ class DetailServiceViewController: UIViewController {
     private var requestDataInProgress: Bool = false
     private var service: Service!
 
+    lazy var alertView: AlertView = {
+        let alertView = AlertView()
+        return alertView
+    }()
+
 
     // MARK: - Constant.
     let conversationNameImage = "conversation03"
@@ -211,6 +216,8 @@ class DetailServiceViewController: UIViewController {
         }
         
         requestDataInProgress = true
+        alertView.displayView(view, withTitle: pleaseWait)
+
         let session = Session.iCanGoSession()
         let _ = session.deleteService(id)
                     
@@ -219,6 +226,9 @@ class DetailServiceViewController: UIViewController {
                         
                 switch event {
                 case let .Next(service):
+                    self!.alertView.hideView()
+                    self?.requestDataInProgress = false
+
                     if service.deleted {
                         let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
                             self!.navigationController?.popToRootViewControllerAnimated(true)
@@ -232,14 +242,15 @@ class DetailServiceViewController: UIViewController {
                     } else {
                         showAlert(serviceDeleteTitle, message: serviceDeleteKOMessage, controller: self!)
                     }
-                    self?.requestDataInProgress = false
-                            
+                    
                 case .Error (let error):
+                    self!.alertView.hideView()
                     self?.requestDataInProgress = false
                     showAlert(serviceDeleteTitle, message: serviceDeleteKOMessage, controller: self!)
                     print(error)
                             
                 default:
+                    self!.alertView.hideView()
                     self?.requestDataInProgress = false
                 }
             }

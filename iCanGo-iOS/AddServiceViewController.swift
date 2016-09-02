@@ -6,6 +6,10 @@ import RxSwift
 
 class AddServiceViewController: UIViewController {
     
+    // MARK: - Constants
+    let serviceId = "serviceId"
+    
+    
     // MARK: - Properties
     @IBOutlet weak var btnTwitterHighService: UIButton!
     @IBOutlet weak var btnFacebookHighService: UIButton!
@@ -27,13 +31,18 @@ class AddServiceViewController: UIViewController {
     private var requestDataInProgress: Bool = false
     private var numberUpdatesPosition: UInt = 0
 
+    lazy var alertView: AlertView = {
+        let alertView = AlertView()
+        return alertView
+    }()
 
+    
     // MARK: - Init
     convenience init() {
         self.init(nibName: "AddServiceView", bundle: nil)
     }
     
-    
+
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +61,7 @@ class AddServiceViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        initializeInfoService() 
         checkLocationStatus()
     }
     
@@ -115,11 +125,7 @@ class AddServiceViewController: UIViewController {
     // MARK - Private Methods
     private func setupViews() {
         
-        txtFieldTitleAddService.text = ""
-        txtViewDescriptionAddService.text = ""
-        txtFieldCategoryAddService.text = ""
-        txtFieldAdressAddService.text = ""
-        txtFieldPriceAddService.text = ""
+        initializeInfoService()
         
         let arrayBordersViews = [txtFieldTitleAddService,
                                  txtViewDescriptionAddService,
@@ -144,6 +150,15 @@ class AddServiceViewController: UIViewController {
         txtFieldCategoryAddService.inputAccessoryView = setupInputAccessoryView(categoryActions)
         txtFieldAdressAddService.inputAccessoryView = setupInputAccessoryView(addressActions)
         txtFieldPriceAddService.inputAccessoryView = setupInputAccessoryView(priceActions)
+    }
+    
+    private func initializeInfoService() {
+        
+        txtFieldTitleAddService.text = ""
+        txtViewDescriptionAddService.text = ""
+        txtFieldCategoryAddService.text = ""
+        txtFieldAdressAddService.text = ""
+        txtFieldPriceAddService.text = ""
     }
     
     private func bordersInViews(views: [UIView]) {
@@ -222,6 +237,7 @@ class AddServiceViewController: UIViewController {
         
         if status == .NotDetermined {
             locationManager?.requestWhenInUseAuthorization()
+            return
         }
         
         if status != .AuthorizedAlways && status != .AuthorizedWhenInUse {
@@ -299,6 +315,8 @@ class AddServiceViewController: UIViewController {
         }
         
         requestDataInProgress = true
+        alertView.displayView(view, withTitle: pleaseWait)
+
         let session = Session.iCanGoSession()
         let _ = session.postService(txtFieldTitleAddService.text!,
                        description: txtViewDescriptionAddService.text,
@@ -313,23 +331,29 @@ class AddServiceViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
-                //actionFinished(self!.activityIndicatorView)
-                
                 switch event {
-                case .Next:
-                    let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in                        
+                case let .Next(service):
+                    self!.alertView.hideView()
+                    self?.requestDataInProgress = false
+                    
+                    let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
+
+                        NSNotificationCenter.defaultCenter().postNotificationName(notificationKeyServicesChange,
+                            object: self, userInfo: [self!.serviceId: service.id])
+                        
                         self!.tabBarController!.selectedIndex = 0
                     })
                     let actions = [okAction]
                     showAlertWithActions(serviceAddTitle, message: serviceAddMessage, controller: self!, actions: actions)
-                    self?.requestDataInProgress = false
                     
                 case .Error (let error):
+                    self!.alertView.hideView()
                     self?.requestDataInProgress = false
                     showAlert(serviceAddTitle, message: serviceAddKOMessage, controller: self!)
                     print(error)
                     
                 default:
+                    self!.alertView.hideView()
                     self?.requestDataInProgress = false
                 }
         }

@@ -20,7 +20,17 @@ class ServicesViewController: UIViewController {
     
     // MARK: - Init
     convenience init() {
+
         self.init(nibName: "ServicesView", bundle: nil)
+        
+        // Add as observer
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ServicesViewController.refreshServiceList(_:)),
+                                                         name: notificationKeyServicesChange,
+                                                         object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: notificationKeyServicesChange, object: nil)
     }
     
     
@@ -46,10 +56,21 @@ class ServicesViewController: UIViewController {
         getDataFromApi("", page: self.currentPage)
     }
 
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    
+    // MARK: Notification Methods
+    func refreshServiceList(notification: NSNotification) {
+
+        currentPage = 1
+        services?.removeAll()
+        servicesCollectionView.reloadData()
+        getDataFromApi("", page: self.currentPage)
+    }
+
     
     // MARK: Private Methods
     private func registerCustomCell() {
