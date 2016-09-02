@@ -179,12 +179,38 @@ extension Service: JSONDecodable {
             self.images = nil
         }
     }
+    
+    var proxyForComparison: String {
+        get {
+            return id
+        }
+    }
 }
+
 
 func < (lhs: Service, rhs: Service) -> Bool {
     return lhs.name.localizedStandardCompare(rhs.name) == .OrderedAscending
 }
 
+
+func ==(lhs: Service, rhs: Service) -> Bool {
+    
+    guard (lhs.dynamicType == rhs.dynamicType) else {
+        return false
+    }
+    
+    return (lhs.proxyForComparison == rhs.proxyForComparison)
+}
+
+
+extension Service: Hashable {
+    
+    var hashValue: Int {
+        get {
+            return id.hashValue
+        }
+    }
+}
 
 
 

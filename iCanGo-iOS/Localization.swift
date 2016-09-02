@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: Messages.
+let pleaseWait = "Please wait..."
 let loginKoTitle = "Wrong login"
 let loginKoMessage = "Please, enter a valid email and password"
 let noConnectionTitle = "No internet connection"
