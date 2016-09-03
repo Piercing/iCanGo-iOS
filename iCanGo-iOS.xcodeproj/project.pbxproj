@@ -48,6 +48,7 @@
 		7924E66D1D3A88A900D758AD /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7924E66B1D3A88A900D758AD /* CircularImageView.swift */; };
 		7939EC421D3A400C009C5359 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7939EC411D3A400C009C5359 /* Extensions.swift */; };
 		793E1D2E1D32890B00A6324A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793E1D2D1D32890B00A6324A /* Utils.swift */; };
+		79A6D55C1D7AF2EC0049B254 /* URLSaS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A6D55B1D7AF2EC0049B254 /* URLSaS.swift */; };
 		79CA66DB1D36F73900C67E67 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CA66DA1D36F73900C67E67 /* MapKit.framework */; };
 		79CA66DD1D3703FB00C67E67 /* ServicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79CA66DC1D3703FB00C67E67 /* ServicesView.xib */; };
 		79F418211D043B36002131C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418201D043B36002131C7 /* AppDelegate.swift */; };
@@ -130,6 +131,7 @@
 		7924E66B1D3A88A900D758AD /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
 		7939EC411D3A400C009C5359 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		793E1D2D1D32890B00A6324A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		79A6D55B1D7AF2EC0049B254 /* URLSaS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSaS.swift; sourceTree = "<group>"; };
 		79CA66DA1D36F73900C67E67 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		79CA66DC1D3703FB00C67E67 /* ServicesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicesView.xib; sourceTree = "<group>"; };
 		79F4181D1D043B36002131C7 /* iCanGo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCanGo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -394,6 +396,7 @@
 				D368257F1D3FB51C00EDA31C /* ServiceAnnotationMap.swift */,
 				D3567BBF1D1BC38B00E5A5EE /* User.swift */,
 				D30844791D23AE1400A25CF4 /* Response.swift */,
+				79A6D55B1D7AF2EC0049B254 /* URLSaS.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				D37630F61D05CA770001E29F /* Service.swift in Sources */,
 				52D37E0A1D2ECC88009F2FC3 /* RoundedCorners.swift in Sources */,
 				D36825801D3FB51C00EDA31C /* ServiceAnnotationMap.swift in Sources */,
+				79A6D55C1D7AF2EC0049B254 /* URLSaS.swift in Sources */,
 				527F870F1D2B28BC00D0E1EC /* LocationViewController.swift in Sources */,
 				5295D2521D3462A9009F93E7 /* RegisterViewController.swift in Sources */,
 				7924E66C1D3A88A900D758AD /* CircularImageButton.swift in Sources */,

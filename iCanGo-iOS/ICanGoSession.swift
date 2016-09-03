@@ -148,6 +148,13 @@ extension Session {
         }
     }
     
+    // GET Url SaS.
+    func getUrlSaS(containerName: String, blobName: String) -> Observable<URLSaS> {
+        return response(APIRequest.getUrlSaS(key: "", containerName: containerName, blobName: blobName)).map { response in
+            return try self.returnUrlSaS(response)
+        }
+    }
+    
     // POST Login.
     func postLogin(user: String, password: String) -> Observable<User> {
         
@@ -306,6 +313,20 @@ extension Session {
         }
         
         return serviceImage
+    }
+    
+    private func returnUrlSaS(response: Response) throws -> URLSaS {
+        
+        guard response.error == "" else {
+            throw SessionError.errorAPIByDescription(response.error)
+        }
+        
+        guard let result = response.result,
+            urlSaS: URLSaS = decode(result) else {
+                throw SessionError.CouldNotDecodeJSON
+        }
+        
+        return urlSaS
     }
     
     private func returnUsers(response: Response) throws -> [User] {
