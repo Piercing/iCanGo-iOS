@@ -29,6 +29,10 @@ let serviceAddConfirmationMessage = "Do you want add this service?"
 let serviceAddMessage = "Service add successfully"
 let serviceAddKOMessage = "It's not possible add this service"
 let serviceAddFieldEmply = "These service data can't be empty"
+let serviceRequestedToAttendTitle = "Service request to attend"
+let serviceRequestedToAttendConfirmationMessage = "Do you want request to attend this service?"
+let serviceRequestedToAttendMessage = "Service request to attend successfully. Please wait for the owner's answer service"
+let serviceRequestedToAttendKOMessage = "It's not possible request to attend this service"
 
 
 // MARK: Texts.

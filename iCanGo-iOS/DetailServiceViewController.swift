@@ -10,12 +10,6 @@ import UIKit
 import MapKit
 import RxSwift
 
-// Protocolo for delegate.
-protocol DetailServiceProtocolDelegate {
-    func goBackAfterDeleteService(service: Service)
-}
-
-
 class DetailServiceViewController: UIViewController {
     
     // MARK: - Properties
@@ -41,9 +35,9 @@ class DetailServiceViewController: UIViewController {
     
     var popUpVIewController: PopUpImagesViewController?
     var selectImage =  UIImageView()
-    var delegate: DetailServiceProtocolDelegate?
     private var requestDataInProgress: Bool = false
     private var service: Service!
+    private var user: User!
 
     lazy var alertView: AlertView = {
         let alertView = AlertView()
@@ -56,6 +50,7 @@ class DetailServiceViewController: UIViewController {
     let userDefaultiCanGoNameImage = "userDefaultiCanGo"
     let emptyCameraNameImage = "1024-emptyCamera-center-ios"
     let popUpImagesNameImage = "PopUpImagesView"
+    let serviceId = "serviceId"
     
     
     // MARK: - Init
@@ -65,7 +60,6 @@ class DetailServiceViewController: UIViewController {
         
         // Initialize variables.
         self.service = service
-        self.delegate = nil
     }
     
     
@@ -107,7 +101,13 @@ class DetailServiceViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func btnContactPersonDetailService(sender: AnyObject) {
-        print("Tapped btn contact user Detail Service")
+        
+        let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
+            self.responseServiceAPI(self.service.id, status: StatusService.requestedToAttend.rawValue, idUserResponse: self.user.id)
+        })
+        let cancelAction = UIAlertAction(title: cancel, style: .Cancel, handler: nil)
+        let actions = [okAction, cancelAction]
+        showAlertWithActions(serviceRequestedToAttendTitle, message: serviceRequestedToAttendConfirmationMessage, controller: self, actions: actions)
     }
     
     @IBAction func btnDeleteServiceDetail(sender: AnyObject) {
@@ -204,6 +204,58 @@ class DetailServiceViewController: UIViewController {
     
     
     // MARK - Private Methods
+    private func responseServiceAPI(id: String, status: UInt, idUserResponse: String) -> Void {
+        
+        if !isConnectedToNetwork() {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
+        
+        if requestDataInProgress {
+            return
+        }
+        
+        requestDataInProgress = true
+        alertView.displayView(view, withTitle: pleaseWait)
+        
+        let session = Session.iCanGoSession()
+        let _ = session.putChangeServiceStatus(id, status: status, idUserResponse: idUserResponse)
+            
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                switch event {
+                case let .Next(service):
+                    self!.alertView.hideView()
+                    self?.requestDataInProgress = false
+
+                    if service.status == StatusService.pending.rawValue {
+                        let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
+                            self!.navigationController?.popToRootViewControllerAnimated(true)
+                            NSNotificationCenter.defaultCenter().postNotificationName(notificationKeyServicesChange,
+                                object: self, userInfo: [self!.serviceId: service.id])
+                            self!.tabBarController!.selectedIndex = 0
+                        })
+                        let actions = [okAction]
+                        showAlertWithActions(serviceRequestedToAttendTitle, message: serviceRequestedToAttendMessage, controller: self!, actions: actions)
+                        
+                    } else {
+                        showAlert(serviceRequestedToAttendTitle, message: serviceRequestedToAttendKOMessage, controller: self!)
+                    }
+                    
+                case .Error (let error):
+                    self!.alertView.hideView()
+                    self?.requestDataInProgress = false
+                    showAlert(serviceRequestedToAttendTitle, message: serviceRequestedToAttendKOMessage, controller: self!)
+                    print(error)
+                    
+                default:
+                    self!.alertView.hideView()
+                    self?.requestDataInProgress = false
+                }
+        }
+    }
+    
     private func deteteServiceAPI(id: String) -> Void {
         
         if !isConnectedToNetwork() {
@@ -232,13 +284,12 @@ class DetailServiceViewController: UIViewController {
                     if service.deleted {
                         let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
                             self!.navigationController?.popToRootViewControllerAnimated(true)
-                            if let delegate = self!.delegate {
-                                delegate.goBackAfterDeleteService(service)
-                            }})
-                        
+                            NSNotificationCenter.defaultCenter().postNotificationName(notificationKeyServicesChange,
+                                object: self, userInfo: [self!.serviceId: service.id])
+                            self!.tabBarController!.selectedIndex = 0
+                        })
                         let actions = [okAction]
-                        showAlertWithActions(serviceDeleteTitle, message: serviceDeleteMessage, controller: self!, actions: actions)
-                    
+                        showAlertWithActions(serviceDeleteTitle, message: serviceDeleteMessage, controller: self!, actions: actions)                    
                     } else {
                         showAlert(serviceDeleteTitle, message: serviceDeleteKOMessage, controller: self!)
                     }
@@ -312,6 +363,8 @@ class DetailServiceViewController: UIViewController {
         addressText.hidden = true
         clearServiceDetailBtn.enabled = false
         clearServiceDetailBtn.hidden = true
+        contactPersonDetailServiceBtn.enabled = false
+        contactPersonDetailServiceBtn.hidden = true
         contactPersonDetailServiceBtn.setImage(nil, forState: UIControlState.Normal)
     }
     
@@ -377,15 +430,22 @@ class DetailServiceViewController: UIViewController {
             }
         }
         
-        // Show delete service
-        if (service.status == 0 && !service.deleted) {
-            let user: User = loadUserAuthInfo()
+        if (service.status == StatusService.pending.rawValue && !service.deleted) {
+            self.user = loadUserAuthInfo()
             if user.id != "" {
+
+                // Validate enabled button response Service.
+                if service.idUserRequest != user.id {
+                    contactPersonDetailServiceBtn.enabled = true
+                    contactPersonDetailServiceBtn.hidden = false
+                }
+                
+                // Show delete service
                 if service.idUserRequest == user.id {
                     clearServiceDetailBtn.enabled = true
                     clearServiceDetailBtn.hidden = false
                 }
             }
         }
-    }    
+    }
 }

@@ -29,8 +29,17 @@ class LocationViewController: UIViewController {
     // MARK: - Init
     convenience init() {
         self.init(nibName: "LocationView", bundle: nil)
+        
+        // Add as observer
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LocationViewController.refreshServiceInMap(_:)),
+                                                         name: notificationKeyServicesChange,
+                                                         object: nil)
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: notificationKeyServicesChange, object: nil)
+    }
+
     
     // MARK: - View LifeCycle
     override func viewDidLoad() {
@@ -57,14 +66,7 @@ class LocationViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        if let statusLocation = statusLocation {
-            checkStatusAndGetData(statusLocation, searchText: nil)
-        }
-    }
-
-    override func viewWillDisappear(animated: Bool) {
-        locationManager?.stopUpdatingLocation()
+        checkStatusAndGetData(statusLocation, searchText: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,14 +75,14 @@ class LocationViewController: UIViewController {
     }
     
     
+    // MARK: Notification Methods
+    func refreshServiceInMap(notification: NSNotification) {
+        checkStatusAndGetData(statusLocation, searchText: searchBarLocation.text == "" ? nil : searchBarLocation.text)
+    }
+
+    
     // MARK: - Actions
     @IBAction func reloadServices(sender: AnyObject) {
-        
-        guard let statusLocation = statusLocation else {
-            return
-        }
-        
-        //checkStatusAndGetData(statusLocation, getData: true, searchText: searchBarLocation.text == "" ? nil : searchBarLocation.text)
         checkStatusAndGetData(statusLocation, searchText: searchBarLocation.text == "" ? nil : searchBarLocation.text)
     }
     
@@ -98,26 +100,22 @@ class LocationViewController: UIViewController {
         }
     }
     
-    private func zoomToMyPosition() {
-        
-        if statusLocation == CLAuthorizationStatus.AuthorizedAlways || statusLocation == CLAuthorizationStatus.AuthorizedWhenInUse {
-
-            var userRegion: MKCoordinateRegion = MKCoordinateRegion()
-            userRegion.center.latitude = (locationManager?.location?.coordinate.latitude)!
-            userRegion.center.longitude = (locationManager?.location?.coordinate.longitude)!
-            userRegion.span.latitudeDelta = spanInMap
-            userRegion.span.longitudeDelta = spanInMap
-            mapView.setRegion(userRegion, animated: true)
-        }
-    }
     
+    // MARK: - Private Methods
     private func getDataFromApi(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?) -> Void {
         
+        if !isConnectedToNetwork() {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
+
         if requestDataInProgress {
             return
         }
         
         requestDataInProgress = true
+        starActivityIndicator()
+        
         let session = Session.iCanGoSession()
         let _ = session.getServices(
             latitude,
@@ -126,12 +124,12 @@ class LocationViewController: UIViewController {
             searchText: searchText,
             page: 1,
             rows: rowsPerPage)
-        
+            
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
                 self!.stopActivityIndicator()
-                        
+                
                 switch event {
                 case let .Next(services):
                     self?.requestDataInProgress = false
@@ -145,14 +143,28 @@ class LocationViewController: UIViewController {
                 case .Error (let error):
                     self?.requestDataInProgress = false
                     print(error)
-                
+                    
                 default:
                     self?.requestDataInProgress = false
                 }
-            }
-    
+        }
+        
+    }
+
+    private func starActivityIndicator() {
+        
+        actionStarted(activityIndicatorView)
+        updatePins.enabled = false
+        updatePins.hidden = true
     }
     
+    private func stopActivityIndicator() {
+        
+        actionFinished(activityIndicatorView)
+        updatePins.enabled = true
+        updatePins.hidden = false
+    }
+
     private func showServicesInMap() -> Void {
         
         let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.userLocation }
@@ -165,14 +177,22 @@ class LocationViewController: UIViewController {
             mapView.addAnnotation(serviceAnnotationMap)
         }
     }
-    
-    private func checkStatusAndGetData(status: CLAuthorizationStatus, searchText: String?) {
+
+    private func checkStatusAndGetData(status: CLAuthorizationStatus?, searchText: String?) {
+        
+        guard let status = status else {
+            return
+        }
+        
         if !checkLocationStatus(status) {
             return
         }
+        
+        services?.removeAll()
+        showServicesInMap()
         getData(searchText)
     }
-    
+
     private func checkLocationStatus(status: CLAuthorizationStatus) -> Bool {
         
         if status == .NotDetermined {
@@ -187,7 +207,7 @@ class LocationViewController: UIViewController {
         
         return true
     }
-    
+
     private func getData(searchText: String?) {
         
         // Programación defensiva
@@ -195,27 +215,20 @@ class LocationViewController: UIViewController {
             return
         }
         
-        if !isConnectedToNetwork() {
-            return
-        }
-        
-        starActivityIndicator()
-        
         getDataFromApi(latitude, longitude: longitude, distance: distanceSearchService, searchText: searchText == nil ? searchText : searchText!)
     }
-    
-    private func starActivityIndicator() {
-       
-        actionStarted(activityIndicatorView)
-        updatePins.enabled = false
-        updatePins.hidden = true
-    }
-    
-    private func stopActivityIndicator() {
+
+    private func zoomToMyPosition() {
         
-        actionFinished(activityIndicatorView)
-        updatePins.enabled = true
-        updatePins.hidden = false
+        if statusLocation == CLAuthorizationStatus.AuthorizedAlways || statusLocation == CLAuthorizationStatus.AuthorizedWhenInUse {
+            
+            var userRegion: MKCoordinateRegion = MKCoordinateRegion()
+            userRegion.center.latitude = (locationManager?.location?.coordinate.latitude)!
+            userRegion.center.longitude = (locationManager?.location?.coordinate.longitude)!
+            userRegion.span.latitudeDelta = spanInMap
+            userRegion.span.longitudeDelta = spanInMap
+            mapView.setRegion(userRegion, animated: true)
+        }
     }
 }
 
@@ -274,7 +287,6 @@ extension LocationViewController: MKMapViewDelegate {
         if let serviceAnnotationMap = view.annotation as? ServiceAnnotationMap {
             
             let detailServiceViewController = DetailServiceViewController(service: serviceAnnotationMap.service)
-            detailServiceViewController.delegate = self
             self.navigationController?.pushViewController(detailServiceViewController, animated: true)
         }
     }
@@ -296,9 +308,7 @@ extension LocationViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
         searchBar.endEditing(true)
-        services?.removeAll()
-        showServicesInMap()
-        checkStatusAndGetData(statusLocation!, searchText: searchBarLocation.text!)
+        checkStatusAndGetData(statusLocation, searchText: searchBarLocation.text!)
     }
     
     func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
@@ -317,9 +327,7 @@ extension LocationViewController: UISearchBarDelegate {
         
         deActivateSearchBar()
         searchBar.text = ""
-        services?.removeAll()
-        showServicesInMap()
-        checkStatusAndGetData(statusLocation!, searchText: nil)
+        checkStatusAndGetData(statusLocation, searchText: nil)
     }
     
     func deActivateSearchBar() {
@@ -349,23 +357,4 @@ extension LocationViewController: UISearchBarDelegate {
     }
 }
 
-
-// MARK: - Extensions - Detail Service Protocol Delete Service.
-extension LocationViewController: DetailServiceProtocolDelegate {
-    
-    func goBackAfterDeleteService(service: Service) {
-        
-        // Search service in array of services.
-        let deletedServicesID = service.id
-        var index: Int = 0
-        for service in services! {
-            if service.id == deletedServicesID {
-                services?.removeAtIndex(index)
-                showServicesInMap()
-                break
-            }
-            index += 1
-        }
-    }
-}
 

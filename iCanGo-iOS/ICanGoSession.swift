@@ -247,6 +247,18 @@ extension Session {
         }
     }
     
+    func putChangeServiceStatus(id: String,
+                            status: UInt,
+                    idUserResponse: String) -> Observable<Service> {
+        
+        return response(APIRequest.putChangeServiceStatus(id: id,
+                                              idUserResponse: idUserResponse,
+                                                      status: status)).map { response in
+
+            return try self.returnService(response)
+        }
+    }
+    
     // DELETE Service.
     func deleteService(id: String) -> Observable<Service> {
         

@@ -26,6 +26,7 @@ enum APIRequest {
     case postService(name: String, description: String, price: Double, tags: String?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
     case postServiceImage(id: String, imageUrl: NSURL)
     case putService(id: String, name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
+    case putChangeServiceStatus(id: String, idUserResponse: String, status: UInt)
     case deleteServiceById(key: String, id: String)
 }
 
@@ -51,7 +52,8 @@ extension APIRequest: Resource {
              .postService,
              .postServiceImage:
             return Method.POST
-        case .putService:
+        case .putService,
+             .putChangeServiceStatus:
             return Method.PUT
         case .deleteServiceById:
             return Method.DELETE
@@ -95,6 +97,8 @@ extension APIRequest: Resource {
             return "images/"
         case let .putService(id, _, _, _, _, _, _, _, _, _):
             return "services/\(id)"
+        case let .putChangeServiceStatus(id, _, status):
+            return "services/\(id)/status/\(status)"
         case let .deleteServiceById(_, id):
             return "services/\(id)"
         }
@@ -226,6 +230,12 @@ extension APIRequest: Resource {
                     "longitude": longitude != nil ? String(format:"%f", longitude!) : "",
                     "address": address != nil ? address! : "",
                     "status": status != nil ? String(status!) : ""]
+            
+        case let .putChangeServiceStatus(
+            id: _,
+            idUserResponse: idUserResponse,
+            status: _):
+            return ["idUserResponse": idUserResponse]
             
         case .deleteServiceById:
             return [:]

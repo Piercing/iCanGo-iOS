@@ -54,7 +54,7 @@
             <subviews>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="McM-Ho-d7T">
                     <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                    <color key="barTintColor" red="0.16078431372549021" green="0.56862745098039214" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="barTintColor" red="0.16078431369999999" green="0.56862745100000001" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                     <textAttributes key="titleTextAttributes">
                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,7 +86,7 @@
                                     <color key="textColor" red="0.12156862745098039" green="0.53725490196078429" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Zd-uB-Jzc">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Service's title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Zd-uB-Jzc">
                                     <rect key="frame" x="8" y="38" width="584" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="CZB-e4-7XW"/>
@@ -144,7 +144,7 @@
                                     <color key="textColor" red="0.1215686275" green="0.53725490200000003" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Palo Alto Networks 4401 Great America Parkway Santa Clara, CA 95054" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edX-9B-9CQ">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Service's address..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edX-9B-9CQ">
                                     <rect key="frame" x="8" y="266" width="584" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="aaa-S4-pwH"/>
