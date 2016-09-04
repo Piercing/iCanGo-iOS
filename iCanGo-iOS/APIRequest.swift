@@ -97,8 +97,8 @@ extension APIRequest: Resource {
             return "images/"
         case let .putService(id, _, _, _, _, _, _, _, _, _):
             return "services/\(id)"
-        case let .putChangeServiceStatus(id, _, status):
-            return "services/\(id)/status/\(status)"
+        case let .putChangeServiceStatus(id, _, _):
+            return "services/\(id)/status"
         case let .deleteServiceById(_, id):
             return "services/\(id)"
         }
@@ -234,8 +234,9 @@ extension APIRequest: Resource {
         case let .putChangeServiceStatus(
             id: _,
             idUserResponse: idUserResponse,
-            status: _):
-            return ["idUserResponse": idUserResponse]
+            status: status):
+            return ["idUserResponse": idUserResponse,
+                    "status": String(status)]
             
         case .deleteServiceById:
             return [:]

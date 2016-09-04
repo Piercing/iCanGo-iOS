@@ -229,12 +229,12 @@ class DetailServiceViewController: UIViewController {
                     self!.alertView.hideView()
                     self?.requestDataInProgress = false
 
-                    if service.status == StatusService.pending.rawValue {
+                    if service.status == StatusService.requestedToAttend.rawValue {
                         let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
                             self!.navigationController?.popToRootViewControllerAnimated(true)
                             NSNotificationCenter.defaultCenter().postNotificationName(notificationKeyServicesChange,
                                 object: self, userInfo: [self!.serviceId: service.id])
-                            self!.tabBarController!.selectedIndex = 0
+                            self!.navigationController?.popViewControllerAnimated(true)
                         })
                         let actions = [okAction]
                         showAlertWithActions(serviceRequestedToAttendTitle, message: serviceRequestedToAttendMessage, controller: self!, actions: actions)
@@ -286,7 +286,7 @@ class DetailServiceViewController: UIViewController {
                             self!.navigationController?.popToRootViewControllerAnimated(true)
                             NSNotificationCenter.defaultCenter().postNotificationName(notificationKeyServicesChange,
                                 object: self, userInfo: [self!.serviceId: service.id])
-                            self!.tabBarController!.selectedIndex = 0
+                            self!.navigationController?.popViewControllerAnimated(true)
                         })
                         let actions = [okAction]
                         showAlertWithActions(serviceDeleteTitle, message: serviceDeleteMessage, controller: self!, actions: actions)                    

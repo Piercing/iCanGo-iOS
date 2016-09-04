@@ -77,6 +77,11 @@ class LocationViewController: UIViewController {
     
     // MARK: Notification Methods
     func refreshServiceInMap(notification: NSNotification) {
+        
+        guard let statusLocation = statusLocation else {
+            return
+        }
+        
         checkStatusAndGetData(statusLocation, searchText: searchBarLocation.text == "" ? nil : searchBarLocation.text)
     }
 
