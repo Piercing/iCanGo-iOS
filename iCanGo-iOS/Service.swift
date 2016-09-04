@@ -34,6 +34,16 @@ enum JSONKeysService: String {
     case numAttendedServices = "numAttendedServices"
 }
 
+enum StatusService: UInt {
+    case pending = 0
+    case requestedToAttend = 1
+    case acceptedToAttend = 2
+    case inProgress = 3
+    case finished = 4
+    case confirmed = 5
+    case cancelled = 6    
+}
+
 struct Service {
     let id: String
     let name: String

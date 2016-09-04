@@ -90,9 +90,9 @@ class AlertView: UIView {
         
         super.updateConstraints()
         addConstraint(NSLayoutConstraint(item: self, attribute: .Height, relatedBy: .Equal,
-            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 120.0))
+            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: self.window!.frame.height))
         addConstraint(NSLayoutConstraint(item: self, attribute: .Width, relatedBy: .Equal,
-            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 200.0))
+            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: self.window!.frame.width))
         addConstraint(NSLayoutConstraint(item: view, attribute: .Top, relatedBy: .Equal,
             toItem: self, attribute: .Top, multiplier: 1.0, constant: 0.0))
         addConstraint(NSLayoutConstraint(item: view, attribute: .Bottom, relatedBy: .Equal,
