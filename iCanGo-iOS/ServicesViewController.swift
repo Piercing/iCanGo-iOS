@@ -213,7 +213,6 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     func showModal(index: Int) {
         
         let detailServiceViewController = DetailServiceViewController(service: services![index])
-        detailServiceViewController.delegate = self
         self.navigationController?.pushViewController(detailServiceViewController, animated: true)
     }
     
@@ -251,20 +250,3 @@ extension ServicesViewController: UICollectionViewDataSource, UICollectionViewDe
     }
 }
 
-extension ServicesViewController: DetailServiceProtocolDelegate {
-    
-    func goBackAfterDeleteService(service: Service) {
-        
-        // Search service in array of services.
-        let deletedServicesID = service.id
-        var index: Int = 0
-        for service in services! {
-            if service.id == deletedServicesID {
-                services?.removeAtIndex(index)
-                self.servicesCollectionView.reloadData()
-                break
-            }
-            index += 1
-        }
-    }
-}
