@@ -41,6 +41,7 @@ let attendedText = "Attended"
 let cancel = "Cancel"
 let next = "Next"
 let ok = "Ok"
+let servicesText = "Services"
 
 
 // MARK: Time zone.
@@ -56,6 +57,7 @@ let servicesListVC = "All Services"
 let detailServiceTitleVC = "Detail Service"
 let locationTitleVC = "Location"
 let addServiceTitleVC = "Add Service"
+let myProfileTitleVC = "My Profile"
 
 
 

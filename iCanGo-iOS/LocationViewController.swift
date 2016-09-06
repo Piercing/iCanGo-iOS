@@ -15,7 +15,6 @@ class LocationViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBarLocation: UISearchBar!
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var updatePins: UIButton!
     
     private var services: [Service]?
@@ -25,6 +24,11 @@ class LocationViewController: UIViewController {
     private var updatingLocation: Bool = true
     private var numberUpdatesPosition: UInt = 0
     
+    lazy var alertView: AlertView = {
+        let alertView = AlertView()
+        return alertView
+    }()
+
     
     // MARK: - Init
     convenience init() {
@@ -51,7 +55,6 @@ class LocationViewController: UIViewController {
         services = [Service]()
         searchBarLocation.resignFirstResponder()
         searchBarLocation.delegate = self
-        activityIndicatorView.hidden = true
         
         // Configure MapView.
         mapView.delegate = self
@@ -63,10 +66,17 @@ class LocationViewController: UIViewController {
         locationManager?.startUpdatingLocation()
         updatingLocation = true
         numberUpdatesPosition = 0
+
+        checkStatusAndGetData(statusLocation, searchText: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        checkStatusAndGetData(statusLocation, searchText: nil)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !isConnectedToNetwork() {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,7 +88,7 @@ class LocationViewController: UIViewController {
     // MARK: Notification Methods
     func refreshServiceInMap(notification: NSNotification) {
         
-        guard let statusLocation = statusLocation else {
+        if !self.isViewLoaded() {
             return
         }
         
@@ -119,7 +129,7 @@ class LocationViewController: UIViewController {
         }
         
         requestDataInProgress = true
-        starActivityIndicator()
+        alertView.displayView(view, withTitle: pleaseWait)
         
         let session = Session.iCanGoSession()
         let _ = session.getServices(
@@ -133,7 +143,7 @@ class LocationViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
-                self!.stopActivityIndicator()
+                self!.alertView.hideView()
                 
                 switch event {
                 case let .Next(services):
@@ -155,21 +165,7 @@ class LocationViewController: UIViewController {
         }
         
     }
-
-    private func starActivityIndicator() {
-        
-        actionStarted(activityIndicatorView)
-        updatePins.enabled = false
-        updatePins.hidden = true
-    }
     
-    private func stopActivityIndicator() {
-        
-        actionFinished(activityIndicatorView)
-        updatePins.enabled = true
-        updatePins.hidden = false
-    }
-
     private func showServicesInMap() -> Void {
         
         let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.userLocation }

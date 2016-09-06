@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,16 +7,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyProfileViewController" customModule="iCanGo_iOS" customModuleProvider="target">
             <connections>
-                <outlet property="btnEditLogProfile" destination="fLK-ja-aOJ" id="4rl-3m-A0M"/>
-                <outlet property="labelLocalizationUser" destination="d3P-ew-xaA" id="HjP-ES-Naw"/>
-                <outlet property="labelPerformedAmount" destination="NdH-j5-dcc" id="Hye-RN-u0a"/>
-                <outlet property="labelPublishedAmount" destination="QdH-YK-EH3" id="tNM-oe-zgs"/>
+                <outlet property="btnEditLogProfile" destination="fLK-ja-aOJ" id="qiI-yY-cp9"/>
+                <outlet property="labelEmailUser" destination="d3P-ew-xaA" id="uHm-BY-YaE"/>
+                <outlet property="labelPublishedAttendedAmount" destination="NdH-j5-dcc" id="7mW-3M-pRY"/>
+                <outlet property="labelPublishedAttendedText" destination="QdH-YK-EH3" id="q7A-td-t5w"/>
                 <outlet property="labelSeparator" destination="mc9-wg-bNO" id="cxV-WK-IWn"/>
                 <outlet property="labelService" destination="11R-5C-WCH" id="cQD-LJ-Mhr"/>
                 <outlet property="labelUserName" destination="hB7-zN-fKu" id="6aC-ww-w7S"/>
                 <outlet property="myProfileCollecionView" destination="yC2-tU-Gan" id="eoW-xt-FJR"/>
-                <outlet property="myProfileSearchesTableView" destination="m01-iZ-Ivx" id="Jjg-lF-MzH"/>
                 <outlet property="segmentControlMyProfile" destination="YAd-Sh-vpf" id="rNa-MW-pUR"/>
+                <outlet property="userPhotoView" destination="nAX-cI-lDH" id="CaF-nx-XTS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,50 +25,50 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chica03" translatesAutoresizingMaskIntoConstraints="NO" id="nAX-cI-lDH" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userDefaultiCanGo" translatesAutoresizingMaskIntoConstraints="NO" id="nAX-cI-lDH" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
                     <rect key="frame" x="8" y="89" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="YS1-pe-KBp"/>
                         <constraint firstAttribute="width" constant="80" id="oix-9P-5kP"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNy-am-mGQ" userLabel="labelUserName">
-                    <rect key="frame" x="105" y="89" width="74" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNy-am-mGQ" userLabel="Label User Name">
+                    <rect key="frame" x="105" y="89" width="31.5" height="21"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                     <color key="textColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Localization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opS-3O-Ldb" userLabel="lalberLocalization">
-                    <rect key="frame" x="105" y="110" width="81" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opS-3O-Ldb" userLabel="Label User Email">
+                    <rect key="frame" x="105" y="110" width="38" height="21"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                     <color key="textColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="LabelUserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="hB7-zN-fKu">
-                    <rect key="frame" x="194" y="89" width="103" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="LabelUserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="hB7-zN-fKu" userLabel="Label User Name Text">
+                    <rect key="frame" x="151.5" y="89" width="103" height="20"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="LabelLocalizationUser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="d3P-ew-xaA">
-                    <rect key="frame" x="194" y="111" width="140" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="LabelLocalizationUser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="d3P-ew-xaA" userLabel="Label User Email Text">
+                    <rect key="frame" x="151" y="111" width="140" height="20"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Services" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11R-5C-WCH" userLabel="lalberLocalization">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Services" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11R-5C-WCH" userLabel="Label Services">
                     <rect key="frame" x="105" y="145" width="57" height="21"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                     <color key="textColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QdH-YK-EH3">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QdH-YK-EH3" userLabel="Label Published Attended">
                     <rect key="frame" x="105" y="167" width="81" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="81" id="HYw-H6-s4p"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.16078431369999999" green="0.56862745100000001" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yC2-tU-Gan">
@@ -93,16 +93,10 @@
                     </textAttributes>
                     <items>
                         <navigationItem title="My Profile" id="Cmo-wZ-qJm">
-                            <barButtonItem key="leftBarButtonItem" systemItem="edit" id="aVD-Gv-Z98" userLabel="Edit My Profile">
+                            <barButtonItem key="rightBarButtonItem" systemItem="compose" id="fLK-ja-aOJ" userLabel="Btn Edit My Profile">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="btnEditMyProfile:" destination="-1" id="CZU-Io-a3g"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="fLK-ja-aOJ" userLabel="Btn Cancel My Profile">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="cancelMyProfile:" destination="-1" id="2ga-35-422"/>
+                                    <action selector="btnEditMyProfile:" destination="-1" id="XbK-Id-CQW"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>
@@ -119,7 +113,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NdH-j5-dcc">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NdH-j5-dcc" userLabel="Label Published Attended Amount">
                     <rect key="frame" x="197" y="167" width="81" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="81" id="TAG-9W-WSu"/>
@@ -150,10 +144,6 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m01-iZ-Ivx">
-                    <rect key="frame" x="0.0" y="241" width="600" height="359"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -187,10 +177,10 @@
                 <constraint firstItem="hB7-zN-fKu" firstAttribute="leading" secondItem="cNy-am-mGQ" secondAttribute="trailing" constant="15" id="ze3-CZ-r9Q"/>
                 <constraint firstItem="bFr-VW-xee" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zj1-kq-L8G"/>
             </constraints>
-            <point key="canvasLocation" x="1335" y="293"/>
+            <point key="canvasLocation" x="1141" y="247"/>
         </view>
     </objects>
     <resources>
-        <image name="chica03" width="82" height="82"/>
+        <image name="userDefaultiCanGo" width="48" height="48"/>
     </resources>
 </document>
