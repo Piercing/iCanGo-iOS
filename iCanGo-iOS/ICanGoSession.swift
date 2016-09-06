@@ -95,9 +95,9 @@ extension Session {
     }
     
     // GET Services from Users.
-    func getUserServices(id: String, page: UInt) -> Observable<[Service]> {
+    func getUserServices(id: String, page: UInt, rows: UInt) -> Observable<[Service]> {
         
-        return response(APIRequest.getUserServices(key: "", id: id, page: page)).map { response in
+        return response(APIRequest.getUserServices(key: "", id: id, page: page, rows: rows)).map { response in
             
             return try self.returnServices(response)
         }

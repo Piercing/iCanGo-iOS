@@ -15,36 +15,34 @@ class MyProfileCell: UICollectionViewCell {
     @IBOutlet weak var labelPriceMyProfileCell: UILabel!
     @IBOutlet weak var labelDescriptionMyProfileCell: UILabel!
     
-    var myProfile: Service? {
+    var service: Service? {
         didSet {
-            if let myProfile = myProfile {
-                //imageServiceMyProfileCell.image = myProfile.image
-                labelPriceMyProfileCell.text = myProfile.price.asLocaleCurrency
-                labelDescriptionMyProfileCell.text = myProfile.description
+            if let service = service {
+                
+                labelPriceMyProfileCell.text = service.price.asLocaleCurrency
+                labelDescriptionMyProfileCell.text = service.description
+                
+                // Load default images.
+                imageServiceMyProfileCell.image = UIImage.init(named: "iCanGoEmptyImage-560x")
+                imageUserMyProfileCell.image = UIImage.init(named: "userDefaultiCanGo")
+                
+                // load the image asynchronous
+                if service.mainImage != nil {
+                    loadImage(service.mainImage!, imageView: imageServiceMyProfileCell, withAnimation: true)
+                }
+                
+                if service.ownerImage != nil {
+                    loadImage(service.ownerImage!, imageView: imageUserMyProfileCell, withAnimation: true)
+                }
+
             }
         }
-    }
-    
-    var myProfilePhotoUser: Service? {
-        
-        didSet {
-            if myProfilePhotoUser != nil {
-                //imageUserMyProfileCell.image = myProfilePhotoUser.image
-            }
-        }
-    }
-    
-    // MARK: - Actions
-    @IBAction func btnFavouritesMyProfileCell(sender: AnyObject) {
-        print("Tapped buttom favourites My profile")
     }
     
     @IBAction func myProfileCell(sender: AnyObject) {
         delegate.didSelectCellButtomTapped(self)
-        print("Tapped My profile cell")
     }
 }
-
 
 
 

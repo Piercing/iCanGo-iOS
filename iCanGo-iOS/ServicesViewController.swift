@@ -6,12 +6,16 @@ class ServicesViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var servicesCollectionView: UICollectionView!
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     private var requestDataInProgress: Bool = false
     private var currentPage: UInt = 1
     private var services: [Service]?
     
+    lazy var alertView: AlertView = {
+        let alertView = AlertView()
+        return alertView
+    }()
+
     
     // MARK: - Constants
     let cellId = "serviceCell"
@@ -56,6 +60,14 @@ class ServicesViewController: UIViewController {
         getDataFromApi("", page: self.currentPage)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !isConnectedToNetwork() {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -97,16 +109,17 @@ class ServicesViewController: UIViewController {
             return
         }
 
-        actionStarted(activityIndicatorView)
         requestDataInProgress = true
+        alertView.displayView(view, withTitle: pleaseWait)
+        
         let session = Session.iCanGoSession()
         let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind, page: page, rows: rowsPerPage)
                     
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                         
-                actionFinished(self!.activityIndicatorView)
-                        
+                self!.alertView.hideView()
+                
                 switch event {
                 case let .Next(services):
                     self?.requestDataInProgress = false
