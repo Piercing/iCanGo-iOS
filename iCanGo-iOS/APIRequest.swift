@@ -9,8 +9,8 @@
 import Foundation
 
 enum APIRequest {
-    case getServices(key: String, latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?, page: UInt, rows: UInt)
-    case getServicesByStatus(key: String, status: UInt, page: UInt, rows: UInt)
+    case getServices(key: String, latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?, page: UInt, rows: UInt, deleted: UInt)
+    case getServicesByStatus(key: String, status: UInt, page: UInt, rows: UInt, deleted: UInt)
     case getServiceById(key: String, id: String)
     case getServiceImages(key: String, id: String)
     case getUsers(key: String, page: UInt)
@@ -106,35 +106,39 @@ extension APIRequest: Resource {
     
     var parameters: [String: String] {
         switch self {
-        case let .getServices(_, latitude, longitude, distance, searchText, page, rows):
+        case let .getServices(_, latitude, longitude, distance, searchText, page, rows, deleted):
             if let latitude = latitude, longitude = longitude, distance = distance, searchText = searchText {
                 return ["latitude": String(format:"%f", latitude),
                         "longitude": String(format:"%f", longitude),
                         "distance": String(distance),
                         "searchText": searchText,
                         "page": String(page),
-                        "rows": String(rows)]
+                        "rows": String(rows),
+                        "deleted": String(deleted)]
             } else {
                 if let latitude = latitude, longitude = longitude, distance = distance {
                     return ["latitude": String(format:"%f", latitude),
                             "longitude": String(format:"%f", longitude),
                             "distance": String(distance),
                             "page": String(page),
-                            "rows": String(rows)]
+                            "rows": String(rows),
+                            "deleted": String(deleted)]
                 } else {
                     if let searchText = searchText {
                         return ["searchText": searchText,
                                 "page": String(page),
-                                "rows": String(rows)]
+                                "rows": String(rows),
+                                "deleted": String(deleted)]
                     } else {
                         return ["rows": String(rows),
-                                "page": String(page)]
+                                "page": String(page),
+                                "deleted": String(deleted)]
                     }
                 }
             }
             
-        case let .getServicesByStatus(_, status, page, rows):
-            return ["status": String(status), "page": String(page), "rows": String(rows)]
+        case let .getServicesByStatus(_, status, page, rows, deleted):
+            return ["status": String(status), "page": String(page), "rows": String(rows), "deleted": String(deleted)]
             
         case .getServiceById:
             return [:]

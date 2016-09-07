@@ -45,7 +45,8 @@ extension Session {
 extension Session {
     
     // GET Services.
-    func getServices(latitude: Double?, longitude: Double?, distance: UInt?, searchText: String?, page: UInt, rows: UInt) -> Observable<[Service]> {
+    func getServices(latitude: Double?, longitude: Double?, distance: UInt?,
+                     searchText: String?, page: UInt, rows: UInt, deleted: UInt) -> Observable<[Service]> {
         
         return response(APIRequest.getServices(key: "",
             latitude: latitude,
@@ -53,15 +54,16 @@ extension Session {
             distance: distance,
             searchText: searchText,
             page: page,
-            rows: rows)).map { response in
+            rows: rows,
+            deleted: deleted)).map { response in
                 return try self.returnServices(response)
         }
     }
     
     // GET Services by Status.
-    func getServicesByStatus(status: UInt, page: UInt, rows: UInt) -> Observable<[Service]> {
+    func getServicesByStatus(status: UInt, page: UInt, rows: UInt, deleted: UInt) -> Observable<[Service]> {
         
-        return response(APIRequest.getServicesByStatus(key: "", status: status, page: page, rows: rows)).map { response in
+        return response(APIRequest.getServicesByStatus(key: "", status: status, page: page, rows: rows, deleted: deleted)).map { response in
             
             return try self.returnServices(response)
         }

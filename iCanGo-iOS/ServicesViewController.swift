@@ -113,7 +113,8 @@ class ServicesViewController: UIViewController {
         alertView.displayView(view, withTitle: pleaseWait)
         
         let session = Session.iCanGoSession()
-        let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind, page: page, rows: rowsPerPage)
+        let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind,
+                                    page: page, rows: rowsPerPage, deleted: DeletedService.notDeleted.rawValue)
                     
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
