@@ -28,12 +28,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="iCanGoLogotype" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-Ae-jyS">
-                                <rect key="frame" x="77" y="164" width="447" height="202"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="202" id="NBo-KI-OdX"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCanGo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUG-jB-FCA">
                                 <rect key="frame" x="212" y="374" width="177" height="55"/>
                                 <constraints>
@@ -44,6 +38,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="FINALogoIcanGoApp" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-Ae-jyS">
+                                <rect key="frame" x="77" y="164" width="447" height="202"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="202" id="NBo-KI-OdX"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -68,6 +68,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iCanGoLogotype" width="1024" height="1024"/>
+        <image name="FINALogoIcanGoApp" width="1024" height="1024"/>
     </resources>
 </document>

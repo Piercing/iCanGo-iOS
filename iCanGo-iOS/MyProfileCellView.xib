@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -26,7 +26,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upz-wY-ykc" userLabel="View Image Service">
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="120"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iCanGoEmptyImage-560x" translatesAutoresizingMaskIntoConstraints="NO" id="pBD-xQ-yYm">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FINALogoIcanGoApp" translatesAutoresizingMaskIntoConstraints="NO" id="pBD-xQ-yYm">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="Wfx-dj-7hA"/>
@@ -107,7 +107,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="iCanGoEmptyImage-560x" width="560" height="560"/>
+        <image name="FINALogoIcanGoApp" width="1024" height="1024"/>
         <image name="userDefaultiCanGo" width="48" height="48"/>
     </resources>
 </document>
