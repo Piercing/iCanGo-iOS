@@ -87,7 +87,8 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
         navVCServices.navigationBarHidden = true
         let navVCLocation = UINavigationController(rootViewController: locationViewController)
         navVCLocation.navigationBarHidden = true
-        
+        let navVCMyProfile = UINavigationController(rootViewController: myProfileViewController)
+        navVCMyProfile.navigationBarHidden = true
         
         let controllers =
             [
@@ -95,7 +96,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
                 navVCLocation,
                 itemCreateServiceTabBar,
                 itemNotificationsTabBar,
-                myProfileViewController
+                navVCMyProfile
         ]
         
         self.viewControllers = controllers

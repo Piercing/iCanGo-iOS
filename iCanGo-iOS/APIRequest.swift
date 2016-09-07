@@ -15,7 +15,7 @@ enum APIRequest {
     case getServiceImages(key: String, id: String)
     case getUsers(key: String, page: UInt)
     case getUserServices(key: String, id: String, page: UInt, rows: UInt)
-    case getUserServicesByType(key: String, id: String, type: UInt, page: UInt)
+    case getUserServicesByType(key: String, id: String, type: UInt, page: UInt, rows: UInt)
     case getUserById(key: String, id: String)
     case getImages(key: String)
     case getImagesById(key: String, id: String)
@@ -74,7 +74,7 @@ extension APIRequest: Resource {
             return "users/"
         case let .getUserServices(_, id, _, _):
             return "users/\(id)/services/"
-        case let .getUserServicesByType(_, id, _, _):
+        case let .getUserServicesByType(_, id, _, _, _):
             return "users/\(id)/services"
         case let .getUserById(_, id):
             return "users/\(id)"
@@ -148,8 +148,8 @@ extension APIRequest: Resource {
         case let .getUserServices(_, _, page, rows):
             return ["rows": String(rows), "page": String(page)]
             
-        case let .getUserServicesByType(_, _, type, _):
-            return ["type": String(type)]
+        case let .getUserServicesByType(_, _, type, page, rows):
+            return ["type": String(type), "rows": String(rows), "page": String(page)]
             
         case .getUserById:
             return [:]
