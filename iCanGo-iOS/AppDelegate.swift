@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        NSThread.sleepForTimeInterval(0.5);
+        NSThread.sleepForTimeInterval(1.5);
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         /*

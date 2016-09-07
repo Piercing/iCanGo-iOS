@@ -64,7 +64,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FdI-KB-OgJ" customClass="RoundedCornersView" customModule="iCanGo_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="120"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iCanGoEmptyImage-560x" translatesAutoresizingMaskIntoConstraints="NO" id="ChR-Fv-gSW">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FINALogoIcanGoApp" translatesAutoresizingMaskIntoConstraints="NO" id="ChR-Fv-gSW">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="130" id="hmU-xI-Z2J"/>
@@ -137,8 +137,8 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="FINALogoIcanGoApp" width="1024" height="1024"/>
         <image name="heart" width="15" height="14"/>
-        <image name="iCanGoEmptyImage-560x" width="560" height="560"/>
         <image name="userDefaultiCanGo" width="48" height="48"/>
     </resources>
 </document>
