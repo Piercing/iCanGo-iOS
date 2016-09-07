@@ -29,10 +29,16 @@ class MyProfileViewController: UIViewController {
     @IBOutlet weak var segmentControlMyProfile: SegmentedControlMyProfile!
     
     private var user: User!
+    private var segmentSelected: UInt = 0
     private var requestDataInProgress: Bool = false
-    private var currentPage: UInt = 1
-    private var services: [Service]?
-    private var segmentSelected = 0
+    private var currentPagePublished: UInt = 1
+    private var currentPageAttended: UInt = 1
+    private var servicesPublished: [Service]?
+    private var servicesAttended: [Service]?
+    private var totalServicesPublished: Int = 0
+    private var totalServicesAttended: Int = 0
+    private var isNeededRefreshServicesPublished: Bool = false
+    private var isNeededRefreshServicesAttended: Bool = false
 
     lazy var alertView: AlertView = {
         let alertView = AlertView()
@@ -68,7 +74,8 @@ class MyProfileViewController: UIViewController {
         myProfileCollecionView.dataSource = self
         
         // Initialize variables.
-        self.services = [Service]()
+        self.servicesPublished = [Service]()
+        self.servicesAttended = [Service]()
 
         // Setup UI.
         setupViews()
@@ -78,7 +85,7 @@ class MyProfileViewController: UIViewController {
         showDataUser()
         
         // Get services from API.
-        getPublishedServicesFromApi(self.currentPage)
+        segmentSelected == 0 ? getServicesFromApi(self.currentPagePublished) : getServicesFromApi(self.currentPageAttended)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -104,11 +111,17 @@ class MyProfileViewController: UIViewController {
         }
         
         if segmentSelected == 0 {
-            currentPage = 1
-            services?.removeAll()
-            myProfileCollecionView.reloadData()
-            getPublishedServicesFromApi(self.currentPage)
-            return
+            segmentSelected = 0
+            currentPagePublished = 1
+            servicesPublished?.removeAll()
+            getServicesFromApi(self.currentPagePublished)
+            isNeededRefreshServicesAttended = true
+        } else {
+            segmentSelected = 1
+            currentPageAttended = 1
+            servicesAttended?.removeAll()
+            getServicesFromApi(self.currentPageAttended)
+            isNeededRefreshServicesPublished = true
         }
     }
 
@@ -135,6 +148,13 @@ class MyProfileViewController: UIViewController {
         labelPublishedAttendedAmount.text = ""
         labelService.text = ""
         labelSeparator.text = ""
+        
+        segmentControlMyProfile.items = [publishedText, attendedText]
+        segmentControlMyProfile.font = UIFont(name: avenirNextFont, size: 12)
+        segmentControlMyProfile.selectedIndex = 0
+        segmentControlMyProfile.addTarget(self, action: #selector(MyProfileViewController.segmentValueChanged(_:)), forControlEvents: .ValueChanged)
+        
+        myProfileCollecionView.fadeOut(duration: 0.0)
     }
 
     private func showDataUser() {
@@ -146,19 +166,14 @@ class MyProfileViewController: UIViewController {
         }
 
         labelService.text = servicesText
-        labelPublishedAttendedText.text = publishedText
-        labelPublishedAttendedAmount.text = String(user.numPublishedServices)
-        labelSeparator.text = ""
-        
-        segmentControlMyProfile.items = [publishedText, attendedText]
-        segmentControlMyProfile.font = UIFont(name: avenirNextFont, size: 12)
-        segmentControlMyProfile.selectedIndex = 0
-        segmentControlMyProfile.addTarget(self, action: #selector(MyProfileViewController.segmentValueChanged(_:)), forControlEvents: .ValueChanged)
-        
-        myProfileCollecionView.fadeOut(duration: 0.0)
+        if (segmentSelected == 0) {
+            labelPublishedAttendedText.text = publishedText
+        } else {
+            labelPublishedAttendedText.text = attendedText
+        }
     }
 
-    private func getPublishedServicesFromApi(page: UInt) -> Void {
+    private func getServicesFromApi(page: UInt) -> Void {
         
         if !isConnectedToNetwork() {
             showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
@@ -173,29 +188,38 @@ class MyProfileViewController: UIViewController {
         alertView.displayView(view, withTitle: pleaseWait)
 
         let session = Session.iCanGoSession()
-        let _ = session.getUserServices(user.id, page: page, rows: rowsPerPage)
+        let _ = session.getUserServicesByType(user.id, type: segmentSelected, page: page, rows: rowsPerPage)
             
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
                 self!.alertView.hideView()
+                self?.requestDataInProgress = false
                 
                 switch event {
                 case let .Next(services):
-                    self?.requestDataInProgress = false
                     if services.count > 0 {
-                        self?.services?.appendContentsOf(services)
-                        self?.myProfileCollecionView.reloadData()
-                        self?.myProfileCollecionView.fadeIn(duration: 0.3)
-                        self?.currentPage += 1
+                        if (self!.segmentSelected == 0) {
+                            self?.servicesPublished?.appendContentsOf(services)
+                            self?.myProfileCollecionView.reloadData()
+                            self?.myProfileCollecionView.fadeIn(duration: 0.3)
+                            self?.currentPagePublished += 1
+                            self?.totalServicesPublished = totalRows
+                        } else {
+                            self?.servicesAttended?.appendContentsOf(services)
+                            self?.myProfileCollecionView.reloadData()
+                            self?.myProfileCollecionView.fadeIn(duration: 0.3)
+                            self?.currentPageAttended += 1
+                            self?.totalServicesAttended = totalRows
+                        }
+                        self?.labelPublishedAttendedAmount.text = String(totalRows)
                     }
                     
                 case .Error (let error):
-                    self?.requestDataInProgress = false
                     print(error)
                     
                 default:
-                    self?.requestDataInProgress = false
+                    break
                 }
         }
     }
@@ -211,11 +235,25 @@ class MyProfileViewController: UIViewController {
         case 0:
             segmentSelected = 0
             labelPublishedAttendedText.text = publishedText
-            labelPublishedAttendedAmount.text = String(user.numPublishedServices)
+            labelPublishedAttendedAmount.text = totalServicesPublished == 0 ? "" : String(totalServicesPublished)
+            if servicesPublished?.count == 0 || isNeededRefreshServicesPublished {
+                currentPagePublished = 1
+                getServicesFromApi(currentPagePublished)
+                isNeededRefreshServicesPublished = false
+            } else {
+                myProfileCollecionView.reloadData()
+            }
         case 1:
             segmentSelected = 1
             labelPublishedAttendedText.text = attendedText
-            labelPublishedAttendedAmount.text = String(user.numAttendedServices)
+            labelPublishedAttendedAmount.text = totalServicesAttended == 0 ? "" : String(totalServicesAttended)
+            if servicesAttended?.count == 0 || isNeededRefreshServicesAttended {
+                currentPageAttended = 1
+                getServicesFromApi(currentPageAttended)
+                isNeededRefreshServicesAttended = false
+            } else {
+                myProfileCollecionView.reloadData()
+            }
         default:
             break
         }
@@ -228,45 +266,53 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        let index = indexPath.row % services!.count
+        let index = segmentSelected == 0 ? indexPath.row % servicesPublished!.count : indexPath.row % servicesAttended!.count
         showModal(index)
     }
     
     func showModal(index: Int) {
         
-        let detailServiceViewController = DetailServiceViewController(service: services![index])
+        let detailServiceViewController = DetailServiceViewController(service: segmentSelected == 0 ? servicesPublished![index] : servicesAttended![index])
         self.navigationController?.pushViewController(detailServiceViewController, animated: true)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (self.services?.count)!
+        return (segmentSelected == 0 ? self.servicesPublished?.count : self.servicesAttended?.count)!
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! MyProfileCell
         Appearance.setupCellUI(cell)
-        cell.service = services![indexPath.row % services!.count]
+        cell.service = segmentSelected == 0 ? servicesPublished![indexPath.row % servicesPublished!.count] :
+                                              servicesAttended![indexPath.row % servicesAttended!.count]
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        // return CGSize(width: 170, height: 190)
         return CGSizeMake((UIScreen.mainScreen().bounds.width)/2.2, 190)
-        
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         
-        if totalRows == self.services?.count {
+        if totalRows == (segmentSelected == 0 ? self.servicesPublished?.count : self.servicesAttended?.count) {
             return
         }
         
-        if (indexPath.row == (self.services?.count)! - 2) {
-            
-            let servicesInList = (self.services?.count)! % Int(rowsPerPage)
-            if (servicesInList == 0) {
-                getPublishedServicesFromApi(self.currentPage)
+        if (segmentSelected == 0) {
+            if (indexPath.row == (self.servicesPublished?.count)! - 2) {
+                let servicesInList = (self.servicesPublished?.count)! % Int(rowsPerPage)
+                if (servicesInList == 0) {
+                    getServicesFromApi(self.currentPagePublished)
+                }
+            }
+        
+        } else {
+            if (indexPath.row == (self.servicesAttended?.count)! - 2) {
+                let servicesInList = (self.servicesAttended?.count)! % Int(rowsPerPage)
+                if (servicesInList == 0) {
+                    getServicesFromApi(self.currentPageAttended)
+                }
             }
         }
     }
