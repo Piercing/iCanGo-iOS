@@ -138,7 +138,8 @@ class LocationViewController: UIViewController {
             distance: distance,
             searchText: searchText,
             page: 1,
-            rows: rowsPerPage)
+            rows: rowsPerPage,
+            deleted: DeletedService.notDeleted.rawValue)
             
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
