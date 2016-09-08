@@ -62,6 +62,8 @@
 		A9D495034C1BC3A48FFE7AF8 /* Pods_iCanGo_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BCFB28C96273CCDD0CF172 /* Pods_iCanGo_iOS.framework */; };
 		D305B23D1D24FDCF0072B634 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D305B23C1D24FDCF0072B634 /* Localization.swift */; };
 		D308447A1D23AE1400A25CF4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30844791D23AE1400A25CF4 /* Response.swift */; };
+		D31573811D814926005E402A /* ChangePwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31573801D814926005E402A /* ChangePwdViewController.swift */; };
+		D31573831D814955005E402A /* ChangePwdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31573821D814955005E402A /* ChangePwdView.xib */; };
 		D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3567BBF1D1BC38B00E5A5EE /* User.swift */; };
 		D36825801D3FB51C00EDA31C /* ServiceAnnotationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D368257F1D3FB51C00EDA31C /* ServiceAnnotationMap.swift */; };
 		D370FFA61D78A8CF0003A371 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370FFA41D78A8CF0003A371 /* AlertView.swift */; };
@@ -151,6 +153,8 @@
 		ACA2D280BC84CE3643A31256 /* Pods-iCanGo-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D305B23C1D24FDCF0072B634 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		D30844791D23AE1400A25CF4 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		D31573801D814926005E402A /* ChangePwdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePwdViewController.swift; sourceTree = "<group>"; };
+		D31573821D814955005E402A /* ChangePwdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePwdView.xib; sourceTree = "<group>"; };
 		D3567BBF1D1BC38B00E5A5EE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D368257F1D3FB51C00EDA31C /* ServiceAnnotationMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAnnotationMap.swift; sourceTree = "<group>"; };
 		D370FFA41D78A8CF0003A371 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				52DFD0A51D37ED6A000C4FE4 /* UserRegisterView.xib */,
 				D370FFA41D78A8CF0003A371 /* AlertView.swift */,
 				D370FFA51D78A8CF0003A371 /* AlertView.xib */,
+				D31573821D814955005E402A /* ChangePwdView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				527F87091D2B09F000D0E1EC /* ServicesViewController.swift */,
 				5272E17E1D2C17E3007211E4 /* StartUpController.swift */,
 				52DFD0A41D37ED6A000C4FE4 /* UserRegisterViewController.swift */,
+				D31573801D814926005E402A /* ChangePwdViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 				52DFD0A71D37ED6A000C4FE4 /* UserRegisterView.xib in Resources */,
 				52D37E081D2EC811009F2FC3 /* ServiceCellView.xib in Resources */,
 				529F46C91D4033EB000FDF28 /* LogProfileView.xib in Resources */,
+				D31573831D814955005E402A /* ChangePwdView.xib in Resources */,
 				79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */,
 				79F418401D043B56002131C7 /* README.md in Resources */,
 				D37630F01D05C0FB0001E29F /* iCanGO-iOS.md in Resources */,
@@ -604,6 +611,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37630FE1D06CA280001E29F /* Session.swift in Sources */,
+				D31573811D814926005E402A /* ChangePwdViewController.swift in Sources */,
 				529F46CC1D4044BF000FDF28 /* LogProfileCell.swift in Sources */,
 				525351A71D41191C004614DF /* RecoverPassViewController.swift in Sources */,
 				D37630FC1D06C0CA0001E29F /* Framework.swift in Sources */,
