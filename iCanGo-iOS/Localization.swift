@@ -33,6 +33,12 @@ let serviceRequestedToAttendTitle = "Service request to attend"
 let serviceRequestedToAttendConfirmationMessage = "Do you want request to attend this service?"
 let serviceRequestedToAttendMessage = "Service request to attend successfully. Please wait for the owner's answer service"
 let serviceRequestedToAttendKOMessage = "It's not possible request to attend this service"
+let userProfileTitle = "My profile"
+let userProfileConfirmationMessage = "Do you want modify your user data?"
+let userProfileMessage = "User data have were modified successfully"
+let userProfileKOMessage = "It's not possible modified the user data"
+let userProfileFieldEmply = "These user data can't be empty"
+let userProfileNoModification = "You don't change any user data"
 
 
 // MARK: Texts.
@@ -58,7 +64,7 @@ let detailServiceTitleVC = "Detail Service"
 let locationTitleVC = "Location"
 let addServiceTitleVC = "Add Service"
 let myProfileTitleVC = "My Profile"
-
+let changePasswordVC = "Change Password"
 
 
 

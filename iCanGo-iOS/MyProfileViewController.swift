@@ -136,9 +136,12 @@ class MyProfileViewController: UIViewController {
     @IBAction func btnEditMyProfile(sender: AnyObject) {
 
         let myProfileEditViewController = MyProfileEditViewController(user: user)
-        myProfileEditViewController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
-        myProfileEditViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        self.presentViewController(myProfileEditViewController, animated: true, completion: nil)
+        let slideDownUpTransition = CATransition()
+        slideDownUpTransition.duration = 0.4
+        slideDownUpTransition.type = kCATransitionMoveIn
+        slideDownUpTransition.subtype = kCATransitionFromTop
+        self.navigationController?.view.layer.addAnimation(slideDownUpTransition, forKey: kCATransition)
+        self.navigationController?.pushViewController(myProfileEditViewController, animated: false)
     }
     
     
