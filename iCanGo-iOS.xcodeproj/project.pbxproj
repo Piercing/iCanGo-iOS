@@ -77,6 +77,8 @@
 		D37631001D06D2A10001E29F /* ICanGoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37630FF1D06D2A10001E29F /* ICanGoSession.swift */; };
 		D37631021D06D3090001E29F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37631011D06D3090001E29F /* Constants.swift */; };
 		D37D53911D64632100E8E702 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D53901D64632100E8E702 /* Colors.swift */; };
+		D39600031D806282009F9DC9 /* MyProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39600021D806282009F9DC9 /* MyProfileEditViewController.swift */; };
+		D39600051D8062CA009F9DC9 /* MyProfileEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D39600041D8062CA009F9DC9 /* MyProfileEditView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +166,8 @@
 		D37630FF1D06D2A10001E29F /* ICanGoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICanGoSession.swift; sourceTree = "<group>"; };
 		D37631011D06D3090001E29F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D37D53901D64632100E8E702 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D39600021D806282009F9DC9 /* MyProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileEditViewController.swift; sourceTree = "<group>"; };
+		D39600041D8062CA009F9DC9 /* MyProfileEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileEditView.xib; sourceTree = "<group>"; };
 		D9BCFB28C96273CCDD0CF172 /* Pods_iCanGo_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCanGo_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD015E1B48C5387CAA502C8B /* Pods-iCanGo-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCanGo-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCanGo-iOS/Pods-iCanGo-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,6 +211,7 @@
 				52F367AA1D28FBFF0064583C /* LoginView.xib */,
 				529F46C71D4033EB000FDF28 /* LogProfileView.xib */,
 				527F871A1D2B29C500D0E1EC /* MyProfileView.xib */,
+				D39600041D8062CA009F9DC9 /* MyProfileEditView.xib */,
 				527F87161D2B29A200D0E1EC /* NotificationsView.xib */,
 				5233514E1D3BC325004A6C05 /* PopUpImagesView.xib */,
 				525351A61D41191C004614DF /* RecoverPassView.xib */,
@@ -297,6 +302,7 @@
 				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
 				529F46C61D4033EB000FDF28 /* LogProfileViewController.swift */,
 				527F87191D2B29C500D0E1EC /* MyProfileViewController.swift */,
+				D39600021D806282009F9DC9 /* MyProfileEditViewController.swift */,
 				527F87151D2B29A200D0E1EC /* NotificationsViewController.swift */,
 				5233514D1D3BC325004A6C05 /* PopUpImagesViewController.swift */,
 				525351A51D41191C004614DF /* RecoverPassViewController.swift */,
@@ -509,6 +515,7 @@
 			files = (
 				79F4183F1D043B56002131C7 /* .gitignore in Resources */,
 				79F4184A1D043E3D002131C7 /* PodFile in Resources */,
+				D39600051D8062CA009F9DC9 /* MyProfileEditView.xib in Resources */,
 				527F87141D2B297B00D0E1EC /* AddServiceView.xib in Resources */,
 				52F367AB1D28FBFF0064583C /* LoginView.xib in Resources */,
 				528252201D359BB30041A992 /* DetailServiceView.xib in Resources */,
@@ -628,6 +635,7 @@
 				5233514F1D3BC325004A6C05 /* PopUpImagesViewController.swift in Sources */,
 				52DFD0A61D37ED6A000C4FE4 /* UserRegisterViewController.swift in Sources */,
 				527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */,
+				D39600031D806282009F9DC9 /* MyProfileEditViewController.swift in Sources */,
 				D375F2AD1D34150F00EE6A57 /* ServiceImage.swift in Sources */,
 				D37631021D06D3090001E29F /* Constants.swift in Sources */,
 				527F87171D2B29A200D0E1EC /* NotificationsViewController.swift in Sources */,

@@ -134,8 +134,11 @@ class MyProfileViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func btnEditMyProfile(sender: AnyObject) {
-        // TODO:
-        print("Tapped buttom Edit My Profile")
+
+        let myProfileEditViewController = MyProfileEditViewController(user: user)
+        myProfileEditViewController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
+        myProfileEditViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        self.presentViewController(myProfileEditViewController, animated: true, completion: nil)
     }
     
     

@@ -44,6 +44,11 @@ enum StatusService: UInt {
     case cancelled = 6    
 }
 
+enum DeletedService: UInt {
+    case notDeleted = 0
+    case deleted = 1
+}
+
 struct Service {
     let id: String
     let name: String
