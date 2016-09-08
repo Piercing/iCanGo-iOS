@@ -11,8 +11,9 @@ import UIKit
 class StartUpController: UITabBarController, UITabBarControllerDelegate {
     
     // MARK: - Properties
-    var loginVC: LoginViewController?
-    var i = 0
+    private var loginVC: LoginViewController?
+    private var i = 0
+    private var previuosLoginVCIndex: Int = 0
     
     
     // MARK: - Life Cycle
@@ -111,9 +112,15 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        if (viewController is MyProfileViewController ||
-            viewController is AddServiceViewController ||
-            viewController is MyProfileViewController) {
+        
+        var vc: UIViewController = viewController
+        
+        if (viewController is UINavigationController) {
+            vc = (viewController as! UINavigationController).viewControllers[0]
+        }
+        
+        if (vc is MyProfileViewController ||
+            vc is AddServiceViewController) {
             
             if !isUserloged() {
                 
@@ -124,6 +131,8 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
                 showModal(self, calledContainer: loginVC!)
                 return false;
             }
+        } else {
+            previuosLoginVCIndex = (tabBarController.viewControllers?.indexOf(viewController))!
         }
         
         return true
@@ -135,10 +144,13 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
 extension StartUpController: ComunicationLoginControllerDelegate {
     
     func back(index: Int) {
-        //print("volviendo del tabitem con index: \(index)");
-        self.selectedIndex = index
-        self.selectedViewController = self.viewControllers![index] as UIViewController
         
+        if isUserloged() {
+            self.selectedIndex = index
+            self.selectedViewController = self.viewControllers![index] as UIViewController
+        } else {
+            self.selectedViewController = self.viewControllers![previuosLoginVCIndex] as UIViewController
+        }
     } 
 }
 

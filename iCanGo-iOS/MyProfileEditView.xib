@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyProfileEditViewController" customModule="iCanGo_iOS" customModuleProvider="target">
             <connections>
+                <outlet property="userEndSession" destination="bRJ-jM-lFl" id="Wwk-74-Zg6"/>
                 <outlet property="userFirstNameText" destination="aGe-Kw-Txf" id="6JG-7g-pOQ"/>
                 <outlet property="userImageView" destination="Mcc-q9-QOw" id="FNY-Yc-mSn"/>
                 <outlet property="userLastNameText" destination="cry-G3-8Ig" id="7Ko-1D-SJN"/>
@@ -72,7 +73,7 @@
                                     <color key="textColor" red="0.1215686275" green="0.53725490200000003" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-Kw-Txf">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User's first name..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-Kw-Txf">
                                     <rect key="frame" x="105" y="38" width="487" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="bCv-Iu-I0I"/>
@@ -90,7 +91,7 @@
                                     <color key="textColor" red="0.1215686275" green="0.53725490200000003" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cry-G3-8Ig">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User's last name..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cry-G3-8Ig">
                                     <rect key="frame" x="105" y="95" width="487" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="muF-qE-TBi"/>
@@ -114,8 +115,15 @@
                                         <constraint firstAttribute="height" constant="30" id="WTN-6T-OYV"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRJ-jM-lFl">
+                                    <rect key="frame" x="283" y="337" width="107" height="30"/>
+                                    <state key="normal" title="Finalizar Sesion"/>
+                                    <connections>
+                                        <action selector="endSession:" destination="-1" eventType="touchUpInside" id="bfe-gE-Lvj"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="aGe-Kw-Txf" firstAttribute="top" secondItem="bZ9-Uq-vbN" secondAttribute="bottom" constant="1" id="A0g-FR-k65"/>
