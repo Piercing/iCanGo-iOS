@@ -135,13 +135,19 @@ class MyProfileViewController: UIViewController {
     // MARK: Actions
     @IBAction func btnEditMyProfile(sender: AnyObject) {
 
-        let myProfileEditViewController = MyProfileEditViewController(user: user)
-        let slideDownUpTransition = CATransition()
-        slideDownUpTransition.duration = 0.4
-        slideDownUpTransition.type = kCATransitionMoveIn
-        slideDownUpTransition.subtype = kCATransitionFromTop
-        self.navigationController?.view.layer.addAnimation(slideDownUpTransition, forKey: kCATransition)
-        self.navigationController?.pushViewController(myProfileEditViewController, animated: false)
+        if user.status != StatusUser.active.rawValue {
+            
+            showAlert(userProfileTitle, message: userProfileNotAllowEdit, controller: self)
+        } else {
+            let myProfileEditViewController = MyProfileEditViewController(user: user)
+            myProfileEditViewController.delegate = self
+            let slideDownUpTransition = CATransition()
+            slideDownUpTransition.duration = 0.4
+            slideDownUpTransition.type = kCATransitionMoveIn
+            slideDownUpTransition.subtype = kCATransitionFromTop
+            self.navigationController?.view.layer.addAnimation(slideDownUpTransition, forKey: kCATransition)
+            self.navigationController?.pushViewController(myProfileEditViewController, animated: false)
+        }
     }
     
     
@@ -187,6 +193,7 @@ class MyProfileViewController: UIViewController {
         }
         
         if requestDataInProgress {
+            showAlert(userProfileTitle, message: apiConnectionNoPossible, controller: self)
             return
         }
         
@@ -222,6 +229,7 @@ class MyProfileViewController: UIViewController {
                     }
                     
                 case .Error (let error):
+                    showAlert(userProfileTitle, message: serviceGetServicesKO, controller: self!)
                     print(error)
                     
                 default:
@@ -324,6 +332,19 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
     }
 }
 
+
+extension MyProfileViewController: MyProfileEditControllerDelegate {
+    
+    func back(user: User, endSession: Bool) {
+
+        if endSession {
+            self.tabBarController!.selectedIndex = 0
+        } else {
+            self.user = user
+            showDataUser()
+        }
+    }
+}
 
 
 

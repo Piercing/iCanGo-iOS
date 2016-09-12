@@ -23,10 +23,14 @@ enum APIRequest {
     case getUrlSaS(key: String, containerName: String, blobName: String)
     case postLogin(user: String, password: String)
     case postUser(user: String, password: String, firstName: String, lastName: String, photoUrl: NSURL?, searchPreferences: String?, status: UInt?)
-    case postService(name: String, description: String, price: Double, tags: String?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
+    case postService(name: String, description: String, price: Double, tags: String?, idUserRequest: String,
+         latitude: Double?, longitude: Double?, address: String?, status: UInt?)
     case postServiceImage(id: String, imageUrl: NSURL)
-    case putService(id: String, name: String, description: String, price: Double, tags: [String]?, idUserRequest: String, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
+    case putService(id: String, name: String?, description: String?, price: Double?, tags: [String]?,
+         idUserRequest: String?, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
     case putChangeServiceStatus(id: String, idUserResponse: String, status: UInt)
+    case putUser(id: String, firstName: String?, lastName: String?, email: String?, searchPreferences: String?,
+         oldPassword: String?, newPassword: String?, photoUrl: NSURL?)
     case deleteServiceById(key: String, id: String)
 }
 
@@ -53,7 +57,8 @@ extension APIRequest: Resource {
              .postServiceImage:
             return Method.POST
         case .putService,
-             .putChangeServiceStatus:
+             .putChangeServiceStatus,
+             .putUser:
             return Method.PUT
         case .deleteServiceById:
             return Method.DELETE
@@ -99,6 +104,8 @@ extension APIRequest: Resource {
             return "services/\(id)"
         case let .putChangeServiceStatus(id, _, _):
             return "services/\(id)/status"
+        case let .putUser(id, _, _, _, _, _, _, _):
+            return "users/\(id)"
         case let .deleteServiceById(_, id):
             return "services/\(id)"
         }
@@ -225,11 +232,11 @@ extension APIRequest: Resource {
             longitude: longitude,
             address: address,
             status: status):
-            return ["name": name,
-                    "description": description,
-                    "price": String(price),
+            return ["name": name != nil ? name! : "",
+                    "description": description != nil ? description! : "",
+                    "price": price != nil ? String(price) : "",
                     "tags": tags != nil ? String.stringsToString(tags!) : "",
-                    "idUserRequest": idUserRequest,
+                    "idUserRequest": idUserRequest != nil ? idUserRequest! : "",
                     "latitude": latitude != nil ? String(format:"%f", latitude!) : "",
                     "longitude": longitude != nil ? String(format:"%f", longitude!) : "",
                     "address": address != nil ? address! : "",
@@ -241,7 +248,27 @@ extension APIRequest: Resource {
             status: status):
             return ["idUserResponse": idUserResponse,
                     "status": String(status)]
-            
+
+        case let .putUser(
+            id: _,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            searchPreferences: searchPreferences,
+            oldPassword: oldPassword,
+            newPassword: newPassword,
+            photoUrl: photoUrl):
+            if let oldPassword = oldPassword, newPassword = newPassword {
+                return ["oldPassword": oldPassword,
+                        "newPassword": newPassword]
+            } else {
+                return ["firstName": firstName != nil ? firstName! : "",
+                        "lastName": lastName != nil ? lastName! : "",
+                        "email": email != nil ? email! : "",
+                        "searchPreferences": searchPreferences != nil ? searchPreferences! : "",
+                        "photoUrl": photoUrl != nil ? photoUrl!.absoluteString : ""]
+            }
+        
         case .deleteServiceById:
             return [:]
         }

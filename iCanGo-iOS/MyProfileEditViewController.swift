@@ -9,15 +9,20 @@
 import UIKit
 import RxSwift
 
+protocol MyProfileEditControllerDelegate {
+    func back(user: User, endSession: Bool)
+}
+
+
 class MyProfileEditViewController: UIViewController {
 
-    
     // MARK: - Properties
     @IBOutlet weak var userFirstNameText: UITextField!
     @IBOutlet weak var userLastNameText: UITextField!
     @IBOutlet weak var userPasswordText: UITextField!
     @IBOutlet weak var userImageView: CircularImageView!
     @IBOutlet weak var userEndSession: UIButton!
+    var delegate: MyProfileEditControllerDelegate? = nil
     
     private var user: User!
     private var requestDataInProgress: Bool = false
@@ -60,7 +65,7 @@ class MyProfileEditViewController: UIViewController {
         }
 
         // Get data from API.
-        loadUser(user.id)
+        loadUser(user.id)        
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,11 +88,11 @@ class MyProfileEditViewController: UIViewController {
         
         resignFirstResponderAllFields()
         
-        if !self.serviceWithErrorData() {
+        if !self.profileDataWithErrorData() {
             
             // Validate all data.
             let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
-                //self.postDataService()
+                self.putDataUser()
             })
             let cancelAction = UIAlertAction(title: cancel, style: .Cancel, handler: nil)
             let actions = [okAction, cancelAction]
@@ -96,6 +101,19 @@ class MyProfileEditViewController: UIViewController {
     }
 
     @IBAction func endSession(sender: AnyObject) {
+        
+        // Confirm Logout.
+        let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
+            
+            logoutUser()
+            saveAuthInfo(self.user)
+            if self.delegate != nil {
+                self.delegate?.back(self.user, endSession: true)
+            }
+        })
+        let cancelAction = UIAlertAction(title: cancel, style: .Cancel, handler: nil)
+        let actions = [okAction, cancelAction]
+        showAlertWithActions(userProfileTitle, message: userProfileConfirmLogoutMessage, controller: self, actions: actions)
     }
     
     // MARK: - Private Methods
@@ -113,7 +131,6 @@ class MyProfileEditViewController: UIViewController {
         let userFirstNameTextActions: [String : Selector] = [next : #selector(MyProfileEditViewController.nextFirstName),
                                                                ok : #selector(MyProfileEditViewController.okFirstName)]
         let userLastNameTextActions: [String : Selector] = [ok : #selector(MyProfileEditViewController.okLastName)]
-        
         userFirstNameText.inputAccessoryView = setupInputAccessoryView(userFirstNameTextActions)
         userLastNameText.inputAccessoryView = setupInputAccessoryView(userLastNameTextActions)
     }
@@ -126,6 +143,7 @@ class MyProfileEditViewController: UIViewController {
         }
         
         if requestDataInProgress {
+            showAlert(userProfileTitle, message: apiConnectionNoPossible, controller: self)
             return
         }
         
@@ -147,6 +165,7 @@ class MyProfileEditViewController: UIViewController {
                     self?.showDataUser()
                     
                 case .Error (let error):
+                    showAlert(userProfileTitle, message: serviceGetUserKO, controller: self!)
                     print(error)
                     
                 default:
@@ -211,7 +230,7 @@ class MyProfileEditViewController: UIViewController {
         userLastNameText.resignFirstResponder()
     }
     
-    private func serviceWithErrorData() -> Bool {
+    private func profileDataWithErrorData() -> Bool {
         
         var findError = false
         
@@ -253,6 +272,61 @@ class MyProfileEditViewController: UIViewController {
         userFirstNameText.resignFirstResponder()
         userLastNameText.resignFirstResponder()
     }
+    
+    private func putDataUser() -> Void {
+        
+        if !isConnectedToNetwork()  {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
+        
+        if requestDataInProgress {
+            showAlert(userProfileTitle, message: apiConnectionNoPossible, controller: self)
+            return
+        }
+        
+        requestDataInProgress = true
+        alertView.displayView(view, withTitle: pleaseWait)
+        
+        let session = Session.iCanGoSession()
+        let _ = session.putUser(user.id, firstName: user.firstName, lastName: user.lastName, email: user.email,
+            searchPreferences: user.searchPreferences, oldPassword: nil, newPassword: nil, photoUrl: user.photoURL)
+            
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                self!.alertView.hideView()
+                self?.requestDataInProgress = false
+                
+                switch event {
+                case let .Next(user):
+                    
+                    if self?.user.id == user.id {
+                        
+                        let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
+                            
+                            logoutUser()
+                            saveAuthInfo(self!.user)
+                            if self!.delegate != nil {
+                                self!.delegate?.back(self!.user, endSession: false)
+                            }
+                        })
+                        let actions = [okAction]
+                        showAlertWithActions(userProfileTitle, message: userProfileMessage, controller: self!, actions: actions)
+                        
+                    } else {
+                        showAlert(userProfileTitle, message: userProfileKOMessage, controller: self!)
+                    }
+                    
+                case .Error (let error):
+                    showAlert(userProfileTitle, message: userProfileKOMessage, controller: self!)
+                    print(error)
+                    
+                default:
+                    break
+                }
+        }
+    }
 }
 
 
@@ -271,5 +345,3 @@ extension MyProfileEditViewController: UITextFieldDelegate {
 }
 
 
-/*
-*/

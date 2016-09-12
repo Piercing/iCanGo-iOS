@@ -21,6 +21,11 @@ enum JSONKeysUser: String {
     case numAttendedServices = "numAttendedServices"
 }
 
+enum StatusUser: UInt {
+    case active = 0
+    case notActive = 1
+}
+
 struct User {
     let id: String
     let email: String
