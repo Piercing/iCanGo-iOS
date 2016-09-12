@@ -50,6 +50,10 @@ func loadUserAuthInfo() -> User {
                 numAttendedServices: 0)
 }
 
+func logoutUser() -> Void {
+    NSUserDefaults.standardUserDefaults().removeObjectForKey("user")
+}
+
 func loadImage(imageUrl: NSURL, imageView: UIImageView, withAnimation: Bool) {
     
     let session = Session.iCanGoSessionImages()

@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
     var delegate: ComunicationLoginControllerDelegate? = nil
     
     // MARK: - Properties
-    
     @IBOutlet weak var iCanGoLogIn: UIImageView!
     @IBOutlet weak var txtFieldUser: UITextField!
     @IBOutlet weak var txtFieldPassw: UITextField!
@@ -31,8 +30,14 @@ class LoginViewController: UIViewController {
     
     private var loginInProgress: Bool!
     
-    // MARK: - Life Cycle
     
+    // MARK: - Init
+    convenience init() {
+        self.init(nibName: "LoginView", bundle: nil)
+    }
+    
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

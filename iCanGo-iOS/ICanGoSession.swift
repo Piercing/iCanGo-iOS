@@ -224,11 +224,11 @@ extension Session {
     
     // PUT Update Service.
     func putService(id: String,
-                  name: String,
-           description: String,
-                 price: Double,
+                  name: String?,
+           description: String?,
+                 price: Double?,
                   tags: [String]?,
-         idUserRequest: String,
+         idUserRequest: String?,
               latitude: Double?,
              longitude: Double?,
                address: String?,
@@ -249,6 +249,7 @@ extension Session {
         }
     }
     
+    // PUT Update Service Status.
     func putChangeServiceStatus(id: String,
                             status: UInt,
                     idUserResponse: String) -> Observable<Service> {
@@ -258,6 +259,29 @@ extension Session {
                                                       status: status)).map { response in
 
             return try self.returnService(response)
+        }
+    }
+    
+    // PUT Update User.
+    func putUser(id: String,
+          firstName: String?,
+           lastName: String?,
+              email: String?,
+        searchPreferences: String?,
+        oldPassword: String?,
+        newPassword: String?,
+           photoUrl: NSURL?) -> Observable<User> {
+        
+        return response(APIRequest.putUser(id: id,
+                                    firstName: firstName,
+                                     lastName: lastName,
+                                        email: email,
+                            searchPreferences: searchPreferences,
+                                  oldPassword: oldPassword,
+                                  newPassword: newPassword,
+                                     photoUrl: photoUrl)).map { response in
+            
+            return try self.returnUser(response)
         }
     }
     

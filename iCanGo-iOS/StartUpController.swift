@@ -124,7 +124,7 @@ class StartUpController: UITabBarController, UITabBarControllerDelegate {
             
             if !isUserloged() {
                 
-                loginVC = LoginViewController(nibName: "LoginView", bundle: nil)
+                loginVC = LoginViewController()
                 loginVC!.delegate = self
                 loginVC!.selectedTabItemIndex = tabBarController.viewControllers?.indexOf(viewController)
                 
