@@ -52,16 +52,15 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="HsC-eJ-FRD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="32N-Dp-1LI"/>
                 <constraint firstItem="lLg-Zl-T67" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="C6u-h0-WNN"/>
-                <constraint firstItem="HsC-eJ-FRD" firstAttribute="centerX" secondItem="lLg-Zl-T67" secondAttribute="centerX" id="C8L-Hr-YCO"/>
                 <constraint firstItem="lLg-Zl-T67" firstAttribute="centerX" secondItem="tg5-OE-YcW" secondAttribute="centerX" constant="-108.5" id="L2W-nw-s2A"/>
                 <constraint firstAttribute="bottom" secondItem="tg5-OE-YcW" secondAttribute="bottom" id="RHk-N5-FGr"/>
-                <constraint firstItem="HsC-eJ-FRD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XUr-6z-uFb"/>
-                <constraint firstItem="HsC-eJ-FRD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dEe-sE-9n2"/>
+                <constraint firstItem="HsC-eJ-FRD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SEZ-Nx-eRd"/>
                 <constraint firstItem="tg5-OE-YcW" firstAttribute="top" secondItem="lLg-Zl-T67" secondAttribute="bottom" constant="-15" id="ekU-VG-ouq"/>
-                <constraint firstAttribute="bottom" secondItem="HsC-eJ-FRD" secondAttribute="bottom" id="kx5-Xf-jFW"/>
-                <constraint firstItem="tg5-OE-YcW" firstAttribute="top" secondItem="HsC-eJ-FRD" secondAttribute="bottom" constant="-15" id="vL4-EV-ruL"/>
+                <constraint firstItem="HsC-eJ-FRD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="g4b-DV-ekC"/>
+                <constraint firstItem="HsC-eJ-FRD" firstAttribute="centerX" secondItem="lLg-Zl-T67" secondAttribute="centerX" id="gUB-yv-yil"/>
+                <constraint firstAttribute="trailing" secondItem="HsC-eJ-FRD" secondAttribute="trailing" id="pbM-fm-SSY"/>
+                <constraint firstItem="HsC-eJ-FRD" firstAttribute="bottom" secondItem="tg5-OE-YcW" secondAttribute="bottom" id="s5Z-aU-K63"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
