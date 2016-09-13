@@ -148,66 +148,46 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bxa-mc-lUU">
                                     <rect key="frame" x="8" y="349" width="584" height="140"/>
                                     <subviews>
-                                        <imageView tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="j6T-OX-Tey" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                                        <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iConCamera+" translatesAutoresizingMaskIntoConstraints="NO" id="j6T-OX-Tey">
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="140" id="0Do-JH-EJl"/>
                                                 <constraint firstAttribute="width" constant="140" id="Vtj-ZG-veJ"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <outletCollection property="gestureRecognizers" destination="a7w-1y-PQz" appends="YES" id="gFx-C9-udr"/>
                                             </connections>
                                         </imageView>
-                                        <imageView tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="OcZ-Cl-gzi" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                                        <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iConCamera+" translatesAutoresizingMaskIntoConstraints="NO" id="OcZ-Cl-gzi">
                                             <rect key="frame" x="148" y="0.0" width="140" height="140"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="140" id="TCS-t0-ZOe"/>
                                                 <constraint firstAttribute="width" constant="140" id="w7D-VE-KnM"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <outletCollection property="gestureRecognizers" destination="gzp-Kw-Ipl" appends="YES" id="f2C-gp-tzM"/>
                                             </connections>
                                         </imageView>
-                                        <imageView tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="w0W-1g-1n6" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                                        <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iConCamera+" translatesAutoresizingMaskIntoConstraints="NO" id="w0W-1g-1n6">
                                             <rect key="frame" x="296" y="0.0" width="140" height="140"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="140" id="9UZ-4o-0JJ"/>
                                                 <constraint firstAttribute="width" constant="140" id="K9k-IT-WR7"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <outletCollection property="gestureRecognizers" destination="uqJ-rx-BM1" appends="YES" id="37q-YK-J3b"/>
                                             </connections>
                                         </imageView>
-                                        <imageView tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="pzL-10-srB" customClass="RoundedCornersImages" customModule="iCanGo_iOS" customModuleProvider="target">
+                                        <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iConCamera+" translatesAutoresizingMaskIntoConstraints="NO" id="pzL-10-srB">
                                             <rect key="frame" x="444" y="0.0" width="140" height="140"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="140" id="Swd-dJ-3jh"/>
                                                 <constraint firstAttribute="height" constant="140" id="cJm-Jp-Owd"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <outletCollection property="gestureRecognizers" destination="5KW-7T-vEK" appends="YES" id="XBO-TD-ydl"/>
                                             </connections>
@@ -381,8 +361,8 @@
     </objects>
     <resources>
         <image name=" Back" width="58" height="22"/>
-        <image name="camera" width="200" height="200"/>
         <image name="conversation03" width="933" height="930"/>
+        <image name="iConCamera+" width="1024" height="1024"/>
         <image name="userDefaultiCanGo" width="48" height="48"/>
     </resources>
 </document>
