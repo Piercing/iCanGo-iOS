@@ -222,10 +222,10 @@
                                         <constraint firstAttribute="width" constant="584" id="pld-SW-4aE"/>
                                     </constraints>
                                 </mapView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T3w-Xf-Aly">
-                                    <rect key="frame" x="497" y="60" width="58" height="28"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120€" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3w-Xf-Aly">
+                                    <rect key="frame" x="360" y="60" width="193" height="28"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="58" id="CEb-Gj-QUo"/>
+                                        <constraint firstAttribute="width" constant="193" id="CEb-Gj-QUo"/>
                                         <constraint firstAttribute="height" constant="28" id="LjC-Du-vCk"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
@@ -311,7 +311,7 @@
                                 <constraint firstAttribute="height" constant="600" id="uxZ-px-tYc"/>
                                 <constraint firstItem="yAT-g9-nb1" firstAttribute="top" secondItem="eOt-dd-pRe" secondAttribute="top" constant="5" id="yWr-gp-8Jr"/>
                                 <constraint firstItem="aJL-Rd-aJ5" firstAttribute="leading" secondItem="yAT-g9-nb1" secondAttribute="trailing" constant="8" id="z1z-sp-rLA"/>
-                                <constraint firstItem="pqs-LV-Ilb" firstAttribute="leading" secondItem="T3w-Xf-Aly" secondAttribute="trailing" constant="2" id="z7v-FP-rFq"/>
+                                <constraint firstItem="pqs-LV-Ilb" firstAttribute="leading" secondItem="T3w-Xf-Aly" secondAttribute="trailing" constant="4" id="z7v-FP-rFq"/>
                                 <constraint firstAttribute="trailing" secondItem="e1e-fM-t3R" secondAttribute="trailing" constant="8" id="zWx-Ga-fn0"/>
                             </constraints>
                         </view>
