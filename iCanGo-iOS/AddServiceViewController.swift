@@ -11,38 +11,38 @@ class AddServiceViewController: UIViewController {
     
     
     // MARK: - Properties
-    @IBOutlet weak var btnTwitterHighService: UIButton!
-    @IBOutlet weak var btnFacebookHighService: UIButton!
-    @IBOutlet weak var btnLinkedinHighService: UIButton!
+//    @IBOutlet weak var btnTwitterHighService: UIButton!
+//    @IBOutlet weak var btnFacebookHighService: UIButton!
+//    @IBOutlet weak var btnLinkedinHighService: UIButton!
     @IBOutlet weak var labelCoinHighService: UILabel!
     @IBOutlet weak var txtFieldTitleAddService: UITextField!
     @IBOutlet weak var txtViewDescriptionAddService: UITextView!
     @IBOutlet weak var txtFieldCategoryAddService: UITextField!
     @IBOutlet weak var txtFieldPriceAddService: UITextField!
     @IBOutlet weak var txtFieldAdressAddService: UITextField!
-    @IBOutlet weak var imgAddService01: UIImageView!
-    @IBOutlet weak var imgAddService04: UIImageView!
-    @IBOutlet weak var imgAddService03: UIImageView!
-    @IBOutlet weak var imgAddService02: UIImageView!
+//    @IBOutlet weak var imgAddService01: UIImageView!
+//    @IBOutlet weak var imgAddService04: UIImageView!
+//    @IBOutlet weak var imgAddService03: UIImageView!
+//    @IBOutlet weak var imgAddService02: UIImageView!
     
     private var locationManager: CLLocationManager?
     private var statusLocation: CLAuthorizationStatus?
     private var myPosition: CLLocation?
     private var requestDataInProgress: Bool = false
     private var numberUpdatesPosition: UInt = 0
-
+    
     lazy var alertView: AlertView = {
         let alertView = AlertView()
         return alertView
     }()
-
+    
     
     // MARK: - Init
     convenience init() {
         self.init(nibName: "AddServiceView", bundle: nil)
     }
     
-
+    
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ class AddServiceViewController: UIViewController {
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         locationManager?.startUpdatingLocation()
-
+        
         // Initialize data en view.
         setupViews()
     }
@@ -77,7 +77,7 @@ class AddServiceViewController: UIViewController {
         resignFirstResponderAllFields()
         
         if !self.serviceWithErrorData() {
-
+            
             // Validate all data.
             let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
                 self.postDataService()
@@ -88,39 +88,51 @@ class AddServiceViewController: UIViewController {
         }
     }
     
-    @IBAction func twitterHighServiceAction(sender: AnyObject) {
-        print("Tapped buttom Twitter")
-    }
-    
-    @IBAction func facebookHighServiceAction(sender: AnyObject) {
-        print("Tapped buttom Facebook")
-    }
-    
-    @IBAction func linkedinHighServicesAction(sender: AnyObject) {
-        print("Tapped buttom Linkedin")
-    }
-    
-    @IBAction func tapPhoto01(sender: UITapGestureRecognizer) {
-        print("Tapped photo01")
-    }
-    
-    @IBAction func tapPhoto02(sender: UITapGestureRecognizer) {
-         print("Tapped photo02")
-    }
-    
-    @IBAction func tapPhoto03(sender: UITapGestureRecognizer) {
-         print("Tapped photo03")
-    }
-    
-    @IBAction func tapPhoto04(sender: UITapGestureRecognizer) {
-         print("Tapped photo04")
-    }
+    //    @IBAction func twitterHighServiceAction(sender: AnyObject) {
+    //        print("Tapped buttom Twitter")
+    //    }
+    //    
+    //    @IBAction func facebookHighServiceAction(sender: AnyObject) {
+    //        print("Tapped buttom Facebook")
+    //    }
+    //    
+    //    @IBAction func linkedinHighServicesAction(sender: AnyObject) {
+    //        print("Tapped buttom Linkedin")
+    //    }
+    //    
+    //    @IBAction func tapPhoto01(sender: UITapGestureRecognizer) {
+    //        print("Tapped photo01")
+    //    }
+    //    
+    //    @IBAction func tapPhoto02(sender: UITapGestureRecognizer) {
+    //         print("Tapped photo02")
+    //    }
+    //    
+    //    @IBAction func tapPhoto03(sender: UITapGestureRecognizer) {
+    //         print("Tapped photo03")
+    //    }
+    //    
+    //    @IBAction func tapPhoto04(sender: UITapGestureRecognizer) {
+    //         print("Tapped photo04")
+    //    }
     
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         resignFirstResponderAllFields()
     }
-
+    
+    @IBAction func btn_shared(sender: AnyObject) {
+        
+        let nameServiceToShare = txtFieldTitleAddService.text
+        let textToshare = txtViewDescriptionAddService.text
+        let priceToShare = txtFieldPriceAddService.text
+        let addressUserToShare = txtFieldAdressAddService.text
+        let objetsToShare = [nameServiceToShare, textToshare, priceToShare, addressUserToShare]
+        let activityVC = UIActivityViewController(activityItems: objetsToShare, applicationActivities: nil)
+        activityVC.excludedActivityTypes = [UIActivityTypeAddToReadingList]
+        activityVC.popoverPresentationController?.sourceView = sender as? UIView
+        self.presentViewController(activityVC, animated: true, completion: nil)
+    }
     
     // MARK - Private Methods
     private func setupViews() {
@@ -136,13 +148,13 @@ class AddServiceViewController: UIViewController {
         bordersInViews(arrayBordersViews)
         
         let titleActions: [String : Selector] = [next : #selector(AddServiceViewController.nextTitle),
-                                                   ok : #selector(AddServiceViewController.okTitle)]
+                                                 ok : #selector(AddServiceViewController.okTitle)]
         let descriptionActions: [String : Selector] = [next : #selector(AddServiceViewController.nextDescription),
-                                                         ok : #selector(AddServiceViewController.okDescription)]
+                                                       ok : #selector(AddServiceViewController.okDescription)]
         let categoryActions: [String : Selector] = [next : #selector(AddServiceViewController.nextCategory),
-                                                      ok : #selector(AddServiceViewController.okCategory)]
+                                                    ok : #selector(AddServiceViewController.okCategory)]
         let addressActions: [String : Selector] = [next : #selector(AddServiceViewController.nextAddress),
-                                                     ok : #selector(AddServiceViewController.okAdress)]
+                                                   ok : #selector(AddServiceViewController.okAdress)]
         let priceActions: [String : Selector] = [ok : #selector(AddServiceViewController.okPrice)]
         
         txtFieldTitleAddService.inputAccessoryView = setupInputAccessoryView(titleActions)
@@ -196,23 +208,23 @@ class AddServiceViewController: UIViewController {
     @objc private func nextTitle() {
         txtViewDescriptionAddService.becomeFirstResponder()
     }
-
+    
     @objc private func okTitle() {
         txtFieldTitleAddService.resignFirstResponder()
     }
-
+    
     @objc private func nextDescription() {
         txtFieldCategoryAddService.becomeFirstResponder()
     }
-
+    
     @objc private func okDescription() {
         txtViewDescriptionAddService.resignFirstResponder()
     }
-
+    
     @objc private func nextCategory() {
         txtFieldAdressAddService.becomeFirstResponder()
     }
-
+    
     @objc private func okCategory() {
         txtFieldCategoryAddService.resignFirstResponder()
     }
@@ -220,11 +232,11 @@ class AddServiceViewController: UIViewController {
     @objc private func nextAddress() {
         txtFieldPriceAddService.becomeFirstResponder()
     }
-
+    
     @objc private func okAdress() {
         txtFieldAdressAddService.resignFirstResponder()
     }
-
+    
     @objc private func okPrice() {
         txtFieldPriceAddService.resignFirstResponder()
     }
@@ -286,7 +298,7 @@ class AddServiceViewController: UIViewController {
                 txtFieldAdressAddService.layer.borderColor = UIColor(named: .BorderTextFieldNormal).CGColor
             }
         }
-    
+        
         if txtFieldPriceAddService.text == "" {
             
             if !findError { txtFieldPriceAddService.becomeFirstResponder() }
@@ -295,7 +307,7 @@ class AddServiceViewController: UIViewController {
         } else {
             txtFieldPriceAddService.layer.borderColor = UIColor(named: .BorderTextFieldNormal).CGColor
         }
-
+        
         if findError {
             showAlert(serviceAddTitle, message: serviceAddFieldEmply, controller: self)
         }
@@ -304,7 +316,7 @@ class AddServiceViewController: UIViewController {
     }
     
     private func postDataService() {
-    
+        
         if !isConnectedToNetwork() {
             showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
             return
@@ -316,17 +328,17 @@ class AddServiceViewController: UIViewController {
         
         requestDataInProgress = true
         alertView.displayView(view, withTitle: pleaseWait)
-
+        
         let session = Session.iCanGoSession()
         let _ = session.postService(txtFieldTitleAddService.text!,
-                       description: txtViewDescriptionAddService.text,
-                             price: Double(txtFieldPriceAddService.text!.stringByReplacingOccurrencesOfString(",", withString: "."))!,
-                              tags: txtFieldCategoryAddService.text,
-                     idUserRequest: loadUserAuthInfo().id,
-                          latitude: myPosition?.coordinate.latitude,
-                         longitude: myPosition?.coordinate.longitude,
-                           address: txtFieldAdressAddService.text,
-                            status: 0)
+            description: txtViewDescriptionAddService.text,
+            price: Double(txtFieldPriceAddService.text!.stringByReplacingOccurrencesOfString(",", withString: "."))!,
+            tags: txtFieldCategoryAddService.text,
+            idUserRequest: loadUserAuthInfo().id,
+            latitude: myPosition?.coordinate.latitude,
+            longitude: myPosition?.coordinate.longitude,
+            address: txtFieldAdressAddService.text,
+            status: 0)
             
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
@@ -337,7 +349,7 @@ class AddServiceViewController: UIViewController {
                     self?.requestDataInProgress = false
                     
                     let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
-
+                        
                         NSNotificationCenter.defaultCenter().postNotificationName(notificationKeyServicesChange,
                             object: self, userInfo: [self!.serviceId: service.id])
                         
@@ -360,7 +372,7 @@ class AddServiceViewController: UIViewController {
     }
     
     private func resignFirstResponderAllFields() {
-
+        
         txtFieldTitleAddService.resignFirstResponder()
         txtViewDescriptionAddService.resignFirstResponder()
         txtFieldCategoryAddService.resignFirstResponder()
@@ -374,15 +386,15 @@ class AddServiceViewController: UIViewController {
 extension AddServiceViewController: CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-
+        
         statusLocation = status
         checkLocationStatus()
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
+        
         if (numberUpdatesPosition < maxUpdatesPosition) {
-
+            
             myPosition = locations.last
             numberUpdatesPosition += 1
         } else {
