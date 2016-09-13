@@ -7,13 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddServiceViewController">
             <connections>
-                <outlet property="btnFacebookHighService" destination="a9c-wH-g9Z" id="fRY-X5-L3R"/>
-                <outlet property="btnLinkedinHighService" destination="FFh-wU-wnO" id="NDY-d6-9cK"/>
-                <outlet property="btnTwitterHighService" destination="krH-Fe-VPq" id="E33-l1-ukR"/>
-                <outlet property="imgAddService01" destination="MqH-Fv-q9c" id="XiY-pT-1G2"/>
-                <outlet property="imgAddService02" destination="zKM-UA-92x" id="JgW-Oc-Ndm"/>
-                <outlet property="imgAddService03" destination="54Q-9t-Tav" id="ZcD-zE-4cc"/>
-                <outlet property="imgAddService04" destination="Rq9-8k-TFe" id="1cE-Gm-WZW"/>
                 <outlet property="labelCoinHighService" destination="D8r-Qt-HFa" id="J9n-55-ky3"/>
                 <outlet property="txtFieldAdressAddService" destination="edX-9B-9CQ" id="VEc-Hq-fub"/>
                 <outlet property="txtFieldCategoryAddService" destination="Xk4-yO-doL" id="FeX-aP-0je"/>
@@ -61,7 +54,13 @@
                     </textAttributes>
                     <items>
                         <navigationItem title="Add Service" id="OQl-Fi-Oui">
-                            <barButtonItem key="rightBarButtonItem" systemItem="save" id="FXs-XX-KAW">
+                            <barButtonItem key="leftBarButtonItem" systemItem="action" id="1O8-kN-2rp">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="btn_shared:" destination="-1" id="mbw-MP-04Y"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" systemItem="add" id="FXs-XX-KAW">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="saveService:" destination="-1" id="LNq-EP-fLm"/>
@@ -105,17 +104,17 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ukv-2d-9Mr">
-                                    <rect key="frame" x="8" y="95" width="584" height="87"/>
+                                    <rect key="frame" x="8" y="95" width="584" height="174"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="87" id="g2C-UC-X4I"/>
+                                        <constraint firstAttribute="height" constant="174" id="g2C-UC-X4I"/>
                                     </constraints>
                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhz-30-Jzu">
-                                    <rect key="frame" x="8" y="190" width="75" height="18"/>
+                                    <rect key="frame" x="8" y="277" width="75" height="18"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="75" id="5uo-Il-CIv"/>
                                         <constraint firstAttribute="height" constant="18" id="lvq-VR-m1Y"/>
@@ -126,7 +125,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Car, travel, dinner..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xk4-yO-doL">
-                                    <rect key="frame" x="8" y="209" width="584" height="30"/>
+                                    <rect key="frame" x="8" y="296" width="584" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="oBQ-PV-Ubq"/>
                                     </constraints>
@@ -134,7 +133,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADRESS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sj-Qf-8A4">
-                                    <rect key="frame" x="8" y="247" width="53" height="18"/>
+                                    <rect key="frame" x="8" y="334" width="53" height="18"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="18" id="Adp-Ih-yQs"/>
                                         <constraint firstAttribute="width" constant="53" id="fOH-HO-gyS"/>
@@ -145,7 +144,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Service's address..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edX-9B-9CQ">
-                                    <rect key="frame" x="8" y="266" width="584" height="30"/>
+                                    <rect key="frame" x="8" y="353" width="584" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="aaa-S4-pwH"/>
                                     </constraints>
@@ -153,7 +152,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRICE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haQ-7L-x6b">
-                                    <rect key="frame" x="8" y="304" width="39" height="18"/>
+                                    <rect key="frame" x="8" y="391" width="39" height="18"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="18" id="IQJ-3y-NBx"/>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="cZT-bR-M81"/>
@@ -163,8 +162,8 @@
                                     <color key="textColor" red="0.1215686275" green="0.53725490200000003" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ulL-F0-4uH">
-                                    <rect key="frame" x="8" y="325" width="113" height="30"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ulL-F0-4uH">
+                                    <rect key="frame" x="8" y="412" width="113" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="9R0-T3-E52"/>
                                         <constraint firstAttribute="width" constant="113" id="Acn-Uu-XQU"/>
@@ -173,7 +172,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8r-Qt-HFa">
-                                    <rect key="frame" x="129" y="326" width="23" height="28"/>
+                                    <rect key="frame" x="129" y="413" width="23" height="28"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="28" id="muV-MK-1jB"/>
                                         <constraint firstAttribute="width" constant="23" id="p2a-yg-65t"/>
@@ -195,7 +194,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="FXP-kK-VWL">
                                     <rect key="frame" x="211" y="323" width="100" height="30"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krH-Fe-VPq" customClass="RoundedCornersButtons" customModule="iCanGo_iOS" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krH-Fe-VPq" customClass="RoundedCornersButtons" customModule="iCanGo_iOS" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="31" height="30"/>
                                             <state key="normal" image="twitter-icon"/>
                                             <userDefinedRuntimeAttributes>
@@ -203,11 +202,8 @@
                                                     <real key="value" value="5"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="twitterHighServiceAction:" destination="-1" eventType="touchUpInside" id="x6n-sn-wb5"/>
-                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9c-wH-g9Z" customClass="RoundedCornersButtons" customModule="iCanGo_iOS" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9c-wH-g9Z" customClass="RoundedCornersButtons" customModule="iCanGo_iOS" customModuleProvider="target">
                                             <rect key="frame" x="35" y="0.0" width="30" height="30"/>
                                             <state key="normal" image="facebook-icon"/>
                                             <userDefinedRuntimeAttributes>
@@ -215,11 +211,8 @@
                                                     <real key="value" value="5"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="facebookHighServiceAction:" destination="-1" eventType="touchUpInside" id="Fpk-gk-9Tn"/>
-                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFh-wU-wnO" customClass="RoundedCornersButtons" customModule="iCanGo_iOS" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFh-wU-wnO" customClass="RoundedCornersButtons" customModule="iCanGo_iOS" customModuleProvider="target">
                                             <rect key="frame" x="69" y="0.0" width="31" height="30"/>
                                             <state key="normal" image="linkedin-icon"/>
                                             <userDefinedRuntimeAttributes>
@@ -227,9 +220,6 @@
                                                     <real key="value" value="5"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="linkedinHighServicesAction:" destination="-1" eventType="touchUpInside" id="ebr-zo-LVN"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -240,7 +230,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Sam-bd-LfW">
                                     <rect key="frame" x="8" y="382" width="584" height="80"/>
                                     <subviews>
-                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="MqH-Fv-q9c">
+                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iConCamera+" translatesAutoresizingMaskIntoConstraints="NO" id="MqH-Fv-q9c">
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="140" id="Itc-iN-a4G"/>
@@ -250,7 +240,7 @@
                                                 <outletCollection property="gestureRecognizers" destination="AXU-sj-0W7" appends="YES" id="DVf-6C-zTc"/>
                                             </connections>
                                         </imageView>
-                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="Rq9-8k-TFe">
+                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iConCamera+" translatesAutoresizingMaskIntoConstraints="NO" id="Rq9-8k-TFe">
                                             <rect key="frame" x="148" y="0.0" width="140" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="kYB-Te-sg2"/>
@@ -260,7 +250,7 @@
                                                 <outletCollection property="gestureRecognizers" destination="xBQ-yp-gcv" appends="YES" id="1wu-Ag-x56"/>
                                             </connections>
                                         </imageView>
-                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="54Q-9t-Tav">
+                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iConCamera+" translatesAutoresizingMaskIntoConstraints="NO" id="54Q-9t-Tav">
                                             <rect key="frame" x="296" y="0.0" width="140" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="Q9R-OV-OEK"/>
@@ -270,7 +260,7 @@
                                                 <outletCollection property="gestureRecognizers" destination="M7d-o1-2th" appends="YES" id="amU-aA-Dkw"/>
                                             </connections>
                                         </imageView>
-                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="zKM-UA-92x">
+                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iConCamera+" translatesAutoresizingMaskIntoConstraints="NO" id="zKM-UA-92x">
                                             <rect key="frame" x="444" y="0.0" width="140" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="1Ms-tk-cfu"/>
@@ -330,6 +320,13 @@
                                 <constraint firstItem="edX-9B-9CQ" firstAttribute="top" secondItem="8sj-Qf-8A4" secondAttribute="bottom" constant="1" id="z8h-Zc-gsp"/>
                                 <constraint firstItem="hhz-30-Jzu" firstAttribute="top" secondItem="Ukv-2d-9Mr" secondAttribute="bottom" constant="8" id="zOD-OF-9xn"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="subviews">
+                                    <exclude reference="nRA-2g-rSY"/>
+                                    <exclude reference="FXP-kK-VWL"/>
+                                    <exclude reference="Sam-bd-LfW"/>
+                                </mask>
+                            </variation>
                         </view>
                     </subviews>
                     <constraints>
@@ -355,8 +352,8 @@
         </view>
     </objects>
     <resources>
-        <image name="camera" width="200" height="200"/>
         <image name="facebook-icon" width="346" height="346"/>
+        <image name="iConCamera+" width="1024" height="1024"/>
         <image name="linkedin-icon" width="300" height="300"/>
         <image name="twitter-icon" width="236" height="235"/>
     </resources>
