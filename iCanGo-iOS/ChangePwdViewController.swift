@@ -167,7 +167,7 @@ class ChangePwdViewController: UIViewController {
         alertView.displayView(view, withTitle: pleaseWait)
         
         let session = Session.iCanGoSession()
-        let _ = session.putUser(user.id, firstName: nil, lastName: nil, email: nil, searchPreferences: nil,
+        let _ = session.putUser(user.id, firstName: nil, lastName: nil, email: user.email, searchPreferences: nil,
             oldPassword: oldPwdText.text, newPassword: newPwdText.text, photoUrl: nil)
             
             .observeOn(MainScheduler.instance)
@@ -187,6 +187,7 @@ class ChangePwdViewController: UIViewController {
                             let loginVC = LoginViewController()
                             loginVC.delegate = self
                             loginVC.selectedTabItemIndex = self!.tabBarController!.viewControllers?.indexOf(self!)
+                            showModal(self!, calledContainer: loginVC)
                         })
                         let actions = [okAction]
                         showAlertWithActions(userChangePwdTitle, message: userChangePwdMessage, controller: self!, actions: actions)
