@@ -29,7 +29,7 @@ enum APIRequest {
     case putService(id: String, name: String?, description: String?, price: Double?, tags: [String]?,
          idUserRequest: String?, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
     case putChangeServiceStatus(id: String, idUserResponse: String, status: UInt)
-    case putUser(id: String, firstName: String?, lastName: String?, email: String?, searchPreferences: String?,
+    case putUser(id: String, firstName: String?, lastName: String?, email: String, searchPreferences: String?,
          oldPassword: String?, newPassword: String?, photoUrl: NSURL?)
     case deleteServiceById(key: String, id: String)
 }
@@ -89,7 +89,15 @@ extension APIRequest: Resource {
             return "images/\(id)"
         case let .getImageData(_, urlImage):
             let pathComponents = urlImage.pathComponents
-            return "\(pathComponents![1])/\(pathComponents![2])"
+            if pathComponents!.count > 2 {
+                return "\(pathComponents![1])/\(pathComponents![2])"
+            } else {
+                if pathComponents!.count > 1 {
+                    return "\(pathComponents![1])"
+                } else {
+                    return ""
+                }
+            }
         case .getUrlSaS:
             return "urlsascontainer"
         case .postLogin:
@@ -260,11 +268,12 @@ extension APIRequest: Resource {
             photoUrl: photoUrl):
             if let oldPassword = oldPassword, newPassword = newPassword {
                 return ["oldPassword": oldPassword,
-                        "newPassword": newPassword]
+                        "password": newPassword,
+                        "email": email]
             } else {
                 return ["firstName": firstName != nil ? firstName! : "",
                         "lastName": lastName != nil ? lastName! : "",
-                        "email": email != nil ? email! : "",
+                        "email": email,
                         "searchPreferences": searchPreferences != nil ? searchPreferences! : "",
                         "photoUrl": photoUrl != nil ? photoUrl!.absoluteString : ""]
             }

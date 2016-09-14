@@ -338,7 +338,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         let _ = session.putUser(user.id,
             firstName: user.firstName != userFirstNameText.text ? userFirstNameText.text : nil,
             lastName: user.lastName != userLastNameText ? userLastNameText.text : nil,
-            email: nil,
+            email: user.email,
             searchPreferences: nil,
             oldPassword: nil,
             newPassword: nil,
