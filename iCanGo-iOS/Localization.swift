@@ -16,7 +16,10 @@ let noConnectionTitle = "No internet connection"
 let noConnectionMessage = "Sorry, an Internet connection is needed"
 let noGeoUserTitle = "Location services are disabled"
 let noGeoUserMessage = "For you to see nearby services, you need to enable location services in Settings"
+let serviceGetServicesTitle = "Services"
 let serviceGetServicesKO = "Sorry, it's not possible get services at this moment"
+let serviceDetailTitle = "Detail Service"
+let serviceGetServiceKO = "Sorry, it's not possible get data service at this moment"
 let serviceGetUserKO = "Sorry, it's not possible get user data at this moment"
 let serviceDeleteTitle = "Delete Service"
 let serviceDeleteConfirmationMessage = "Do you want delete this service?"
@@ -54,6 +57,8 @@ let userChangePwdNewConfirm = "The password confirmation does not match the new 
 let userChangePwdNewCharacters = "The new password must have 8 or more characters"
 let userChangePwdNoOldPwd = "The current password is not correct"
 let apiConnectionNoPossible = "Sorry, the operation couldn't be completed at this moment"
+let alertCameraTakePhoto = "Take photo"
+let alertCameraSelectPhoto = "Select existing photo"
 
 
 // MARK: Texts.
