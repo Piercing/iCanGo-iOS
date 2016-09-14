@@ -266,7 +266,7 @@ extension Session {
     func putUser(id: String,
           firstName: String?,
            lastName: String?,
-              email: String?,
+              email: String,
         searchPreferences: String?,
         oldPassword: String?,
         newPassword: String?,
