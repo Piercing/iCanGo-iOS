@@ -11,19 +11,12 @@ class AddServiceViewController: UIViewController {
     
     
     // MARK: - Properties
-//    @IBOutlet weak var btnTwitterHighService: UIButton!
-//    @IBOutlet weak var btnFacebookHighService: UIButton!
-//    @IBOutlet weak var btnLinkedinHighService: UIButton!
     @IBOutlet weak var labelCoinHighService: UILabel!
     @IBOutlet weak var txtFieldTitleAddService: UITextField!
     @IBOutlet weak var txtViewDescriptionAddService: UITextView!
     @IBOutlet weak var txtFieldCategoryAddService: UITextField!
     @IBOutlet weak var txtFieldPriceAddService: UITextField!
     @IBOutlet weak var txtFieldAdressAddService: UITextField!
-//    @IBOutlet weak var imgAddService01: UIImageView!
-//    @IBOutlet weak var imgAddService04: UIImageView!
-//    @IBOutlet weak var imgAddService03: UIImageView!
-//    @IBOutlet weak var imgAddService02: UIImageView!
     
     private var locationManager: CLLocationManager?
     private var statusLocation: CLAuthorizationStatus?
@@ -60,9 +53,18 @@ class AddServiceViewController: UIViewController {
         setupViews()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        initializeInfoService() 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        initializeInfoService()
         checkLocationStatus()
+        
+        if !isConnectedToNetwork() {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
+        
+        txtFieldTitleAddService.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,35 +89,6 @@ class AddServiceViewController: UIViewController {
             showAlertWithActions(serviceAddTitle, message: serviceAddConfirmationMessage, controller: self, actions: actions)
         }
     }
-    
-    //    @IBAction func twitterHighServiceAction(sender: AnyObject) {
-    //        print("Tapped buttom Twitter")
-    //    }
-    //    
-    //    @IBAction func facebookHighServiceAction(sender: AnyObject) {
-    //        print("Tapped buttom Facebook")
-    //    }
-    //    
-    //    @IBAction func linkedinHighServicesAction(sender: AnyObject) {
-    //        print("Tapped buttom Linkedin")
-    //    }
-    //    
-    //    @IBAction func tapPhoto01(sender: UITapGestureRecognizer) {
-    //        print("Tapped photo01")
-    //    }
-    //    
-    //    @IBAction func tapPhoto02(sender: UITapGestureRecognizer) {
-    //         print("Tapped photo02")
-    //    }
-    //    
-    //    @IBAction func tapPhoto03(sender: UITapGestureRecognizer) {
-    //         print("Tapped photo03")
-    //    }
-    //    
-    //    @IBAction func tapPhoto04(sender: UITapGestureRecognizer) {
-    //         print("Tapped photo04")
-    //    }
-    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         resignFirstResponderAllFields()
@@ -323,6 +296,7 @@ class AddServiceViewController: UIViewController {
         }
         
         if requestDataInProgress {
+            showAlert(serviceAddTitle, message: apiConnectionNoPossible, controller: self)
             return
         }
         
@@ -343,10 +317,11 @@ class AddServiceViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
+                self!.alertView.hideView()
+                self?.requestDataInProgress = false
+                
                 switch event {
                 case let .Next(service):
-                    self!.alertView.hideView()
-                    self?.requestDataInProgress = false
                     
                     let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
                         
@@ -359,14 +334,11 @@ class AddServiceViewController: UIViewController {
                     showAlertWithActions(serviceAddTitle, message: serviceAddMessage, controller: self!, actions: actions)
                     
                 case .Error (let error):
-                    self!.alertView.hideView()
-                    self?.requestDataInProgress = false
                     showAlert(serviceAddTitle, message: serviceAddKOMessage, controller: self!)
                     print(error)
                     
                 default:
-                    self!.alertView.hideView()
-                    self?.requestDataInProgress = false
+                    break
                 }
         }
     }

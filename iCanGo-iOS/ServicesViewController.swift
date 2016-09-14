@@ -106,6 +106,7 @@ class ServicesViewController: UIViewController {
         }
         
         if requestDataInProgress {
+            showAlert(serviceGetServicesTitle, message: apiConnectionNoPossible, controller: self)
             return
         }
 
@@ -113,17 +114,17 @@ class ServicesViewController: UIViewController {
         alertView.displayView(view, withTitle: pleaseWait)
         
         let session = Session.iCanGoSession()
-        let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind,
+        let _ = session.getServices(nil, longitude: nil, distance: nil, searchText: stringToFind == "" ? nil : stringToFind,
                                     page: page, rows: rowsPerPage, deleted: DeletedService.notDeleted.rawValue)
                     
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                         
                 self!.alertView.hideView()
+                self?.requestDataInProgress = false
                 
                 switch event {
                 case let .Next(services):
-                    self?.requestDataInProgress = false
                     if services.count > 0 {
                         self?.services?.appendContentsOf(services)
                         self?.servicesCollectionView.reloadData()
@@ -134,11 +135,11 @@ class ServicesViewController: UIViewController {
                     }
                             
                 case .Error (let error):
-                    self?.requestDataInProgress = false
+                    showAlert(serviceSearchNoTitle, message: serviceGetServicesKO, controller: self!)
                     print(error)
                             
                 default:
-                    self?.requestDataInProgress = false
+                    break
                 }
         }
     }

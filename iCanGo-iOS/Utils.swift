@@ -71,7 +71,8 @@ func loadImage(imageUrl: NSURL, imageView: UIImageView, withAnimation: Bool) {
                     imageView.fadeIn()
                 }
                 
-            case .Error:
+            case .Error (let error):
+                print(error)
                 return
                 
             default:
