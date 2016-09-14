@@ -14,8 +14,8 @@ protocol MyProfileEditControllerDelegate {
 }
 
 
-class MyProfileEditViewController: UIViewController {
-
+class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavigationControllerDelegate {
+    
     // MARK: - Properties
     @IBOutlet weak var userFirstNameText: UITextField!
     @IBOutlet weak var userLastNameText: UITextField!
@@ -26,12 +26,14 @@ class MyProfileEditViewController: UIViewController {
     
     private var user: User!
     private var requestDataInProgress: Bool = false
+    private var changeProfilePhoto: Bool = false
+    private var imagePicker:UIImagePickerController? = UIImagePickerController()
     
     lazy var alertView: AlertView = {
         let alertView = AlertView()
         return alertView
     }()
-
+    
     
     // MARK: - Init
     convenience init(user: User) {
@@ -54,24 +56,24 @@ class MyProfileEditViewController: UIViewController {
         
         // Initialize data en view.
         setupViews()
+        
+        // Get data from API.
+        loadUser(user.id)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         if !isConnectedToNetwork() {
             showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
             return
         }
-
-        // Get data from API.
-        loadUser(user.id)        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     
     // MARK: - Actions
     @IBAction func cancelButton(sender: AnyObject) {
@@ -79,11 +81,11 @@ class MyProfileEditViewController: UIViewController {
         let slideDownUpTransition = CATransition()
         slideDownUpTransition.type = kCATransitionMoveIn
         slideDownUpTransition.subtype = kCATransitionFromBottom
-        slideDownUpTransition.duration = 0.4
+        slideDownUpTransition.duration = 0.3
         self.navigationController?.view.layer.addAnimation(slideDownUpTransition, forKey: kCATransition)
         self.navigationController?.popToRootViewControllerAnimated(false)
     }
-
+    
     @IBAction func saveButton(sender: AnyObject) {
         
         resignFirstResponderAllFields()
@@ -92,14 +94,30 @@ class MyProfileEditViewController: UIViewController {
             
             // Validate all data.
             let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
-                self.putDataUser()
+                
+                if self.changeProfilePhoto {
+                    // Upgrade photo profile, and after, upgrade its urls and rest data.
+                    //self.putPhotoProfile()
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                } else {
+                    // Upgrade user data.
+                    self.putDataUser()
+                }
             })
             let cancelAction = UIAlertAction(title: cancel, style: .Cancel, handler: nil)
             let actions = [okAction, cancelAction]
             showAlertWithActions(userProfileTitle, message: userProfileConfirmationMessage, controller: self, actions: actions)
         }
     }
-
+    
     @IBAction func endSession(sender: AnyObject) {
         
         // Confirm Logout.
@@ -116,6 +134,33 @@ class MyProfileEditViewController: UIViewController {
         showAlertWithActions(userProfileTitle, message: userProfileConfirmLogoutMessage, controller: self, actions: actions)
     }
     
+    @IBAction func changePhotoProfile(sender: AnyObject) {
+        
+        let alert: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let cameraAction = UIAlertAction(title: alertCameraTakePhoto, style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            self.openCamera()
+        }
+        
+        let galleryAction = UIAlertAction(title: alertCameraSelectPhoto, style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            self.openGallery()
+        }
+        
+        let cancelAction = UIAlertAction(title: cancel, style: UIAlertActionStyle.Cancel) {
+            UIAlertAction in
+        }
+        
+        // Add the actions
+        imagePicker?.delegate = self
+        alert.addAction(cameraAction)
+        alert.addAction(galleryAction)
+        alert.addAction(cancelAction)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - Private Methods
     private func setupViews() {
         
@@ -129,12 +174,12 @@ class MyProfileEditViewController: UIViewController {
         bordersInViews(arrayBordersViews)
         
         let userFirstNameTextActions: [String : Selector] = [next : #selector(MyProfileEditViewController.nextFirstName),
-                                                               ok : #selector(MyProfileEditViewController.okFirstName)]
+                                                             ok : #selector(MyProfileEditViewController.okFirstName)]
         let userLastNameTextActions: [String : Selector] = [ok : #selector(MyProfileEditViewController.okLastName)]
         userFirstNameText.inputAccessoryView = setupInputAccessoryView(userFirstNameTextActions)
         userLastNameText.inputAccessoryView = setupInputAccessoryView(userLastNameTextActions)
     }
-
+    
     private func loadUser(id: String) -> Void {
         
         if !isConnectedToNetwork()  {
@@ -158,7 +203,7 @@ class MyProfileEditViewController: UIViewController {
                 
                 self!.alertView.hideView()
                 self?.requestDataInProgress = false
-
+                
                 switch event {
                 case let .Next(user):
                     self?.user = user
@@ -174,14 +219,14 @@ class MyProfileEditViewController: UIViewController {
         }
         
     }
-
+    
     private func showDataUser() {
         
         // Show data user.
         userFirstNameText.text = user.firstName
         userLastNameText.text = user.lastName
         userPasswordText.text = "********"
-
+        
         if let photo = user.photoURL {
             loadImage(photo, imageView: userImageView, withAnimation: false)
         }
@@ -288,9 +333,16 @@ class MyProfileEditViewController: UIViewController {
         requestDataInProgress = true
         alertView.displayView(view, withTitle: pleaseWait)
         
+        // Only inform those parameters that has changed
         let session = Session.iCanGoSession()
-        let _ = session.putUser(user.id, firstName: user.firstName, lastName: user.lastName, email: user.email,
-            searchPreferences: user.searchPreferences, oldPassword: nil, newPassword: nil, photoUrl: user.photoURL)
+        let _ = session.putUser(user.id,
+            firstName: user.firstName != userFirstNameText.text ? userFirstNameText.text : nil,
+            lastName: user.lastName != userLastNameText ? userLastNameText.text : nil,
+            email: nil,
+            searchPreferences: nil,
+            oldPassword: nil,
+            newPassword: nil,
+            photoUrl: changeProfilePhoto ? user.photoURL : nil)
             
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
@@ -327,12 +379,111 @@ class MyProfileEditViewController: UIViewController {
                 }
         }
     }
+    
+    func openCamera() {
+        
+        if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            
+            imagePicker!.sourceType = UIImagePickerControllerSourceType.Camera
+            self.presentViewController(imagePicker!, animated: true, completion: nil)
+        } else {
+            openGallery()
+        }
+    }
+    
+    func openGallery() {
+        
+        imagePicker!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(imagePicker!, animated: true, completion: nil)
+    }
+    
+    /*
+    private func putPhotoProfile() -> Void {
+        
+        if !isConnectedToNetwork()  {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
+        
+        if requestDataInProgress {
+            showAlert(userProfileTitle, message: apiConnectionNoPossible, controller: self)
+            return
+        }
+        
+        requestDataInProgress = true
+        alertView.displayView(view, withTitle: pleaseWait)
+        
+        // Only inform those parameters that has changed
+        let session = Session.iCanGoSession()
+        let _ = session.putUser()
+            
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                self!.alertView.hideView()
+                self?.requestDataInProgress = false
+                
+                switch event {
+                case let .Next(user):
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    //                self.putDataUser()
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    if self?.user.id == user.id {
+                        
+                        let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
+                            
+                            logoutUser()
+                            saveAuthInfo(self!.user)
+                            if self!.delegate != nil {
+                                self!.delegate?.back(self!.user, endSession: false)
+                            }
+                        })
+                        let actions = [okAction]
+                        showAlertWithActions(userProfileTitle, message: userProfileMessage, controller: self!, actions: actions)
+                        
+                    } else {
+                        showAlert(userProfileTitle, message: userProfileKOMessage, controller: self!)
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                case .Error (let error):
+                    showAlert(userProfileTitle, message: userProfileKOMessage, controller: self!)
+                    print(error)
+                    
+                default:
+                    break
+                }
+        }
+    }
+    */
+    
 }
 
 
 // MARK: - Extensions - UITextFieldDelegate
 extension MyProfileEditViewController: UITextFieldDelegate {
-
+    
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         
         if textField == userPasswordText {
@@ -345,3 +496,20 @@ extension MyProfileEditViewController: UITextFieldDelegate {
 }
 
 
+// MARK: - Extensions - UITextFieldDelegate
+extension MyProfileEditViewController: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        picker .dismissViewControllerAnimated(true, completion: nil)
+        var originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        // Resize and reduced profile user photo.
+        let imageReducedAndResized: NSData = originalImage!.reducedImage()
+        originalImage = nil
+        
+        // New image profile user.
+        userImageView.image = UIImage(data: imageReducedAndResized)
+        changeProfilePhoto = true
+    }
+}

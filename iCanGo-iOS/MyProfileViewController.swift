@@ -39,12 +39,12 @@ class MyProfileViewController: UIViewController {
     private var totalServicesAttended: Int = 0
     private var isNeededRefreshServicesPublished: Bool = false
     private var isNeededRefreshServicesAttended: Bool = false
-
+    
     lazy var alertView: AlertView = {
         let alertView = AlertView()
         return alertView
     }()
-
+    
     
     // MARK: - Init
     convenience init() {
@@ -59,7 +59,7 @@ class MyProfileViewController: UIViewController {
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: notificationKeyServicesChange, object: nil)
     }
-
+    
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -76,7 +76,7 @@ class MyProfileViewController: UIViewController {
         // Initialize variables.
         self.servicesPublished = [Service]()
         self.servicesAttended = [Service]()
-
+        
         // Setup UI.
         setupViews()
         self.user = loadUserAuthInfo()
@@ -124,7 +124,7 @@ class MyProfileViewController: UIViewController {
             isNeededRefreshServicesPublished = true
         }
     }
-
+    
     
     // MARK: Cell registration
     func registerCustomCell() {
@@ -134,7 +134,7 @@ class MyProfileViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func btnEditMyProfile(sender: AnyObject) {
-
+        
         if user.status != StatusUser.active.rawValue {
             
             showAlert(userProfileTitle, message: userProfileNotAllowEdit, controller: self)
@@ -142,7 +142,7 @@ class MyProfileViewController: UIViewController {
             let myProfileEditViewController = MyProfileEditViewController(user: user)
             myProfileEditViewController.delegate = self
             let slideDownUpTransition = CATransition()
-            slideDownUpTransition.duration = 0.4
+            slideDownUpTransition.duration = 0.3
             slideDownUpTransition.type = kCATransitionMoveIn
             slideDownUpTransition.subtype = kCATransitionFromTop
             self.navigationController?.view.layer.addAnimation(slideDownUpTransition, forKey: kCATransition)
@@ -168,7 +168,7 @@ class MyProfileViewController: UIViewController {
         
         myProfileCollecionView.fadeOut(duration: 0.0)
     }
-
+    
     private func showDataUser() {
         
         labelUserName.text = "\(user.firstName) \(user.lastName)"
@@ -176,7 +176,7 @@ class MyProfileViewController: UIViewController {
         if user.photoURL != nil {
             loadImage(user.photoURL!, imageView: userPhotoView, withAnimation: false)
         }
-
+        
         labelService.text = servicesText
         if (segmentSelected == 0) {
             labelPublishedAttendedText.text = publishedText
@@ -184,7 +184,7 @@ class MyProfileViewController: UIViewController {
             labelPublishedAttendedText.text = attendedText
         }
     }
-
+    
     private func getServicesFromApi(page: UInt) -> Void {
         
         if !isConnectedToNetwork() {
@@ -197,9 +197,9 @@ class MyProfileViewController: UIViewController {
             return
         }
         
-        requestDataInProgress = true        
+        requestDataInProgress = true
         alertView.displayView(view, withTitle: pleaseWait)
-
+        
         let session = Session.iCanGoSession()
         let _ = session.getUserServicesByType(user.id, type: segmentSelected, page: page, rows: rowsPerPage)
             
@@ -237,14 +237,14 @@ class MyProfileViewController: UIViewController {
                 }
         }
     }
-
+    
     
     // MARK: Methods
     func segmentValueChanged(sender: AnyObject?){
         
         labelPublishedAttendedText.text = ""
         labelPublishedAttendedAmount.text = ""
-
+        
         switch segmentControlMyProfile.selectedIndex {
         case 0:
             segmentSelected = 0
@@ -299,7 +299,7 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! MyProfileCell
         Appearance.setupCellUI(cell)
         cell.service = segmentSelected == 0 ? servicesPublished![indexPath.row % servicesPublished!.count] :
-                                              servicesAttended![indexPath.row % servicesAttended!.count]
+            servicesAttended![indexPath.row % servicesAttended!.count]
         return cell
     }
     
@@ -320,7 +320,7 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
                     getServicesFromApi(self.currentPagePublished)
                 }
             }
-        
+            
         } else {
             if (indexPath.row == (self.servicesAttended?.count)! - 2) {
                 let servicesInList = (self.servicesAttended?.count)! % Int(rowsPerPage)
@@ -336,7 +336,7 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
 extension MyProfileViewController: MyProfileEditControllerDelegate {
     
     func back(user: User, endSession: Bool) {
-
+        
         if endSession {
             self.tabBarController!.selectedIndex = 0
         } else {

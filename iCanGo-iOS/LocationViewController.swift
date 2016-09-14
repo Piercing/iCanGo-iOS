@@ -125,6 +125,7 @@ class LocationViewController: UIViewController {
         }
 
         if requestDataInProgress {
+            showAlert(serviceLocationNoTitle, message: apiConnectionNoPossible, controller: self)
             return
         }
         
@@ -145,10 +146,10 @@ class LocationViewController: UIViewController {
             .subscribe { [weak self] event in
                 
                 self!.alertView.hideView()
+                self?.requestDataInProgress = false
                 
                 switch event {
                 case let .Next(services):
-                    self?.requestDataInProgress = false
                     self?.services = services
                     if self?.services?.count > 0 {
                         self?.showServicesInMap()
@@ -157,11 +158,11 @@ class LocationViewController: UIViewController {
                     }
                     
                 case .Error (let error):
-                    self?.requestDataInProgress = false
+                    showAlert(serviceLocationNoTitle, message: serviceGetServicesKO, controller: self!)
                     print(error)
                     
                 default:
-                    self?.requestDataInProgress = false
+                    break
                 }
         }
         

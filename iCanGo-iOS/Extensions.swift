@@ -70,9 +70,9 @@ extension UIImage {
         return newImage
     }
     
-    func reducedImage(image: UIImage) -> NSData {
-                
-        let resizeImage = UIImage.resizeImage(image, newWidth: widthReducedImage)
+    func reducedImage() -> NSData {
+        
+        let resizeImage = UIImage.resizeImage(self, newWidth: widthReducedImage)
         return resizeImage.mediumQualityJPEGNSData
     }
 }
@@ -85,5 +85,4 @@ extension Double {
         formatter.locale = NSLocale.currentLocale()
         return formatter.stringFromNumber(self)!
     }
-    
 }

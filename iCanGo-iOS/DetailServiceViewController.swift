@@ -48,7 +48,7 @@ class DetailServiceViewController: UIViewController {
     // MARK: - Constant.
     let conversationNameImage = "conversation03"
     let userDefaultiCanGoNameImage = "userDefaultiCanGo"
-    let emptyCameraNameImage = "1024-emptyCamera-center-ios"
+    let emptyCameraNameImage = "iConCamera+"
     let popUpImagesNameImage = "PopUpImagesView"
     let serviceId = "serviceId"
     
@@ -71,11 +71,6 @@ class DetailServiceViewController: UIViewController {
         
         // Initialize data en view.
         setupViews()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        
-        super.viewDidAppear(animated)
         
         // Get data from API.
         loadService(service.id)
@@ -92,6 +87,15 @@ class DetailServiceViewController: UIViewController {
         
         // Show data service.
         showDataService()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !isConnectedToNetwork() {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -212,6 +216,7 @@ class DetailServiceViewController: UIViewController {
         }
         
         if requestDataInProgress {
+            showAlert(serviceRequestedToAttendTitle, message: apiConnectionNoPossible, controller: self)
             return
         }
         
@@ -224,14 +229,15 @@ class DetailServiceViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
+                self!.alertView.hideView()
+                self?.requestDataInProgress = false
+                
                 switch event {
                 case let .Next(service):
-                    self!.alertView.hideView()
-                    self?.requestDataInProgress = false
-
+                    
                     if service.status == StatusService.requestedToAttend.rawValue {
                         let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
-                            self!.navigationController?.popToRootViewControllerAnimated(true)
+                            
                             NSNotificationCenter.defaultCenter().postNotificationName(notificationKeyServicesChange,
                                 object: self, userInfo: [self!.serviceId: service.id])
                             self!.navigationController?.popViewControllerAnimated(true)
@@ -244,14 +250,11 @@ class DetailServiceViewController: UIViewController {
                     }
                     
                 case .Error (let error):
-                    self!.alertView.hideView()
-                    self?.requestDataInProgress = false
                     showAlert(serviceRequestedToAttendTitle, message: serviceRequestedToAttendKOMessage, controller: self!)
                     print(error)
                     
                 default:
-                    self!.alertView.hideView()
-                    self?.requestDataInProgress = false
+                    break
                 }
         }
     }
@@ -264,6 +267,7 @@ class DetailServiceViewController: UIViewController {
         }
         
         if requestDataInProgress {
+            showAlert(serviceDeleteTitle, message: apiConnectionNoPossible, controller: self)
             return
         }
         
@@ -275,15 +279,16 @@ class DetailServiceViewController: UIViewController {
                     
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
-                        
+                
+                self!.alertView.hideView()
+                self?.requestDataInProgress = false
+                
                 switch event {
                 case let .Next(service):
-                    self!.alertView.hideView()
-                    self?.requestDataInProgress = false
 
                     if service.deleted {
                         let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
-                            self!.navigationController?.popToRootViewControllerAnimated(true)
+                            
                             NSNotificationCenter.defaultCenter().postNotificationName(notificationKeyServicesChange,
                                 object: self, userInfo: [self!.serviceId: service.id])
                             self!.navigationController?.popViewControllerAnimated(true)
@@ -295,14 +300,11 @@ class DetailServiceViewController: UIViewController {
                     }
                     
                 case .Error (let error):
-                    self!.alertView.hideView()
-                    self?.requestDataInProgress = false
                     showAlert(serviceDeleteTitle, message: serviceDeleteKOMessage, controller: self!)
                     print(error)
                             
                 default:
-                    self!.alertView.hideView()
-                    self?.requestDataInProgress = false
+                    break
                 }
             }
     }
@@ -315,28 +317,33 @@ class DetailServiceViewController: UIViewController {
         }
         
         if requestDataInProgress {
+            showAlert(serviceDetailTitle, message: apiConnectionNoPossible, controller: self)
             return
         }
         
         requestDataInProgress = true
+        alertView.displayView(view, withTitle: pleaseWait)
+        
         let session = Session.iCanGoSession()
         let _ = session.getServiceById(id)
             
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
+                self!.alertView.hideView()
+                self?.requestDataInProgress = false
+                
                 switch event {
                 case let .Next(service):
                     self?.service = service
                     self?.showDataService()
-                    self?.requestDataInProgress = false
                     
                 case .Error (let error):
-                    self?.requestDataInProgress = false
+                    showAlert(serviceDetailTitle, message: serviceGetServiceKO, controller: self!)
                     print(error)
                     
                 default:
-                    self?.requestDataInProgress = false
+                    break
                 }
         }
         
