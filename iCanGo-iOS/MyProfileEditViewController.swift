@@ -230,8 +230,9 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         userLastNameText.text = user.lastName
         userPasswordText.text = "********"
         
-        if let photo = user.photoURL {
-            loadImage(photo, imageView: userImageView, withAnimation: false)
+        if let photo = user.photoUrl {
+            //loadImage(photo, imageView: userImageView, withAnimation: false)
+            loadImageBase64(photo, imageView: userImageView, withAnimation: false)
         }
     }
     
@@ -345,7 +346,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
             searchPreferences: nil,
             oldPassword: nil,
             newPassword: nil,
-            photoUrl: changeProfilePhoto ? user.photoURL : nil)
+            photoUrl: changeProfilePhoto ? user.photoUrl : nil)
             
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
@@ -423,7 +424,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         
         //self.imgDetailService01.image = image
         self.dismissViewControllerAnimated(true, completion: nil)
-        uploadImageToStorage(UIImagePNGRepresentation(image)!, blobName: "\(user.id).png")
+        uploadImageToStorage(UIImagePNGRepresentation(image)!, blobName: "\(user.id).txt")
     }
     
     func uploadImageToStorage(imageData : NSData, blobName : String) {
@@ -452,16 +453,24 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
                     
                     let blobLocal = container.blockBlobReferenceFromName(blobName)
                     
-                    // 4: Submimos el fichero a Azure
+                    // 4: Convertimos la imagen a BASE64
                     
-                    blobLocal.uploadFromData(imageData,
+                    let imageBase64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+                    print(imageBase64String)
+                    //let imageToBase64 = NSData(base64EncodedString: imageBase64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
+                    
+                    // 5: Submimos el fichero a Azure
+                    //blobLocal.uploadFromData(imageData,
+                    blobLocal.uploadFromText(imageBase64String,
                         completionHandler: { (error: NSError?) -> Void in
                             
                             if error == nil {
                                 
                                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                     
-                                    showAlert("Imagen subida!!", message: "Hay que cambiar este mensaje", controller: self!)
+                                    //showAlert("Imagen subida!!", message: "Hay que cambiar este mensaje", controller: self!)
+                                    // ALBERTO: FALTARIA CREAR UN METODO LOADIMAGE QUE EN LUGAR DE RECIBIR UNA URL, USARA DIRECTAMENTE UN NSDATA
+                                    self?.userImageView?.image = UIImage(data: imageData)
                                     
                                 })
                             } else {
