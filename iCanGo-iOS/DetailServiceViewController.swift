@@ -15,7 +15,7 @@ class DetailServiceViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var nameServiceDetailService: UILabel!
     @IBOutlet weak var contactPersonDetailServiceBtn: UIButton!
-    @IBOutlet weak var clearServiceDetailBtn: UIButton!
+    //@IBOutlet weak var clearServiceDetailBtn: UIButton!
     @IBOutlet weak var nameUserDetailService: UILabel!
     @IBOutlet weak var dataDetailService: UILabel!
     @IBOutlet weak var photoUserDetailService: CircularImageView!
@@ -32,6 +32,7 @@ class DetailServiceViewController: UIViewController {
     @IBOutlet weak var imgDetailService02: UIImageView!
     @IBOutlet weak var imgDetailService03: UIImageView!
     @IBOutlet weak var imgDetailService04: UIImageView!
+    @IBOutlet weak var clearServiceDetailBtnTrash: UIBarButtonItem!
     
     var popUpVIewController: PopUpImagesViewController?
     var selectImage =  UIImageView()
@@ -368,8 +369,7 @@ class DetailServiceViewController: UIViewController {
         mapView.hidden = true
         addressLabel.hidden = true
         addressText.hidden = true
-        clearServiceDetailBtn.enabled = false
-        clearServiceDetailBtn.hidden = true
+        clearServiceDetailBtnTrash.enabled = false
         contactPersonDetailServiceBtn.enabled = false
         contactPersonDetailServiceBtn.hidden = true
         contactPersonDetailServiceBtn.setImage(nil, forState: UIControlState.Normal)
@@ -449,8 +449,7 @@ class DetailServiceViewController: UIViewController {
                 
                 // Show delete service
                 if service.idUserRequest == user.id {
-                    clearServiceDetailBtn.enabled = true
-                    clearServiceDetailBtn.hidden = false
+                    clearServiceDetailBtnTrash.enabled = true
                 }
             }
         }
