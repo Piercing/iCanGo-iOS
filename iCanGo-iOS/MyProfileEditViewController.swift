@@ -8,13 +8,14 @@
 
 import UIKit
 import RxSwift
+import AZSClient
 
 protocol MyProfileEditControllerDelegate {
     func back(user: User, endSession: Bool)
 }
 
 
-class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavigationControllerDelegate {
+class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     // MARK: - Properties
     @IBOutlet weak var userFirstNameText: UITextField!
@@ -89,6 +90,8 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
     @IBAction func saveButton(sender: AnyObject) {
         
         resignFirstResponderAllFields()
+        
+        setupCameraUI()
         
         if !self.profileDataWithErrorData() {
             
@@ -397,6 +400,86 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         self.presentViewController(imagePicker!, animated: true, completion: nil)
     }
     
+    // PMG Azure
+    
+    func setupCameraUI () {
+        
+        let imagePC = UIImagePickerController()
+        imagePC.delegate = self
+        
+        if (UIImagePickerController.isSourceTypeAvailable(.Camera) == false) {
+            imagePC.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        else {
+            imagePC.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        
+        imagePC.allowsEditing = false
+        
+        self.presentViewController(imagePC, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        //self.imgDetailService01.image = image
+        self.dismissViewControllerAnimated(true, completion: nil)
+        uploadImageToStorage(UIImagePNGRepresentation(image)!, blobName: "\(user.id).png")
+    }
+    
+    func uploadImageToStorage(imageData : NSData, blobName : String) {
+        print("Subiendo imagen 1")
+        
+        let session = Session.iCanGoSession()
+        let _ = session.getUrlSaS("profile", blobName: blobName)
+            
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                switch event {
+                case let .Next(data):
+                    print(data)
+                    
+                    // 1: Una vez obtenemos los datos de la UrlSAS, preparamos lo necesario para subir a azure
+                    
+                    let endPoint = "\(data.urlWithContainerAndWithOutBlobName)?\(data.sasToken)"
+                    
+                    // 2: Creo referencia al container
+                    
+                    var error: NSError?
+                    let container = AZSCloudBlobContainer(url: NSURL(string: endPoint)!, error: &error)
+                    
+                    // 3: Creamos referencia a nuestro blob con el blobname
+                    
+                    let blobLocal = container.blockBlobReferenceFromName(blobName)
+                    
+                    // 4: Submimos el fichero a Azure
+                    
+                    blobLocal.uploadFromData(imageData,
+                        completionHandler: { (error: NSError?) -> Void in
+                            
+                            if error == nil {
+                                
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    
+                                    showAlert("Imagen subida!!", message: "Hay que cambiar este mensaje", controller: self!)
+                                    
+                                })
+                            } else {
+                                print("Tenemos un error -> \(error)")
+                            }
+                            
+                    })
+                case .Error (let error):
+                    print(error)
+                    
+                default:
+                    print("default")
+                }
+        }
+        
+    }
+
+    
     /*
     private func putPhotoProfile() -> Void {
         
@@ -497,19 +580,19 @@ extension MyProfileEditViewController: UITextFieldDelegate {
 
 
 // MARK: - Extensions - UITextFieldDelegate
-extension MyProfileEditViewController: UIImagePickerControllerDelegate {
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
-        picker .dismissViewControllerAnimated(true, completion: nil)
-        var originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
-        // Resize and reduced profile user photo.
-        let imageReducedAndResized: NSData = originalImage!.reducedImage()
-        originalImage = nil
-        
-        // New image profile user.
-        userImageView.image = UIImage(data: imageReducedAndResized)
-        changeProfilePhoto = true
-    }
-}
+//extension MyProfileEditViewController: UIImagePickerControllerDelegate {
+//    
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+//        
+//        picker .dismissViewControllerAnimated(true, completion: nil)
+//        var originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+//        
+//        // Resize and reduced profile user photo.
+//        let imageReducedAndResized: NSData = originalImage!.reducedImage()
+//        originalImage = nil
+//        
+//        // New image profile user.
+//        userImageView.image = UIImage(data: imageReducedAndResized)
+//        changeProfilePhoto = true
+//    }
+//}

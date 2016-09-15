@@ -9,6 +9,7 @@ target 'iCanGo-iOS' do
     pod 'HanekeSwift'
     pod 'AlamofireSwiftyJSON'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+    pod 'AZSClient'
 end
 
 

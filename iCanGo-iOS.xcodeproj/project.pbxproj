@@ -51,6 +51,9 @@
 		79A6D55C1D7AF2EC0049B254 /* URLSaS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A6D55B1D7AF2EC0049B254 /* URLSaS.swift */; };
 		79CA66DB1D36F73900C67E67 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CA66DA1D36F73900C67E67 /* MapKit.framework */; };
 		79CA66DD1D3703FB00C67E67 /* ServicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79CA66DC1D3703FB00C67E67 /* ServicesView.xib */; };
+		79E806D51D89E2DE008EC437 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E806D41D89E2DE008EC437 /* libxml2.2.tbd */; };
+		79E806D71D89E32F008EC437 /* AZSClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E806D61D89E32F008EC437 /* AZSClient.framework */; };
+		79E806DA1D89E36A008EC437 /* AzFake.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E806D91D89E36A008EC437 /* AzFake.m */; };
 		79F418211D043B36002131C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F418201D043B36002131C7 /* AppDelegate.swift */; };
 		79F418231D043B36002131C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F418221D043B36002131C7 /* Assets.xcassets */; };
 		79F418261D043B36002131C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F418241D043B36002131C7 /* LaunchScreen.storyboard */; };
@@ -138,6 +141,10 @@
 		79A6D55B1D7AF2EC0049B254 /* URLSaS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSaS.swift; sourceTree = "<group>"; };
 		79CA66DA1D36F73900C67E67 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		79CA66DC1D3703FB00C67E67 /* ServicesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicesView.xib; sourceTree = "<group>"; };
+		79E806D41D89E2DE008EC437 /* libxml2.2.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = libxml2.2.tbd; sourceTree = "<group>"; };
+		79E806D61D89E32F008EC437 /* AZSClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AZSClient.framework; sourceTree = "<group>"; };
+		79E806D81D89E36A008EC437 /* iCanGo-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iCanGo-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		79E806D91D89E36A008EC437 /* AzFake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzFake.m; sourceTree = "<group>"; };
 		79F4181D1D043B36002131C7 /* iCanGo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCanGo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F418201D043B36002131C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79F418221D043B36002131C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,8 +188,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79E806D71D89E32F008EC437 /* AZSClient.framework in Frameworks */,
 				79CA66DB1D36F73900C67E67 /* MapKit.framework in Frameworks */,
 				A9D495034C1BC3A48FFE7AF8 /* Pods_iCanGo_iOS.framework in Frameworks */,
+				79E806D51D89E2DE008EC437 /* libxml2.2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +250,8 @@
 		79F418141D043B36002131C7 = {
 			isa = PBXGroup;
 			children = (
+				79E806D61D89E32F008EC437 /* AZSClient.framework */,
+				79E806D41D89E2DE008EC437 /* libxml2.2.tbd */,
 				79F4181F1D043B36002131C7 /* iCanGo-iOS */,
 				79F4182F1D043B36002131C7 /* iCanGo-iOSTests */,
 				79F4183B1D043B56002131C7 /* .git */,
@@ -293,6 +304,8 @@
 				79F418201D043B36002131C7 /* AppDelegate.swift */,
 				D37631011D06D3090001E29F /* Constants.swift */,
 				79F418271D043B36002131C7 /* Info.plist */,
+				79E806D91D89E36A008EC437 /* AzFake.m */,
+				79E806D81D89E36A008EC437 /* iCanGo-iOS-Bridging-Header.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -649,6 +662,7 @@
 				527F87171D2B29A200D0E1EC /* NotificationsViewController.swift in Sources */,
 				52E9730D1D29246D007696FB /* CustomActivityIndicatorView.swift in Sources */,
 				5282521F1D359BB30041A992 /* DetailServiceViewController.swift in Sources */,
+				79E806DA1D89E36A008EC437 /* AzFake.m in Sources */,
 				527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */,
 				7939EC421D3A400C009C5359 /* Extensions.swift in Sources */,
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,
@@ -776,13 +790,24 @@
 			baseConfigurationReference = ACA2D280BC84CE3643A31256 /* Pods-iCanGo-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "iCanGo-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codecrafters.iCanGo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "iCanGo-iOS/iCanGo-iOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -792,13 +817,23 @@
 			baseConfigurationReference = FD015E1B48C5387CAA502C8B /* Pods-iCanGo-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "iCanGo-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codecrafters.iCanGo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "iCanGo-iOS/iCanGo-iOS-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

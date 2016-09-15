@@ -3,6 +3,7 @@ PODS:
   - AlamofireSwiftyJSON (0.1.1):
     - Alamofire (~> 3.4)
     - SwiftyJSON (~> 2.3)
+  - AZSClient (0.2.2)
   - HanekeSwift (0.10.1)
   - RxAlamofire (2.5):
     - RxAlamofire/Core (= 2.5)
@@ -19,6 +20,7 @@ PODS:
 
 DEPENDENCIES:
   - AlamofireSwiftyJSON
+  - AZSClient
   - HanekeSwift
   - RxAlamofire (~> 2.0)
   - RxBlocking (~> 2.0)
@@ -38,6 +40,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   AlamofireSwiftyJSON: 4787ff07c7e6687b787f1723229e729653e3359f
+  AZSClient: 469db5162a0e59cc764715b233794e26ade29736
   HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   RxAlamofire: b4572a077b6b2410c8732a27266299df4c00736e
   RxBlocking: 595d9ab56dde6b00beaa5aba40e95b150d2135f1
@@ -46,6 +49,6 @@ SPEC CHECKSUMS:
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 93e96eb97742f41f9e4b9c372557450d02fe9e35
+PODFILE CHECKSUM: 5ced8a9305888530b47ad622100441864a4c007d
 
 COCOAPODS: 1.0.1
