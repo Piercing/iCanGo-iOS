@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -156,12 +156,12 @@
                 <constraint firstAttribute="trailing" secondItem="YAd-Sh-vpf" secondAttribute="trailing" constant="8" id="A4Z-Zc-u2M"/>
                 <constraint firstItem="opS-3O-Ldb" firstAttribute="top" secondItem="cNy-am-mGQ" secondAttribute="bottom" id="Cfw-xL-wv5"/>
                 <constraint firstItem="YAd-Sh-vpf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="FTX-Pq-rcH"/>
+                <constraint firstItem="11R-5C-WCH" firstAttribute="leading" secondItem="cNy-am-mGQ" secondAttribute="leading" id="GaE-YR-ggR"/>
                 <constraint firstItem="nAX-cI-lDH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="HZs-j2-zkP"/>
-                <constraint firstItem="opS-3O-Ldb" firstAttribute="leading" secondItem="nAX-cI-lDH" secondAttribute="trailing" constant="17" id="LPX-cT-Ea6"/>
+                <constraint firstItem="11R-5C-WCH" firstAttribute="leading" secondItem="opS-3O-Ldb" secondAttribute="leading" id="NPx-Om-KhY"/>
                 <constraint firstItem="QdH-YK-EH3" firstAttribute="top" secondItem="11R-5C-WCH" secondAttribute="bottom" constant="1" id="Qad-rQ-W0J"/>
                 <constraint firstItem="bFr-VW-xee" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Qxc-bl-IBp"/>
                 <constraint firstItem="NdH-j5-dcc" firstAttribute="top" secondItem="d3P-ew-xaA" secondAttribute="bottom" constant="36" id="T0t-Do-quJ"/>
-                <constraint firstItem="11R-5C-WCH" firstAttribute="leading" secondItem="nAX-cI-lDH" secondAttribute="trailing" constant="17" id="TZS-7H-Hz5"/>
                 <constraint firstAttribute="trailing" secondItem="bFr-VW-xee" secondAttribute="trailing" id="V4U-aw-bDJ"/>
                 <constraint firstItem="mc9-wg-bNO" firstAttribute="top" secondItem="d3P-ew-xaA" secondAttribute="bottom" constant="36" id="WQ0-CK-72R"/>
                 <constraint firstAttribute="trailing" secondItem="yC2-tU-Gan" secondAttribute="trailing" id="X57-y6-GLC"/>
@@ -170,10 +170,10 @@
                 <constraint firstItem="YAd-Sh-vpf" firstAttribute="top" secondItem="NdH-j5-dcc" secondAttribute="bottom" constant="13" id="bzd-CW-V9t"/>
                 <constraint firstItem="yC2-tU-Gan" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cwN-5J-PxK"/>
                 <constraint firstAttribute="bottom" secondItem="yC2-tU-Gan" secondAttribute="bottom" id="k5f-sQ-vfT"/>
+                <constraint firstItem="11R-5C-WCH" firstAttribute="leading" secondItem="QdH-YK-EH3" secondAttribute="leading" id="nY8-pt-Pu6"/>
                 <constraint firstItem="cNy-am-mGQ" firstAttribute="top" secondItem="bFr-VW-xee" secondAttribute="bottom" constant="25" id="naO-2n-INt"/>
                 <constraint firstItem="nAX-cI-lDH" firstAttribute="top" secondItem="bFr-VW-xee" secondAttribute="bottom" constant="25" id="wGJ-Wy-FKP"/>
                 <constraint firstItem="yC2-tU-Gan" firstAttribute="top" secondItem="YAd-Sh-vpf" secondAttribute="bottom" constant="13" id="wdx-Qi-ua5"/>
-                <constraint firstItem="cNy-am-mGQ" firstAttribute="leading" secondItem="nAX-cI-lDH" secondAttribute="trailing" constant="17" id="yKF-gC-Mdb"/>
                 <constraint firstItem="hB7-zN-fKu" firstAttribute="leading" secondItem="cNy-am-mGQ" secondAttribute="trailing" constant="15" id="ze3-CZ-r9Q"/>
                 <constraint firstItem="bFr-VW-xee" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zj1-kq-L8G"/>
             </constraints>

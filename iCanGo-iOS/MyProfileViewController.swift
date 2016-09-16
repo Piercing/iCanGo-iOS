@@ -12,9 +12,10 @@ import RxSwift
 class MyProfileViewController: UIViewController {
     
     // MARK: - Constants
-    let cellId      = "myProfileCell"
-    let nibId       = "MyProfileCellView"
-    
+    //let cellId = "myProfileCell"
+    //let nibId = "MyProfileCellView"
+    let cellId = "serviceCell"
+    let nibId = "ServiceCellView"
     
     // MARK: - Properties
     @IBOutlet weak var userPhotoView: CircularImageView!
@@ -165,7 +166,8 @@ class MyProfileViewController: UIViewController {
         labelUserName.text = "\(user.firstName) \(user.lastName)"
         labelEmailUser.text = user.email
         if user.photoUrl != nil {
-            loadImage(user.photoUrl!, imageView: userPhotoView, withAnimation: false)
+            //loadImage(user.photoUrl!, imageView: userPhotoView, withAnimation: false)
+            loadImageBase64(user.photoUrl!, imageView: userPhotoView, withAnimation: false)
         }
         
         labelService.text = servicesText
@@ -189,7 +191,7 @@ class MyProfileViewController: UIViewController {
         }
         
         requestDataInProgress = true
-        alertView.displayView(view, withTitle: pleaseWait)
+        //alertView.displayView(view, withTitle: pleaseWait)
         
         let session = Session.iCanGoSession()
         let _ = session.getUserServicesByType(user.id, type: segmentSelected, page: page, rows: rowsPerPage)
@@ -197,7 +199,7 @@ class MyProfileViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
-                self!.alertView.hideView()
+                //self!.alertView.hideView()
                 self?.requestDataInProgress = false
                 
                 switch event {
@@ -287,7 +289,8 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! MyProfileCell
+        //let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! MyProfileCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! ServiceCell
         Appearance.setupCellUI(cell)
         cell.service = segmentSelected == 0 ? servicesPublished![indexPath.row % servicesPublished!.count] :
             servicesAttended![indexPath.row % servicesAttended!.count]
