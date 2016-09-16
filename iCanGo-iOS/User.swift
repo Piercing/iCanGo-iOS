@@ -13,7 +13,7 @@ enum JSONKeysUser: String {
     case email = "email"
     case firstName = "firstName"
     case lastName = "lastName"
-    case photoURL = "photoURL"
+    case photoUrl = "photoUrl"
     case searchPreferences = "searchPreferences"
     case status = "status"
     case deleted = "deleted"
@@ -31,7 +31,7 @@ struct User {
     let email: String
     let firstName: String
     let lastName: String
-    let photoURL: NSURL?
+    let photoUrl: NSURL?
     let searchPreferences: String?
     let status: UInt?
     let deleted: Bool
@@ -56,11 +56,11 @@ extension User: JSONDecodable {
             return nil
         }
         
-        if let imageURLString = dictionary[JSONKeysUser.photoURL.rawValue] as? String,
+        if let imageURLString = dictionary[JSONKeysUser.photoUrl.rawValue] as? String,
                      imageURL = NSURL(string: imageURLString) {
-            self.photoURL = imageURL
+            self.photoUrl = imageURL
         } else {
-            self.photoURL = nil
+            self.photoUrl = nil
         }
 
         self.id = id
@@ -85,7 +85,7 @@ class UserPersisted: NSObject, NSCoding {
     var email: String?
     var firstName: String?
     var lastName: String?
-    var photoURL: NSURL?
+    var photoUrl: NSURL?
     var searchPreferences: String?
     var status: UInt?
     var deleted: Bool?
@@ -96,7 +96,7 @@ class UserPersisted: NSObject, NSCoding {
         email: String,
         firstName: String,
         lastName: String,
-        photoURL: NSURL?,
+        photoUrl: NSURL?,
         searchPreferences: String?,
         status: UInt?,
         deleted: Bool,
@@ -107,7 +107,7 @@ class UserPersisted: NSObject, NSCoding {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
-        self.photoURL = photoURL
+        self.photoUrl = photoUrl
         self.searchPreferences = searchPreferences
         self.status = status
         self.deleted = deleted
@@ -129,8 +129,8 @@ class UserPersisted: NSObject, NSCoding {
         if let lastName = aDecoder.decodeObjectForKey(JSONKeysUser.lastName.rawValue) as? String {
             self.lastName = lastName
         }
-        if let photoURL = aDecoder.decodeObjectForKey(JSONKeysUser.photoURL.rawValue) as? NSURL {
-            self.photoURL = photoURL
+        if let photoUrl = aDecoder.decodeObjectForKey(JSONKeysUser.photoUrl.rawValue) as? NSURL {
+            self.photoUrl = photoUrl
         }
         if let searchPreferences = aDecoder.decodeObjectForKey(JSONKeysUser.searchPreferences.rawValue) as? String {
             self.searchPreferences = searchPreferences
@@ -163,8 +163,8 @@ class UserPersisted: NSObject, NSCoding {
         if let lastName = self.lastName {
             aCoder.encodeObject(lastName, forKey: JSONKeysUser.lastName.rawValue)
         }
-        if let photoURL = self.photoURL {
-            aCoder.encodeObject(photoURL, forKey: JSONKeysUser.photoURL.rawValue)
+        if let photoUrl = self.photoUrl {
+            aCoder.encodeObject(photoUrl, forKey: JSONKeysUser.photoUrl.rawValue)
         }
         if let searchPreferences = self.searchPreferences {
             aCoder.encodeObject(searchPreferences, forKey: JSONKeysUser.searchPreferences.rawValue)
@@ -189,7 +189,7 @@ func copyUser(user: User) -> UserPersisted {
                       email: user.email,
                   firstName: user.firstName,
                    lastName: user.lastName,
-                   photoURL: user.photoURL,
+                   photoUrl: user.photoUrl,
           searchPreferences: user.searchPreferences,
                      status: user.status,
                     deleted: user.deleted,
@@ -202,7 +202,7 @@ func copyUser(user: UserPersisted) -> User {
                       email: user.email!,
                   firstName: user.firstName!,
                    lastName: user.lastName!,
-                   photoURL: user.photoURL,
+                   photoUrl: user.photoUrl,
           searchPreferences: user.searchPreferences,
                      status: user.status,
                     deleted: user.deleted!,

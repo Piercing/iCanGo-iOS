@@ -43,7 +43,7 @@ func loadUserAuthInfo() -> User {
                 email: "",
                 firstName: "",
                 lastName: "",
-                photoURL: NSURL(),
+                photoUrl: NSURL(),
                 searchPreferences: "",
                 status: 0, deleted: false,
                 numPublishedServices: 0,
@@ -71,6 +71,34 @@ func loadImage(imageUrl: NSURL, imageView: UIImageView, withAnimation: Bool) {
                     imageView.fadeIn()
                 }
                 
+            case .Error (let error):
+                print(error)
+                return
+                
+            default:
+                break
+            }
+    }
+}
+
+func loadImageBase64(imageUrl: NSURL, imageView: UIImageView, withAnimation: Bool) {
+    
+    let session = Session.iCanGoSessionImages()
+    let _ = session.getImageData(imageUrl)
+        
+        .observeOn(MainScheduler.instance)
+        .subscribe { event in
+            
+            switch event {
+            case let .Next(data):
+                let imageBase64String = String(data: data, encoding: NSUTF8StringEncoding)
+                if let decodedData = NSData(base64EncodedString: imageBase64String!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters) {
+                    imageView.image = UIImage(data: decodedData)
+                    if withAnimation {
+                        imageView.fadeOut(duration: 0.0)
+                        imageView.fadeIn()
+                    }
+                }
             case .Error (let error):
                 print(error)
                 return

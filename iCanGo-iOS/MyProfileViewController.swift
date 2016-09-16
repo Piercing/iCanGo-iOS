@@ -173,8 +173,8 @@ class MyProfileViewController: UIViewController {
         
         labelUserName.text = "\(user.firstName) \(user.lastName)"
         labelEmailUser.text = user.email
-        if user.photoURL != nil {
-            loadImage(user.photoURL!, imageView: userPhotoView, withAnimation: false)
+        if user.photoUrl != nil {
+            loadImage(user.photoUrl!, imageView: userPhotoView, withAnimation: false)
         }
         
         labelService.text = servicesText
