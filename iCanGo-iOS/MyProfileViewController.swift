@@ -191,7 +191,7 @@ class MyProfileViewController: UIViewController {
         }
         
         requestDataInProgress = true
-        //alertView.displayView(view, withTitle: pleaseWait)
+        alertView.displayView(view, withTitle: pleaseWait)
         
         let session = Session.iCanGoSession()
         let _ = session.getUserServicesByType(user.id, type: segmentSelected, page: page, rows: rowsPerPage)
@@ -199,7 +199,7 @@ class MyProfileViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
-                //self!.alertView.hideView()
+                self!.alertView.hideView()
                 self?.requestDataInProgress = false
                 
                 switch event {
