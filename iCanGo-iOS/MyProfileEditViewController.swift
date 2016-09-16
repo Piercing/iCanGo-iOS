@@ -21,7 +21,11 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
     @IBOutlet weak var userFirstNameText: UITextField!
     @IBOutlet weak var userLastNameText: UITextField!
     @IBOutlet weak var userPasswordText: UITextField!
+    //@IBOutlet weak var userImageView: CircularImageView!
+    
     @IBOutlet weak var userImageView: CircularImageView!
+
+    
     @IBOutlet weak var userEndSession: UIButton!
     var delegate: MyProfileEditControllerDelegate? = nil
     
@@ -187,7 +191,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         }
         
         requestDataInProgress = true
-        alertView.displayView(view, withTitle: pleaseWait)
+        //alertView.displayView(view, withTitle: pleaseWait)
         
         let session = Session.iCanGoSession()
         let _ = session.getUserById(user.id)
@@ -195,7 +199,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
-                self!.alertView.hideView()
+                //self!.alertView.hideView()
                 self?.requestDataInProgress = false
                 
                 switch event {
@@ -223,7 +227,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         
         if let photo = user.photoUrl {
             //loadImage(photo, imageView: userImageView, withAnimation: false)
-        //    loadImageBase64(photo, imageView: userImageView, withAnimation: false)
+            loadImageBase64(photo, imageView: userImageView, withAnimation: false)
         }
     }
     
@@ -429,7 +433,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
                 
                 switch event {
                 case let .Next(data):
-                    print(data)
+                    //print(data)
                     
                     // 1: Una vez obtenemos los datos de la UrlSAS, preparamos lo necesario para subir a azure
                     
@@ -447,7 +451,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
                     // 4: Convertimos la imagen a BASE64
                     
                     let imageBase64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
-                    print(imageBase64String)
+                    //print(imageBase64String)
                     //let imageToBase64 = NSData(base64EncodedString: imageBase64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
                     
                     // 5: Submimos el fichero a Azure
