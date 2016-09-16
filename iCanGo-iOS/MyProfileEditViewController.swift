@@ -191,7 +191,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         }
         
         requestDataInProgress = true
-        //alertView.displayView(view, withTitle: pleaseWait)
+        alertView.displayView(view, withTitle: pleaseWait)
         
         let session = Session.iCanGoSession()
         let _ = session.getUserById(user.id)
@@ -199,7 +199,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
-                //self!.alertView.hideView()
+                self!.alertView.hideView()
                 self?.requestDataInProgress = false
                 
                 switch event {
