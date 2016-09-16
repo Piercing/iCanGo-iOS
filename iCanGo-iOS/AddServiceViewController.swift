@@ -59,11 +59,6 @@ class AddServiceViewController: UIViewController {
         initializeInfoService()
         checkLocationStatus()
         
-        if !isConnectedToNetwork() {
-            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
-            return
-        }
-        
         txtFieldTitleAddService.becomeFirstResponder()
     }
     

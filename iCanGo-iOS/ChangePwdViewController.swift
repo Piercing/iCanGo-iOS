@@ -49,14 +49,9 @@ class ChangePwdViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !isConnectedToNetwork() {
-            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
-            return
-        }
-        
         oldPwdText.becomeFirstResponder()
     }
-    
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -98,9 +93,9 @@ class ChangePwdViewController: UIViewController {
         bordersInViews(arrayBordersViews)
         
         let oldPwdTextTextActions: [String : Selector] = [next : #selector(ChangePwdViewController.nextOldPwdText),
-                                                            ok : #selector(ChangePwdViewController.okOldPwdText)]
+                                                          ok : #selector(ChangePwdViewController.okOldPwdText)]
         let newPwdTextTextActions: [String : Selector] = [next : #selector(ChangePwdViewController.nextNewPwdText),
-                                                            ok : #selector(ChangePwdViewController.okNewPwdText)]
+                                                          ok : #selector(ChangePwdViewController.okNewPwdText)]
         let confirmPwdTextActions: [String : Selector] = [ok : #selector(ChangePwdViewController.okConfirmPwdText)]
         
         oldPwdText.inputAccessoryView = setupInputAccessoryView(oldPwdTextTextActions)
@@ -140,7 +135,7 @@ class ChangePwdViewController: UIViewController {
                     } else {
                         showAlert(userChangePwdTitle, message: userChangePwdNoOldPwd, controller: self!)
                     }
-     
+                    
                 case .Error (let error):
                     showAlert(userChangePwdTitle, message: userChangePwdNoOldPwd, controller: self!)
                     print(error)
@@ -150,7 +145,7 @@ class ChangePwdViewController: UIViewController {
                 }
         }
     }
-
+    
     private func changePwd() -> Void {
         
         if !isConnectedToNetwork()  {
@@ -180,14 +175,9 @@ class ChangePwdViewController: UIViewController {
                 case let .Next(user):
                     
                     if self?.user.id == user.id {
-
+                        
                         let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
-
-                            logoutUser()
-                            let loginVC = LoginViewController()
-                            loginVC.delegate = self
-                            loginVC.selectedTabItemIndex = self!.tabBarController!.viewControllers?.indexOf(self!)
-                            showModal(self!, calledContainer: loginVC)
+                            self!.navigationController?.popViewControllerAnimated(true)
                         })
                         let actions = [okAction]
                         showAlertWithActions(userChangePwdTitle, message: userChangePwdMessage, controller: self!, actions: actions)
@@ -310,7 +300,7 @@ class ChangePwdViewController: UIViewController {
             showAlert(userChangePwdTitle, message: userChangePwdDifferent, controller: self)
             return findError
         }
-
+        
         return findError
     }
     
@@ -321,23 +311,3 @@ class ChangePwdViewController: UIViewController {
         confirmPwdText.resignFirstResponder()
     }
 }
-
-
-// MARK: - Extensions - Delegate Methods
-extension ChangePwdViewController: ComunicationLoginControllerDelegate {
-    
-    func back(index: Int) {
-        
-        if isUserloged() {
-            self.navigationController?.popViewControllerAnimated(true)
-        } else {
-            self.navigationController?.popToRootViewControllerAnimated(true)
-        }
-    }
-}
-
-
-
-
-
-

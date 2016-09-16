@@ -89,16 +89,7 @@ class DetailServiceViewController: UIViewController {
         // Show data service.
         showDataService()
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-        if !isConnectedToNetwork() {
-            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
-            return
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
