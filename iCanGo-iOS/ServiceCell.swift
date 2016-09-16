@@ -7,12 +7,12 @@ protocol ServiceCellDelegate {
 
 class ServiceCell: UICollectionViewCell {
     
-    var delegate: ServiceCellDelegate!
-    
+    // MARK: - Properties
     @IBOutlet weak var imageService: UIImageView!
     @IBOutlet weak var imageUser: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
+    var delegate: ServiceCellDelegate!
     
     override func awakeFromNib() {
         //        self.contentView.layer.borderWidth = 1.0
@@ -36,8 +36,8 @@ class ServiceCell: UICollectionViewCell {
                 commentLabel.text = service.description
                 
                 // Load default images.
-                imageService.image = UIImage.init(named: "iCanGoEmptyImage-560x")
-                imageUser.image = UIImage.init(named: "userDefaultiCanGo")
+                imageService.image = UIImage.init(named: logoService)
+                imageUser.image = UIImage.init(named: logoUser)
                 
                 // load the image asynchronous
                 if service.mainImage != nil {

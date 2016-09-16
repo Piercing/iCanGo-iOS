@@ -241,6 +241,8 @@
 		75C1F3C32F5EAFD6E2B1FFDB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79E806D41D89E2DE008EC437 /* libxml2.2.tbd */,
+				79E806D61D89E32F008EC437 /* AZSClient.framework */,
 				79CA66DA1D36F73900C67E67 /* MapKit.framework */,
 				D9BCFB28C96273CCDD0CF172 /* Pods_iCanGo_iOS.framework */,
 			);
@@ -250,8 +252,6 @@
 		79F418141D043B36002131C7 = {
 			isa = PBXGroup;
 			children = (
-				79E806D61D89E32F008EC437 /* AZSClient.framework */,
-				79E806D41D89E2DE008EC437 /* libxml2.2.tbd */,
 				79F4181F1D043B36002131C7 /* iCanGo-iOS */,
 				79F4182F1D043B36002131C7 /* iCanGo-iOSTests */,
 				79F4183B1D043B56002131C7 /* .git */,

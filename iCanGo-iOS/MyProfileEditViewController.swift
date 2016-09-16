@@ -61,16 +61,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         // Get data from API.
         loadUser(user.id)
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-        if !isConnectedToNetwork() {
-            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
-            return
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -232,7 +223,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         
         if let photo = user.photoUrl {
             //loadImage(photo, imageView: userImageView, withAnimation: false)
-            loadImageBase64(photo, imageView: userImageView, withAnimation: false)
+        //    loadImageBase64(photo, imageView: userImageView, withAnimation: false)
         }
     }
     
