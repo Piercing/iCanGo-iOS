@@ -8,12 +8,13 @@ protocol MyProfileCellDelegate {
 class MyProfileCell: UICollectionViewCell {
     
     // MARK: - Properties
-    var delegate: MyProfileCellDelegate!
-    
     @IBOutlet weak var imageServiceMyProfileCell: UIImageView!
     @IBOutlet weak var imageUserMyProfileCell: UIImageView!
     @IBOutlet weak var labelPriceMyProfileCell: UILabel!
     @IBOutlet weak var labelDescriptionMyProfileCell: UILabel!
+    
+    var delegate: MyProfileCellDelegate!
+    
     
     var service: Service? {
         didSet {
@@ -23,8 +24,8 @@ class MyProfileCell: UICollectionViewCell {
                 labelDescriptionMyProfileCell.text = service.description
                 
                 // Load default images.
-                imageServiceMyProfileCell.image = UIImage.init(named: "iCanGoEmptyImage-560x")
-                imageUserMyProfileCell.image = UIImage.init(named: "userDefaultiCanGo")
+                imageServiceMyProfileCell.image = UIImage.init(named: logoService)
+                imageUserMyProfileCell.image = UIImage.init(named: logoUser)
                 
                 // load the image asynchronous
                 if service.mainImage != nil {
@@ -34,7 +35,7 @@ class MyProfileCell: UICollectionViewCell {
                 if service.ownerImage != nil {
                     loadImage(service.ownerImage!, imageView: imageUserMyProfileCell, withAnimation: true)
                 }
-
+                
             }
         }
     }
@@ -43,6 +44,7 @@ class MyProfileCell: UICollectionViewCell {
         delegate.didSelectCellButtomTapped(self)
     }
 }
+
 
 
 

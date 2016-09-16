@@ -37,6 +37,8 @@ let avenirNextFont = "Avenir Next"
 let notificationKeyServicesChange: String = "notificationKeyServicesChange"
 
 
-
+// Images
+let logoService = "FINALogoIcanGoApp"
+let logoUser = "userDefaultiCanGo"
 
 

@@ -69,16 +69,7 @@ class LocationViewController: UIViewController {
 
         checkStatusAndGetData(statusLocation, searchText: nil)
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-        if !isConnectedToNetwork() {
-            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
-            return
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         // Dispose of any resources that can be recreated.
         super.didReceiveMemoryWarning()

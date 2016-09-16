@@ -87,16 +87,7 @@ class MyProfileViewController: UIViewController {
         // Get services from API.
         segmentSelected == 0 ? getServicesFromApi(self.currentPagePublished) : getServicesFromApi(self.currentPageAttended)
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-        if !isConnectedToNetwork() {
-            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
-            return
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
