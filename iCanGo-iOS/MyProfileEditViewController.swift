@@ -15,23 +15,21 @@ protocol MyProfileEditControllerDelegate {
 }
 
 
-class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavigationControllerDelegate {
     
     // MARK: - Properties
     @IBOutlet weak var userFirstNameText: UITextField!
     @IBOutlet weak var userLastNameText: UITextField!
     @IBOutlet weak var userPasswordText: UITextField!
-    //@IBOutlet weak var userImageView: CircularImageView!
-    
-    @IBOutlet weak var userImageView: CircularImageView!
-
-    
+    @IBOutlet weak var userPhotoProfileButton: UIButton!
     @IBOutlet weak var userEndSession: UIButton!
     var delegate: MyProfileEditControllerDelegate? = nil
     
     private var user: User!
     private var requestDataInProgress: Bool = false
     private var changeProfilePhoto: Bool = false
+    private var newUrlPhotoProfile: NSURL = NSURL()
+    private var newDataPhotoProfile: NSData = NSData()
     private var imagePicker:UIImagePickerController? = UIImagePickerController()
     
     lazy var alertView: AlertView = {
@@ -86,25 +84,15 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         
         resignFirstResponderAllFields()
         
-        setupCameraUI()
-        
         if !self.profileDataWithErrorData() {
             
             // Validate all data.
             let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
                 
                 if self.changeProfilePhoto {
-                    // Upgrade photo profile, and after, upgrade its urls and rest data.
-                    //self.putPhotoProfile()
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                    // Upgrade photo profile, and after, upgrade its urls and rest user data.
+                    self.uploadImageToStorage(self.newDataPhotoProfile, blobName: "\(self.user.id).txt")
+
                 } else {
                     // Upgrade user data.
                     self.putDataUser()
@@ -122,8 +110,8 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
             
             logoutUser()
-            saveAuthInfo(self.user)
             if self.delegate != nil {
+                self.navigationController?.popViewControllerAnimated(true)
                 self.delegate?.back(self.user, endSession: true)
             }
         })
@@ -226,8 +214,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         userPasswordText.text = "********"
         
         if let photo = user.photoUrl {
-            //loadImage(photo, imageView: userImageView, withAnimation: false)
-            loadImageBase64(photo, imageView: userImageView, withAnimation: false)
+            loadImageBase64(photo, control: self.userPhotoProfileButton, withAnimation: false)
         }
     }
     
@@ -302,7 +289,8 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         }
         
         if userFirstNameText.text == user.firstName &&
-            userLastNameText.text == user.lastName {
+            userLastNameText.text == user.lastName &&
+            !changeProfilePhoto {
             
             showAlert(userProfileTitle, message: userProfileNoModification, controller: self)
             findError = true
@@ -336,13 +324,13 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         let session = Session.iCanGoSession()
         let _ = session.putUser(user.id,
             firstName: user.firstName != userFirstNameText.text ? userFirstNameText.text : nil,
-            lastName: user.lastName != userLastNameText ? userLastNameText.text : nil,
+            lastName: user.lastName != userLastNameText.text ? userLastNameText.text : nil,
             email: user.email,
             searchPreferences: nil,
             oldPassword: nil,
             newPassword: nil,
-            photoUrl: changeProfilePhoto ? user.photoUrl : nil)
-            
+            photoUrl: changeProfilePhoto ? newUrlPhotoProfile : nil)
+
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
@@ -356,8 +344,11 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
                         
                         let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
                             
+                            self!.user = user
+                            self!.changeProfilePhoto = false
                             logoutUser()
-                            saveAuthInfo(self!.user)
+                            saveAuthInfo(user)
+                            self!.navigationController?.popViewControllerAnimated(true)
                             if self!.delegate != nil {
                                 self!.delegate?.back(self!.user, endSession: false)
                             }
@@ -384,6 +375,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
             
             imagePicker!.sourceType = UIImagePickerControllerSourceType.Camera
+            imagePicker!.allowsEditing = false
             self.presentViewController(imagePicker!, animated: true, completion: nil)
         } else {
             openGallery()
@@ -393,99 +385,11 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
     func openGallery() {
         
         imagePicker!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePicker!.allowsEditing = false
         self.presentViewController(imagePicker!, animated: true, completion: nil)
     }
     
-    // PMG Azure
-    
-    func setupCameraUI () {
-        
-        let imagePC = UIImagePickerController()
-        imagePC.delegate = self
-        
-        if (UIImagePickerController.isSourceTypeAvailable(.Camera) == false) {
-            imagePC.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        }
-        else {
-            imagePC.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        }
-        
-        imagePC.allowsEditing = false
-        
-        self.presentViewController(imagePC, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        
-        //self.imgDetailService01.image = image
-        self.dismissViewControllerAnimated(true, completion: nil)
-        uploadImageToStorage(UIImagePNGRepresentation(image)!, blobName: "\(user.id).txt")
-    }
-    
     func uploadImageToStorage(imageData : NSData, blobName : String) {
-        print("Subiendo imagen 1")
-        
-        let session = Session.iCanGoSession()
-        let _ = session.getUrlSaS("profile", blobName: blobName)
-            
-            .observeOn(MainScheduler.instance)
-            .subscribe { [weak self] event in
-                
-                switch event {
-                case let .Next(data):
-                    //print(data)
-                    
-                    // 1: Una vez obtenemos los datos de la UrlSAS, preparamos lo necesario para subir a azure
-                    
-                    let endPoint = "\(data.urlWithContainerAndWithOutBlobName)?\(data.sasToken)"
-                    
-                    // 2: Creo referencia al container
-                    
-                    var error: NSError?
-                    let container = AZSCloudBlobContainer(url: NSURL(string: endPoint)!, error: &error)
-                    
-                    // 3: Creamos referencia a nuestro blob con el blobname
-                    
-                    let blobLocal = container.blockBlobReferenceFromName(blobName)
-                    
-                    // 4: Convertimos la imagen a BASE64
-                    
-                    let imageBase64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
-                    //print(imageBase64String)
-                    //let imageToBase64 = NSData(base64EncodedString: imageBase64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
-                    
-                    // 5: Submimos el fichero a Azure
-                    //blobLocal.uploadFromData(imageData,
-                    blobLocal.uploadFromText(imageBase64String,
-                        completionHandler: { (error: NSError?) -> Void in
-                            
-                            if error == nil {
-                                
-                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                                    
-                                    //showAlert("Imagen subida!!", message: "Hay que cambiar este mensaje", controller: self!)
-                                    // ALBERTO: FALTARIA CREAR UN METODO LOADIMAGE QUE EN LUGAR DE RECIBIR UNA URL, USARA DIRECTAMENTE UN NSDATA
-                                    self?.userImageView?.image = UIImage(data: imageData)
-                                    
-                                })
-                            } else {
-                                print("Tenemos un error -> \(error)")
-                            }
-                            
-                    })
-                case .Error (let error):
-                    print(error)
-                    
-                default:
-                    print("default")
-                }
-        }
-        
-    }
-
-    
-    /*
-    private func putPhotoProfile() -> Void {
         
         if !isConnectedToNetwork()  {
             showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
@@ -500,59 +404,46 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         requestDataInProgress = true
         alertView.displayView(view, withTitle: pleaseWait)
         
-        // Only inform those parameters that has changed
         let session = Session.iCanGoSession()
-        let _ = session.putUser()
+        let _ = session.getUrlSaS("profile", blobName: blobName)
             
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 
                 self!.alertView.hideView()
                 self?.requestDataInProgress = false
-                
+
                 switch event {
-                case let .Next(user):
+                case let .Next(data):
                     
+                    // Once we get URLSas, we prepare all necessary for upload to azure.
+                    let endPoint = "\(data.urlWithContainerAndWithOutBlobName)?\(data.sasToken)"
                     
+                    // We create reference to container in Azure
+                    var error: NSError?
+                    let container = AZSCloudBlobContainer(url: NSURL(string: endPoint)!, error: &error)
                     
+                    // We create reference to our blob with the blobname
+                    let blobLocal = container.blockBlobReferenceFromName(blobName)
                     
+                    // We convert image to Base64
+                    let imageBase64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
                     
-                    
-                    
-                    
-                    //                self.putDataUser()
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    if self?.user.id == user.id {
-                        
-                        let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
+                    // Upload image file to Azure
+                    blobLocal.uploadFromText(imageBase64String, completionHandler: { (error: NSError?) -> Void in
                             
-                            logoutUser()
-                            saveAuthInfo(self!.user)
-                            if self!.delegate != nil {
-                                self!.delegate?.back(self!.user, endSession: false)
+                            if error == nil {
+                                // Save url photo and the rest data user.
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    self!.newUrlPhotoProfile = NSURL(string: data.urlWithContainerAndBlobName)!
+                                    self!.putDataUser()
+                                })
+                                
+                            } else {
+                                showAlert(userProfileTitle, message: userProfileKOMessage, controller: self!)
+                                print(error)
                             }
-                        })
-                        let actions = [okAction]
-                        showAlertWithActions(userProfileTitle, message: userProfileMessage, controller: self!, actions: actions)
-                        
-                    } else {
-                        showAlert(userProfileTitle, message: userProfileKOMessage, controller: self!)
-                    }
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    })
                     
                 case .Error (let error):
                     showAlert(userProfileTitle, message: userProfileKOMessage, controller: self!)
@@ -562,9 +453,8 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
                     break
                 }
         }
+        
     }
-    */
-    
 }
 
 
@@ -584,19 +474,15 @@ extension MyProfileEditViewController: UITextFieldDelegate {
 
 
 // MARK: - Extensions - UITextFieldDelegate
-//extension MyProfileEditViewController: UIImagePickerControllerDelegate {
-//    
-//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-//        
-//        picker .dismissViewControllerAnimated(true, completion: nil)
-//        var originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-//        
-//        // Resize and reduced profile user photo.
-//        let imageReducedAndResized: NSData = originalImage!.reducedImage()
-//        originalImage = nil
-//        
-//        // New image profile user.
-//        userImageView.image = UIImage(data: imageReducedAndResized)
-//        changeProfilePhoto = true
-//    }
-//}
+extension MyProfileEditViewController: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        // Resize and reduced profile user photo.
+        newDataPhotoProfile = image.reducedImage()
+        self.userPhotoProfileButton.setBackgroundImage(UIImage(data: newDataPhotoProfile), forState: UIControlState.Normal)
+        changeProfilePhoto = true
+    }
+}
