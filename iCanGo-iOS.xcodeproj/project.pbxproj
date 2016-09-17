@@ -13,7 +13,6 @@
 		525351A71D41191C004614DF /* RecoverPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525351A51D41191C004614DF /* RecoverPassViewController.swift */; };
 		525351A81D41191C004614DF /* RecoverPassView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 525351A61D41191C004614DF /* RecoverPassView.xib */; };
 		5256B1251D330D620049ED9A /* MyProfileCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5256B1241D330D620049ED9A /* MyProfileCellView.xib */; };
-		5256B1271D3310600049ED9A /* MyProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256B1261D3310600049ED9A /* MyProfileCell.swift */; };
 		5272E1801D2C17E3007211E4 /* StartUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272E17E1D2C17E3007211E4 /* StartUpController.swift */; };
 		527CDB601D1B786F001C6251 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CDB5F1D1B786F001C6251 /* LoginViewController.swift */; };
 		527F870B1D2B09F000D0E1EC /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F87091D2B09F000D0E1EC /* ServicesViewController.swift */; };
@@ -103,7 +102,6 @@
 		525351A51D41191C004614DF /* RecoverPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverPassViewController.swift; sourceTree = "<group>"; };
 		525351A61D41191C004614DF /* RecoverPassView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecoverPassView.xib; sourceTree = "<group>"; };
 		5256B1241D330D620049ED9A /* MyProfileCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileCellView.xib; sourceTree = "<group>"; };
-		5256B1261D3310600049ED9A /* MyProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileCell.swift; sourceTree = "<group>"; };
 		5272E17E1D2C17E3007211E4 /* StartUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpController.swift; sourceTree = "<group>"; };
 		527CDB5F1D1B786F001C6251 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		527F87091D2B09F000D0E1EC /* ServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 		5256B1281D3312310049ED9A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				5256B1261D3310600049ED9A /* MyProfileCell.swift */,
 				52D37E0C1D2EDB63009F2FC3 /* ServiceCell.swift */,
 				529F46CA1D4044BF000FDF28 /* LogProfileCell.swift */,
 			);
@@ -666,7 +663,6 @@
 				527F871B1D2B29C500D0E1EC /* MyProfileViewController.swift in Sources */,
 				7939EC421D3A400C009C5359 /* Extensions.swift in Sources */,
 				D3567BC01D1BC38B00E5A5EE /* User.swift in Sources */,
-				5256B1271D3310600049ED9A /* MyProfileCell.swift in Sources */,
 				52D37E0D1D2EDB63009F2FC3 /* ServiceCell.swift in Sources */,
 				793E1D2E1D32890B00A6324A /* Utils.swift in Sources */,
 			);
