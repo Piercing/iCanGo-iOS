@@ -12,10 +12,9 @@ import RxSwift
 class MyProfileViewController: UIViewController {
     
     // MARK: - Constants
-    //let cellId = "myProfileCell"
-    //let nibId = "MyProfileCellView"
     let cellId = "serviceCell"
     let nibId = "ServiceCellView"
+    let userDefaultiCanGo = "userDefaultiCanGo"
     
     // MARK: - Properties
     @IBOutlet weak var userPhotoView: CircularImageView!
@@ -73,13 +72,21 @@ class MyProfileViewController: UIViewController {
         
         myProfileCollecionView.delegate = self
         myProfileCollecionView.dataSource = self
-        
+    
         // Initialize variables.
         self.servicesPublished = [Service]()
         self.servicesAttended = [Service]()
         
         // Setup UI.
         setupViews()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Setup User.
+        setupUser()
+
         self.user = loadUserAuthInfo()
         
         // Show data user.
@@ -88,7 +95,7 @@ class MyProfileViewController: UIViewController {
         // Get services from API.
         segmentSelected == 0 ? getServicesFromApi(self.currentPagePublished) : getServicesFromApi(self.currentPageAttended)
     }
-        
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -146,6 +153,15 @@ class MyProfileViewController: UIViewController {
     // MARK: Private Methods
     private func setupViews() {
         
+        segmentControlMyProfile.items = [publishedText, attendedText]
+        segmentControlMyProfile.font = UIFont(name: avenirNextFont, size: 12)
+        segmentControlMyProfile.selectedIndex = 0
+        segmentControlMyProfile.addTarget(self, action: #selector(MyProfileViewController.segmentValueChanged(_:)), forControlEvents: .ValueChanged)
+        myProfileCollecionView.fadeOut(duration: 0.0)
+    }
+    
+    private func setupUser() {
+        
         labelUserName.text = ""
         labelEmailUser.text = ""
         labelPublishedAttendedText.text = ""
@@ -153,22 +169,23 @@ class MyProfileViewController: UIViewController {
         labelService.text = ""
         labelSeparator.text = ""
         
-        segmentControlMyProfile.items = [publishedText, attendedText]
-        segmentControlMyProfile.font = UIFont(name: avenirNextFont, size: 12)
-        segmentControlMyProfile.selectedIndex = 0
-        segmentControlMyProfile.addTarget(self, action: #selector(MyProfileViewController.segmentValueChanged(_:)), forControlEvents: .ValueChanged)
-        
-        myProfileCollecionView.fadeOut(duration: 0.0)
+        // Initialize variables.
+        self.servicesPublished?.removeAll()
+        self.servicesAttended?.removeAll()
+        currentPagePublished = 1
+        currentPageAttended = 1
+        totalServicesPublished = 0
+        totalServicesAttended = 0
     }
     
     private func showDataUser() {
         
         labelUserName.text = "\(user.firstName) \(user.lastName)"
         labelEmailUser.text = user.email
+        userPhotoView.image = UIImage.init(named: userDefaultiCanGo)
         if user.photoUrl != nil {
-            //loadImage(user.photoUrl!, imageView: userPhotoView, withAnimation: false)
-            loadImageBase64(user.photoUrl!, imageView: userPhotoView, withAnimation: false)
-        }
+            loadImageBase64(user.photoUrl!, control: userPhotoView, withAnimation: false)
+        } 
         
         labelService.text = servicesText
         if (segmentSelected == 0) {
@@ -219,6 +236,8 @@ class MyProfileViewController: UIViewController {
                             self?.totalServicesAttended = totalRows
                         }
                         self?.labelPublishedAttendedAmount.text = String(totalRows)
+                    } else {
+                        self?.myProfileCollecionView.reloadData()
                     }
                     
                 case .Error (let error):
@@ -289,7 +308,6 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        //let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! MyProfileCell
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! ServiceCell
         Appearance.setupCellUI(cell)
         cell.service = segmentSelected == 0 ? servicesPublished![indexPath.row % servicesPublished!.count] :
@@ -335,7 +353,6 @@ extension MyProfileViewController: MyProfileEditControllerDelegate {
             self.tabBarController!.selectedIndex = 0
         } else {
             self.user = user
-            showDataUser()
         }
     }
 }
