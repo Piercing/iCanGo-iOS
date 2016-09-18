@@ -81,7 +81,7 @@ func loadImage(imageUrl: NSURL, imageView: UIImageView, withAnimation: Bool) {
     }
 }
 
-func loadImageBase64(imageUrl: NSURL, control: AnyObject, withAnimation: Bool) {
+func loadImage(imageUrl: NSURL, imageView: UIButton, withAnimation: Bool) {
     
     let session = Session.iCanGoSessionImages()
     let _ = session.getImageData(imageUrl)
@@ -91,25 +91,13 @@ func loadImageBase64(imageUrl: NSURL, control: AnyObject, withAnimation: Bool) {
             
             switch event {
             case let .Next(data):
-                let imageBase64String = String(data: data, encoding: NSUTF8StringEncoding)
-                if let decodedData = NSData(base64EncodedString: imageBase64String!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters) {
-                    
-                    if control is UIImageView {
-                        let imageView: UIImageView = control as! UIImageView
-                        imageView.image = UIImage(data: decodedData)
-                        if withAnimation {
-                            imageView.fadeOut(duration: 0.0)
-                            imageView.fadeIn()
-                        }
-                        return
-                    }
-                    
-                    if control is UIButton {
-                        let button: UIButton = control as! UIButton
-                        button.setBackgroundImage(UIImage(data: decodedData), forState: UIControlState.Normal)
-                        return
-                    }
+                let image = UIImage(data: data)
+                imageView.setBackgroundImage(image, forState: .Normal)
+                if withAnimation {
+                    imageView.fadeOut(duration: 0.0)
+                    imageView.fadeIn()
                 }
+                
             case .Error (let error):
                 print(error)
                 return
@@ -119,6 +107,45 @@ func loadImageBase64(imageUrl: NSURL, control: AnyObject, withAnimation: Bool) {
             }
     }
 }
+
+//func loadImageBase64(imageUrl: NSURL, control: AnyObject, withAnimation: Bool) {
+//    
+//    let session = Session.iCanGoSessionImages()
+//    let _ = session.getImageData(imageUrl)
+//        
+//        .observeOn(MainScheduler.instance)
+//        .subscribe { event in
+//            
+//            switch event {
+//            case let .Next(data):
+//                let imageBase64String = String(data: data, encoding: NSUTF8StringEncoding)
+//                if let decodedData = NSData(base64EncodedString: imageBase64String!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters) {
+//                    
+//                    if control is UIImageView {
+//                        let imageView: UIImageView = control as! UIImageView
+//                        imageView.image = UIImage(data: decodedData)
+//                        if withAnimation {
+//                            imageView.fadeOut(duration: 0.0)
+//                            imageView.fadeIn()
+//                        }
+//                        return
+//                    }
+//                    
+//                    if control is UIButton {
+//                        let button: UIButton = control as! UIButton
+//                        button.setBackgroundImage(UIImage(data: decodedData), forState: UIControlState.Normal)
+//                        return
+//                    }
+//                }
+//            case .Error (let error):
+//                print(error)
+//                return
+//                
+//            default:
+//                break
+//            }
+//    }
+//}
 
 func isConnectedToNetwork() -> Bool {
     

@@ -91,7 +91,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
                 
                 if self.changeProfilePhoto {
                     // Upgrade photo profile, and after, upgrade its urls and rest user data.
-                    self.uploadImageToStorage(self.newDataPhotoProfile, blobName: "\(self.user.id).txt")
+                    self.uploadImageToStorage(self.newDataPhotoProfile, blobName: "\(self.user.id).png")
 
                 } else {
                     // Upgrade user data.
@@ -214,7 +214,8 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         userPasswordText.text = "********"
         
         if let photo = user.photoUrl {
-            loadImageBase64(photo, control: self.userPhotoProfileButton, withAnimation: false)
+            //loadImageBase64(photo, control: self.userPhotoProfileButton, withAnimation: false)
+            loadImage(photo, imageView: self.userPhotoProfileButton, withAnimation: false)
         }
     }
     
@@ -427,10 +428,11 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
                     let blobLocal = container.blockBlobReferenceFromName(blobName)
                     
                     // We convert image to Base64
-                    let imageBase64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+                    //let imageBase64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
                     
                     // Upload image file to Azure
-                    blobLocal.uploadFromText(imageBase64String, completionHandler: { (error: NSError?) -> Void in
+                    //blobLocal.uploadFromText(imageBase64String, completionHandler: { (error: NSError?) -> Void in
+                    blobLocal.uploadFromData(imageData, completionHandler: { (error: NSError?) -> Void in
                             
                             if error == nil {
                                 // Save url photo and the rest data user.

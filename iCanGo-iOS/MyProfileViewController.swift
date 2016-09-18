@@ -184,7 +184,7 @@ class MyProfileViewController: UIViewController {
         labelEmailUser.text = user.email
         userPhotoView.image = UIImage.init(named: userDefaultiCanGo)
         if user.photoUrl != nil {
-            loadImageBase64(user.photoUrl!, control: userPhotoView, withAnimation: false)
+            loadImage(user.photoUrl!, imageView: userPhotoView, withAnimation: false)
         } 
         
         labelService.text = servicesText
