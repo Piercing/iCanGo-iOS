@@ -481,6 +481,7 @@ extension MyProfileEditViewController: UIImagePickerControllerDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
         
         // Resize and reduced profile user photo.
+        newDataPhotoProfile = NSData()
         newDataPhotoProfile = image.reducedImage()
         self.userPhotoProfileButton.setBackgroundImage(UIImage(data: newDataPhotoProfile), forState: UIControlState.Normal)
         changeProfilePhoto = true
