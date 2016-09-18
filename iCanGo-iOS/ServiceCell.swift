@@ -46,7 +46,7 @@ class ServiceCell: UICollectionViewCell {
                 
                 if service.ownerImage != nil {
                     //loadImage(service.ownerImage!, imageView: imageUser, withAnimation: true)
-                    loadImageBase64(service.ownerImage!, control: imageUser, withAnimation: true)
+                    loadImage(service.ownerImage!, imageView: imageUser, withAnimation: true)
                 }
             }
         }
