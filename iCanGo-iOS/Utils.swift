@@ -108,44 +108,24 @@ func loadImage(imageUrl: NSURL, imageView: UIButton, withAnimation: Bool) {
     }
 }
 
-//func loadImageBase64(imageUrl: NSURL, control: AnyObject, withAnimation: Bool) {
-//    
-//    let session = Session.iCanGoSessionImages()
-//    let _ = session.getImageData(imageUrl)
-//        
-//        .observeOn(MainScheduler.instance)
-//        .subscribe { event in
-//            
-//            switch event {
-//            case let .Next(data):
-//                let imageBase64String = String(data: data, encoding: NSUTF8StringEncoding)
-//                if let decodedData = NSData(base64EncodedString: imageBase64String!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters) {
-//                    
-//                    if control is UIImageView {
-//                        let imageView: UIImageView = control as! UIImageView
-//                        imageView.image = UIImage(data: decodedData)
-//                        if withAnimation {
-//                            imageView.fadeOut(duration: 0.0)
-//                            imageView.fadeIn()
-//                        }
-//                        return
-//                    }
-//                    
-//                    if control is UIButton {
-//                        let button: UIButton = control as! UIButton
-//                        button.setBackgroundImage(UIImage(data: decodedData), forState: UIControlState.Normal)
-//                        return
-//                    }
-//                }
-//            case .Error (let error):
-//                print(error)
-//                return
-//                
-//            default:
-//                break
-//            }
-//    }
-//}
+func openCamera(imagePicker: UIImagePickerController, rootController: UIViewController) {
+    
+    if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+        
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        imagePicker.allowsEditing = false
+        rootController.presentViewController(imagePicker, animated: true, completion: nil)
+    } else {
+        openGallery(imagePicker, rootController: rootController)
+    }
+}
+
+func openGallery(imagePicker: UIImagePickerController, rootController: UIViewController) {
+
+    imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+    imagePicker.allowsEditing = false
+    rootController.presentViewController(imagePicker, animated: true, completion: nil)
+}
 
 func isConnectedToNetwork() -> Bool {
     
@@ -194,4 +174,41 @@ func checkConection(controller: UIViewController) {
     }
 }
 
-
+//func loadImageBase64(imageUrl: NSURL, control: AnyObject, withAnimation: Bool) {
+//
+//    let session = Session.iCanGoSessionImages()
+//    let _ = session.getImageData(imageUrl)
+//
+//        .observeOn(MainScheduler.instance)
+//        .subscribe { event in
+//
+//            switch event {
+//            case let .Next(data):
+//                let imageBase64String = String(data: data, encoding: NSUTF8StringEncoding)
+//                if let decodedData = NSData(base64EncodedString: imageBase64String!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters) {
+//
+//                    if control is UIImageView {
+//                        let imageView: UIImageView = control as! UIImageView
+//                        imageView.image = UIImage(data: decodedData)
+//                        if withAnimation {
+//                            imageView.fadeOut(duration: 0.0)
+//                            imageView.fadeIn()
+//                        }
+//                        return
+//                    }
+//
+//                    if control is UIButton {
+//                        let button: UIButton = control as! UIButton
+//                        button.setBackgroundImage(UIImage(data: decodedData), forState: UIControlState.Normal)
+//                        return
+//                    }
+//                }
+//            case .Error (let error):
+//                print(error)
+//                return
+//
+//            default:
+//                break
+//            }
+//    }
+//}

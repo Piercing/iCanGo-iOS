@@ -67,7 +67,7 @@ struct Service {
     let mainImage: NSURL?
     let address: String?
     let ownerImage: NSURL?
-    let images: [ServiceImage]?
+    var images: [ServiceImage]?
     let userFirstName: String
     let userLastName: String
     let numPublishedServices: UInt
