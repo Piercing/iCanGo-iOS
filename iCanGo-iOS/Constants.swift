@@ -14,6 +14,12 @@ let iCanGoBaseURLImages = NSURL(string: "https://icango.blob.core.windows.net")!
 let rowsPerPage: UInt = 25 // number of rows that will be included in the data page retrieved from API
 
 
+// Azure - Blob Storage - Containers
+enum AzureContainers: String {
+    case profile = "profile"
+    case services = "services"
+}
+
 // Image processing
 let widthReducedImage: CGFloat = 600.0 // final size for images reduced
 

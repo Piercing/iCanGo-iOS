@@ -9,8 +9,9 @@
 import UIKit
 import MapKit
 import RxSwift
+import AZSClient
 
-class DetailServiceViewController: UIViewController {
+class DetailServiceViewController: UIViewController, UINavigationControllerDelegate {
     
     // MARK: - Properties
     @IBOutlet weak var nameServiceDetailService: UILabel!
@@ -34,8 +35,13 @@ class DetailServiceViewController: UIViewController {
     @IBOutlet weak var imgDetailService04: UIImageView!
     @IBOutlet weak var clearServiceDetailBtnTrash: UIBarButtonItem!
     
-    var popUpVIewController: PopUpImagesViewController?
-    var selectImage =  UIImageView()
+    private var imagePicker: UIImagePickerController? = UIImagePickerController()
+    private var newUrlPhoto: NSURL = NSURL()
+    private var newDataPhoto: NSData = NSData()
+    private var selectedImageView: UIImageView?
+    
+    //var popUpVIewController: PopUpImagesViewController?
+
     private var requestDataInProgress: Bool = false
     private var service: Service!
     private var user: User!
@@ -45,14 +51,12 @@ class DetailServiceViewController: UIViewController {
         return alertView
     }()
 
-
     // MARK: - Constant.
     let conversationNameImage = "conversation03"
     let userDefaultiCanGoNameImage = "userDefaultiCanGo"
     let emptyCameraNameImage = "iConCamera+"
     let popUpImagesNameImage = "PopUpImagesView"
     let serviceId = "serviceId"
-    
     
     // MARK: - Init
     convenience init(service: Service) {
@@ -62,7 +66,6 @@ class DetailServiceViewController: UIViewController {
         // Initialize variables.
         self.service = service
     }
-    
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -93,7 +96,6 @@ class DetailServiceViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
     
     // MARK: - Actions
     @IBAction func btnContactPersonDetailService(sender: AnyObject) {
@@ -133,71 +135,53 @@ class DetailServiceViewController: UIViewController {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    
     // MARK: - Gesture Recognizer Views
     @IBAction func tapGestureImg01(sender: AnyObject) {
-        if let serviceImages = service.images {
-            if serviceImages.count > 0 {
-                tappedView(sender as! UITapGestureRecognizer)
-            }
-        }
+        selectedImageView = imgDetailService01
+        showPhotoOptions()
     }
     
     @IBAction func tapGestureImg02(sender: AnyObject) {
-        if let serviceImages = service.images {
-            if serviceImages.count > 1 {
-                tappedView(sender as! UITapGestureRecognizer)
-            }
-        }
+        selectedImageView = imgDetailService02
+        showPhotoOptions()
     }
     
     @IBAction func tapGestureImg03(sender: AnyObject) {
-        if let serviceImages = service.images {
-            if serviceImages.count > 2 {
-                tappedView(sender as! UITapGestureRecognizer)
-            }
-        }
+        selectedImageView = imgDetailService03
+        selectedImageView?.tag = 3
+        showPhotoOptions()
     }
     
     @IBAction func tapGestureImg04(sender: AnyObject) {
-        if let serviceImages = service.images {
-            if serviceImages.count > 3 {
-                tappedView(sender as! UITapGestureRecognizer)
-            }
-        }
+        selectedImageView = imgDetailService04
+        showPhotoOptions()
     }
     
-    func tappedView(sender: UITapGestureRecognizer) {
+    func showPhotoOptions() {
+        let alert: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
-        var popUpVIewController = PopUpImagesViewController()
-        popUpVIewController = PopUpImagesViewController(nibName: popUpImagesNameImage, bundle: nil)
-        popUpVIewController.showInView(
-            self.view,
-            withImage: imageTapped(sender).image ?? UIImage(named: emptyCameraNameImage),
-            withMessage: nameServiceDetailService.text,
-            animated: true)
-    }
-    
-    func imageTapped(sender: UITapGestureRecognizer) -> UIImageView {
-        
-        if let selectImage = sender.view as? UIImageView {
-            
-            if selectImage.tag == 1 {
-                self.selectImage = imgDetailService01
-            }
-            if selectImage.tag == 2 {
-                self.selectImage = imgDetailService02
-            }
-            if selectImage.tag == 3 {
-                self.selectImage = imgDetailService03
-            }
-            if selectImage.tag == 4 {
-                self.selectImage = imgDetailService04
-            }
+        let cameraAction = UIAlertAction(title: alertCameraTakePhoto, style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            openCamera(self.imagePicker!, rootController: self)
         }
-        return selectImage
+        
+        let galleryAction = UIAlertAction(title: alertCameraSelectPhoto, style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            openGallery(self.imagePicker!, rootController: self)
+        }
+        
+        let cancelAction = UIAlertAction(title: cancel, style: UIAlertActionStyle.Cancel) {
+            UIAlertAction in
+        }
+        
+        // Add the actions
+        imagePicker?.delegate = self
+        alert.addAction(cameraAction)
+        alert.addAction(galleryAction)
+        alert.addAction(cancelAction)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
-    
     
     // MARK - Private Methods
     private func responseServiceAPI(id: String, status: UInt, idUserResponse: String) -> Void {
@@ -444,5 +428,223 @@ class DetailServiceViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func saveImage()  {
+        // Validate all data.
+        let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in
+            
+            self.uploadImageToStorage(self.newDataPhoto, blobName: "\(self.service.id)_\(self.selectedImageView!.tag).png")
+
+        })
+        let cancelAction = UIAlertAction(title: cancel, style: .Cancel, handler: nil)
+        let actions = [okAction, cancelAction]
+        showAlertWithActions(serviceImageTitle, message: serviceImageConfirmationMessage, controller: self, actions: actions)
+    }
+    
+    private func putDataImageService() {
+        
+        if !isConnectedToNetwork()  {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
+        
+        if requestDataInProgress {
+            showAlert(userProfileTitle, message: apiConnectionNoPossible, controller: self)
+            return
+        }
+        
+        requestDataInProgress = true
+        alertView.displayView(view, withTitle: pleaseWait)
+        
+        //let serviceImageId = service.images!.count >= selectedImageView!.tag service.images![selectedImageView!.tag].id
+        
+        let imageIndex = selectedImageView!.tag - 1
+        
+        let session = Session.iCanGoSession()
+        let _ = session.putServiceImage(service.images![imageIndex].id, idService: service.id, imageUrl: self.newUrlPhoto)
+            
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                self!.alertView.hideView()
+                self?.requestDataInProgress = false
+                
+                switch event {
+                case let .Next(serviceImage):
+                    
+                    //print(serviceImage)
+                    
+                    if (self?.service.images![imageIndex].id)! == serviceImage.id {
+                        
+                        self!.selectedImageView?.image = UIImage(data: self!.newDataPhoto)
+                        
+                        let okAction = UIAlertAction(title: ok, style: .Default, handler: nil)
+                        let actions = [okAction]
+                        showAlertWithActions(serviceImageTitle, message: serviceImageMessage, controller: self!, actions: actions)
+                        
+                    } else {
+                        showAlert(serviceImageTitle, message: serviceImageKOMessage, controller: self!)
+                    }
+                    
+                case .Error (let error):
+                    showAlert(serviceImageTitle, message: serviceImageKOMessage, controller: self!)
+                    print(error)
+                    
+                default:
+                    break
+                }
+        }
+    }
+    
+    private func postDataImageService() {
+        
+        if !isConnectedToNetwork()  {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
+        
+        if requestDataInProgress {
+            showAlert(userProfileTitle, message: apiConnectionNoPossible, controller: self)
+            return
+        }
+        
+        requestDataInProgress = true
+        alertView.displayView(view, withTitle: pleaseWait)
+        
+        let session = Session.iCanGoSession()
+        let _ = session.postServiceImage(service.id, imageUrl: self.newUrlPhoto)
+            
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                self!.alertView.hideView()
+                self?.requestDataInProgress = false
+                
+                switch event {
+                case let .Next(serviceImage):
+                    
+                    //print(serviceImage)
+                    self!.service.images?.append(serviceImage)
+                    
+                    self!.selectedImageView?.image = UIImage(data: self!.newDataPhoto)
+                    
+                    let okAction = UIAlertAction(title: ok, style: .Default, handler: nil)
+                    let actions = [okAction]
+                    showAlertWithActions(serviceImageTitle, message: serviceImageMessage, controller: self!, actions: actions)
+                    
+                case .Error (let error):
+                    showAlert(serviceImageTitle, message: serviceImageKOMessage, controller: self!)
+                    print(error)
+                    
+                default:
+                    break
+                }
+        }
+    }
+    
+    func uploadImageToStorage(imageData : NSData, blobName : String) {
+        
+        if !isConnectedToNetwork()  {
+            showAlert(noConnectionTitle, message: noConnectionMessage, controller: self)
+            return
+        }
+        
+        if requestDataInProgress {
+            showAlert(userProfileTitle, message: apiConnectionNoPossible, controller: self)
+            return
+        }
+        
+        requestDataInProgress = true
+        alertView.displayView(view, withTitle: pleaseWait)
+        
+        var newImage: Bool = self.service.images!.count == 4
+        
+        if self.service.images!.count == 0 {
+            newImage = true
+        }
+        else {
+            if self.service.images!.count == selectedImageView!.tag {
+                newImage = false
+            }
+            else {
+                if self.service.images!.count < selectedImageView!.tag {
+                    newImage = true
+                }
+            }
+            
+        }
+        
+        let session = Session.iCanGoSession()
+        let _ = session.getUrlSaS(AzureContainers.services.rawValue, blobName: blobName) 
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                self!.alertView.hideView()
+                self?.requestDataInProgress = false
+                
+                switch event {
+                case let .Next(data):
+                    
+                    // Once we get URLSas, we prepare all necessary for upload to azure.
+                    let endPoint = "\(data.urlWithContainerAndWithOutBlobName)?\(data.sasToken)"
+                    
+                    // We create reference to container in Azure
+                    var error: NSError?
+                    let container = AZSCloudBlobContainer(url: NSURL(string: endPoint)!, error: &error)
+                    
+                    // We create reference to our blob with the blobname
+                    let blobLocal = container.blockBlobReferenceFromName(blobName)
+                    
+                    // We convert image to Base64
+                    //let imageBase64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+                    
+                    // Upload image file to Azure
+                    //blobLocal.uploadFromText(imageBase64String, completionHandler: { (error: NSError?) -> Void in
+                    blobLocal.uploadFromData(imageData, completionHandler: { (error: NSError?) -> Void in
+                        
+                        if error == nil {
+                            // Save url photo and the rest data user.
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                self!.newUrlPhoto = NSURL(string: data.urlWithContainerAndBlobName)!
+                                
+                                if newImage {
+                                    self!.postDataImageService()
+                                }
+                                else {
+                                    self!.putDataImageService()
+                                }
+                            })
+                            
+                        } else {
+                            showAlert(userProfileTitle, message: userProfileKOMessage, controller: self!)
+                            print(error)
+                        }
+                    })
+                    
+                case .Error (let error):
+                    showAlert(userProfileTitle, message: userProfileKOMessage, controller: self!)
+                    print(error)
+                    
+                default:
+                    break
+                }
+        }
+        
+    }
+}
+
+// MARK: - Extensions - UITextFieldDelegate
+extension DetailServiceViewController: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        // Resize and reduced profile user photo.
+        newDataPhoto = image.reducedImage()
+        //selectedImageView?.image = UIImage(data: newDataPhoto)
+        
+        saveImage()
     }
 }

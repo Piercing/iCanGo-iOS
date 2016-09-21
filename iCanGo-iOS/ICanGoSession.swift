@@ -249,6 +249,19 @@ extension Session {
         }
     }
     
+    // PUT Update Service Image.
+    func putServiceImage(id: String,
+                         idService: String,
+                         imageUrl: NSURL) -> Observable<ServiceImage> {
+        
+        return response(APIRequest.putServiceImage(id: id,
+            idService: idService,
+            imageUrl: imageUrl)).map { response in
+                
+                return try self.returnServiceImage(response)
+        }
+    }
+    
     // PUT Update Service Status.
     func putChangeServiceStatus(id: String,
                             status: UInt,

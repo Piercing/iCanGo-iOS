@@ -28,6 +28,7 @@ enum APIRequest {
     case postServiceImage(id: String, imageUrl: NSURL)
     case putService(id: String, name: String?, description: String?, price: Double?, tags: [String]?,
          idUserRequest: String?, latitude: Double?, longitude: Double?, address: String?, status: UInt?)
+    case putServiceImage(id: String, idService: String, imageUrl: NSURL)
     case putChangeServiceStatus(id: String, idUserResponse: String, status: UInt)
     case putUser(id: String, firstName: String?, lastName: String?, email: String, searchPreferences: String?,
          oldPassword: String?, newPassword: String?, photoUrl: NSURL?)
@@ -57,6 +58,7 @@ extension APIRequest: Resource {
              .postServiceImage:
             return Method.POST
         case .putService,
+             .putServiceImage,
              .putChangeServiceStatus,
              .putUser:
             return Method.PUT
@@ -110,6 +112,8 @@ extension APIRequest: Resource {
             return "images/"
         case let .putService(id, _, _, _, _, _, _, _, _, _):
             return "services/\(id)"
+        case .putServiceImage:
+            return "images/"
         case let .putChangeServiceStatus(id, _, _):
             return "services/\(id)/status"
         case let .putUser(id, _, _, _, _, _, _, _):
@@ -228,7 +232,14 @@ extension APIRequest: Resource {
         case let .postServiceImage(id: id, imageUrl: imageUrl):
             return ["idService": id,
                     "imageUrl": imageUrl.absoluteString]
-            
+        
+        case let .putServiceImage(
+            id: id,
+            idService: idService,
+            imageUrl: imageUrl):
+            return ["id": id,
+                    "idService": idService,
+                    "imageUrl": imageUrl.absoluteString]
         case let .putService(
             id: _,
             name: name,

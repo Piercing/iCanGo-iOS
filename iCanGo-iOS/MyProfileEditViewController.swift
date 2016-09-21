@@ -1,4 +1,4 @@
-//
+    //
 //  MyProfileEditViewController.swift
 //  iCanGo-iOS
 //
@@ -37,7 +37,6 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         return alertView
     }()
     
-    
     // MARK: - Init
     convenience init(user: User) {
         
@@ -46,7 +45,6 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         // Initialize variables.
         self.user = user
     }
-    
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -67,7 +65,6 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
     
     // MARK: - Actions
     @IBAction func cancelButton(sender: AnyObject) {
@@ -126,12 +123,12 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         
         let cameraAction = UIAlertAction(title: alertCameraTakePhoto, style: UIAlertActionStyle.Default) {
             UIAlertAction in
-            self.openCamera()
+            openCamera(self.imagePicker!, rootController: self)
         }
         
         let galleryAction = UIAlertAction(title: alertCameraSelectPhoto, style: UIAlertActionStyle.Default) {
             UIAlertAction in
-            self.openGallery()
+            openGallery(self.imagePicker!, rootController: self)
         }
         
         let cancelAction = UIAlertAction(title: cancel, style: UIAlertActionStyle.Cancel) {
@@ -371,25 +368,6 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         }
     }
     
-    func openCamera() {
-        
-        if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
-            
-            imagePicker!.sourceType = UIImagePickerControllerSourceType.Camera
-            imagePicker!.allowsEditing = false
-            self.presentViewController(imagePicker!, animated: true, completion: nil)
-        } else {
-            openGallery()
-        }
-    }
-    
-    func openGallery() {
-        
-        imagePicker!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        imagePicker!.allowsEditing = false
-        self.presentViewController(imagePicker!, animated: true, completion: nil)
-    }
-    
     func uploadImageToStorage(imageData : NSData, blobName : String) {
         
         if !isConnectedToNetwork()  {
@@ -406,7 +384,7 @@ class MyProfileEditViewController: UIViewController, UIAlertViewDelegate, UINavi
         alertView.displayView(view, withTitle: pleaseWait)
         
         let session = Session.iCanGoSession()
-        let _ = session.getUrlSaS("profile", blobName: blobName)
+        let _ = session.getUrlSaS(AzureContainers.profile.rawValue, blobName: blobName)
             
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
@@ -473,7 +451,6 @@ extension MyProfileEditViewController: UITextFieldDelegate {
         return true
     }
 }
-
 
 // MARK: - Extensions - UITextFieldDelegate
 extension MyProfileEditViewController: UIImagePickerControllerDelegate {
