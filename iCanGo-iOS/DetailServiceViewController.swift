@@ -57,6 +57,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
     let emptyCameraNameImage = "iConCamera+"
     let popUpImagesNameImage = "PopUpImagesView"
     let serviceId = "serviceId"
+    private var canEdit: Bool = false
     
     // MARK: - Init
     convenience init(service: Service) {
@@ -73,6 +74,8 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         super.viewDidLoad()
         self.title = Appearance.setupUI(self.view, title: detailServiceTitleVC)
         
+        self.user = loadUserAuthInfo()
+        canEdit = self.navigationController?.viewControllers[0] is MyProfileViewController && user.id == service.idUserRequest
         // Initialize data en view.
         setupViews()
         
@@ -86,11 +89,13 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         imgDetailService02.image = UIImage.init(named: emptyCameraNameImage)
         imgDetailService03.image = UIImage.init(named: emptyCameraNameImage)
         imgDetailService04.image = UIImage.init(named: emptyCameraNameImage)
+        hideAddImageIcon()
         publishedLabel.text = publishedText
         attendedLabel.text = attendedText
         
         // Show data service.
-        showDataService()
+        //showDataService()
+       
     }
         
     override func didReceiveMemoryWarning() {
@@ -135,26 +140,123 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
+    var startingFrame: CGRect?
+    var blackBackgroundView: UIView?
+    var startingImageView: UIImageView?
+    
+    //my custom zooming logic
+    func performZoomInForStartingImageView(startingImageView: UIImageView) {
+        
+        self.startingImageView = startingImageView
+        self.startingImageView?.hidden = true
+        
+        startingFrame = startingImageView.superview?.convertRect(startingImageView.frame, toView: nil)
+        
+        let zoomingImageView = UIImageView(frame: startingFrame!)
+        zoomingImageView.backgroundColor = UIColor.blackColor()
+        zoomingImageView.image = startingImageView.image
+        zoomingImageView.userInteractionEnabled = true
+        zoomingImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleZoomOut)))
+        
+        if let keyWindow = UIApplication.sharedApplication().keyWindow {
+            blackBackgroundView = UIView(frame: keyWindow.frame)
+            blackBackgroundView?.backgroundColor = UIColor.blackColor()
+            blackBackgroundView?.alpha = 0
+            keyWindow.addSubview(blackBackgroundView!)
+            
+            keyWindow.addSubview(zoomingImageView)
+            
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
+                
+                self.blackBackgroundView?.alpha = 1
+                //self.inputContainerView.alpha = 0
+                
+                // math?
+                // h2 / w1 = h1 / w1
+                // h2 = h1 / w1 * w1
+                //let height = self.startingFrame!.height / self.startingFrame!.width * keyWindow.frame.width
+                let height = self.startingFrame!.height / 2
+                let width = self.startingFrame!.width / 2
+                zoomingImageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+                //zoomingImageView.frame = CGRect(x: 0, y: 0, width: keyWindow.frame.width, height: height)
+                
+                zoomingImageView.center = keyWindow.center
+                
+                }, completion: { (completed) in
+                    //                    do nothing
+            })
+            
+        }
+    }
+    
+    func handleZoomOut(tapGesture: UITapGestureRecognizer) {
+        if let zoomOutImageView = tapGesture.view {
+            //need to animate back out to controller
+            zoomOutImageView.layer.cornerRadius = 60
+            //zoomOutImageView.clipsToBounds = true
+            
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
+                
+                zoomOutImageView.frame = self.startingFrame!
+                self.blackBackgroundView?.alpha = 0
+                //self.inputContainerView.alpha = 1
+                
+                }, completion: { (completed) in
+                    zoomOutImageView.removeFromSuperview()
+                    self.startingImageView?.hidden = false
+            })
+        }
+    }
+    
     // MARK: - Gesture Recognizer Views
     @IBAction func tapGestureImg01(sender: AnyObject) {
         selectedImageView = imgDetailService01
-        showPhotoOptions()
+        if self.navigationController?.viewControllers[0] is MyProfileViewController {
+            // We came from My Profile, so seems that the user wants to change the image
+            showPhotoOptions()
+            return
+        }
+        
+        // We came from Services list, so the idea here is to zoom in the image
+        performZoomInForStartingImageView(selectedImageView!)
+        
     }
     
     @IBAction func tapGestureImg02(sender: AnyObject) {
         selectedImageView = imgDetailService02
-        showPhotoOptions()
+        if self.navigationController?.viewControllers[0] is MyProfileViewController {
+            // We came from My Profile, so seems that the user wants to change the image
+            showPhotoOptions()
+            return
+        }
+        
+        // We came from Services list, so the idea here is to zoom in the image
+        performZoomInForStartingImageView(selectedImageView!)
     }
     
     @IBAction func tapGestureImg03(sender: AnyObject) {
         selectedImageView = imgDetailService03
         selectedImageView?.tag = 3
-        showPhotoOptions()
+        if self.navigationController?.viewControllers[0] is MyProfileViewController {
+            // We came from My Profile, so seems that the user wants to change the image
+            showPhotoOptions()
+            return
+        }
+        
+        // We came from Services list, so the idea here is to zoom in the image
+        performZoomInForStartingImageView(selectedImageView!)
     }
     
     @IBAction func tapGestureImg04(sender: AnyObject) {
         selectedImageView = imgDetailService04
-        showPhotoOptions()
+        if self.navigationController?.viewControllers[0] is MyProfileViewController {
+            // We came from My Profile, so seems that the user wants to change the image
+            showPhotoOptions()
+            return
+        }
+        
+        // We came from Services list, so the idea here is to zoom in the image
+        performZoomInForStartingImageView(selectedImageView!)
     }
     
     func showPhotoOptions() {
@@ -184,6 +286,89 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
     }
     
     // MARK - Private Methods
+    
+    private func hideAddImageIcon() {
+        imgDetailService01.hidden = true
+        imgDetailService02.hidden = true
+        imgDetailService03.hidden = true
+        imgDetailService04.hidden = true
+    }
+    
+    private func showAddImageIcon() {
+        
+        if let serviceImages = service.images {
+            
+            switch serviceImages.count {
+            case 0:
+                if canEdit {
+                    imgDetailService01.hidden = false
+                    imgDetailService01.fadeOut(duration: 0.0)
+                    imgDetailService01.fadeIn()
+                }
+                break
+            case 1:
+                imgDetailService01.hidden = false
+                imgDetailService01.fadeOut(duration: 0.0)
+                imgDetailService01.fadeIn()
+                if canEdit {
+
+                    imgDetailService02.hidden = false
+                    imgDetailService02.fadeOut(duration: 0.0)
+                    imgDetailService02.fadeIn()
+                }
+                break
+            case 2:
+                imgDetailService01.hidden = false
+                imgDetailService01.fadeOut(duration: 0.0)
+                imgDetailService01.fadeIn()
+                imgDetailService02.hidden = false
+                imgDetailService02.fadeOut(duration: 0.0)
+                imgDetailService02.fadeIn()
+                if canEdit {
+
+                    imgDetailService03.hidden = false
+                    imgDetailService03.fadeOut(duration: 0.0)
+                    imgDetailService03.fadeIn()
+                }
+                break
+            case 3:
+                imgDetailService01.hidden = false
+                imgDetailService01.fadeOut(duration: 0.0)
+                imgDetailService01.fadeIn()
+                imgDetailService02.hidden = false
+                imgDetailService02.fadeOut(duration: 0.0)
+                imgDetailService02.fadeIn()
+                imgDetailService03.hidden = false
+                imgDetailService03.fadeOut(duration: 0.0)
+                imgDetailService03.fadeIn()
+                if canEdit {
+
+                    imgDetailService04.hidden = false
+                    imgDetailService04.fadeOut(duration: 0.0)
+                    imgDetailService04.fadeIn()
+                }
+                break
+            case 4:
+                imgDetailService01.hidden = false
+                imgDetailService01.fadeOut(duration: 0.0)
+                imgDetailService01.fadeIn()
+                imgDetailService02.hidden = false
+                imgDetailService02.fadeOut(duration: 0.0)
+                imgDetailService02.fadeIn()
+                imgDetailService03.hidden = false
+                imgDetailService03.fadeOut(duration: 0.0)
+                imgDetailService03.fadeIn()
+                imgDetailService04.hidden = false
+                imgDetailService04.fadeOut(duration: 0.0)
+                imgDetailService04.fadeIn()
+                break
+            default:
+                break
+            }
+        }
+        
+    }
+    
     private func responseServiceAPI(id: String, status: UInt, idUserResponse: String) -> Void {
         
         if !isConnectedToNetwork() {
@@ -313,7 +498,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
                 case let .Next(service):
                     self?.service = service
                     self?.showDataService()
-                    
+                    self?.showAddImageIcon()
                 case .Error (let error):
                     showAlert(serviceDetailTitle, message: serviceGetServiceKO, controller: self!)
                     print(error)
@@ -344,9 +529,12 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         mapView.hidden = true
         addressLabel.hidden = true
         addressText.hidden = true
-        clearServiceDetailBtnTrash.enabled = false
-        contactPersonDetailServiceBtn.enabled = false
-        contactPersonDetailServiceBtn.hidden = true
+        clearServiceDetailBtnTrash.enabled = canEdit
+        if !canEdit {
+            clearServiceDetailBtnTrash.tintColor = UIColor.clearColor()
+        }
+        contactPersonDetailServiceBtn.hidden = !canEdit
+        contactPersonDetailServiceBtn.hidden = !canEdit
         contactPersonDetailServiceBtn.setImage(nil, forState: UIControlState.Normal)
     }
     
@@ -413,7 +601,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         }
         
         if (service.status == StatusService.pending.rawValue && !service.deleted) {
-            self.user = loadUserAuthInfo()
+            //self.user = loadUserAuthInfo()
             if user.id != "" {
 
                 // Validate enabled button response Service.
@@ -526,6 +714,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
                     
                     //print(serviceImage)
                     self!.service.images?.append(serviceImage)
+                    self!.showAddImageIcon()
                     
                     self!.selectedImageView?.image = UIImage(data: self!.newDataPhoto)
                     
