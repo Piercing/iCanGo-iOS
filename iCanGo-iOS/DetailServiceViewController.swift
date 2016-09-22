@@ -135,26 +135,59 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
+    func zoomIn(imageView: UIImageView)  {
+        print("Zooming in the image \(imageView.tag)")
+    }
+    
     // MARK: - Gesture Recognizer Views
     @IBAction func tapGestureImg01(sender: AnyObject) {
         selectedImageView = imgDetailService01
-        showPhotoOptions()
+        if self.navigationController?.viewControllers[0] is MyProfileViewController {
+            // We came from My Profile, so seems that the user wants to change the image
+            showPhotoOptions()
+            return
+        }
+        
+        // We came from Services list, so the idea here is to zoom in the image
+        zoomIn(selectedImageView!)
+        
     }
     
     @IBAction func tapGestureImg02(sender: AnyObject) {
         selectedImageView = imgDetailService02
-        showPhotoOptions()
+        if self.navigationController?.viewControllers[0] is MyProfileViewController {
+            // We came from My Profile, so seems that the user wants to change the image
+            showPhotoOptions()
+            return
+        }
+        
+        // We came from Services list, so the idea here is to zoom in the image
+        zoomIn(selectedImageView!)
     }
     
     @IBAction func tapGestureImg03(sender: AnyObject) {
         selectedImageView = imgDetailService03
         selectedImageView?.tag = 3
-        showPhotoOptions()
+        if self.navigationController?.viewControllers[0] is MyProfileViewController {
+            // We came from My Profile, so seems that the user wants to change the image
+            showPhotoOptions()
+            return
+        }
+        
+        // We came from Services list, so the idea here is to zoom in the image
+        zoomIn(selectedImageView!)
     }
     
     @IBAction func tapGestureImg04(sender: AnyObject) {
         selectedImageView = imgDetailService04
-        showPhotoOptions()
+        if self.navigationController?.viewControllers[0] is MyProfileViewController {
+            // We came from My Profile, so seems that the user wants to change the image
+            showPhotoOptions()
+            return
+        }
+        
+        // We came from Services list, so the idea here is to zoom in the image
+        zoomIn(selectedImageView!)
     }
     
     func showPhotoOptions() {
