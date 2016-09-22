@@ -74,6 +74,8 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         super.viewDidLoad()
         self.title = Appearance.setupUI(self.view, title: detailServiceTitleVC)
         
+        self.user = loadUserAuthInfo()
+        canEdit = self.navigationController?.viewControllers[0] is MyProfileViewController && user.id == service.idUserRequest
         // Initialize data en view.
         setupViews()
         
@@ -87,13 +89,13 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         imgDetailService02.image = UIImage.init(named: emptyCameraNameImage)
         imgDetailService03.image = UIImage.init(named: emptyCameraNameImage)
         imgDetailService04.image = UIImage.init(named: emptyCameraNameImage)
-            hideAddImageIcon()
+        hideAddImageIcon()
         publishedLabel.text = publishedText
         attendedLabel.text = attendedText
         
         // Show data service.
         //showDataService()
-        canEdit = self.navigationController?.viewControllers[0] is MyProfileViewController
+       
     }
         
     override func didReceiveMemoryWarning() {
@@ -463,9 +465,12 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         mapView.hidden = true
         addressLabel.hidden = true
         addressText.hidden = true
-        clearServiceDetailBtnTrash.enabled = false
-        contactPersonDetailServiceBtn.enabled = false
-        contactPersonDetailServiceBtn.hidden = true
+        clearServiceDetailBtnTrash.enabled = canEdit
+        if !canEdit {
+            clearServiceDetailBtnTrash.tintColor = UIColor.clearColor()
+        }
+        contactPersonDetailServiceBtn.hidden = !canEdit
+        contactPersonDetailServiceBtn.hidden = !canEdit
         contactPersonDetailServiceBtn.setImage(nil, forState: UIControlState.Normal)
     }
     
@@ -532,7 +537,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         }
         
         if (service.status == StatusService.pending.rawValue && !service.deleted) {
-            self.user = loadUserAuthInfo()
+            //self.user = loadUserAuthInfo()
             if user.id != "" {
 
                 // Validate enabled button response Service.
