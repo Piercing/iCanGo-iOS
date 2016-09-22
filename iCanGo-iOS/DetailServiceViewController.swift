@@ -57,6 +57,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
     let emptyCameraNameImage = "iConCamera+"
     let popUpImagesNameImage = "PopUpImagesView"
     let serviceId = "serviceId"
+    private var canEdit: Bool = false
     
     // MARK: - Init
     convenience init(service: Service) {
@@ -86,11 +87,13 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         imgDetailService02.image = UIImage.init(named: emptyCameraNameImage)
         imgDetailService03.image = UIImage.init(named: emptyCameraNameImage)
         imgDetailService04.image = UIImage.init(named: emptyCameraNameImage)
+            hideAddImageIcon()
         publishedLabel.text = publishedText
         attendedLabel.text = attendedText
         
         // Show data service.
-        showDataService()
+        //showDataService()
+        canEdit = self.navigationController?.viewControllers[0] is MyProfileViewController
     }
         
     override func didReceiveMemoryWarning() {
@@ -217,6 +220,89 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
     }
     
     // MARK - Private Methods
+    
+    private func hideAddImageIcon() {
+        imgDetailService01.hidden = true
+        imgDetailService02.hidden = true
+        imgDetailService03.hidden = true
+        imgDetailService04.hidden = true
+    }
+    
+    private func showAddImageIcon() {
+        
+        if let serviceImages = service.images {
+            
+            switch serviceImages.count {
+            case 0:
+                if canEdit {
+                    imgDetailService01.hidden = false
+                    imgDetailService01.fadeOut(duration: 0.0)
+                    imgDetailService01.fadeIn()
+                }
+                break
+            case 1:
+                imgDetailService01.hidden = false
+                imgDetailService01.fadeOut(duration: 0.0)
+                imgDetailService01.fadeIn()
+                if canEdit {
+
+                    imgDetailService02.hidden = false
+                    imgDetailService02.fadeOut(duration: 0.0)
+                    imgDetailService02.fadeIn()
+                }
+                break
+            case 2:
+                imgDetailService01.hidden = false
+                imgDetailService01.fadeOut(duration: 0.0)
+                imgDetailService01.fadeIn()
+                imgDetailService02.hidden = false
+                imgDetailService02.fadeOut(duration: 0.0)
+                imgDetailService02.fadeIn()
+                if canEdit {
+
+                    imgDetailService03.hidden = false
+                    imgDetailService03.fadeOut(duration: 0.0)
+                    imgDetailService03.fadeIn()
+                }
+                break
+            case 3:
+                imgDetailService01.hidden = false
+                imgDetailService01.fadeOut(duration: 0.0)
+                imgDetailService01.fadeIn()
+                imgDetailService02.hidden = false
+                imgDetailService02.fadeOut(duration: 0.0)
+                imgDetailService02.fadeIn()
+                imgDetailService03.hidden = false
+                imgDetailService03.fadeOut(duration: 0.0)
+                imgDetailService03.fadeIn()
+                if canEdit {
+
+                    imgDetailService04.hidden = false
+                    imgDetailService04.fadeOut(duration: 0.0)
+                    imgDetailService04.fadeIn()
+                }
+                break
+            case 4:
+                imgDetailService01.hidden = false
+                imgDetailService01.fadeOut(duration: 0.0)
+                imgDetailService01.fadeIn()
+                imgDetailService02.hidden = false
+                imgDetailService02.fadeOut(duration: 0.0)
+                imgDetailService02.fadeIn()
+                imgDetailService03.hidden = false
+                imgDetailService03.fadeOut(duration: 0.0)
+                imgDetailService03.fadeIn()
+                imgDetailService04.hidden = false
+                imgDetailService04.fadeOut(duration: 0.0)
+                imgDetailService04.fadeIn()
+                break
+            default:
+                break
+            }
+        }
+        
+    }
+    
     private func responseServiceAPI(id: String, status: UInt, idUserResponse: String) -> Void {
         
         if !isConnectedToNetwork() {
@@ -346,7 +432,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
                 case let .Next(service):
                     self?.service = service
                     self?.showDataService()
-                    
+                    self?.showAddImageIcon()
                 case .Error (let error):
                     showAlert(serviceDetailTitle, message: serviceGetServiceKO, controller: self!)
                     print(error)
@@ -559,6 +645,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
                     
                     //print(serviceImage)
                     self!.service.images?.append(serviceImage)
+                    self!.showAddImageIcon()
                     
                     self!.selectedImageView?.image = UIImage(data: self!.newDataPhoto)
                     
