@@ -445,7 +445,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
                 self?.requestDataInProgress = false
                 
                 switch event {
-                case let .Next(service):
+                case let .Next(service):    
 
                     if service.deleted {
                         let okAction = UIAlertAction(title: ok, style: .Default, handler:{ (action: UIAlertAction!) in

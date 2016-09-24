@@ -93,6 +93,7 @@ class MyProfileViewController: UIViewController {
         showDataUser()
         
         // Get services from API.
+        requestDataInProgress = false
         segmentSelected == 0 ? getServicesFromApi(self.currentPagePublished) : getServicesFromApi(self.currentPageAttended)
     }
     
