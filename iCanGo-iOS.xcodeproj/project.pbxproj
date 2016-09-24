@@ -49,7 +49,6 @@
 		793E1D2E1D32890B00A6324A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793E1D2D1D32890B00A6324A /* Utils.swift */; };
 		79A6801A1D97109E00DA8BC7 /* ShowServiceImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A680181D97109E00DA8BC7 /* ShowServiceImageViewController.swift */; };
 		79A6801B1D97109E00DA8BC7 /* ShowServiceImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A680191D97109E00DA8BC7 /* ShowServiceImageView.xib */; };
-		79A6801D1D97260600DA8BC7 /* captainamerica.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79A6801C1D97260600DA8BC7 /* captainamerica.jpg */; };
 		79A6D55C1D7AF2EC0049B254 /* URLSaS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A6D55B1D7AF2EC0049B254 /* URLSaS.swift */; };
 		79CA66DB1D36F73900C67E67 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CA66DA1D36F73900C67E67 /* MapKit.framework */; };
 		79CA66DD1D3703FB00C67E67 /* ServicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79CA66DC1D3703FB00C67E67 /* ServicesView.xib */; };
@@ -141,7 +140,6 @@
 		793E1D2D1D32890B00A6324A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		79A680181D97109E00DA8BC7 /* ShowServiceImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowServiceImageViewController.swift; sourceTree = "<group>"; };
 		79A680191D97109E00DA8BC7 /* ShowServiceImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowServiceImageView.xib; sourceTree = "<group>"; };
-		79A6801C1D97260600DA8BC7 /* captainamerica.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = captainamerica.jpg; sourceTree = "<group>"; };
 		79A6D55B1D7AF2EC0049B254 /* URLSaS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSaS.swift; sourceTree = "<group>"; };
 		79CA66DA1D36F73900C67E67 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		79CA66DC1D3703FB00C67E67 /* ServicesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicesView.xib; sourceTree = "<group>"; };
@@ -256,7 +254,6 @@
 		79F418141D043B36002131C7 = {
 			isa = PBXGroup;
 			children = (
-				79A6801C1D97260600DA8BC7 /* captainamerica.jpg */,
 				79F4181F1D043B36002131C7 /* iCanGo-iOS */,
 				79F4182F1D043B36002131C7 /* iCanGo-iOSTests */,
 				79F4183B1D043B56002131C7 /* .git */,
@@ -553,7 +550,6 @@
 				527F87181D2B29A200D0E1EC /* NotificationsView.xib in Resources */,
 				5256B1251D330D620049ED9A /* MyProfileCellView.xib in Resources */,
 				529F46CD1D4044BF000FDF28 /* LogProfileCellView.xib in Resources */,
-				79A6801D1D97260600DA8BC7 /* captainamerica.jpg in Resources */,
 				527F871C1D2B29C500D0E1EC /* MyProfileView.xib in Resources */,
 				5295D2531D3462A9009F93E7 /* RegisterView.xib in Resources */,
 				79A6801B1D97109E00DA8BC7 /* ShowServiceImageView.xib in Resources */,
