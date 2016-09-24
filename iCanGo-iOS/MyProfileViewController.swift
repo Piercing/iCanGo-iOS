@@ -45,7 +45,6 @@ class MyProfileViewController: UIViewController {
         return alertView
     }()
     
-    
     // MARK: - Init
     convenience init() {
         self.init(nibName: "MyProfileView", bundle: nil)
@@ -59,7 +58,6 @@ class MyProfileViewController: UIViewController {
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: notificationKeyServicesChange, object: nil)
     }
-    
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -102,7 +100,6 @@ class MyProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     // MARK: Notification Methods
     func refreshServiceList(notification: NSNotification) {
         
@@ -125,12 +122,10 @@ class MyProfileViewController: UIViewController {
         }
     }
     
-    
     // MARK: Cell registration
     func registerCustomCell() {
         myProfileCollecionView.registerNib(UINib(nibName: nibId, bundle: nil), forCellWithReuseIdentifier: cellId)
     }
-    
     
     // MARK: Actions
     @IBAction func btnEditMyProfile(sender: AnyObject) {
@@ -149,7 +144,6 @@ class MyProfileViewController: UIViewController {
             self.navigationController?.pushViewController(myProfileEditViewController, animated: false)
         }
     }
-    
     
     // MARK: Private Methods
     private func setupViews() {
@@ -251,7 +245,6 @@ class MyProfileViewController: UIViewController {
         }
     }
     
-    
     // MARK: Methods
     func segmentValueChanged(sender: AnyObject?){
         
@@ -286,7 +279,6 @@ class MyProfileViewController: UIViewController {
         }
     }
 }
-
 
 // MARK: - Extensions - Collection view delegates and datasource
 extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -344,7 +336,6 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
         }
     }
 }
-
 
 extension MyProfileViewController: MyProfileEditControllerDelegate {
     

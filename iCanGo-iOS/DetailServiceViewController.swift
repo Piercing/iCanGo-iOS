@@ -58,6 +58,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
     let popUpImagesNameImage = "PopUpImagesView"
     let serviceId = "serviceId"
     private var canEdit: Bool = false
+    private var canRequest: Bool = true
     
     // MARK: - Init
     convenience init(service: Service) {
@@ -76,6 +77,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         
         self.user = loadUserAuthInfo()
         canEdit = self.navigationController?.viewControllers[0] is MyProfileViewController && user.id == service.idUserRequest
+        canRequest = user.id != service.idUserRequest && service.status == StatusService.pending.rawValue
         // Initialize data en view.
         setupViews()
         
@@ -533,8 +535,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         if !canEdit {
             clearServiceDetailBtnTrash.tintColor = UIColor.clearColor()
         }
-        contactPersonDetailServiceBtn.hidden = !canEdit
-        contactPersonDetailServiceBtn.hidden = !canEdit
+        contactPersonDetailServiceBtn.hidden = !canRequest
         contactPersonDetailServiceBtn.setImage(nil, forState: UIControlState.Normal)
     }
     
