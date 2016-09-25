@@ -227,6 +227,36 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
     }
     
     // MARK - Private Methods
+    private func setupServiceStatus() {
+        
+        if service.status! != StatusService.pending.rawValue {
+            contactPersonDetailServiceBtn.setImage(nil, forState: .Normal)
+            contactPersonDetailServiceBtn.layer.cornerRadius = 18
+        }
+
+        switch service.status! {
+        case StatusService.requestedToAttend.rawValue:
+            contactPersonDetailServiceBtn.backgroundColor = UIColor.yellowColor()
+            break
+        case StatusService.acceptedToAttend.rawValue:
+            contactPersonDetailServiceBtn.backgroundColor = UIColor.greenColor()
+            break
+        case StatusService.inProgress.rawValue:
+            contactPersonDetailServiceBtn.backgroundColor = UIColor.blueColor()
+            break
+        case StatusService.finished.rawValue:
+            contactPersonDetailServiceBtn.backgroundColor = UIColor.brownColor()
+            break
+        case StatusService.confirmed.rawValue:
+            contactPersonDetailServiceBtn.backgroundColor = UIColor.cyanColor()
+            break
+        case StatusService.cancelled.rawValue:
+            contactPersonDetailServiceBtn.backgroundColor = UIColor.redColor()
+            break
+        default:
+            break
+        }
+    }
     
     private func hideAddImageIcon() {
         imgDetailService01.hidden = true
@@ -440,6 +470,7 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
                     self?.service = service
                     self?.showDataService()
                     self?.showAddImageIcon()
+                    self?.setupServiceStatus()
                 case .Error (let error):
                     showAlert(serviceDetailTitle, message: serviceGetServiceKO, controller: self!)
                     print(error)
@@ -474,8 +505,8 @@ class DetailServiceViewController: UIViewController, UINavigationControllerDeleg
         if !canEdit {
             clearServiceDetailBtnTrash.tintColor = UIColor.clearColor()
         }
-        contactPersonDetailServiceBtn.hidden = !canRequest
-        contactPersonDetailServiceBtn.setImage(nil, forState: UIControlState.Normal)
+//        contactPersonDetailServiceBtn.hidden = !canRequest
+//        contactPersonDetailServiceBtn.setImage(nil, forState: UIControlState.Normal)
     }
     
     private func showDataService() {
