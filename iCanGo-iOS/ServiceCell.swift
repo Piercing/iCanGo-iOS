@@ -8,6 +8,10 @@ protocol ServiceCellDelegate {
 class ServiceCell: UICollectionViewCell {
     
     // MARK: - Properties
+
+
+    @IBOutlet weak var statusImageView: CircularImageView!
+    //@IBOutlet weak var statusImageView: UIImageView!
     @IBOutlet weak var imageService: UIImageView!
     @IBOutlet weak var imageUser: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
@@ -47,6 +51,32 @@ class ServiceCell: UICollectionViewCell {
                 if service.ownerImage != nil {
                     //loadImage(service.ownerImage!, imageView: imageUser, withAnimation: true)
                     loadImage(service.ownerImage!, imageView: imageUser, withAnimation: true)
+                }
+                statusImageView.layer.cornerRadius = 18
+                switch service.status! {
+                case StatusService.pending.rawValue:
+                    statusImageView.backgroundColor = UIColor.greenColor()
+                    break
+                case StatusService.requestedToAttend.rawValue:
+                        statusImageView.backgroundColor = UIColor.yellowColor()
+                    break
+                case StatusService.acceptedToAttend.rawValue:
+                        statusImageView.backgroundColor = UIColor.greenColor()
+                    break
+                case StatusService.inProgress.rawValue:
+                        statusImageView.backgroundColor = UIColor.blueColor()
+                    break
+                case StatusService.finished.rawValue:
+                    statusImageView.backgroundColor = UIColor.brownColor()
+                    break
+                case StatusService.confirmed.rawValue:
+                    statusImageView.backgroundColor = UIColor.cyanColor()
+                    break
+                case StatusService.cancelled.rawValue:
+                    statusImageView.backgroundColor = UIColor.redColor()
+                    break
+                default:
+                    break
                 }
             }
         }

@@ -103,6 +103,10 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userDefaultiCanGo" translatesAutoresizingMaskIntoConstraints="NO" id="8aL-ad-q9n" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
                         <rect key="frame" x="8" y="102" width="35" height="35"/>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="coa-o9-wiH" customClass="CircularImageView" customModule="iCanGo_iOS" customModuleProvider="target">
+                        <rect key="frame" x="137" y="102" width="35" height="35"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
                     <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b20-o7-4Y3" userLabel="Favourites">
                         <rect key="frame" x="140" y="130" width="17" height="17"/>
                         <constraints>
@@ -132,6 +136,7 @@
                 <outlet property="imageService" destination="ChR-Fv-gSW" id="XEK-YQ-88k"/>
                 <outlet property="imageUser" destination="8aL-ad-q9n" id="suB-GR-I7J"/>
                 <outlet property="priceLabel" destination="Gwd-1m-dxZ" id="qSI-s7-pdx"/>
+                <outlet property="statusImageView" destination="coa-o9-wiH" id="Vul-98-HEy"/>
             </connections>
             <point key="canvasLocation" x="492" y="415"/>
         </collectionViewCell>
