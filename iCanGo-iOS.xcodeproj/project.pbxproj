@@ -219,6 +219,7 @@
 		52D37E0B1D2ED537009F2FC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				79F418471D043C0E002131C7 /* Cells */,
 				79A680191D97109E00DA8BC7 /* ShowServiceImageView.xib */,
 				527F87121D2B297B00D0E1EC /* AddServiceView.xib */,
 				5282521E1D359BB30041A992 /* DetailServiceView.xib */,
@@ -279,7 +280,6 @@
 				79F418421D043B8D002131C7 /* Common */,
 				79F418441D043BB0002131C7 /* Models */,
 				79F418481D043C13002131C7 /* Storyboards */,
-				79F418471D043C0E002131C7 /* Cells */,
 				79F418431D043BA6002131C7 /* Controllers */,
 				52D37E0B1D2ED537009F2FC3 /* Views */,
 				79F418461D043C01002131C7 /* Themes */,
