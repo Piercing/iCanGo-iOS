@@ -233,7 +233,6 @@
 				5295D2511D3462A9009F93E7 /* RegisterView.xib */,
 				79CA66DC1D3703FB00C67E67 /* ServicesView.xib */,
 				52DFD0A51D37ED6A000C4FE4 /* UserRegisterView.xib */,
-				D370FFA41D78A8CF0003A371 /* AlertView.swift */,
 				D370FFA51D78A8CF0003A371 /* AlertView.xib */,
 				D31573821D814955005E402A /* ChangePwdView.xib */,
 			);
@@ -318,6 +317,7 @@
 				5256B1281D3312310049ED9A /* Cells */,
 				527F87111D2B297B00D0E1EC /* AddServiceViewController.swift */,
 				5282521D1D359BB30041A992 /* DetailServiceViewController.swift */,
+				D370FFA41D78A8CF0003A371 /* AlertView.swift */,
 				527F870D1D2B28BC00D0E1EC /* LocationViewController.swift */,
 				527CDB5F1D1B786F001C6251 /* LoginViewController.swift */,
 				529F46C61D4033EB000FDF28 /* LogProfileViewController.swift */,
